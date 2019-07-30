@@ -31,13 +31,19 @@ public class SwordProjectile : MonoBehaviour
         {
             StuckinObject = true;
         }
+        if(col.gameObject.tag == "FlyingEnemy")
+        {
+            StuckinObject = true;
+            col.gameObject.GetComponent<FlyingEnemy>().isHit = true;
+            this.transform.parent = col.gameObject.transform;
+        }
     }
 
     void DestroySword()
     {
         if(StuckinObject == false)
         {
-            GameObject.Find("Aim Ring").GetComponent<SwordSpawner>().swordSpawned = false;
+            SwordSpawner.instance.swordSpawned = false;
             Destroy(gameObject);
         }
     }

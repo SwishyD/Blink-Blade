@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance = null;
+
     public SwordSpawner spawner;
 
     public bool canMove;
@@ -22,6 +24,18 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
 
     public bool isHanging = false;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {
@@ -46,13 +60,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
-        else if(isHanging == true && Input.GetKeyDown(KeyCode.W))
+        else if(isHanging)
         {
-            Jump();
-            isHanging = false;
-            Destroy(spawner.CloneSword);
-            spawner.CloneSword = null;
-            spawner.swordSpawned = false;
+            this.transform.position = SwordSpawner.instance.CloneSword.transform.position;
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                Jump();
+                isHanging = false;
+                Destroy(spawner.CloneSword);
+                spawner.CloneSword = null;
+                spawner.swordSpawned = false;
+            }
         }
         else if(doubleJumpReady == true && Input.GetKeyDown(KeyCode.W))
         {
@@ -113,5 +131,11 @@ public class PlayerMovement : MonoBehaviour
         _rb.gravityScale = 0;
         isHanging = true;
         canMove = false;
+    }
+
+    public void PlayerNormal()
+    {
+        canMove = true;
+        isHanging = false;
     }
 }

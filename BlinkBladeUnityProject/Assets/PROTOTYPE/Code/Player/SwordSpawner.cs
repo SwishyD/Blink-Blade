@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SwordSpawner : MonoBehaviour
 {
+
+    public static SwordSpawner instance = null;
+
     public float offset;
 
     public GameObject sword;
@@ -14,6 +17,18 @@ public class SwordSpawner : MonoBehaviour
     public GameObject player;
 
     public bool swordSpawned = false;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(this);
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
