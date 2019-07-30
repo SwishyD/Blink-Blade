@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlyingEnemy : MonoBehaviour
 {
     public bool isHit;
+    public float fallSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         if (isHit)
         {
-            this.transform.position -= new Vector3(0, 0.2f, 0);
+            //this.transform.position -= new Vector3(0, fallSpeed, 0);
             this.gameObject.layer = 10;
         }
     }

@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float doubleJumpForce;
 
+    public float maxVelocityDown;
+    public int defaultGrav;
+    public int quickFallGrav;
+
     public bool doubleJumpReady = false;
     private bool isGrounded;
     public Transform feetPos;
@@ -77,10 +81,16 @@ public class PlayerMovement : MonoBehaviour
             DoubleJump();
         }
 
+        if(_rb.velocity.y < maxVelocityDown)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, maxVelocityDown);
+        }
+        Debug.Log(_rb.velocity.y);
+
         //Quick Fall
         if (isGrounded == false && Input.GetKey(KeyCode.S))
         {
-            _rb.gravityScale = 10;
+            _rb.gravityScale = quickFallGrav;
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
@@ -122,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
     public void ResetGravity()
     {
         canMove = true;
-        _rb.gravityScale = 5;
+        _rb.gravityScale = defaultGrav;
     }
 
     public void FreezePos()
