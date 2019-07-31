@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagers : MonoBehaviour {
 
     public static SceneManagers instance;
-    public Animator sceneTransitionAnimator; //For scene transitions
+    //public Animator sceneTransitionAnimator; //For scene transitions
 
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class SceneManagers : MonoBehaviour {
 
     public IEnumerator SceneTransitionToScene(string sceneName)
     {
-        sceneTransitionAnimator.SetTrigger("End");
+        //sceneTransitionAnimator.SetTrigger("End");
         yield return new WaitForSeconds(0.25f);
         SceneManager.LoadScene(sceneName);
     }

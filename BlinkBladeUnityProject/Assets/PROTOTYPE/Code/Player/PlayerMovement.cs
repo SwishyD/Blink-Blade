@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = gameObject.GetComponent<Rigidbody2D>();
         canMove = true;
+        PlayerNormal();
+        ResetGravity();
     }
 
     // Update is called once per frame
@@ -60,14 +62,14 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
 
-        if(isGrounded == true && Input.GetKeyDown(KeyCode.W))
+        if(isGrounded == true && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
         {
             Jump();
         }
         else if(isHanging)
         {
             this.transform.position = SwordSpawner.instance.CloneSword.transform.position;
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
                 isHanging = false;
@@ -76,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
                 spawner.swordSpawned = false;
             }
         }
-        else if(doubleJumpReady == true && Input.GetKeyDown(KeyCode.W))
+        else if(doubleJumpReady == true && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
         {
             DoubleJump();
         }
@@ -85,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.velocity = new Vector2(_rb.velocity.x, maxVelocityDown);
         }
-        Debug.Log(_rb.velocity.y);
+        //Debug.Log(_rb.velocity.y);
 
         //Quick Fall
         if (isGrounded == false && Input.GetKey(KeyCode.S))
