@@ -17,7 +17,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         if (isHit)
         {
-            //this.transform.position -= new Vector3(0, fallSpeed, 0);
+            this.transform.position -= new Vector3(0, fallSpeed, 0);
             this.gameObject.layer = 10;
         }
     }

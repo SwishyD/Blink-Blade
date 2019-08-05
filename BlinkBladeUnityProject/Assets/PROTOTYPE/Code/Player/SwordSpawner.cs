@@ -16,7 +16,7 @@ public class SwordSpawner : MonoBehaviour
 
     public GameObject player;
 
-    public bool swordSpawned = false;
+    public bool swordSpawned;
 
     private void Awake()
     {
@@ -28,11 +28,14 @@ public class SwordSpawner : MonoBehaviour
         {
             Destroy(this);
         }
+        CloneSword = null;
+        swordSpawned = false;
     }
     // Update is called once per frame
     void FixedUpdate()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 

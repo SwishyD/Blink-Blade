@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject pauseMenuUI;
     public GameObject quitConfirmUI;
     public GameObject menuConfirmUI;
+    public GameObject player;
 
     public static bool quitActive = false;
     public static bool menuActive = false;
@@ -22,6 +23,20 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (gameIsPaused)
+        {
+            player.GetComponent<PlayerMovement>().enabled = false;
+            player.GetComponentInChildren<SwordSpawner>().enabled = false;
+
+        }
+        if (!gameIsPaused)
+        {
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponentInChildren<SwordSpawner>().enabled = true;
+
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)
