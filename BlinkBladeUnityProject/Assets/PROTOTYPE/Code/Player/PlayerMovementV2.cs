@@ -16,6 +16,11 @@ public class PlayerMovementV2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        HandleMove();
+    }
+
     public void HandleMove()
     {
         moveInput = Input.GetAxisRaw("Horizontal");

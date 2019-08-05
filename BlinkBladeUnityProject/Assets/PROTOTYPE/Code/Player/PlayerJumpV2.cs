@@ -11,6 +11,8 @@ public class PlayerJumpV2 : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
+    bool jumpRequest;
+
     Rigidbody2D rb;
 
     private void Awake()
@@ -22,13 +24,32 @@ public class PlayerJumpV2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            rb.velocity = Vector2.up * jumpVelocity;
+            jumpRequest = true;
         }
 
-        if(rb.velocity.y < 0)
+    }
+
+    private void FixedUpdate()
+    {
+        if (jumpRequest == true)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
+            jumpRequest = false;
         }
+       
+
+        if (rb.velocity.y < 0)
+        {
+            rb.gravityScale = fallMultiplier;
+        }
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W))
+        {
+            rb.gravityScale = lowJumpMultiplier;
+        }
+        else
+        {
+
+        }rb.gravityScale = 1f;
     }
 
 
