@@ -7,6 +7,7 @@ public class SwordProjectile : MonoBehaviour
     public float Speed;
 
     public bool StuckinObject = false;
+    public GameObject objectStuckIn;
 
     private void Start()
     {
@@ -19,9 +20,13 @@ public class SwordProjectile : MonoBehaviour
         {
             transform.Translate(Vector2.right * Speed * Time.deltaTime);
         }
+        if (StuckinObject)
+        {
+            this.transform.position = objectStuckIn.transform.position;
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.layer == 8)
         {
@@ -30,12 +35,6 @@ public class SwordProjectile : MonoBehaviour
         if(col.gameObject.layer == 9)
         {
             StuckinObject = true;
-        }
-        if(col.gameObject.tag == "FlyingEnemy")
-        {
-            StuckinObject = true;
-            col.gameObject.GetComponent<FlyingEnemy>().isHit = true;
-            this.transform.parent = col.gameObject.transform;
         }
     }
 

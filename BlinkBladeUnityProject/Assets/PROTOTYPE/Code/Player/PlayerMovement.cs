@@ -59,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
         {
             HandleMove();
         }
+        if (isHanging)
+        {
+            transform.position = spawner.CloneSword.transform.position;
+        }
     }
 
     private void Update()

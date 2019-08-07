@@ -24,6 +24,12 @@ public class FlyingEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.name.Contains("Sword"))
+        {
+            isHit = true;
+            col.gameObject.GetComponent<SwordProjectile>().StuckinObject = this.gameObject;
+        }
+
         if((col.gameObject.layer == 8 || col.gameObject.layer == 9) && isHit)
         {          
             Destroy(gameObject);
