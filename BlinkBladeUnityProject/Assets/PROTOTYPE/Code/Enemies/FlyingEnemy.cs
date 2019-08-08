@@ -24,16 +24,25 @@ public class FlyingEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.layer == 8)
+        if((col.gameObject.layer == 8 || col.gameObject.layer == 9) && isHit)
         {          
             Destroy(gameObject);
             if(gameObject.transform.childCount > 0)
             {
-                SwordSpawner.instance.CloneSword = null;
+                SwordSpawner.instance.cloneSword = null;
                 SwordSpawner.instance.swordSpawned = false;
             }
             PlayerMovement.instance.PlayerNormal();
             PlayerMovement.instance.ResetGravity();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name.Contains("Sword"))
+        {
+            isHit = true;
+            col.gameObject.GetComponent<SwordProjectile>().stuckInObject = gameObject;
         }
     }
 }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SwordProjectile : MonoBehaviour
 {
-    public float Speed;
+    public float speed;
 
-    public bool StuckinObject = false;
+    public bool stuckInObject = false;
+    public GameObject objectStuckIn;
 
     private void Start()
     {
@@ -15,13 +16,17 @@ public class SwordProjectile : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(StuckinObject == false)
+        if(stuckInObject == false)
         {
-            transform.Translate(Vector2.right * Speed * Time.deltaTime);
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+        }
+        if (stuckInObject)
+        {
+            this.transform.position = objectStuckIn.transform.position;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.layer == 8)
         {
@@ -29,19 +34,35 @@ public class SwordProjectile : MonoBehaviour
         }
         if(col.gameObject.layer == 9)
         {
-            StuckinObject = true;
-        }
-        if(col.gameObject.tag == "FlyingEnemy")
-        {
-            StuckinObject = true;
-            col.gameObject.GetComponent<FlyingEnemy>().isHit = true;
-            this.transform.parent = col.gameObject.transform;
+            foreach(ContactPoint2D hitPos in col.contacts)
+            {
+                Debug.Log(hitPos.normal);
+
+                if (hitPos.normal.y > 0)
+                {
+                    Debug.Log("Hit the Top");
+                }
+                else if (hitPos.normal.y < 0)
+                {
+                    Debug.Log("Hit the Bottom");
+                }
+                else if(hitPos.normal.x > 0)
+                {
+                    Debug.Log("Hit the Right");
+                }
+                else if(hitPos.normal.x < 0)
+                {
+                    Debug.Log("Hit the Left");
+                }
+            }
+            speed = 0;
+            stuckInObject = true;
         }
     }
 
     void DestroySword()
     {
-        if(StuckinObject == false)
+        if(stuckInObject == false)
         {
             SwordSpawner.instance.swordSpawned = false;
             Destroy(gameObject);

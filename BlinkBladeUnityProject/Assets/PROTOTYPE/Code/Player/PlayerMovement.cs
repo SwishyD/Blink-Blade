@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     public SwordSpawner spawner;
 
+    public Vector2 spawnPoint;
+
     public bool canMove;
 
     public float speed;
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
         PlayerNormal();
         ResetGravity();
+        spawnPoint = this.transform.position;
     }
 
     // Update is called once per frame
@@ -55,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             HandleMove();
+        }
+        if (isHanging)
+        {
+            transform.position = spawner.CloneSword.transform.position;
         }
     }
 
@@ -68,19 +75,24 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(isHanging)
         {
-            this.transform.position = SwordSpawner.instance.CloneSword.transform.position;
+            this.transform.position = SwordSpawner.instance.cloneSword.transform.position;
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
                 isHanging = false;
-                Destroy(spawner.CloneSword);
-                spawner.CloneSword = null;
+                Destroy(spawner.cloneSword);
+                spawner.cloneSword = null;
                 spawner.swordSpawned = false;
             }
         }
         else if(doubleJumpReady == true && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
         {
             DoubleJump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            this.transform.position = spawnPoint;
         }
 
         if(_rb.velocity.y < maxVelocityDown)
@@ -103,8 +115,8 @@ public class PlayerMovement : MonoBehaviour
         {
             ResetGravity();
             isHanging = false;
-            Destroy(spawner.CloneSword);
-            spawner.CloneSword = null;
+            Destroy(spawner.cloneSword);
+            spawner.cloneSword = null;
             spawner.swordSpawned = false;
         }
     }
