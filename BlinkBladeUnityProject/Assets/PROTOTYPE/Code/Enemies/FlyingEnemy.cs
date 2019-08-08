@@ -29,7 +29,7 @@ public class FlyingEnemy : MonoBehaviour
             Destroy(gameObject);
             if(gameObject.transform.childCount > 0)
             {
-                SwordSpawner.instance.CloneSword = null;
+                SwordSpawner.instance.cloneSword = null;
                 SwordSpawner.instance.swordSpawned = false;
             }
             PlayerMovement.instance.PlayerNormal();

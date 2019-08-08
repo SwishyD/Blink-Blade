@@ -5,31 +5,183 @@ using UnityEngine;
 public class PlayerJumpV2 : MonoBehaviour
 {
 
-    [Range(1, 10)]
+    
     public float jumpVelocity;
-
+    public float doubleJumpVelocity;
+    float groundedSkin = 0.05f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
+    public float defaultGrav = 3;
+    public float maxVelocityDown = -20;
+
+    public LayerMask mask;
+
+    public bool doubleJumpReady = false;
+    bool jumpRequest;
+    bool doubleJumpRequest;
+    bool isGrounded;
+    bool hasJumped;
+    public bool isHanging;
+
+
+
+    Vector2 playerSize;
+    Vector2 boxSize;
 
     Rigidbody2D rb;
 
+    public SwordSpawner spawner;
+
+
+    public static PlayerJumpV2 instance = null;
+
     private void Awake()
     {
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this);
+        }
+
+       
+        playerSize = GetComponent<BoxCollider2D>().size;
+        boxSize = new Vector2(playerSize.x, groundedSkin);
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        PlayerNormal();
+        ResetGravity();
+        PlayerMovementV2.instance.canMove = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (isGrounded)
         {
-            rb.velocity = Vector2.up * jumpVelocity;
+            hasJumped = false;
+        }
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        {
+            jumpRequest = true;
+        }
+        else if (isHanging)
+        {
+            transform.position = SwordSpawner.instance.cloneSword.transform.position;
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                Jump();
+                isHanging = false;
+                Destroy(spawner.cloneSword);
+                spawner.cloneSword = null;
+                spawner.swordSpawned = false;
+            }
+        }
+        else if (((doubleJumpReady || !hasJumped) && !isGrounded) && (Input.GetKeyDown(KeyCode.W) ))
+        {
+            doubleJumpRequest = true;
         }
 
-        if(rb.velocity.y < 0)
+        if (isHanging == true && Input.GetKey(KeyCode.S))
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            ResetGravity();
+            isHanging = false;
+            Destroy(spawner.cloneSword);
+            spawner.cloneSword = null;
+            spawner.swordSpawned = false;
+            doubleJumpReady = true;
+        }
+
+        if (isGrounded == false && Input.GetKey(KeyCode.S))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            ResetGravity();
         }
     }
 
+    private void FixedUpdate()
+    {
+        Debug.Log(rb.velocity.y);
+
+        if (jumpRequest == true)
+        {
+            Jump();
+        }
+        else if(doubleJumpRequest == true)
+        {
+            ResetGravity();
+            DoubleJump();
+        }
+        else
+        {
+            Vector2 boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
+            isGrounded = (Physics2D.OverlapBox(boxCenter, boxSize, 0f, mask) != null);         
+        }
+
+        
+
+        if (rb.velocity.y < 0)
+        {
+            rb.gravityScale = fallMultiplier;
+        }
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W))
+        {
+            rb.gravityScale = lowJumpMultiplier;
+        }
+       
+        if (rb.velocity.y < maxVelocityDown)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
+        }
+
+    }
+
+
+    void Jump()
+    {
+        rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
+        jumpRequest = false;
+        isGrounded = false;
+        doubleJumpReady = true;
+        PlayerMovementV2.instance.canMove = true;
+        hasJumped = true;
+    }
+    public void DoubleJump()
+    {
+        rb.AddForce(Vector2.up * doubleJumpVelocity, ForceMode2D.Impulse);
+        doubleJumpRequest = false;
+        doubleJumpReady = false;
+        hasJumped = true;
+    }
+
+    public void ResetGravity()
+    {
+        PlayerMovementV2.instance.canMove = true;
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = defaultGrav;
+    }
+
+    public void FreezePos()
+    {
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 0;
+        isHanging = true;
+        PlayerMovementV2.instance.canMove = false;
+        hasJumped = false;
+    }
+
+    public void PlayerNormal()
+    {
+        PlayerMovementV2.instance.canMove = true;
+        isHanging = false;
+    }
 
 }
