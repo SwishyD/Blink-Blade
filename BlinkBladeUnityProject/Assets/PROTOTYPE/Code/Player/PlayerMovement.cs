@@ -68,13 +68,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(isHanging)
         {
-            this.transform.position = SwordSpawner.instance.CloneSword.transform.position;
+            this.transform.position = SwordSpawner.instance.cloneSword.transform.position;
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
                 isHanging = false;
-                Destroy(spawner.CloneSword);
-                spawner.CloneSword = null;
+                Destroy(spawner.cloneSword);
+                spawner.cloneSword = null;
                 spawner.swordSpawned = false;
             }
         }
@@ -103,8 +103,8 @@ public class PlayerMovement : MonoBehaviour
         {
             ResetGravity();
             isHanging = false;
-            Destroy(spawner.CloneSword);
-            spawner.CloneSword = null;
+            Destroy(spawner.cloneSword);
+            spawner.cloneSword = null;
             spawner.swordSpawned = false;
         }
     }
