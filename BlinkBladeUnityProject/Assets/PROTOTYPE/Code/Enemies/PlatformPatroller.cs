@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundPatrol : MonoBehaviour
+public class PlatformPatroller : MonoBehaviour
 {
     public float speed;
     public float distance;
@@ -13,8 +13,6 @@ public class GroundPatrol : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
-
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
         if(groundInfo.collider == false)
         {
@@ -28,6 +26,19 @@ public class GroundPatrol : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 movingRight = true;
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name.Contains("Sword"))
+        {
+
         }
     }
 }

@@ -11,7 +11,7 @@ public class ArmourEnemy : MonoBehaviour
     {
         if (other.name.Contains("Sword"))
         {
-            other.gameObject.GetComponent<SwordProjectile>().StuckinObject = this.gameObject;
+            other.gameObject.GetComponent<SwordProjectile>().stuckInObject = this.gameObject;
             GetComponent<SpriteRenderer>().color = Color.blue;
             var Soul = Instantiate(soul, soulSpawner.transform.position, Quaternion.identity);
             Physics2D.IgnoreCollision(Soul.GetComponent<Collider2D>(), GetComponent<Collider2D>());

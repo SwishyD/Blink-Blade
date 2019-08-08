@@ -24,12 +24,6 @@ public class FlyingEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name.Contains("Sword"))
-        {
-            isHit = true;
-            col.gameObject.GetComponent<SwordProjectile>().StuckinObject = this.gameObject;
-        }
-
         if((col.gameObject.layer == 8 || col.gameObject.layer == 9) && isHit)
         {          
             Destroy(gameObject);
@@ -40,6 +34,15 @@ public class FlyingEnemy : MonoBehaviour
             }
             PlayerMovement.instance.PlayerNormal();
             PlayerMovement.instance.ResetGravity();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name.Contains("Sword"))
+        {
+            isHit = true;
+            col.gameObject.GetComponent<SwordProjectile>().stuckInObject = gameObject;
         }
     }
 }

@@ -41,7 +41,7 @@ public class SwordSpawner : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerMovement>().isHanging == false)
         {
-            CloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
+            Instantiate(sword, shotPoint.position, transform.rotation);
             swordSpawned = true;
         }
         else if(Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerMovement>().isHanging == true)
@@ -54,7 +54,7 @@ public class SwordSpawner : MonoBehaviour
             swordSpawned = true;
         }
 
-        if(Input.GetMouseButton(1) && swordSpawned == true && CloneSword.GetComponent<SwordProjectile>().StuckinObject == false)
+        if(Input.GetMouseButton(1) && swordSpawned == true && CloneSword.GetComponent<SwordProjectile>().stuckInObject == false)
         {
             transform.parent.transform.position = CloneSword.transform.position;
             //player.GetComponent<PlayerMovement>().doubleJumpReady = true;
@@ -62,7 +62,7 @@ public class SwordSpawner : MonoBehaviour
             Destroy(CloneSword);
             CloneSword = null;
         }
-        else if (Input.GetMouseButton(1) && swordSpawned == true && CloneSword.GetComponent<SwordProjectile>().StuckinObject == true)
+        else if (Input.GetMouseButton(1) && swordSpawned == true && CloneSword.GetComponent<SwordProjectile>().stuckInObject == true)
         {
             transform.parent.transform.position = CloneSword.transform.GetChild(0).transform.position;
             player.GetComponent<PlayerMovement>().FreezePos();
