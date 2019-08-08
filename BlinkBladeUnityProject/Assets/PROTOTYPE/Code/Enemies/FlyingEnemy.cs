@@ -24,7 +24,7 @@ public class FlyingEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.layer == 8)
+        if((col.gameObject.layer == 8 || col.gameObject.layer == 9) && isHit)
         {          
             Destroy(gameObject);
             if(gameObject.transform.childCount > 0)
