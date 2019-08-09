@@ -8,7 +8,7 @@ public class PlayerJumpV2 : MonoBehaviour
     
     public float jumpVelocity;
     public float doubleJumpVelocity;
-    float groundedSkin = 0.05f;
+    public float groundedSkin = 0.05f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
     public float defaultGrav = 3;
@@ -16,6 +16,7 @@ public class PlayerJumpV2 : MonoBehaviour
     public float boxOffset;
 
     public LayerMask mask;
+    public Transform feetPos;
 
     public bool doubleJumpReady = false;
     bool jumpRequest;
@@ -76,7 +77,8 @@ public class PlayerJumpV2 : MonoBehaviour
             transform.position = SwordSpawner.instance.cloneSword.transform.position;
             if (Input.GetKeyDown(KeyCode.W))
             {
-                Jump();
+                ResetGravity();
+                Jump();                
                 isHanging = false;
                 Destroy(spawner.cloneSword);
                 spawner.cloneSword = null;
@@ -121,11 +123,10 @@ public class PlayerJumpV2 : MonoBehaviour
             ResetGravity();
             DoubleJump();
         }
-        else
-        {
-            Vector2 boxCenter = (Vector2)transform.position + Vector2.down * ((playerSize.y + boxSize.y) * 0.5f + boxOffset);
-            isGrounded = (Physics2D.OverlapBox(boxCenter, boxSize, 0f, mask) != null);         
-        }
+        
+        
+            isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);         
+        
 
         
 
@@ -187,8 +188,7 @@ public class PlayerJumpV2 : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector2 boxCenter = (Vector2)transform.position + Vector2.down * ((playerSize.y + boxSize.y) * 0.5f + boxOffset); 
 
-        Gizmos.DrawCube(boxCenter, boxSize);
+        Gizmos.DrawCube(feetPos.position, boxSize);
     }
 }
