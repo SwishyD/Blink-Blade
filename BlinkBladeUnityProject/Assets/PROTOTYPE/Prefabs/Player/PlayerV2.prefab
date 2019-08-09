@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &54922039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 54922040}
+  m_Layer: 31
+  m_Name: FeetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &54922040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54922039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.043, y: -1.032, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5921857822077694295}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &450073056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450073057}
+  m_Layer: 0
+  m_Name: ShotPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450073057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450073056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5166808852116189050}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5166808852116188933
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,7 +87,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.231, y: 0, z: 0}
   m_LocalScale: {x: 0.36775124, y: 0.36775124, z: 0.36775124}
-  m_Children: []
+  m_Children:
+  - {fileID: 450073057}
   m_Father: {fileID: 5166808852527385707}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -125,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
-  shotPoint: {fileID: 5166808852116189050}
+  shotPoint: {fileID: 450073057}
   cloneSword: {fileID: 0}
   sword: {fileID: 5722015756847094077, guid: f894b9249bb63fe4e88bca4899fd166e, type: 3}
   player: {fileID: 5921857822077694296}
@@ -212,6 +273,7 @@ Transform:
   m_Children:
   - {fileID: 7227250823314404439}
   - {fileID: 5166808852527385707}
+  - {fileID: 54922040}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -278,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpVelocity: 15
   doubleJumpVelocity: 12
+  groundedSkin: 0.05
   fallMultiplier: 3
   lowJumpMultiplier: 6
   defaultGrav: 3
@@ -285,7 +348,8 @@ MonoBehaviour:
   boxOffset: 1.17
   mask:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 769
+  feetPos: {fileID: 54922040}
   doubleJumpReady: 0
   isHanging: 0
   boxSize: {x: 0, y: 0}
@@ -303,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMoveSpeed: 0
-  moveSpeedMax: 6
+  moveSpeedMax: 10
   timeZeroToMax: 0.2
   timeMaxToZero: 0.05
   canMove: 0
@@ -423,7 +487,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Time: 0.15
   m_Parameters:
     serializedVersion: 3
@@ -454,7 +518,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.39822888, g: 0.5377358, b: 0.5377358, a: 1}
+      key0: {r: 0.6509804, g: 0.8078432, b: 0.8078432, a: 1}
       key1: {r: 0.6509804, g: 0.8078432, b: 0.8078432, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
