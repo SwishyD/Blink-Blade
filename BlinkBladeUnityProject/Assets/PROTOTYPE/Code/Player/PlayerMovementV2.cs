@@ -57,12 +57,7 @@ public class PlayerMovementV2 : MonoBehaviour
         accelRatePerSec = moveSpeedMax / timeZeroToMax;
         decelRatePerSec = -moveSpeedMax / timeMaxToZero;
 
-    }
-
-    private void Update()
-    {
-        HandleMove();
-    }
+    }    
 
     public void HandleMove()
     {

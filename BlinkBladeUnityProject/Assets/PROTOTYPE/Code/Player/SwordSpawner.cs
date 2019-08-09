@@ -52,7 +52,7 @@ public class SwordSpawner : MonoBehaviour
             swordSpawned = true;
         }
 
-        if(Input.GetMouseButton(1) && swordSpawned == true && cloneSword.GetComponent<SwordProjectile>().StuckinObject == false)
+        if(Input.GetMouseButton(1) && swordSpawned == true && cloneSword.GetComponent<SwordProjectile>().stuckInObject == false)
         {
             PlayerJumpV2.instance.ResetGravity();
             PlayerJumpV2.instance.PlayerNormal();
@@ -61,7 +61,7 @@ public class SwordSpawner : MonoBehaviour
             Destroy(cloneSword);
             cloneSword = null;
         }
-        else if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.GetComponent<SwordProjectile>().StuckinObject == true)
+        else if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.GetComponent<SwordProjectile>().stuckInObject == true)
         {
             PlayerJumpV2.instance.ResetGravity();
             transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;

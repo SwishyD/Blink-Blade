@@ -13,6 +13,7 @@ public class PlayerJumpV2 : MonoBehaviour
     public float lowJumpMultiplier = 2f;
     public float defaultGrav = 3;
     public float maxVelocityDown = -20;
+    public float boxOffset;
 
     public LayerMask mask;
 
@@ -26,7 +27,7 @@ public class PlayerJumpV2 : MonoBehaviour
 
 
     Vector2 playerSize;
-    Vector2 boxSize;
+    public Vector2 boxSize;
 
     Rigidbody2D rb;
 
@@ -109,7 +110,7 @@ public class PlayerJumpV2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(rb.velocity.y);
+        //Debug.Log(rb.velocity.y);
 
         if (jumpRequest == true)
         {
@@ -122,7 +123,7 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         else
         {
-            Vector2 boxCenter = (Vector2)transform.position + Vector2.down * (playerSize.y + boxSize.y) * 0.5f;
+            Vector2 boxCenter = (Vector2)transform.position + Vector2.down * ((playerSize.y + boxSize.y) * 0.5f + boxOffset);
             isGrounded = (Physics2D.OverlapBox(boxCenter, boxSize, 0f, mask) != null);         
         }
 
@@ -184,4 +185,10 @@ public class PlayerJumpV2 : MonoBehaviour
         isHanging = false;
     }
 
+    private void OnDrawGizmos()
+    {
+        Vector2 boxCenter = (Vector2)transform.position + Vector2.down * ((playerSize.y + boxSize.y) * 0.5f + boxOffset); 
+
+        Gizmos.DrawCube(boxCenter, boxSize);
+    }
 }
