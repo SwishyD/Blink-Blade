@@ -247,7 +247,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -410,6 +410,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714065624213435089, guid: 5f3096f57a7092d4ea040601f54133dc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.1287
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714065624213435089, guid: 5f3096f57a7092d4ea040601f54133dc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.1287
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714065624213435089, guid: 5f3096f57a7092d4ea040601f54133dc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.1287
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714065625322720398, guid: 5f3096f57a7092d4ea040601f54133dc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.1287
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714065625322720398, guid: 5f3096f57a7092d4ea040601f54133dc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.1287
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714065625322720398, guid: 5f3096f57a7092d4ea040601f54133dc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.1287
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f3096f57a7092d4ea040601f54133dc, type: 3}

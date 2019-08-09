@@ -40,6 +40,7 @@ public class SwordSpawner : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
         {
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
+            Debug.Log("SwordSpawned");
             swordSpawned = true;
         }
         else if(Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
