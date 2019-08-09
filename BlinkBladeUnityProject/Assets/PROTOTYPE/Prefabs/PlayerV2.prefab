@@ -127,7 +127,7 @@ MonoBehaviour:
   offset: 0
   shotPoint: {fileID: 5166808852116189050}
   cloneSword: {fileID: 0}
-  sword: {fileID: 7067624676125470693, guid: f894b9249bb63fe4e88bca4899fd166e, type: 3}
+  sword: {fileID: 5722015756847094077, guid: f894b9249bb63fe4e88bca4899fd166e, type: 3}
   player: {fileID: 5921857822077694296}
   swordSpawned: 0
 --- !u!212 &5166808852527385704
@@ -281,12 +281,14 @@ MonoBehaviour:
   fallMultiplier: 3
   lowJumpMultiplier: 6
   defaultGrav: 3
-  maxVelocityDown: -20
+  maxVelocityDown: -40
+  boxOffset: 1.17
   mask:
     serializedVersion: 2
     m_Bits: 257
   doubleJumpReady: 0
   isHanging: 0
+  boxSize: {x: 0, y: 0}
   spawner: {fileID: 5166808852527385706}
 --- !u!114 &5921857822077694293
 MonoBehaviour:
@@ -340,7 +342,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010812283, y: 0.03243828}
+  m_Offset: {x: 0.033463955, y: -0.17487293}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -351,7 +353,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9593611, y: 1.4351234}
+  m_Size: {x: 0.7854204, y: 1.6597458}
   m_EdgeRadius: 0
 --- !u!1 &7227250823314404432
 GameObject:
@@ -422,7 +424,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.15
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -452,8 +454,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.39215687, g: 0.121568635, b: 0.1254902, a: 1}
-      key1: {r: 0.5411765, g: 0.121568635, b: 0.1254902, a: 1}
+      key0: {r: 0.39822888, g: 0.5377358, b: 0.5377358, a: 1}
+      key1: {r: 0.6509804, g: 0.8078432, b: 0.8078432, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
