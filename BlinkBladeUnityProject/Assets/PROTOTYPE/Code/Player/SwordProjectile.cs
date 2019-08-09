@@ -20,10 +20,6 @@ public class SwordProjectile : MonoBehaviour
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
-        if (stuckInObject)
-        {
-            this.transform.position = objectStuckIn.transform.position;
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)

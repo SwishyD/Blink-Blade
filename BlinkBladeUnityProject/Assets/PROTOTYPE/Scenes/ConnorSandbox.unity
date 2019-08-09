@@ -773,10 +773,11 @@ GameObject:
   m_Component:
   - component: {fileID: 320910650}
   - component: {fileID: 320910649}
-  - component: {fileID: 320910648}
   - component: {fileID: 320910646}
   - component: {fileID: 320910647}
   - component: {fileID: 320910651}
+  - component: {fileID: 320910652}
+  - component: {fileID: 320910648}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -840,26 +841,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 320910645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c7ff1a7767ff04f87bc80509cc2464, type: 3}
+  m_Script: {fileID: 11500000, guid: 74b60ce7097533c4d914470c60dfba2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 2144042617}
-  spawnPoint: {x: 0, y: 0}
-  canMove: 0
-  speed: 10
-  _rb: {fileID: 320910646}
-  jumpForce: 15
-  doubleJumpForce: 13
-  maxVelocityDown: -75
-  defaultGrav: 5
-  quickFallGrav: 10
-  doubleJumpReady: 0
-  feetPos: {fileID: 2080060918}
-  checkRadius: 0.2
-  whatIsGround:
+  jumpVelocity: 5
+  doubleJumpVelocity: 2
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
+  defaultGrav: 3
+  maxVelocityDown: -20
+  mask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 256
+  doubleJumpReady: 0
   isHanging: 0
+  spawner: {fileID: 2144042617}
 --- !u!212 &320910649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -946,6 +942,24 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
+--- !u!114 &320910652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320910645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cd6f51142ac1b48b0632b3f8582fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoveSpeed: 0
+  moveSpeedMax: 15
+  timeZeroToMax: 0
+  timeMaxToZero: 0
+  canMove: 0
+  spawner: {fileID: 2144042617}
 --- !u!1 &552276397
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,9 +4181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
-  sword: {fileID: 5722015756847094077, guid: f894b9249bb63fe4e88bca4899fd166e, type: 3}
   shotPoint: {fileID: 1568358928}
-  CloneSword: {fileID: 0}
+  cloneSword: {fileID: 0}
+  sword: {fileID: 5722015756847094077, guid: f894b9249bb63fe4e88bca4899fd166e, type: 3}
   player: {fileID: 320910645}
   swordSpawned: 0
 --- !u!4 &2144042618
