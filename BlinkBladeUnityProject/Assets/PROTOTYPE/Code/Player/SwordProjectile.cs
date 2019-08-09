@@ -7,7 +7,11 @@ public class SwordProjectile : MonoBehaviour
     public float speed;
 
     public bool stuckInObject = false;
-    public GameObject objectStuckIn;
+
+    private void Awake()
+    {
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>());
+    }
 
     private void Start()
     {
@@ -51,6 +55,13 @@ public class SwordProjectile : MonoBehaviour
                     Debug.Log("Hit the Left");
                 }
             }
+            speed = 0;
+            stuckInObject = true;
+        }
+        
+        if(col.gameObject.tag == "Enemy")
+        {
+            col.gameObject.GetComponent<IEnemyDeath>().OnDeath();
             speed = 0;
             stuckInObject = true;
         }
