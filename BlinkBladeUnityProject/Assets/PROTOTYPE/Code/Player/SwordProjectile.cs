@@ -13,12 +13,6 @@ public class SwordProjectile : MonoBehaviour
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>());
     }
 
-    private void Awake()
-    {
-        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>());
-
-    }
-
     private void Start()
     {
         Invoke("DestroySword", 2f);
