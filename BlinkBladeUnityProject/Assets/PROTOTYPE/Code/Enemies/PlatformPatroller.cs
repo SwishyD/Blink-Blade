@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformPatroller : MonoBehaviour
+public class PlatformPatroller : MonoBehaviour, IEnemyDeath
 {
     public float speed;
     public float distance;
@@ -34,11 +34,8 @@ public class PlatformPatroller : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void OnDeath()
     {
-        if (col.name.Contains("Sword"))
-        {
-
-        }
+        GetComponent<SpriteRenderer>().color = Color.red;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PatrolDir { Left, Right, Up, Down}
 
-public class FlyingSidePatrol : MonoBehaviour
+public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 {
     public PatrolDir direction;
     public float patrolTime;
@@ -47,5 +47,10 @@ public class FlyingSidePatrol : MonoBehaviour
                 transform.position -= new Vector3(0, speed, 0);
                 break;
         }
+    }
+
+    public void OnDeath()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
     }
 }

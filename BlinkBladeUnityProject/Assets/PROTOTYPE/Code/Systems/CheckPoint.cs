@@ -13,7 +13,7 @@ public class CheckPoint : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = Color.red;
             triggered = true;
-            PlayerMovement.instance.spawnPoint = this.transform.position;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawnPoint>().spawnPoint = this.transform.position;
         }
     }
 }
