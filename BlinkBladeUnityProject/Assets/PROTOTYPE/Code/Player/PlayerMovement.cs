@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isHanging)
         {
-            transform.position = spawner.CloneSword.transform.position;
+            transform.position = spawner.cloneSword.transform.position;
         }
     }
 
