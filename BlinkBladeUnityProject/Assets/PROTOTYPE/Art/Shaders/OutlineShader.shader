@@ -6,7 +6,7 @@
 	}
 
 	SubShader{
-		Cull Off
+		//Cull Off
 		Blend One OneMinusSrcAlpha
 
 		Pass{
