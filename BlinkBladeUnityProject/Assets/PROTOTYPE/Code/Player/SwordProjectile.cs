@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class SwordProjectile : MonoBehaviour
 {
+
+    public GameObject stuckSword;
     public float speed;
+
+    public float throwDistance;
+    public Vector3 hitPoint;
 
     public bool stuckInObject = false;
 
@@ -16,6 +21,20 @@ public class SwordProjectile : MonoBehaviour
     private void Start()
     {
         Invoke("DestroySword", 2f);
+    }
+
+    private void Update()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.position + transform.right, throwDistance);
+        Debug.DrawLine(transform.position, transform.position + transform.right * throwDistance, Color.yellow);
+        if (hit.collider != null)
+        {
+            if(hit.collider.gameObject.layer == 9)
+            {
+                hitPoint = hit.point;
+                Debug.Log("HitPoint: " + hitPoint);
+            }
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -41,18 +60,26 @@ public class SwordProjectile : MonoBehaviour
                 if (hitPos.normal.y > 0)
                 {
                     Debug.Log("Hit the Top");
+                    Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
+                    //Destroy(gameObject);
                 }
                 else if (hitPos.normal.y < 0)
                 {
                     Debug.Log("Hit the Bottom");
+                    Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
+                    //Destroy(gameObject);
                 }
                 else if(hitPos.normal.x > 0)
                 {
                     Debug.Log("Hit the Right");
+                    Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
+                    //Destroy(gameObject);
                 }
                 else if(hitPos.normal.x < 0)
                 {
                     Debug.Log("Hit the Left");
+                    Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
+                    //Destroy(gameObject);
                 }
             }
             speed = 0;

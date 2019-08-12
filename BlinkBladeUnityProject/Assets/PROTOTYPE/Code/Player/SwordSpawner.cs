@@ -11,6 +11,8 @@ public class SwordSpawner : MonoBehaviour
 
     public Transform shotPoint;
 
+    public float throwDistance;
+
     public GameObject cloneSword;
     public GameObject sword;
     public GameObject player;
@@ -37,7 +39,7 @@ public class SwordSpawner : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
+        if (Input.GetMouseButton(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
         {
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
             Debug.Log("SwordSpawned");

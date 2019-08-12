@@ -846,6 +846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpVelocity: 5
   doubleJumpVelocity: 2
+  groundedSkin: 0.05
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   defaultGrav: 3
@@ -854,6 +855,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
+  feetPos: {fileID: 0}
   doubleJumpReady: 0
   isHanging: 0
   boxSize: {x: 0, y: 0}
@@ -1345,7 +1347,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4265,6 +4267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0
   shotPoint: {fileID: 1568358928}
+  throwDistance: 0
   cloneSword: {fileID: 0}
   sword: {fileID: 5722015756847094077, guid: f894b9249bb63fe4e88bca4899fd166e, type: 3}
   player: {fileID: 320910645}

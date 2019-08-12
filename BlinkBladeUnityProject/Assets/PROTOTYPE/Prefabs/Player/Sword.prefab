@@ -125,9 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8fbcb15029c7f469ae324b3643aa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stuckSword: {fileID: 1870492946518529532, guid: 45ccf9008bf25ac409639eec203f0e90,
+    type: 3}
   speed: 10
+  throwDistance: 1.5
+  hitPoint: {x: 0, y: 0, z: 0}
   stuckInObject: 0
-  objectStuckIn: {fileID: 0}
 --- !u!61 &8198054254686043738
 BoxCollider2D:
   m_ObjectHideFlags: 0
