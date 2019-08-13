@@ -1169,7 +1169,11 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 168777858}
     m_ColliderPaths:
-    - - X: -70000000
+    - - X: -80000000
+        Y: -30000000
+      - X: -80000000
+        Y: 60000000
+      - X: -70000000
         Y: 60000000
       - X: -70000000
         Y: 80000000
@@ -1189,10 +1193,6 @@ CompositeCollider2D:
         Y: 130000000
       - X: -90000000
         Y: -30000000
-      - X: -80000000
-        Y: -30000000
-      - X: -80000000
-        Y: 60000000
   m_CompositePaths:
     m_Paths:
     - - {x: -8, y: 6}
@@ -10919,6 +10919,8 @@ GameObject:
   - component: {fileID: 565360128}
   - component: {fileID: 565360133}
   - component: {fileID: 565360130}
+  - component: {fileID: 565360132}
+  - component: {fileID: 565360131}
   m_Layer: 0
   m_Name: DebugPlayerSprite
   m_TagString: Untagged
@@ -10943,7 +10945,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
+  - {fileID: 2100000, guid: cd9d395766513bc45a8f80d6f5700e66, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10962,7 +10964,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -7803834823058188487, guid: b189259f7668f0840b7d1c378262f32b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10983,7 +10985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565360127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.18, y: -1.978, z: 0}
+  m_LocalPosition: {x: -6.23, y: -1.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1493864529054125196}
@@ -11016,6 +11018,50 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &565360131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565360127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cd6f51142ac1b48b0632b3f8582fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoveSpeed: 0
+  moveSpeedMax: 0
+  timeZeroToMax: 0
+  timeMaxToZero: 0
+  canMove: 0
+  spawner: {fileID: 0}
+--- !u!114 &565360132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565360127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b60ce7097533c4d914470c60dfba2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpVelocity: 0
+  doubleJumpVelocity: 0
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
+  defaultGrav: 3
+  maxVelocityDown: -20
+  boxOffset: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
+  doubleJumpReady: 0
+  isHanging: 0
+  boxSize: {x: 0, y: 0}
+  spawner: {fileID: 0}
 --- !u!50 &565360133
 Rigidbody2D:
   serializedVersion: 4
