@@ -539,7 +539,7 @@ RectTransform:
   m_GameObject: {fileID: 6922165191996044529}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.2209, y: 3.2209, z: 3.2209}
   m_Children: []
   m_Father: {fileID: 6922165192428689567}
   m_RootOrder: 0
@@ -1908,6 +1908,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 6922165192452187406}
   quitConfirmUI: {fileID: 6922165192428689555}
   menuConfirmUI: {fileID: 6922165193033341936}
+  player: {fileID: 0}
 --- !u!1 &6922165192985289149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,7 +2616,7 @@ RectTransform:
   m_GameObject: {fileID: 6922165193096940204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.2209, y: 3.2209, z: 3.2209}
   m_Children: []
   m_Father: {fileID: 6922165192452187413}
   m_RootOrder: 0
@@ -3160,7 +3161,7 @@ RectTransform:
   m_GameObject: {fileID: 6922165193576285056}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.2209, y: 3.2209, z: 3.2209}
   m_Children: []
   m_Father: {fileID: 6922165193033341948}
   m_RootOrder: 0

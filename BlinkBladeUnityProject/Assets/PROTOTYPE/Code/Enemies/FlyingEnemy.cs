@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingEnemy : MonoBehaviour
+public class FlyingEnemy : MonoBehaviour, IEnemyDeath
 {
     public bool isHit;
     public float fallSpeed;
@@ -32,17 +32,11 @@ public class FlyingEnemy : MonoBehaviour
                 SwordSpawner.instance.cloneSword = null;
                 SwordSpawner.instance.swordSpawned = false;
             }
-            PlayerMovement.instance.PlayerNormal();
-            PlayerMovement.instance.ResetGravity();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void OnDeath()
     {
-        if (col.name.Contains("Sword"))
-        {
-            isHit = true;
-            col.gameObject.GetComponent<SwordProjectile>().stuckInObject = gameObject;
-        }
+        isHit = true;
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShoot : MonoBehaviour
+public class EnemyShoot : MonoBehaviour, IEnemyDeath
 {
     public bool active;
     public GameObject bullet;
@@ -23,10 +23,6 @@ public class EnemyShoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             active = true;
-        }
-        if (gameObject.GetComponent<FlyingEnemy>().isHit)
-        {
-            active = false;
         }
 
         Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
@@ -50,5 +46,11 @@ public class EnemyShoot : MonoBehaviour
             }
             yield return new WaitForSeconds(2f);
         }
+    }
+
+    public void OnDeath()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        active = false;
     }
 }
