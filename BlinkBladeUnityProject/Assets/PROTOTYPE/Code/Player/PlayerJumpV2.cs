@@ -51,7 +51,7 @@ public class PlayerJumpV2 : MonoBehaviour
 
        
         playerSize = GetComponent<BoxCollider2D>().size;
-        boxSize = new Vector2(playerSize.x, groundedSkin);
+        boxSize = new Vector2(playerSize.x -0.03f , groundedSkin);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -124,7 +124,7 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         
         
-            isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);         
+        isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);         
         
 
         
