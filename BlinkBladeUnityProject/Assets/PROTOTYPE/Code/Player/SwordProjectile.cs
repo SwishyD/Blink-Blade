@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwordProjectile : MonoBehaviour
 {
-
+    public SwordSpawner spawner;
     public GameObject stuckSword;
     public float speed;
 
@@ -21,6 +21,7 @@ public class SwordProjectile : MonoBehaviour
 
     private void Start()
     {
+        spawner = GameObject.Find("Aim Ring").GetComponent<SwordSpawner>();
         Invoke("DestroySword", 2f);
     }
 
@@ -30,7 +31,7 @@ public class SwordProjectile : MonoBehaviour
         Debug.DrawLine(transform.position, hit.point, Color.yellow);
         if (hit.collider != null)
         {
-            if(hit.collider.gameObject.layer == 9)
+            if(hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
             {
                 hitPoint = hit.point;
                 Debug.Log("HitPoint: " + hitPoint);
@@ -52,18 +53,30 @@ public class SwordProjectile : MonoBehaviour
         {
             DestroySword();
         }
-        if(col.gameObject.layer == 9)
+        if(col.gameObject.layer == 9 || col.gameObject.tag == "Enemy")
         {
             foreach(ContactPoint2D hitPos in col.contacts)
             {
                 Debug.Log(hitPos.normal);
 
-                if (hitPos.normal.y > 0)
+                if (hitPos.normal.x > 0)
                 {
-                    Debug.Log("Hit the Top");
+                    Debug.Log("Hit the Right");
                     if (!stuckInObject)
                     {
-                        Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
+                       var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
+                        spawner.cloneSword = CloneSword;
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
+                }
+                else if (hitPos.normal.x < 0)
+                {
+                    Debug.Log("Hit the Left");
+                    if (!stuckInObject)
+                    {
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
+                        spawner.cloneSword = CloneSword;
                         stuckInObject = true;
                     }
                     Destroy(gameObject);
@@ -73,31 +86,23 @@ public class SwordProjectile : MonoBehaviour
                     Debug.Log("Hit the Bottom");
                     if (!stuckInObject)
                     {
-                        Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
+                        spawner.cloneSword = CloneSword;
                         stuckInObject = true;
                     }
                     Destroy(gameObject);
                 }
-                else if(hitPos.normal.x > 0)
+                else if (hitPos.normal.y > 0)
                 {
-                    Debug.Log("Hit the Right");
+                    Debug.Log("Hit the Top");
                     if (!stuckInObject)
                     {
-                        Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
+                        spawner.cloneSword = CloneSword;
                         stuckInObject = true;
                     }
                     Destroy(gameObject);
-                }
-                else if(hitPos.normal.x < 0)
-                {
-                    Debug.Log("Hit the Left");
-                    if (!stuckInObject)
-                    {
-                        Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
-                        stuckInObject = true;
-                    }
-                    Destroy(gameObject);
-                }
+                }      
             }
             speed = 0;
             stuckInObject = true;

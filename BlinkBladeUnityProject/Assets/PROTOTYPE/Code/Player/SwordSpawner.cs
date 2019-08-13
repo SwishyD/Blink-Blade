@@ -43,7 +43,7 @@ public class SwordSpawner : MonoBehaviour
         {
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
             Debug.Log("SwordSpawned");
-            //swordSpawned = true;
+            swordSpawned = true;
         }
         else if(Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
         {
@@ -55,7 +55,7 @@ public class SwordSpawner : MonoBehaviour
             swordSpawned = true;
         }
 
-        if(Input.GetMouseButton(1) && swordSpawned == true && cloneSword.GetComponent<SwordProjectile>().stuckInObject == false)
+        if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
         {
             PlayerJumpV2.instance.ResetGravity();
             PlayerJumpV2.instance.PlayerNormal();
@@ -64,7 +64,7 @@ public class SwordSpawner : MonoBehaviour
             Destroy(cloneSword);
             cloneSword = null;
         }
-        else if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.GetComponent<SwordProjectile>().stuckInObject == true)
+        else if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
             PlayerJumpV2.instance.ResetGravity();
             transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
