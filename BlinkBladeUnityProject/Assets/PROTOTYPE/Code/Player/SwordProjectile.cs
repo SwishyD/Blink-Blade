@@ -9,7 +9,8 @@ public class SwordProjectile : MonoBehaviour
     public float speed;
 
     public float throwDistance;
-    public Vector3 hitPoint;
+    public Vector2 hitPoint;
+    public LayerMask rayMask;
 
     public bool stuckInObject = false;
 
@@ -25,8 +26,8 @@ public class SwordProjectile : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.position + transform.right, throwDistance);
-        Debug.DrawLine(transform.position, transform.position + transform.right * throwDistance, Color.yellow);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, throwDistance, rayMask);
+        Debug.DrawLine(transform.position, hit.point, Color.yellow);
         if (hit.collider != null)
         {
             if(hit.collider.gameObject.layer == 9)
@@ -60,26 +61,42 @@ public class SwordProjectile : MonoBehaviour
                 if (hitPos.normal.y > 0)
                 {
                     Debug.Log("Hit the Top");
-                    Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
-                    //Destroy(gameObject);
+                    if (!stuckInObject)
+                    {
+                        Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
                 }
                 else if (hitPos.normal.y < 0)
                 {
                     Debug.Log("Hit the Bottom");
-                    Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
-                    //Destroy(gameObject);
+                    if (!stuckInObject)
+                    {
+                        Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
                 }
                 else if(hitPos.normal.x > 0)
                 {
                     Debug.Log("Hit the Right");
-                    Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
-                    //Destroy(gameObject);
+                    if (!stuckInObject)
+                    {
+                        Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
                 }
                 else if(hitPos.normal.x < 0)
                 {
                     Debug.Log("Hit the Left");
-                    Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
-                    //Destroy(gameObject);
+                    if (!stuckInObject)
+                    {
+                        Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
                 }
             }
             speed = 0;

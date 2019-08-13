@@ -39,11 +39,11 @@ public class SwordSpawner : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if (Input.GetMouseButton(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
+        if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
         {
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
             Debug.Log("SwordSpawned");
-            swordSpawned = true;
+            //swordSpawned = true;
         }
         else if(Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
         {
