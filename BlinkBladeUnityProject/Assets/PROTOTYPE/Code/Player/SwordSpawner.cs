@@ -11,6 +11,8 @@ public class SwordSpawner : MonoBehaviour
 
     public Transform shotPoint;
 
+    public float throwDistance;
+
     public GameObject cloneSword;
     public GameObject sword;
     public GameObject player;
@@ -41,7 +43,7 @@ public class SwordSpawner : MonoBehaviour
         {
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
             Debug.Log("SwordSpawned");
-            swordSpawned = true;
+            //swordSpawned = true;
         }
         else if(Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
         {
