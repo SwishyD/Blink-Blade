@@ -38,7 +38,7 @@ public class SwordProjectile : MonoBehaviour
             }
             if(hit.collider.gameObject.layer == 8)
             {
-                Invoke("DestroySword", 0.5f);
+                DestroySword();
             }
         }
     }
