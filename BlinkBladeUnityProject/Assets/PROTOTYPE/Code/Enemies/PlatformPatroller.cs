@@ -37,5 +37,6 @@ public class PlatformPatroller : MonoBehaviour, IEnemyDeath
     public void OnDeath()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
+        speed = 0;
     }
 }
