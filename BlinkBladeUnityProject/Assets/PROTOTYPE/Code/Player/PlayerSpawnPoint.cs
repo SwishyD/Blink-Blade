@@ -17,7 +17,12 @@ public class PlayerSpawnPoint : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            transform.position = spawnPoint;
+            Respawn();
         }
+    }
+
+    public void Respawn()
+    {
+        gameObject.transform.position = spawnPoint;
     }
 }
