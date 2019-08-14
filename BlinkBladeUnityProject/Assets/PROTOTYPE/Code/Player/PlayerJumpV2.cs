@@ -74,6 +74,7 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         else if (isHanging)
         {
+            transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
             if (Input.GetKeyDown(KeyCode.W))
             {
                 ResetGravity();

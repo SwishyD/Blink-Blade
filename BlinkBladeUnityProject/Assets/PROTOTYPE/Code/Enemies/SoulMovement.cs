@@ -15,6 +15,13 @@ public class SoulMovement : MonoBehaviour
     {
         if(col.gameObject.layer == 8 || col.gameObject.layer == 9)
         {
+            if(transform.childCount > 0)
+            {
+                PlayerJumpV2.instance.ResetGravity();
+                PlayerJumpV2.instance.PlayerNormal();
+                SwordSpawner.instance.swordSpawned = false;
+                SwordSpawner.instance.cloneSword = null;
+            }
             Destroy(this.gameObject);
         }
         if (col.gameObject.name.Contains("Sword"))

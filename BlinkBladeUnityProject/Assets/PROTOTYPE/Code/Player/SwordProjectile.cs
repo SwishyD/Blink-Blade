@@ -36,6 +36,10 @@ public class SwordProjectile : MonoBehaviour
                 hitPoint = hit.point;
                 Debug.Log("HitPoint: " + hitPoint);
             }
+            if(hit.collider.gameObject.layer == 8)
+            {
+                DestroySword();
+            }
         }
     }
     // Update is called once per frame
@@ -64,8 +68,9 @@ public class SwordProjectile : MonoBehaviour
                     Debug.Log("Hit the Right");
                     if (!stuckInObject)
                     {
-                       var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
+                       var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
                         spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = col.transform;
                         stuckInObject = true;
                     }
                     Destroy(gameObject);
@@ -75,8 +80,9 @@ public class SwordProjectile : MonoBehaviour
                     Debug.Log("Hit the Left");
                     if (!stuckInObject)
                     {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
                         spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = col.transform;
                         stuckInObject = true;
                     }
                     Destroy(gameObject);
@@ -86,8 +92,9 @@ public class SwordProjectile : MonoBehaviour
                     Debug.Log("Hit the Bottom");
                     if (!stuckInObject)
                     {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
                         spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = col.transform;
                         stuckInObject = true;
                     }
                     Destroy(gameObject);
@@ -97,8 +104,9 @@ public class SwordProjectile : MonoBehaviour
                     Debug.Log("Hit the Top");
                     if (!stuckInObject)
                     {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
                         spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = col.transform;
                         stuckInObject = true;
                     }
                     Destroy(gameObject);
@@ -116,11 +124,12 @@ public class SwordProjectile : MonoBehaviour
         }
     }
 
-    void DestroySword()
+    public void DestroySword()
     {
         if(stuckInObject == false)
         {
             SwordSpawner.instance.swordSpawned = false;
+            spawner.cloneSword = null;
             Destroy(gameObject);
         }
     }
