@@ -209,6 +209,15 @@ Tilemap:
   m_GameObject: {fileID: 23253470}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: 5, y: -6, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: 5, y: -5, z: 0}
     second:
       m_TileIndex: 0
@@ -472,13 +481,13 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data: {fileID: 11400000, guid: 3346c847048aa734495cca5aef4e0ab8, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data: {fileID: 21300000, guid: 16146209e51cd6f4fa7eba8876cb99eb, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data:
       e00: 1
       e01: 0
@@ -497,12 +506,12 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -12, y: -5, z: 0}
-  m_Size: {x: 48, y: 13, z: 1}
+  m_Origin: {x: -12, y: -6, z: 0}
+  m_Size: {x: 48, y: 14, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -553,7 +562,7 @@ CompositeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 1
   m_GenerationType: 0
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.1
   m_ColliderPaths:
   - m_Collider: {fileID: 23253474}
     m_ColliderPaths:
@@ -570,9 +579,9 @@ CompositeCollider2D:
       - X: 50000000
         Y: 40000000
       - X: 50000000
-        Y: -50000000
+        Y: -60000000
       - X: 60000000
-        Y: -50000000
+        Y: -60000000
     - - X: 230000000
         Y: 40000000
       - X: 170000000
@@ -605,8 +614,8 @@ CompositeCollider2D:
       - {x: 29, y: 7}
     - - {x: 6, y: 4}
       - {x: 5, y: 4}
-      - {x: 5, y: -5}
-      - {x: 6, y: -5}
+      - {x: 5, y: -6}
+      - {x: 6, y: -6}
     - - {x: 23, y: 4}
       - {x: 17, y: 4}
       - {x: 17, y: 3}
@@ -4281,7 +4290,7 @@ CompositeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 1
   m_GenerationType: 0
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.25
   m_ColliderPaths:
   - m_Collider: {fileID: 1795221975}
     m_ColliderPaths:

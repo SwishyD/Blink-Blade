@@ -129,7 +129,7 @@ MonoBehaviour:
   spawner: {fileID: 0}
   stuckSword: {fileID: 8845266356583274550, guid: 45ccf9008bf25ac409639eec203f0e90,
     type: 3}
-  speed: 30
+  speed: 25
   throwDistance: 1
   hitPoint: {x: 0, y: 0}
   rayMask:

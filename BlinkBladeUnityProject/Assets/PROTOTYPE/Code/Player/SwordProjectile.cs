@@ -22,7 +22,7 @@ public class SwordProjectile : MonoBehaviour
     private void Start()
     {
         spawner = GameObject.Find("Aim Ring").GetComponent<SwordSpawner>();
-        Invoke("DestroySword", 2f);
+        Invoke("DestroyUnstuckSword", 2f);
     }
 
     private void Update()
@@ -31,15 +31,15 @@ public class SwordProjectile : MonoBehaviour
         Debug.DrawLine(transform.position, hit.point, Color.yellow);
         if (hit.collider != null)
         {
-            if(hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
+            if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
             {
                 hitPoint = hit.point;
                 Debug.Log("HitPoint: " + hitPoint);
             }
-            if(hit.collider.gameObject.layer == 8)
+            else if (hit.collider.gameObject.layer == 8)
             {
                 DestroySword();
-            }
+            }           
         }
     }
     // Update is called once per frame
@@ -52,11 +52,7 @@ public class SwordProjectile : MonoBehaviour
     }
 
     private void OnCollisionStay2D(Collision2D col)
-    {
-        if(col.gameObject.layer == 8)
-        {
-            DestroySword();
-        }
+    {       
         if(col.gameObject.layer == 9 || col.gameObject.tag == "Enemy")
         {
             foreach(ContactPoint2D hitPos in col.contacts)
@@ -115,8 +111,12 @@ public class SwordProjectile : MonoBehaviour
             speed = 0;
             stuckInObject = true;
         }
-        
-        if(col.gameObject.tag == "Enemy")
+        /*else if (col.gameObject.layer == 8)
+        {
+            DestroySword();
+        }*/
+
+        if (col.gameObject.tag == "Enemy")
         {
             col.gameObject.GetComponent<IEnemyDeath>().OnDeath();
             speed = 0;
@@ -124,7 +124,7 @@ public class SwordProjectile : MonoBehaviour
         }
     }
 
-    public void DestroySword()
+    public void DestroyUnstuckSword()
     {
         if(stuckInObject == false)
         {
@@ -132,5 +132,11 @@ public class SwordProjectile : MonoBehaviour
             spawner.cloneSword = null;
             Destroy(gameObject);
         }
+    }
+    public void DestroySword()
+    {
+        SwordSpawner.instance.swordSpawned = false;
+        spawner.cloneSword = null;
+        Destroy(gameObject);
     }
 }

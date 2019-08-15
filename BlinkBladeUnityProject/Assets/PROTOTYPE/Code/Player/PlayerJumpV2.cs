@@ -74,7 +74,14 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         else if (isHanging)
         {
-            transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+            if (!spawner.closeToGround)
+            {
+                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+            }
+            else if (spawner.closeToGround)
+            {
+                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1.2f, 0);
+            }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 ResetGravity();

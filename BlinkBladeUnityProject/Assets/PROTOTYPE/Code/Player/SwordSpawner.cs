@@ -19,6 +19,8 @@ public class SwordSpawner : MonoBehaviour
 
     public bool swordSpawned;
 
+    public bool closeToGround;
+
     private void Awake()
     {
         if(instance == null)
@@ -41,9 +43,11 @@ public class SwordSpawner : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
         {
+            Destroy(cloneSword);
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
             Debug.Log("SwordSpawned");
             swordSpawned = true;
+            closeToGround = false;
         }
         else if(Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
         {
@@ -53,9 +57,10 @@ public class SwordSpawner : MonoBehaviour
             player.GetComponent<PlayerJumpV2>().isHanging = false;
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
             swordSpawned = true;
+            closeToGround = false;
         }
 
-        if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
+        /*if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
         {
             PlayerJumpV2.instance.ResetGravity();
             PlayerJumpV2.instance.PlayerNormal();
@@ -63,11 +68,18 @@ public class SwordSpawner : MonoBehaviour
             swordSpawned = false;
             Destroy(cloneSword);
             cloneSword = null;
-        }
-        else if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
+        }*/
+        if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
             PlayerJumpV2.instance.ResetGravity();
-            transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
+            if (!closeToGround)
+            {
+                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
+            }
+            else if (closeToGround)
+            {
+                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0,1.2f,0);
+            }
             player.GetComponent<PlayerJumpV2>().FreezePos();
         }
     }
