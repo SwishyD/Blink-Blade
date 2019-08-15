@@ -17,7 +17,17 @@ public class PlayerSpawnPoint : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            transform.position = spawnPoint;
+            Respawn();
         }
+    }
+
+    public void Respawn()
+    {
+        gameObject.transform.position = spawnPoint;
+        Destroy(SwordSpawner.instance.cloneSword);
+        SwordSpawner.instance.cloneSword = null;
+        SwordSpawner.instance.swordSpawned = false;
+        PlayerJumpV2.instance.ResetGravity();
+        PlayerJumpV2.instance.PlayerNormal();
     }
 }

@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SwordProjectile : MonoBehaviour
 {
+    public SwordSpawner spawner;
+    public GameObject stuckSword;
     public float speed;
+
+    public float throwDistance;
+    public Vector2 hitPoint;
+    public LayerMask rayMask;
 
     public bool stuckInObject = false;
 
@@ -15,7 +21,26 @@ public class SwordProjectile : MonoBehaviour
 
     private void Start()
     {
-        Invoke("DestroySword", 2f);
+        spawner = GameObject.Find("Aim Ring").GetComponent<SwordSpawner>();
+        Invoke("DestroyUnstuckSword", 2f);
+    }
+
+    private void Update()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, throwDistance, rayMask);
+        Debug.DrawLine(transform.position, hit.point, Color.yellow);
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
+            {
+                hitPoint = hit.point;
+                Debug.Log("HitPoint: " + hitPoint);
+            }
+            else if (hit.collider.gameObject.layer == 8)
+            {
+                DestroySword();
+            }           
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -27,39 +52,71 @@ public class SwordProjectile : MonoBehaviour
     }
 
     private void OnCollisionStay2D(Collision2D col)
-    {
-        if(col.gameObject.layer == 8)
-        {
-            DestroySword();
-        }
-        if(col.gameObject.layer == 9)
+    {       
+        if(col.gameObject.layer == 9 || col.gameObject.tag == "Enemy")
         {
             foreach(ContactPoint2D hitPos in col.contacts)
             {
                 Debug.Log(hitPos.normal);
 
-                if (hitPos.normal.y > 0)
+                if (hitPos.normal.x > 0)
                 {
-                    Debug.Log("Hit the Top");
+                    Debug.Log("Hit the Right");
+                    if (!stuckInObject)
+                    {
+                       var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
+                        spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = col.transform;
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
+                }
+                else if (hitPos.normal.x < 0)
+                {
+                    Debug.Log("Hit the Left");
+                    if (!stuckInObject)
+                    {
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
+                        spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = col.transform;
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
                 }
                 else if (hitPos.normal.y < 0)
                 {
                     Debug.Log("Hit the Bottom");
+                    if (!stuckInObject)
+                    {
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
+                        spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = col.transform;
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
                 }
-                else if(hitPos.normal.x > 0)
+                else if (hitPos.normal.y > 0)
                 {
-                    Debug.Log("Hit the Right");
-                }
-                else if(hitPos.normal.x < 0)
-                {
-                    Debug.Log("Hit the Left");
-                }
+                    Debug.Log("Hit the Top");
+                    if (!stuckInObject)
+                    {
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
+                        spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = col.transform;
+                        stuckInObject = true;
+                    }
+                    Destroy(gameObject);
+                }      
             }
             speed = 0;
             stuckInObject = true;
         }
-        
-        if(col.gameObject.tag == "Enemy")
+        /*else if (col.gameObject.layer == 8)
+        {
+            DestroySword();
+        }*/
+
+        if (col.gameObject.tag == "Enemy")
         {
             col.gameObject.GetComponent<IEnemyDeath>().OnDeath();
             speed = 0;
@@ -67,12 +124,19 @@ public class SwordProjectile : MonoBehaviour
         }
     }
 
-    void DestroySword()
+    public void DestroyUnstuckSword()
     {
         if(stuckInObject == false)
         {
             SwordSpawner.instance.swordSpawned = false;
+            spawner.cloneSword = null;
             Destroy(gameObject);
         }
+    }
+    public void DestroySword()
+    {
+        SwordSpawner.instance.swordSpawned = false;
+        spawner.cloneSword = null;
+        Destroy(gameObject);
     }
 }

@@ -51,7 +51,7 @@ public class PlayerJumpV2 : MonoBehaviour
 
        
         playerSize = GetComponent<BoxCollider2D>().size;
-        boxSize = new Vector2(playerSize.x, groundedSkin);
+        boxSize = new Vector2(playerSize.x -0.03f , groundedSkin);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -74,7 +74,14 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         else if (isHanging)
         {
-            transform.position = SwordSpawner.instance.cloneSword.transform.position;
+            if (!spawner.closeToGround)
+            {
+                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+            }
+            else if (spawner.closeToGround)
+            {
+                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1.2f, 0);
+            }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 ResetGravity();
@@ -125,7 +132,7 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         
         
-            isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);         
+        isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);         
         
 
         
