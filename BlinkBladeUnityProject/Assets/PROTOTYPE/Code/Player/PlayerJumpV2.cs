@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJumpV2 : MonoBehaviour
 {
-
+    private PlayerAnimator playerAnim;
     
     public float jumpVelocity;
     public float doubleJumpVelocity;
@@ -59,6 +59,7 @@ public class PlayerJumpV2 : MonoBehaviour
     {
         PlayerNormal();
         ResetGravity();
+        playerAnim = GetComponentInChildren<PlayerAnimator>();
         PlayerMovementV2.instance.canMove = true;
     }
 
@@ -74,7 +75,14 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         else if (isHanging)
         {
-            transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+            if (!spawner.closeToGround)
+            {
+                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+            }
+            else if (spawner.closeToGround)
+            {
+                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1.2f, 0);
+            }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 ResetGravity();
@@ -103,10 +111,12 @@ public class PlayerJumpV2 : MonoBehaviour
         if (isGrounded == false && Input.GetKey(KeyCode.S))
         {
             rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
+            playerAnim.SetPlayerQuickFall(true);
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
             ResetGravity();
+            playerAnim.SetPlayerQuickFall(false);
         }
     }
 
@@ -125,10 +135,10 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         
         
-        isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);         
-        
+        isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);
+        playerAnim.SetPlayerGrounded(isGrounded);
 
-        
+
 
         if (rb.velocity.y < 0)
         {
@@ -144,6 +154,7 @@ public class PlayerJumpV2 : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
         }
 
+        playerAnim.SetPlayerYVelocity(rb.velocity.y);
     }
 
 
@@ -155,6 +166,7 @@ public class PlayerJumpV2 : MonoBehaviour
         doubleJumpReady = true;
         PlayerMovementV2.instance.canMove = true;
         hasJumped = true;
+        playerAnim.PlayerJumpTrigger();
     }
     public void DoubleJump()
     {

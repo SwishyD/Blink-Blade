@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovementV2 : MonoBehaviour
 {
+    private PlayerAnimator playerAnim;
+
     private float moveInput;
     private float lastMoveInput;
     public float currentMoveSpeed;
@@ -45,6 +47,7 @@ public class PlayerMovementV2 : MonoBehaviour
     private void Start()
     {
         canMove = true;
+        playerAnim = GetComponentInChildren<PlayerAnimator>();
     }
 
     private void Update()
