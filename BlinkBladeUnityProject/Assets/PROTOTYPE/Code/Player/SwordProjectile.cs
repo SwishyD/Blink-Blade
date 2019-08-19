@@ -85,10 +85,10 @@ public class SwordProjectile : MonoBehaviour
                     stuckInObject = true;
                 }
             }
-            else if (hit.collider.gameObject.layer == 8)
+            else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
             {
                 DestroySword();
-            }  
+            }
         }
     }
     // Update is called once per frame
