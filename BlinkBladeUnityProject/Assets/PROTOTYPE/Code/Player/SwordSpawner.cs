@@ -40,7 +40,7 @@ public class SwordSpawner : MonoBehaviour
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-
+        #region Left Click Options
         if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
         {
             Destroy(cloneSword);
@@ -59,16 +59,26 @@ public class SwordSpawner : MonoBehaviour
             swordSpawned = true;
             closeToGround = false;
         }
-
-        /*if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
+        else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
         {
-            PlayerJumpV2.instance.ResetGravity();
-            PlayerJumpV2.instance.PlayerNormal();
-            transform.parent.transform.position = cloneSword.transform.position;
-            swordSpawned = false;
             Destroy(cloneSword);
             cloneSword = null;
-        }*/
+            //player.GetComponent<PlayerJumpV2>().ResetGravity();
+            player.GetComponent<PlayerJumpV2>().isHanging = false;
+            closeToGround = false;
+            swordSpawned = false;
+        }
+        else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
+        {
+            Destroy(cloneSword);
+            cloneSword = null;
+            //player.GetComponent<PlayerJumpV2>().ResetGravity();
+            player.GetComponent<PlayerJumpV2>().isHanging = false;
+            closeToGround = false;
+            swordSpawned = false;
+        }
+        #endregion
+        #region Right Click Options
         if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
             PlayerJumpV2.instance.ResetGravity();
@@ -82,5 +92,6 @@ public class SwordSpawner : MonoBehaviour
             }
             player.GetComponent<PlayerJumpV2>().FreezePos();
         }
+        #endregion
     }
 }

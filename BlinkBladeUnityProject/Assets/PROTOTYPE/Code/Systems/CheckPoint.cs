@@ -9,7 +9,7 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Player")
+        if(col.tag == "Player" && triggered == false)
         {
             GetComponent<SpriteRenderer>().color = Color.red;
             triggered = true;
