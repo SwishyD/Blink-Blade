@@ -48,12 +48,26 @@ public class PlayerAnimator : MonoBehaviour
 
         if (pJumpScript.isHanging)
         {
+            if (pJumpScript.spawner.closeToGround)
+            {
+                if (!anim.GetBool("PlayerHangingCloseToGround"))
+                {
+                    anim.SetBool("PlayerHangingCloseToGround", true);
+                }
+            }
+            else if (!pJumpScript.spawner.closeToGround)
+            {
+                if (anim.GetBool("PlayerHangingCloseToGround"))
+                {
+                    anim.SetBool("PlayerHangingCloseToGround", false);
+                }
+            }
+
             if (!anim.GetBool("PlayerHangingFromSword"))
             {
                 anim.SetBool("PlayerHangingFromSword", true);
             }
         }
-
     }
 
     public void SetPlayerGrounded(bool newState)
