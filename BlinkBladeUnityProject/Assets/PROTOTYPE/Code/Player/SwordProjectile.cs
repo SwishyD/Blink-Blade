@@ -67,22 +67,19 @@ public class SwordProjectile : MonoBehaviour
                             CloneSword.transform.parent = hit.collider.transform;
                             stuckInObject = true;
                         }
-                        Destroy(gameObject);
                     }
-                    if (hit.transform.tag == "Enemy")
-                    {
-                        hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
-                        speed = 0;
-                        stuckInObject = true;
-                        cursorManager.ChangeCursorState(true);
-                    }
+                    Destroy(gameObject);              
                 }
-                else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
+            if (hit.transform.tag == "Enemy")
+            {
+                hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
+                speed = 0;
+                stuckInObject = true;
+                cursorManager.ChangeCursorState(true);
+            }
+            else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
                 {
-                    hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
-                    speed = 0;
-                    stuckInObject = true;
-                    cursorManager.ChangeCursorState(true);
+                    DestroySword();
                 }
             }
     }
