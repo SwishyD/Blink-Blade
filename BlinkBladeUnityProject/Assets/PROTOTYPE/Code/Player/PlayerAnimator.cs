@@ -7,28 +7,65 @@ public class PlayerAnimator : MonoBehaviour
     private Animator anim;
     public SpriteRenderer spriteRend;
 
+    private PlayerMovementV2 pMoveScript;
+    private PlayerJumpV2 pJumpScript;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        pMoveScript = GetComponentInChildren<PlayerMovementV2>();
+        pJumpScript = GetComponentInChildren<PlayerJumpV2>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("PlayerHorizontalSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (!pJumpScript.isHanging) // Prevents the player from changing direction while hanging.
         {
-            if (!spriteRend.flipX)
+            anim.SetFloat("PlayerHorizontalSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+            if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                spriteRend.flipX = true;
+                if (!spriteRend.flipX)
+                {
+                    spriteRend.flipX = true;
+                }
+            }
+            else if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                if (spriteRend.flipX)
+                {
+                    spriteRend.flipX = false;
+                }
+            }
+
+            if (anim.GetBool("PlayerHangingFromSword"))
+            {
+                anim.SetBool("PlayerHangingFromSword", false);
             }
         }
-        else if (Input.GetAxisRaw("Horizontal") > 0)
+
+        if (pJumpScript.isHanging)
         {
-            if (spriteRend.flipX)
+            if (pJumpScript.spawner.closeToGround)
             {
-                spriteRend.flipX = false;
+                if (!anim.GetBool("PlayerHangingCloseToGround"))
+                {
+                    anim.SetBool("PlayerHangingCloseToGround", true);
+                }
+            }
+            else if (!pJumpScript.spawner.closeToGround)
+            {
+                if (anim.GetBool("PlayerHangingCloseToGround"))
+                {
+                    anim.SetBool("PlayerHangingCloseToGround", false);
+                }
+            }
+
+            if (!anim.GetBool("PlayerHangingFromSword"))
+            {
+                anim.SetBool("PlayerHangingFromSword", true);
             }
         }
     }

@@ -166,7 +166,10 @@ public class PlayerJumpV2 : MonoBehaviour
         doubleJumpReady = true;
         PlayerMovementV2.instance.canMove = true;
         hasJumped = true;
-        playerAnim.PlayerJumpTrigger();
+        if (isGrounded)
+        {
+            playerAnim.PlayerJumpTrigger();
+        }
     }
     public void DoubleJump()
     {

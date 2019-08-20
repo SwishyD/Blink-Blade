@@ -14,8 +14,11 @@ public class SwordProjectile : MonoBehaviour
 
     public bool stuckInObject = false;
 
+    private CursorManager cursorManager;
+
     private void Start()
     {
+        cursorManager = FindObjectOfType<CursorManager>();
         spawner = GameObject.Find("Aim Ring").GetComponent<SwordSpawner>();
         Invoke("DestroyUnstuckSword", 2f);
     }
@@ -32,39 +35,27 @@ public class SwordProjectile : MonoBehaviour
                     Debug.Log("HitPoint: " + hitPoint);
                     if (hit.normal.x > 0)
                     {
-                        Debug.Log("Hit the Right");
-                        if (!stuckInObject)
-                        {
-                            var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
-                            spawner.cloneSword = CloneSword;
-                            CloneSword.transform.parent = hit.collider.transform;
-                            stuckInObject = true;
-                        }
-                        Destroy(gameObject);
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
+                        spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = hit.collider.transform;
+                        stuckInObject = true;
+                        cursorManager.ChangeCursorState(true);
                     }
                     else if (hit.normal.x < 0)
                     {
-                        Debug.Log("Hit the Left");
-                        if (!stuckInObject)
-                        {
-                            var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
-                            spawner.cloneSword = CloneSword;
-                            CloneSword.transform.parent = hit.collider.transform;
-                            stuckInObject = true;
-                        }
-                        Destroy(gameObject);
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
+                        spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = hit.collider.transform;
+                        stuckInObject = true;
+                        cursorManager.ChangeCursorState(true);
                     }
                     else if (hit.normal.y < 0)
                     {
-                        Debug.Log("Hit the Bottom");
-                        if (!stuckInObject)
-                        {
-                            var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
-                            spawner.cloneSword = CloneSword;
-                            CloneSword.transform.parent = hit.collider.transform;
-                            stuckInObject = true;
-                        }
-                        Destroy(gameObject);
+                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
+                        spawner.cloneSword = CloneSword;
+                        CloneSword.transform.parent = hit.collider.transform;
+                        stuckInObject = true;
+                        cursorManager.ChangeCursorState(true);
                     }
                     else if (hit.normal.y > 0)
                     {
@@ -83,11 +74,15 @@ public class SwordProjectile : MonoBehaviour
                         hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
                         speed = 0;
                         stuckInObject = true;
+                        cursorManager.ChangeCursorState(true);
                     }
                 }
                 else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
                 {
-                    DestroySword();
+                    hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
+                    speed = 0;
+                    stuckInObject = true;
+                    cursorManager.ChangeCursorState(true);
                 }
             }
     }
@@ -106,6 +101,7 @@ public class SwordProjectile : MonoBehaviour
         {
             SwordSpawner.instance.swordSpawned = false;
             spawner.cloneSword = null;
+            cursorManager.ChangeCursorState(false);
             Destroy(gameObject);
         }
     }
@@ -113,6 +109,7 @@ public class SwordProjectile : MonoBehaviour
     {
         SwordSpawner.instance.swordSpawned = false;
         spawner.cloneSword = null;
+        cursorManager.ChangeCursorState(false);
         Destroy(gameObject);
     }
 }
