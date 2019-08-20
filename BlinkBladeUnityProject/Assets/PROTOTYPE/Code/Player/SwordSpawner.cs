@@ -21,6 +21,8 @@ public class SwordSpawner : MonoBehaviour
 
     public bool closeToGround;
 
+    private CursorManager cursorManager;
+
     private void Awake()
     {
         if(instance == null)
@@ -34,6 +36,12 @@ public class SwordSpawner : MonoBehaviour
         cloneSword = null;
         swordSpawned = false;
     }
+
+    private void Start()
+    {
+        cursorManager = FindObjectOfType<CursorManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -48,6 +56,7 @@ public class SwordSpawner : MonoBehaviour
             Debug.Log("SwordSpawned");
             swordSpawned = true;
             closeToGround = false;
+            cursorManager.ChangeCursorState(false);
         }
         else if(Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
         {
@@ -58,6 +67,7 @@ public class SwordSpawner : MonoBehaviour
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
             swordSpawned = true;
             closeToGround = false;
+            cursorManager.ChangeCursorState(false);
         }
         else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
         {
@@ -67,6 +77,7 @@ public class SwordSpawner : MonoBehaviour
             player.GetComponent<PlayerJumpV2>().isHanging = false;
             closeToGround = false;
             swordSpawned = false;
+            cursorManager.ChangeCursorState(false);
         }
         else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
@@ -76,6 +87,7 @@ public class SwordSpawner : MonoBehaviour
             player.GetComponent<PlayerJumpV2>().isHanging = false;
             closeToGround = false;
             swordSpawned = false;
+            cursorManager.ChangeCursorState(false);
         }
         #endregion
         #region Right Click Options
@@ -91,6 +103,7 @@ public class SwordSpawner : MonoBehaviour
                 transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0,1.2f,0);
             }
             player.GetComponent<PlayerJumpV2>().FreezePos();
+            cursorManager.ChangeCursorState(false);
         }
         #endregion
     }
