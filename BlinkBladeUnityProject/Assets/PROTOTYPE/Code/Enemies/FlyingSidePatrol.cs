@@ -7,16 +7,22 @@ public enum PatrolDir { Left, Right, Up, Down}
 public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 {
     public PatrolDir direction;
+    public bool active;
     public float patrolTime;
     public float maxPatrolTime;
     public float speed;
+    public float deathTimer;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        patrolTime += Time.deltaTime;
+        if (active)
+        {
+            patrolTime += Time.deltaTime;
+        }
         if(patrolTime >= maxPatrolTime)
         {
+            StartCoroutine("EdgePause");
             if(direction == PatrolDir.Left || direction == PatrolDir.Up)
             {
                 direction++;
@@ -49,8 +55,32 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
         }
     }
 
+    IEnumerator EdgePause()
+    {
+        active = false;
+        var normalSpeed = speed;
+        speed = 0;
+        yield return new WaitForSeconds(1f);
+        active = true;
+        speed = normalSpeed;
+    }
+
     public void OnDeath()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("Destroy", deathTimer);
+        speed = 0;
+    }
+
+    public void Destroy()
+    {
+        if (transform.childCount > 0)
+        {
+            PlayerJumpV2.instance.ResetGravity();
+            PlayerJumpV2.instance.PlayerNormal();
+            SwordSpawner.instance.swordSpawned = false;
+            SwordSpawner.instance.cloneSword = null;
+        }
+        Destroy(gameObject);
     }
 }
