@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5722015756847094074}
   - component: {fileID: 77120068735979934}
+  - component: {fileID: 989429311}
   m_Layer: 0
   m_Name: ThrownSword
   m_TagString: Untagged
@@ -134,3 +135,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 536871680
   stuckInObject: 0
+--- !u!114 &989429311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5722015756847094077}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd285cbc34b54b478efcd02b1efb08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100

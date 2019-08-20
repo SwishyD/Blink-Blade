@@ -209,15 +209,6 @@ Tilemap:
   m_GameObject: {fileID: 23253470}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: 5, y: -6, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: 5, y: -5, z: 0}
     second:
       m_TileIndex: 0
@@ -481,13 +472,13 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 30
+  - m_RefCount: 29
     m_Data: {fileID: 11400000, guid: 3346c847048aa734495cca5aef4e0ab8, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 30
+  - m_RefCount: 29
     m_Data: {fileID: 21300000, guid: 16146209e51cd6f4fa7eba8876cb99eb, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 30
+  - m_RefCount: 29
     m_Data:
       e00: 1
       e01: 0
@@ -506,7 +497,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 30
+  - m_RefCount: 29
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -579,9 +570,9 @@ CompositeCollider2D:
       - X: 50000000
         Y: 40000000
       - X: 50000000
-        Y: -60000000
+        Y: -50000000
       - X: 60000000
-        Y: -60000000
+        Y: -50000000
     - - X: 230000000
         Y: 40000000
       - X: 170000000
@@ -614,8 +605,8 @@ CompositeCollider2D:
       - {x: 29, y: 7}
     - - {x: 6, y: 4}
       - {x: 5, y: 4}
-      - {x: 5, y: -6}
-      - {x: 6, y: -6}
+      - {x: 5, y: -5}
+      - {x: 6, y: -5}
     - - {x: 23, y: 4}
       - {x: 17, y: 4}
       - {x: 17, y: 3}
@@ -4364,47 +4355,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1795221975}
     m_ColliderPaths:
-    - - X: 410000000
-        Y: 120000000
-      - X: 310000000
-        Y: 120000000
-      - X: 310000000
-        Y: 340000000
-      - X: 400000000
-        Y: 340000000
-      - X: 400000000
-        Y: 350000000
-      - X: 300000000
-        Y: 350000000
-      - X: 300000000
-        Y: 110000000
-      - X: 400000000
-        Y: 110000000
-      - X: 400000000
-        Y: -50000000
-      - X: -120000000
-        Y: -50000000
-      - X: -120000000
-        Y: 70000000
-      - X: 120000000
-        Y: 70000000
-      - X: 120000000
-        Y: -20000000
-      - X: 130000000
-        Y: -20000000
-      - X: 130000000
-        Y: 110000000
-      - X: 240000000
-        Y: 110000000
-      - X: 240000000
-        Y: 390000000
-      - X: 400000000
-        Y: 390000000
-      - X: 400000000
-        Y: 400000000
-      - X: 230000000
-        Y: 400000000
-      - X: 230000000
+    - - X: 230000000
         Y: 120000000
       - X: 120000000
         Y: 120000000
@@ -4420,6 +4371,46 @@ CompositeCollider2D:
         Y: -60000000
       - X: 410000000
         Y: -60000000
+      - X: 410000000
+        Y: 120000000
+      - X: 310000000
+        Y: 120000000
+      - X: 310000000
+        Y: 340000000
+      - X: 400000000
+        Y: 340000000
+      - X: 400000000
+        Y: 350000000
+      - X: 300000000
+        Y: 350000000
+      - X: 300000000
+        Y: 110000000
+      - X: 400000000
+        Y: 110000000
+      - X: 400000000
+        Y: -50000000
+      - X: -120000000
+        Y: -50000000
+      - X: -120000000
+        Y: 70000000
+      - X: 120000000
+        Y: 70000000
+      - X: 120000000
+        Y: -20000000
+      - X: 130000000
+        Y: -20000000
+      - X: 130000000
+        Y: 110000000
+      - X: 240000000
+        Y: 110000000
+      - X: 240000000
+        Y: 390000000
+      - X: 400000000
+        Y: 390000000
+      - X: 400000000
+        Y: 400000000
+      - X: 230000000
+        Y: 400000000
   m_CompositePaths:
     m_Paths:
     - - {x: 17, y: -6}
@@ -4592,41 +4583,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
@@ -4644,6 +4600,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098804811653200331, guid: 9745b6c8882d04c46be176b3800765c4,
+        type: 3}
+      propertyPath: deathTimer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}

@@ -11,6 +11,7 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
     public float patrolTime;
     public float maxPatrolTime;
     public float speed;
+    public float deathTimer;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -67,7 +68,7 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
     public void OnDeath()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
-        Invoke("Destroy", 2f);
+        Invoke("Destroy", deathTimer);
         speed = 0;
     }
 

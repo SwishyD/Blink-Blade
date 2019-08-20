@@ -61,8 +61,12 @@ public class SwordSpawner : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
         {
+            var swordPoint = cloneSword.transform.position;
             Destroy(cloneSword);
             cloneSword = null;
+            var returnSword = Instantiate(sword, swordPoint, transform.rotation);
+            returnSword.GetComponent<SwordProjectile>().enabled = false;
+            returnSword.GetComponent<ReturnSword>().enabled = true;
             //player.GetComponent<PlayerJumpV2>().ResetGravity();
             player.GetComponent<PlayerJumpV2>().isHanging = false;
             closeToGround = false;
@@ -70,8 +74,12 @@ public class SwordSpawner : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
+            var swordPoint = cloneSword.transform.position;
             Destroy(cloneSword);
             cloneSword = null;
+            var returnSword = Instantiate(sword, swordPoint, transform.rotation);
+            returnSword.GetComponent<SwordProjectile>().enabled = false;
+            returnSword.GetComponent<ReturnSword>().enabled = true;
             //player.GetComponent<PlayerJumpV2>().ResetGravity();
             player.GetComponent<PlayerJumpV2>().isHanging = false;
             closeToGround = false;

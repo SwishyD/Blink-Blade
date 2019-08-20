@@ -22,74 +22,74 @@ public class SwordProjectile : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, throwDistance, rayMask);
-        Debug.DrawLine(transform.position, hit.point, Color.yellow);
-        if (hit.collider != null)
-        {
-            if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, throwDistance, rayMask);
+            Debug.DrawLine(transform.position, hit.point, Color.yellow);
+            if (hit.collider != null)
             {
-                hitPoint = hit.point;
-                Debug.Log("HitPoint: " + hitPoint);
-                if (hit.normal.x > 0)
+                if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
                 {
-                    Debug.Log("Hit the Right");
-                    if (!stuckInObject)
+                    hitPoint = hit.point;
+                    Debug.Log("HitPoint: " + hitPoint);
+                    if (hit.normal.x > 0)
                     {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
-                        spawner.cloneSword = CloneSword;
-                        CloneSword.transform.parent = hit.collider.transform;
+                        Debug.Log("Hit the Right");
+                        if (!stuckInObject)
+                        {
+                            var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
+                            spawner.cloneSword = CloneSword;
+                            CloneSword.transform.parent = hit.collider.transform;
+                            stuckInObject = true;
+                        }
+                        Destroy(gameObject);
+                    }
+                    else if (hit.normal.x < 0)
+                    {
+                        Debug.Log("Hit the Left");
+                        if (!stuckInObject)
+                        {
+                            var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
+                            spawner.cloneSword = CloneSword;
+                            CloneSword.transform.parent = hit.collider.transform;
+                            stuckInObject = true;
+                        }
+                        Destroy(gameObject);
+                    }
+                    else if (hit.normal.y < 0)
+                    {
+                        Debug.Log("Hit the Bottom");
+                        if (!stuckInObject)
+                        {
+                            var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
+                            spawner.cloneSword = CloneSword;
+                            CloneSword.transform.parent = hit.collider.transform;
+                            stuckInObject = true;
+                        }
+                        Destroy(gameObject);
+                    }
+                    else if (hit.normal.y > 0)
+                    {
+                        Debug.Log("Hit the Top");
+                        if (!stuckInObject)
+                        {
+                            var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
+                            spawner.cloneSword = CloneSword;
+                            CloneSword.transform.parent = hit.collider.transform;
+                            stuckInObject = true;
+                        }
+                        Destroy(gameObject);
+                    }
+                    if (hit.transform.tag == "Enemy")
+                    {
+                        hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
+                        speed = 0;
                         stuckInObject = true;
                     }
-                    Destroy(gameObject);
                 }
-                else if (hit.normal.x < 0)
+                else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
                 {
-                    Debug.Log("Hit the Left");
-                    if (!stuckInObject)
-                    {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
-                        spawner.cloneSword = CloneSword;
-                        CloneSword.transform.parent = hit.collider.transform;
-                        stuckInObject = true;
-                    }
-                    Destroy(gameObject);
-                }
-                else if (hit.normal.y < 0)
-                {
-                    Debug.Log("Hit the Bottom");
-                    if (!stuckInObject)
-                    {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
-                        spawner.cloneSword = CloneSword;
-                        CloneSword.transform.parent = hit.collider.transform;
-                        stuckInObject = true;
-                    }
-                    Destroy(gameObject);
-                }
-                else if (hit.normal.y > 0)
-                {
-                    Debug.Log("Hit the Top");
-                    if (!stuckInObject)
-                    {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
-                        spawner.cloneSword = CloneSword;
-                        CloneSword.transform.parent = hit.collider.transform;
-                        stuckInObject = true;
-                    }
-                    Destroy(gameObject);
-                }
-                if (hit.transform.tag == "Enemy")
-                {
-                    hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
-                    speed = 0;
-                    stuckInObject = true;
+                    DestroySword();
                 }
             }
-            else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
-            {
-                DestroySword();
-            }
-        }
     }
     // Update is called once per frame
     void FixedUpdate()
