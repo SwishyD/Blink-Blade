@@ -13,6 +13,18 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
     public float speed;
     public float deathTimer;
 
+    public Vector2 respawnPoint;
+    public float respawnTimer;
+    private float respawnSpeed;
+    private PatrolDir respawnDir;
+
+    void Start()
+    {
+        respawnPoint = transform.position;
+        respawnSpeed = speed;
+        respawnDir = direction;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -57,16 +69,20 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 
     IEnumerator EdgePause()
     {
-        active = false;
-        var normalSpeed = speed;
-        speed = 0;
-        yield return new WaitForSeconds(1f);
-        active = true;
-        speed = normalSpeed;
+        if (active)
+        {
+            active = false;
+            var normalSpeed = speed;
+            speed = 0;
+            yield return new WaitForSeconds(1f);
+            active = true;
+            speed = normalSpeed;
+        }
     }
 
     public void OnDeath()
     {
+        active = false;
         GetComponent<SpriteRenderer>().color = Color.red;
         Invoke("Destroy", deathTimer);
         speed = 0;
@@ -74,6 +90,7 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 
     public void Destroy()
     {
+        Destroy(SwordSpawner.instance.cloneSword);
         if (transform.childCount > 0)
         {
             PlayerJumpV2.instance.ResetGravity();
@@ -81,6 +98,21 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
             SwordSpawner.instance.swordSpawned = false;
             SwordSpawner.instance.cloneSword = null;
         }
-        Destroy(gameObject);
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        Invoke("Respawn", respawnTimer);
+    }
+
+    public void Respawn()
+    {
+        Debug.Log(respawnSpeed);
+        GetComponent<Collider2D>().enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<SpriteRenderer>().color = Color.white;
+        transform.position = respawnPoint;
+        speed = respawnSpeed;
+        direction = respawnDir;
+        patrolTime = 0;
+        active = true;
     }
 }

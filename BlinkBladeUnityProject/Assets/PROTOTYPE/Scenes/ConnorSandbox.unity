@@ -823,7 +823,7 @@ PrefabInstance:
     - target: {fileID: 5921857822077694295, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.24
+      value: -10.13
       objectReference: {fileID: 0}
     - target: {fileID: 5921857822077694295, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
@@ -4396,11 +4396,16 @@ PrefabInstance:
     - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2098804811653200331, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}
       propertyPath: deathTimer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098804811653200331, guid: 9745b6c8882d04c46be176b3800765c4,
+        type: 3}
+      propertyPath: respawnTimer
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
