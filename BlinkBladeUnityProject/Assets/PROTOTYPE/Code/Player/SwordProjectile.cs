@@ -70,16 +70,22 @@ public class SwordProjectile : MonoBehaviour
                     }
                     Destroy(gameObject);              
                 }
-            if (hit.transform.tag == "Enemy")
-            {
-                hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
-                speed = 0;
-                stuckInObject = true;
-                cursorManager.ChangeCursorState(true);
-            }
-            else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
+                else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
                 {
                     DestroySword();
+                }
+
+                if (hit.transform.name.Contains("Bullet"))
+                {
+                    Debug.Log("BulletSplit");
+                    Destroy(hit.collider.gameObject);
+                }
+                if (hit.transform.tag == "Enemy")
+                {
+                    hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
+                    speed = 0;
+                    stuckInObject = true;
+                    cursorManager.ChangeCursorState(true);
                 }
             }
     }
