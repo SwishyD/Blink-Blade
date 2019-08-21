@@ -40,6 +40,10 @@ public class SwordSpawner : MonoBehaviour
     private void Start()
     {
         cursorManager = FindObjectOfType<CursorManager>();
+        if (cursorManager == null)
+        {
+            Debug.LogWarning("No CursorManager in Scene!");
+        }
     }
 
     // Update is called once per frame
@@ -56,7 +60,10 @@ public class SwordSpawner : MonoBehaviour
             Debug.Log("SwordSpawned");
             swordSpawned = true;
             closeToGround = false;
-            cursorManager.ChangeCursorState(false);
+            if (cursorManager != null)
+            {
+                cursorManager.ChangeCursorState(false);
+            }
         }
         else if(Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
         {
@@ -67,7 +74,10 @@ public class SwordSpawner : MonoBehaviour
             cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
             swordSpawned = true;
             closeToGround = false;
-            cursorManager.ChangeCursorState(false);
+            if (cursorManager != null)
+            {
+                cursorManager.ChangeCursorState(false);
+            }
         }
         else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
         {
@@ -77,7 +87,10 @@ public class SwordSpawner : MonoBehaviour
             player.GetComponent<PlayerJumpV2>().isHanging = false;
             closeToGround = false;
             swordSpawned = false;
-            cursorManager.ChangeCursorState(false);
+            if (cursorManager != null)
+            {
+                cursorManager.ChangeCursorState(false);
+            }
         }
         else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
@@ -87,7 +100,10 @@ public class SwordSpawner : MonoBehaviour
             player.GetComponent<PlayerJumpV2>().isHanging = false;
             closeToGround = false;
             swordSpawned = false;
-            cursorManager.ChangeCursorState(false);
+            if (cursorManager != null)
+            {
+                cursorManager.ChangeCursorState(false);
+            }
         }
         #endregion
         #region Right Click Options

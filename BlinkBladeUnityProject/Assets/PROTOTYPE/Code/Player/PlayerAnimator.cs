@@ -25,20 +25,7 @@ public class PlayerAnimator : MonoBehaviour
         if (!pJumpScript.isHanging) // Prevents the player from changing direction while hanging.
         {
             anim.SetFloat("PlayerHorizontalSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-            if (Input.GetAxisRaw("Horizontal") < 0)
-            {
-                if (!spriteRend.flipX)
-                {
-                    spriteRend.flipX = true;
-                }
-            }
-            else if (Input.GetAxisRaw("Horizontal") > 0)
-            {
-                if (spriteRend.flipX)
-                {
-                    spriteRend.flipX = false;
-                }
-            }
+            SetPlayerDirection();
 
             if (anim.GetBool("PlayerHangingFromSword"))
             {
@@ -66,6 +53,31 @@ public class PlayerAnimator : MonoBehaviour
             if (!anim.GetBool("PlayerHangingFromSword"))
             {
                 anim.SetBool("PlayerHangingFromSword", true);
+            }
+        }
+    }
+
+    public void SetPlayerDirection()
+    {
+        if (pJumpScript.isHanging)
+        {
+            //Make sure that player is facing sword when hanging.
+        }
+        else
+        {
+            if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                if (!spriteRend.flipX)
+                {
+                    spriteRend.flipX = true;
+                }
+            }
+            else if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                if (spriteRend.flipX)
+                {
+                    spriteRend.flipX = false;
+                }
             }
         }
     }
