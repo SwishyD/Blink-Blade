@@ -50,7 +50,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         }
     }
 
-    public void OnDeath()
+    public void OnHit()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
         Invoke("Destroy", deathTimer);

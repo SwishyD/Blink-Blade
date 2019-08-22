@@ -82,7 +82,7 @@ public class SwordProjectile : MonoBehaviour
                 }
                 if (hit.transform.tag == "Enemy")
                 {
-                    hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
+                    hit.transform.gameObject.GetComponent<IEnemyDeath>().OnHit();
                     speed = 0;
                     stuckInObject = true;
                     cursorManager.ChangeCursorState(true);
