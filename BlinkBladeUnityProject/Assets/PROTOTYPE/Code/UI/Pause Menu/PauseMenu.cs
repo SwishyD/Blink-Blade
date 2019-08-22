@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-       
+        gameIsPaused = false;
     }
 	
 	// Update is called once per frame
@@ -35,7 +35,6 @@ public class PauseMenu : MonoBehaviour {
         {
             player.GetComponent<PlayerMovementV2>().enabled = true;
             player.GetComponent<PlayerJumpV2>().enabled = true;
-
             player.GetComponentInChildren<SwordSpawner>().enabled = true;
 
         }
@@ -98,6 +97,9 @@ public class PauseMenu : MonoBehaviour {
 
     public void MainMenu()
     {
+        player.GetComponent<PlayerMovementV2>().enabled = true;
+        player.GetComponent<PlayerJumpV2>().enabled = true;
+        player.GetComponentInChildren<SwordSpawner>().enabled = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);        
     }
