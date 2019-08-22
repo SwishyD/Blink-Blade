@@ -1246,6 +1246,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   distance: 2
+  isHit: 0
+  soul: {fileID: 21300000, guid: 6a25828a65b15b24aa5d436da2f3c5bb, type: 3}
+  normal: {fileID: 21300000, guid: 0fbed429b20538746b4442c1bb0321d2, type: 3}
+  deathTimer: 2
+  respawnTimer: 2
+  iFrameTimer: 1
   groundDetection: {fileID: 1666551452}
 --- !u!50 &1434820016
 Rigidbody2D:
