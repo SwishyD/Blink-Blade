@@ -35,7 +35,7 @@ public class FlyingEnemy : MonoBehaviour, IEnemyDeath
         }
     }
 
-    public void OnDeath()
+    public void OnHit()
     {
         isHit = true;
     }

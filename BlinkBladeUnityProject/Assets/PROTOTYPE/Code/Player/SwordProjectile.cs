@@ -29,18 +29,15 @@ public class SwordProjectile : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, throwDistance, rayMask);
-        Debug.DrawLine(transform.position, hit.point, Color.yellow);
-        if (hit.collider != null)
-        {
-            if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, throwDistance, rayMask);
+            Debug.DrawLine(transform.position, hit.point, Color.yellow);
+            if (hit.collider != null)
             {
-                hitPoint = hit.point;
-                Debug.Log("HitPoint: " + hitPoint);
-                if (hit.normal.x > 0)
+                if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
                 {
-                    Debug.Log("Hit the Right");
-                    if (!stuckInObject)
+                    hitPoint = hit.point;
+                    Debug.Log("HitPoint: " + hitPoint);
+                    if (hit.normal.x > 0)
                     {
                         var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
                         spawner.cloneSword = CloneSword;
@@ -51,12 +48,7 @@ public class SwordProjectile : MonoBehaviour
                             cursorManager.ChangeCursorState(true);
                         }
                     }
-                    Destroy(gameObject);
-                }
-                else if (hit.normal.x < 0)
-                {
-                    Debug.Log("Hit the Left");
-                    if (!stuckInObject)
+                    else if (hit.normal.x < 0)
                     {
                         var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
                         spawner.cloneSword = CloneSword;
@@ -67,12 +59,7 @@ public class SwordProjectile : MonoBehaviour
                             cursorManager.ChangeCursorState(true);
                         }
                     }
-                    Destroy(gameObject);
-                }
-                else if (hit.normal.y < 0)
-                {
-                    Debug.Log("Hit the Bottom");
-                    if (!stuckInObject)
+                    else if (hit.normal.y < 0)
                     {
                         var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
                         spawner.cloneSword = CloneSword;
@@ -83,12 +70,7 @@ public class SwordProjectile : MonoBehaviour
                             cursorManager.ChangeCursorState(true);
                         }
                     }
-                    Destroy(gameObject);
-                }
-                else if (hit.normal.y > 0)
-                {
-                    Debug.Log("Hit the Top");
-                    if (!stuckInObject)
+                    else if (hit.normal.y > 0)
                     {
                         var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
                         spawner.cloneSword = CloneSword;
@@ -99,11 +81,21 @@ public class SwordProjectile : MonoBehaviour
                             cursorManager.ChangeCursorState(true);
                         }
                     }
-                    Destroy(gameObject);
+                    Destroy(gameObject);              
+                }
+                else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
+                {
+                    DestroySword();
+                }
+
+                if (hit.transform.name.Contains("Bullet"))
+                {
+                    Debug.Log("BulletSplit");
+                    Destroy(hit.collider.gameObject);
                 }
                 if (hit.transform.tag == "Enemy")
                 {
-                    hit.transform.gameObject.GetComponent<IEnemyDeath>().OnDeath();
+                    hit.transform.gameObject.GetComponent<IEnemyDeath>().OnHit();
                     speed = 0;
                     stuckInObject = true;
                     if (cursorManager != null)
@@ -112,11 +104,6 @@ public class SwordProjectile : MonoBehaviour
                     }
                 }
             }
-            else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
-            {
-                DestroySword();
-            }
-        }
     }
     // Update is called once per frame
     void FixedUpdate()

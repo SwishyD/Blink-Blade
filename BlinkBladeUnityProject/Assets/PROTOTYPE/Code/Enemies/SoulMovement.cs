@@ -5,6 +5,8 @@ using UnityEngine;
 public class SoulMovement : MonoBehaviour
 {
     public float speed;
+    public float throwDistance;
+    public LayerMask rayMask;
 
     private void Awake()
     {

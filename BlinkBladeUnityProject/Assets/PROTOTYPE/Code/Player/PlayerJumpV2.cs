@@ -6,15 +6,19 @@ public class PlayerJumpV2 : MonoBehaviour
 {
     private PlayerAnimator playerAnim;
     
+    //Jump
     public float jumpVelocity;
     public float doubleJumpVelocity;
     public float groundedSkin = 0.05f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
-    public float defaultGrav = 3;
-    public float maxVelocityDown = -20;
+    public float defaultGrav = 3f;
+    public float maxVelocityDown = -20f;
+    public float quickFallMaxVelocityDown = -40f;
     public float boxOffset;
-
+    static float t = 0.0f;
+    public float currentVelocityDown;
+        
     public LayerMask mask;
     public Transform feetPos;
 
@@ -24,6 +28,7 @@ public class PlayerJumpV2 : MonoBehaviour
     bool isGrounded;
     bool hasJumped;
     public bool isHanging;
+    public bool isQuickFalling;
 
 
 
@@ -33,7 +38,6 @@ public class PlayerJumpV2 : MonoBehaviour
     Rigidbody2D rb;
 
     public SwordSpawner spawner;
-
 
     public static PlayerJumpV2 instance = null;
 
@@ -65,6 +69,8 @@ public class PlayerJumpV2 : MonoBehaviour
 
     private void Update()
     {
+        currentVelocityDown = rb.velocity.y;
+
         if (isGrounded)
         {
             hasJumped = false;
@@ -98,7 +104,7 @@ public class PlayerJumpV2 : MonoBehaviour
             doubleJumpRequest = true;
         }
 
-        if (isHanging == true && Input.GetKey(KeyCode.S))
+        if (isHanging == true && Input.GetKeyDown(KeyCode.S))
         {
             ResetGravity();
             isHanging = false;
@@ -110,19 +116,21 @@ public class PlayerJumpV2 : MonoBehaviour
 
         if (isGrounded == false && Input.GetKey(KeyCode.S))
         {
-            rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
+            isQuickFalling = true;
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Lerp(currentVelocityDown, quickFallMaxVelocityDown, t));
+            t += 0.5f * Time.deltaTime;
             playerAnim.SetPlayerQuickFall(true);
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            ResetGravity();
+            isQuickFalling = false;
             playerAnim.SetPlayerQuickFall(false);
         }
+
     }
 
     private void FixedUpdate()
     {
-        //Debug.Log(rb.velocity.y);
 
         if (jumpRequest == true)
         {
@@ -133,25 +141,42 @@ public class PlayerJumpV2 : MonoBehaviour
             ResetGravity();
             DoubleJump();
         }
-        
-        
+
+        if (isHanging)
+        {
+            maxVelocityDown = 0f;
+
+        }
+        else
+        {
+            maxVelocityDown = -20f;
+        }
+
         isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);
         playerAnim.SetPlayerGrounded(isGrounded);
 
 
 
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0 && !isHanging)
         {
             rb.gravityScale = fallMultiplier;
         }
-        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W))
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W) && !isHanging)
         {
             rb.gravityScale = lowJumpMultiplier;
         }
+        else
+        {
+            rb.gravityScale = defaultGrav;
+        }
        
-        if (rb.velocity.y < maxVelocityDown)
+        if (rb.velocity.y < maxVelocityDown && !isQuickFalling && !isHanging)
         {
             rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
+        }
+        else if (isHanging)
+        {
+            rb.velocity = Vector2.zero;
         }
 
         playerAnim.SetPlayerYVelocity(rb.velocity.y);
@@ -177,6 +202,7 @@ public class PlayerJumpV2 : MonoBehaviour
         doubleJumpRequest = false;
         doubleJumpReady = false;
         hasJumped = true;
+        t = 0f;
     }
 
     public void ResetGravity()
@@ -184,6 +210,7 @@ public class PlayerJumpV2 : MonoBehaviour
         PlayerMovementV2.instance.canMove = true;
         rb.velocity = Vector2.zero;
         rb.gravityScale = defaultGrav;
+        t = 0f;
     }
 
     public void FreezePos()
@@ -200,7 +227,7 @@ public class PlayerJumpV2 : MonoBehaviour
         PlayerMovementV2.instance.canMove = true;
         isHanging = false;
     }
-
+   
     private void OnDrawGizmos()
     {
 
