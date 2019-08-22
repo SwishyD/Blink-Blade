@@ -17,11 +17,12 @@ public class BulletMovement : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player")
         {
-
+            col.GetComponent<PlayerSpawnPoint>().Respawn();
+            Destroy(gameObject);
         }
         else if(!col.name.Contains("Bullet"))
         {

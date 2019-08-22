@@ -7,7 +7,7 @@ public class ArmourEnemy : MonoBehaviour, IEnemyDeath
     public GameObject soul;
     public GameObject soulSpawner;
 
-    public void OnDeath()
+    public void OnHit()
     {
         GetComponent<SpriteRenderer>().color = Color.blue;
         var Soul = Instantiate(soul, soulSpawner.transform.position, Quaternion.identity);
