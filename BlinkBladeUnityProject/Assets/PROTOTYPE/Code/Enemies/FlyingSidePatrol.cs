@@ -7,11 +7,19 @@ public enum PatrolDir { Left, Right, Up, Down}
 public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 {
     public PatrolDir direction;
+    [Tooltip("(Seconds) Time that the Enemy pauses for on each side")]
+    public float pauseTimer;
     public bool active;
-    public float patrolTime;
+    private float patrolTime;
+    [Tooltip("(Seconds) Time that the Enemy moves to each side")]
     public float maxPatrolTime;
     public float speed;
+    [Tooltip("(Seconds) Time it takes for the Soul to disappear")]
     public float deathTimer;
+    [Tooltip("(Seconds) Time it takes for the Enemy to Respawn")]
+    public float respawnTimer;
+    [Tooltip("(Seconds) Time that the Enemy doesn't have a hitbox")]
+    public float iFrameTimer;
 
     public Sprite soul;
     public Sprite normal;
@@ -72,7 +80,7 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
             active = false;
             var normalSpeed = speed;
             speed = 0;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(pauseTimer);
             active = true;
             speed = normalSpeed;
     }
@@ -101,15 +109,14 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 
     IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(respawnTimer);
         GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<SpriteRenderer>().sprite = normal;
         GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(iFrameTimer);
         GetComponent<SpriteRenderer>().color = Color.white;
         isHit = false;
         active = true;
     }
-
 }

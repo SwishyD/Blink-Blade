@@ -13,6 +13,8 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     public float offset;
 
     public float deathTimer;
+    public Sprite soul;
+    public Sprite normal;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,14 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Player" && active)
+        {
+            col.GetComponent<PlayerSpawnPoint>().Respawn();
+        }
     }
 
     IEnumerator Shoot()
@@ -52,20 +62,35 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
 
     public void OnHit()
     {
-        GetComponent<SpriteRenderer>().color = Color.red;
-        Invoke("Destroy", deathTimer);
+        GetComponent<SpriteRenderer>().sprite = soul;
+        Invoke("OnDeath", deathTimer);
         active = false;
     }
 
-    public void Destroy()
+    public void OnDeath()
     {
-        if (transform.childCount > 0)
+        if (transform.childCount > 1)
         {
+            Destroy(SwordSpawner.instance.cloneSword);
             PlayerJumpV2.instance.ResetGravity();
             PlayerJumpV2.instance.PlayerNormal();
             SwordSpawner.instance.swordSpawned = false;
             SwordSpawner.instance.cloneSword = null;
         }
-        Destroy(gameObject);
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        StartCoroutine("Respawn");
+    }
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(2f);
+        GetComponent<Collider2D>().enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<SpriteRenderer>().sprite = normal;
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(1f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        active = true;
     }
 }
