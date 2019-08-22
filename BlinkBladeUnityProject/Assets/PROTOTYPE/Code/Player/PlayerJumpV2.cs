@@ -140,19 +140,28 @@ public class PlayerJumpV2 : MonoBehaviour
         {
             ResetGravity();
             DoubleJump();
-        }        
-        
+        }
+
+        if (isHanging)
+        {
+            maxVelocityDown = 0f;
+
+        }
+        else
+        {
+            maxVelocityDown = -20f;
+        }
 
         isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);
         playerAnim.SetPlayerGrounded(isGrounded);
 
 
 
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0 && !isHanging)
         {
             rb.gravityScale = fallMultiplier;
         }
-        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W))
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W) && !isHanging)
         {
             rb.gravityScale = lowJumpMultiplier;
         }
@@ -161,9 +170,13 @@ public class PlayerJumpV2 : MonoBehaviour
             rb.gravityScale = defaultGrav;
         }
        
-        if (rb.velocity.y < maxVelocityDown && !isQuickFalling)
+        if (rb.velocity.y < maxVelocityDown && !isQuickFalling && !isHanging)
         {
             rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
+        }
+        else if (isHanging)
+        {
+            rb.velocity = Vector2.zero;
         }
 
         playerAnim.SetPlayerYVelocity(rb.velocity.y);
