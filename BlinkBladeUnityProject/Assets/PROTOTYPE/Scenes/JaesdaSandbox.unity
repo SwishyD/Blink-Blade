@@ -16806,13 +16806,16 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   defaultGrav: 3
   maxVelocityDown: -20
+  quickFallMaxVelocityDown: -40
   boxOffset: 0
+  currentVelocityDown: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   feetPos: {fileID: 0}
   doubleJumpReady: 0
   isHanging: 0
+  isQuickFalling: 0
   boxSize: {x: 0, y: 0}
   spawner: {fileID: 0}
 --- !u!50 &565360133
