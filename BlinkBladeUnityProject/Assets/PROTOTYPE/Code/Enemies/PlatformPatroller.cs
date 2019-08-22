@@ -34,7 +34,7 @@ public class PlatformPatroller : MonoBehaviour, IEnemyDeath
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
-    public void OnDeath()
+    public void OnHit()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
         speed = 0;

@@ -13,27 +13,31 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
     public float speed;
     public float deathTimer;
 
+    public Sprite soul;
+    public Sprite normal;
+    public bool isHit;
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (active)
-        {
-            patrolTime += Time.deltaTime;
-        }
-        if(patrolTime >= maxPatrolTime)
-        {
-            StartCoroutine("EdgePause");
-            if(direction == PatrolDir.Left || direction == PatrolDir.Up)
+            if (active)
             {
-                direction++;
-                patrolTime = 0;
+                patrolTime += Time.deltaTime;
             }
-            else if(direction == PatrolDir.Right || direction == PatrolDir.Down)
+            if (patrolTime >= maxPatrolTime)
             {
-                direction--;
-                patrolTime = 0;
+                StartCoroutine("EdgePause");
+                if (direction == PatrolDir.Left || direction == PatrolDir.Up)
+                {
+                    direction++;
+                    patrolTime = 0;
+                }
+                else if (direction == PatrolDir.Right || direction == PatrolDir.Down)
+                {
+                    direction--;
+                    patrolTime = 0;
+                }
             }
-        }
 
         switch (direction)
         {
@@ -55,32 +59,57 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag == "Player" && !isHit)
+        {
+            col.GetComponent<PlayerSpawnPoint>().Respawn();
+        }  
+    }
+
     IEnumerator EdgePause()
     {
-        active = false;
-        var normalSpeed = speed;
-        speed = 0;
-        yield return new WaitForSeconds(1f);
-        active = true;
-        speed = normalSpeed;
+            active = false;
+            var normalSpeed = speed;
+            speed = 0;
+            yield return new WaitForSeconds(1f);
+            active = true;
+            speed = normalSpeed;
+    }
+
+    public void OnHit()
+    {
+        GetComponent<SpriteRenderer>().sprite = soul;
+        isHit = true;
+        Invoke("OnDeath", deathTimer);
     }
 
     public void OnDeath()
     {
-        GetComponent<SpriteRenderer>().color = Color.red;
-        Invoke("Destroy", deathTimer);
-        speed = 0;
-    }
-
-    public void Destroy()
-    {
         if (transform.childCount > 0)
         {
+            Destroy(SwordSpawner.instance.cloneSword);
             PlayerJumpV2.instance.ResetGravity();
             PlayerJumpV2.instance.PlayerNormal();
             SwordSpawner.instance.swordSpawned = false;
             SwordSpawner.instance.cloneSword = null;
         }
-        Destroy(gameObject);
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        StartCoroutine("Respawn");
     }
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(2f);
+        GetComponent<Collider2D>().enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<SpriteRenderer>().sprite = normal;
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(1f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        isHit = false;
+        active = true;
+    }
+
 }

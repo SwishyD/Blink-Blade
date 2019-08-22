@@ -12,6 +12,8 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     public GameObject bulletSpawn;
     public float offset;
 
+    public float deathTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,9 +50,22 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         }
     }
 
-    public void OnDeath()
+    public void OnHit()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
+        Invoke("Destroy", deathTimer);
         active = false;
+    }
+
+    public void Destroy()
+    {
+        if (transform.childCount > 0)
+        {
+            PlayerJumpV2.instance.ResetGravity();
+            PlayerJumpV2.instance.PlayerNormal();
+            SwordSpawner.instance.swordSpawned = false;
+            SwordSpawner.instance.cloneSword = null;
+        }
+        Destroy(gameObject);
     }
 }
