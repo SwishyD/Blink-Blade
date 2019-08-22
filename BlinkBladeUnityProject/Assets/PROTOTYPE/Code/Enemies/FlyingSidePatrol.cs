@@ -97,8 +97,11 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
         if (transform.childCount > 0)
         {
             Destroy(SwordSpawner.instance.cloneSword);
-            PlayerJumpV2.instance.ResetGravity();
-            PlayerJumpV2.instance.PlayerNormal();
+            if (PlayerJumpV2.instance.isHanging)
+            {
+                PlayerJumpV2.instance.ResetGravity();
+                PlayerJumpV2.instance.PlayerNormal();
+            }
             SwordSpawner.instance.swordSpawned = false;
             SwordSpawner.instance.cloneSword = null;
         }
@@ -110,13 +113,12 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTimer);
-        GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<SpriteRenderer>().sprite = normal;
         GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(iFrameTimer);
+        GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
         isHit = false;
-        active = true;
     }
 }
