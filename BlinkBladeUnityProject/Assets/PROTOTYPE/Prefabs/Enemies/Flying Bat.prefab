@@ -133,6 +133,8 @@ MonoBehaviour:
   deathPFX: {fileID: 798063935485932306, guid: 5f08e226e522025478a9966709362098, type: 3}
   respawnPFX: {fileID: 1863786166693147408, guid: 3952cf7f95e148e4e9c63ad746c0f84b,
     type: 3}
+  soulDisappearPFX: {fileID: 798063935485932306, guid: 24dcf0471c0328f4fb90aacdc46ded2e,
+    type: 3}
 --- !u!95 &1559330257
 Animator:
   serializedVersion: 3
