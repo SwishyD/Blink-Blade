@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PatrolDir { Left, Right, Up, Down}
 
-public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
+public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 {
     public PatrolDir direction;
     [Tooltip("(Seconds) Time that the Enemy pauses for on each side")]
@@ -21,9 +21,17 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
     [Tooltip("(Seconds) Time that the Enemy doesn't have a hitbox")]
     public float iFrameTimer;
 
-    public Sprite soul;
-    public Sprite normal;
+    //public Sprite soul;
+    //public Sprite normal;
     public bool isHit;
+
+    Animator anim;
+    public ParticleSystem deathPFX;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -87,7 +95,9 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 
     public void OnHit()
     {
-        GetComponent<SpriteRenderer>().sprite = soul;
+        //GetComponent<SpriteRenderer>().sprite = soul;
+        anim.SetBool("showSoul", true);
+        Instantiate(deathPFX, gameObject.transform);
         isHit = true;
         Invoke("OnDeath", deathTimer);
     }
@@ -112,13 +122,15 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 
     IEnumerator Respawn()
     {
+        anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);
         GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<SpriteRenderer>().sprite = normal;
+        //GetComponent<SpriteRenderer>().sprite = normal;
         GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(iFrameTimer);
         GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
+        
         isHit = false;
     }
 }
