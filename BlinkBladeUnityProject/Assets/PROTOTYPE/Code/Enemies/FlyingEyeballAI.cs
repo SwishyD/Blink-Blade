@@ -112,16 +112,19 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     public void OnDeath()
     {
-        if (transform.childCount > 1)
+        foreach(Transform child in transform)
         {
-            Destroy(SwordSpawner.instance.cloneSword);
-            if (PlayerJumpV2.instance.isHanging)
+            if (child.name.Contains("Sword"))
             {
-                PlayerJumpV2.instance.ResetGravity();
-                PlayerJumpV2.instance.PlayerNormal();
+                Destroy(SwordSpawner.instance.cloneSword);
+                if (PlayerJumpV2.instance.isHanging)
+                {
+                    PlayerJumpV2.instance.ResetGravity();
+                    PlayerJumpV2.instance.PlayerNormal();
+                }
+                SwordSpawner.instance.swordSpawned = false;
+                SwordSpawner.instance.cloneSword = null;
             }
-            SwordSpawner.instance.swordSpawned = false;
-            SwordSpawner.instance.cloneSword = null;
         }
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
