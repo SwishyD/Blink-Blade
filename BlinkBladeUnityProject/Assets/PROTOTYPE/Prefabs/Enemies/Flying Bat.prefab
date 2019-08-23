@@ -125,7 +125,7 @@ MonoBehaviour:
   pauseTimer: 1
   active: 1
   maxPatrolTime: 2
-  speed: 0.05
+  speed: 0
   deathTimer: 2
   respawnTimer: 2
   iFrameTimer: 1
