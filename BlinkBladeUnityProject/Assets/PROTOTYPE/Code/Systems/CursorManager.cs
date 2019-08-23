@@ -10,20 +10,23 @@ public class CursorManager : MonoBehaviour
     private bool cursorIsCanBlink;
     Vector2 hotSpot;
 
+    private SwordProjectile swordScript;
+
     // Start is called before the first frame update
     void Start()
     {
         hotSpot = new Vector2(17, 17);
+        swordScript = FindObjectOfType<SwordProjectile>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Equals))
+        if (swordScript.stuckInObject)
         {
             ChangeCursorState(true);
         }
-        if (Input.GetKeyDown(KeyCode.Minus))
+        else if (!swordScript.stuckInObject)
         {
             ChangeCursorState(false);
         }
