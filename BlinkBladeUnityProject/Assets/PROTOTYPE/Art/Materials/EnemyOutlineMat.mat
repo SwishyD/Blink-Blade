@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerOutlineMat
+  m_Name: EnemyOutlineMat
   m_Shader: {fileID: 4800000, guid: 2ba18127652f272478a051cd14fcbc8b, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6509804, g: 0.8078432, b: 0.8078432, a: 1}
+    - _Color: {r: 0.8962264, g: 0.2240566, b: 0.2917277, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
