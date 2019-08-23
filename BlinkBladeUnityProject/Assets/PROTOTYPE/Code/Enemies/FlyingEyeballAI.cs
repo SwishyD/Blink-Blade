@@ -28,6 +28,9 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
     Animator anim;
     public ParticleSystem deathPFX;
     public ParticleSystem respawnPFX;
+    public ParticleSystem soulDisappearPFX;
+
+    bool canTriggerHit = true;
 
     private void Start()
     {
@@ -97,10 +100,14 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
     public void OnHit()
     {
         //GetComponent<SpriteRenderer>().sprite = soul;
-        anim.SetBool("showSoul", true);
-        Instantiate(deathPFX, gameObject.transform);
-        isHit = true;
-        Invoke("OnDeath", deathTimer);
+        if (canTriggerHit)
+        {
+            anim.SetBool("showSoul", true);
+            Instantiate(deathPFX, gameObject.transform);
+            isHit = true;
+            Invoke("OnDeath", deathTimer);
+        }
+        canTriggerHit = false;
     }
 
     public void OnDeath()
@@ -118,6 +125,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         }
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+        Instantiate(soulDisappearPFX, gameObject.transform);
         StartCoroutine("Respawn");
     }
 
@@ -132,5 +140,6 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         GetComponent<SpriteRenderer>().color = Color.white;
         
         isHit = false;
+        canTriggerHit = true;
     }
 }
