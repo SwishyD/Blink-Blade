@@ -28,6 +28,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
     Animator anim;
     public ParticleSystem deathPFX;
     public ParticleSystem respawnPFX;
+    public ParticleSystem soulDisappearPFX;
 
     private void Start()
     {
@@ -118,6 +119,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         }
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+        Instantiate(soulDisappearPFX, gameObject.transform);
         StartCoroutine("Respawn");
     }
 
