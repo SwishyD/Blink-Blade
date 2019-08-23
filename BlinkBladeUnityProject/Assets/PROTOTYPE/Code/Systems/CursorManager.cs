@@ -22,13 +22,13 @@ public class CursorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (swordScript.stuckInObject)
+        //if (swordScript.stuckInObject)
         {
-            ChangeCursorState(true);
+            //ChangeCursorState(true);
         }
-        else if (!swordScript.stuckInObject)
+        //else if (!swordScript.stuckInObject)
         {
-            ChangeCursorState(false);
+            //ChangeCursorState(false);
         }
     }
 
