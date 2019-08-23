@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PatrolDir { Left, Right, Up, Down}
 
-public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
+public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 {
     public PatrolDir direction;
     [Tooltip("(Seconds) Time that the Enemy pauses for on each side")]
@@ -21,9 +21,21 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
     [Tooltip("(Seconds) Time that the Enemy doesn't have a hitbox")]
     public float iFrameTimer;
 
-    public Sprite soul;
-    public Sprite normal;
+    //public Sprite soul;
+    //public Sprite normal;
     public bool isHit;
+
+    Animator anim;
+    public ParticleSystem deathPFX;
+    public ParticleSystem respawnPFX;
+    public ParticleSystem soulDisappearPFX;
+
+    bool canTriggerHit = true;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -87,14 +99,20 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
 
     public void OnHit()
     {
-        GetComponent<SpriteRenderer>().sprite = soul;
-        isHit = true;
-        Invoke("OnDeath", deathTimer);
+        //GetComponent<SpriteRenderer>().sprite = soul;
+        if (canTriggerHit)
+        {
+            anim.SetBool("showSoul", true);
+            Instantiate(deathPFX, gameObject.transform);
+            isHit = true;
+            Invoke("OnDeath", deathTimer);
+        }
+        canTriggerHit = false;
     }
 
     public void OnDeath()
     {
-        if (transform.childCount > 0)
+        if (transform.childCount > 1)
         {
             Destroy(SwordSpawner.instance.cloneSword);
             if (PlayerJumpV2.instance.isHanging)
@@ -107,18 +125,21 @@ public class FlyingSidePatrol : MonoBehaviour, IEnemyDeath
         }
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+        Instantiate(soulDisappearPFX, gameObject.transform);
         StartCoroutine("Respawn");
     }
 
     IEnumerator Respawn()
     {
+        anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);
-        GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<SpriteRenderer>().sprite = normal;
-        GetComponent<SpriteRenderer>().color = Color.red;
+        Instantiate(respawnPFX, gameObject.transform);
         yield return new WaitForSeconds(iFrameTimer);
+        GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
+        
         isHit = false;
+        canTriggerHit = true;
     }
 }
