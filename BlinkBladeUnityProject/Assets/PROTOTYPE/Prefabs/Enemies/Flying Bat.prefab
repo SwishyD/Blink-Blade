@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2098804811653200337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.55, y: 0.81, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.2261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.033408403, y: -0.11179361}
+  m_Offset: {x: -0.14331126, y: -0.13484368}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -107,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3404121, y: 1.7154851}
+  m_Size: {x: 1.5105982, y: 1.5618162}
   m_EdgeRadius: 0
 --- !u!114 &2098804811653200331
 MonoBehaviour:
@@ -129,9 +129,10 @@ MonoBehaviour:
   deathTimer: 2
   respawnTimer: 2
   iFrameTimer: 1
-  soul: {fileID: 21300000, guid: 6a25828a65b15b24aa5d436da2f3c5bb, type: 3}
-  normal: {fileID: 21300000, guid: 0fbed429b20538746b4442c1bb0321d2, type: 3}
   isHit: 0
+  deathPFX: {fileID: 798063935485932306, guid: 5f08e226e522025478a9966709362098, type: 3}
+  respawnPFX: {fileID: 1863786166693147408, guid: 3952cf7f95e148e4e9c63ad746c0f84b,
+    type: 3}
 --- !u!95 &1559330257
 Animator:
   serializedVersion: 3

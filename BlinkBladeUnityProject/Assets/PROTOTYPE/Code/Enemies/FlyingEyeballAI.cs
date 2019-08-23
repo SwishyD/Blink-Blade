@@ -27,6 +27,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     Animator anim;
     public ParticleSystem deathPFX;
+    public ParticleSystem respawnPFX;
 
     private void Start()
     {
@@ -125,6 +126,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);
         GetComponent<SpriteRenderer>().enabled = true;
+        Instantiate(respawnPFX, gameObject.transform);
         //GetComponent<SpriteRenderer>().sprite = normal;
         GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(iFrameTimer);
