@@ -105,7 +105,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     public void OnDeath()
     {
-        if (transform.childCount > 0)
+        if (transform.childCount > 1)
         {
             Destroy(SwordSpawner.instance.cloneSword);
             if (PlayerJumpV2.instance.isHanging)
