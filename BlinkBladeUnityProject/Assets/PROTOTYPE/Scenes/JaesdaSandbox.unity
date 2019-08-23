@@ -43976,11 +43976,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flying Bat
       objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44035,67 +44030,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200343, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200343, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200343, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200343, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200341, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.14331126
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200341, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.13484368
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200341, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.5105982
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200341, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.5618162
-      objectReference: {fileID: 0}
-    - target: {fileID: 2098804811653200331, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: deathPFX
-      value: 
-      objectReference: {fileID: 798063935485932306, guid: 5f08e226e522025478a9966709362098,
-        type: 3}
-    - target: {fileID: 2098804811653200331, guid: 9745b6c8882d04c46be176b3800765c4,
-        type: 3}
-      propertyPath: respawnPFX
-      value: 
-      objectReference: {fileID: 1863786166693147408, guid: 3952cf7f95e148e4e9c63ad746c0f84b,
-        type: 3}
-    - target: {fileID: 1559330257, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
