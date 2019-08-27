@@ -12,7 +12,8 @@ public class Timer : MonoBehaviour
     public TMP_Text textBox;
 
 
-    bool timerActive = true;
+    bool timerActive;
+    public bool levelStarted;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +30,15 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void TimerToggle()
+    public void TimerToggleOff()
     {
-        timerActive = !timerActive;
+        timerActive = false;
+    }
+    public void TimerToggleOn()
+    {
+        if (levelStarted)
+        {
+            timerActive = true;
+        }
     }
 }

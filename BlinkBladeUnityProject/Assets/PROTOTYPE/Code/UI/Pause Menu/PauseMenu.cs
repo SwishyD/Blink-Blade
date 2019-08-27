@@ -75,7 +75,7 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
-        timer.GetComponent<Timer>().TimerToggle();
+        timer.GetComponent<Timer>().TimerToggleOn();
 
     }
 
@@ -84,7 +84,7 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
-        timer.GetComponent<Timer>().TimerToggle();
+        timer.GetComponent<Timer>().TimerToggleOff();
     }
 
     public void QuitGameConfrim()

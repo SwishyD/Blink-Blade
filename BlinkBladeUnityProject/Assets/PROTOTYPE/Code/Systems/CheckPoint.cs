@@ -6,6 +6,7 @@ public class CheckPoint : MonoBehaviour
 {
     public bool triggered;
     public bool isEnd;
+    public bool isStart;
 
     public GameObject timer;
 
@@ -16,7 +17,12 @@ public class CheckPoint : MonoBehaviour
         {
             if (isEnd)
             {
-                timer.GetComponent<Timer>().TimerToggle();
+                timer.GetComponent<Timer>().TimerToggleOff();
+            }
+            else if (isStart)
+            {
+                timer.GetComponent<Timer>().levelStarted = true;
+                timer.GetComponent<Timer>().TimerToggleOn();
             }
             GetComponent<SpriteRenderer>().color = Color.red;
             triggered = true;
