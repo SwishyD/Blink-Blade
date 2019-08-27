@@ -289,13 +289,14 @@ MonoBehaviour:
   shotPoint: {fileID: 5921857822077694295}
   throwDistance: 2
   cloneSword: {fileID: 0}
-  sword: {fileID: 5722015756847094077, guid: f894b9249bb63fe4e88bca4899fd166e, type: 3}
+  sword: {fileID: 5722015756847094077, guid: 2957004cc12937a4daa0ef257833a654, type: 3}
   player: {fileID: 5921857822077694296}
   swordSpawned: 0
   closeToGround: 0
   rayMask:
     serializedVersion: 2
     m_Bits: 768
+  cursorManager: {fileID: 0}
 --- !u!212 &5166808852527385704
 SpriteRenderer:
   m_ObjectHideFlags: 0
