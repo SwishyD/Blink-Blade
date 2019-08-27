@@ -1816,6 +1816,12 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.3143898
       objectReference: {fileID: 0}
+    - target: {fileID: 5166808852527385706, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 5722015756847094077, guid: 2957004cc12937a4daa0ef257833a654,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 8835424059149307043, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
     - {fileID: 695114836, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}

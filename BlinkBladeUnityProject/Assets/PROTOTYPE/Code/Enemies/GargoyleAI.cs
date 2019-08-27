@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GargoyleAI : MonoBehaviour
+public class GargoyleAI : MonoBehaviour, IEnemyDeath
 {
     public bool inRange;
     [Tooltip("Number of tiles away from the Gargoyle to detect the player")]
