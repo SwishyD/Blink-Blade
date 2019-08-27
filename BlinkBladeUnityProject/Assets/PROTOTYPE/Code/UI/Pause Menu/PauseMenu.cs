@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject quitConfirmUI;
     public GameObject menuConfirmUI;
     public GameObject player;
+    public GameObject timer;
 
     public static bool quitActive = false;
     public static bool menuActive = false;
@@ -74,6 +75,8 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        timer.GetComponent<Timer>().TimerToggleOn();
+
     }
 
     public  void Pause()
@@ -81,6 +84,7 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        timer.GetComponent<Timer>().TimerToggleOff();
     }
 
     public void QuitGameConfrim()
