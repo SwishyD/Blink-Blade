@@ -5,6 +5,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 
+    //FindObjectOfType<AudioManager>().Play("Blink");
+
     public Sound[] sounds;
 
     public static AudioManager instance;

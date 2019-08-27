@@ -233,7 +233,7 @@ public class SwordSpawner : MonoBehaviour
         }
         #endregion
         #region Right Click Options
-        if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
+        if (Input.GetMouseButtonDown(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
             PlayerJumpV2.instance.ResetGravity();
             if (!closeToGround)
@@ -246,6 +246,7 @@ public class SwordSpawner : MonoBehaviour
             }
             player.GetComponent<PlayerJumpV2>().FreezePos();
             cursorManager.ChangeCursorState(false);
+            FindObjectOfType<AudioManager>().Play("Blink");
         }
         #endregion
     }

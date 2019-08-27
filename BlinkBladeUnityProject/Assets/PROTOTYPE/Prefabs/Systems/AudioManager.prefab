@@ -50,3 +50,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: SwordBreak
+    clip: {fileID: 8300000, guid: dff6cf5b88c2834439025a183240d4a6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Blink
+    clip: {fileID: 8300000, guid: 28f6cea043cf4874d881d04f0fc1790f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
