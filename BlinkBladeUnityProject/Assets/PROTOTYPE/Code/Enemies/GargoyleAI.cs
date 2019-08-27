@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GargoyleAI : MonoBehaviour
+public class GargoyleAI : MonoBehaviour, IEnemyDeath
 {
     public bool inRange;
     [Tooltip("Number of tiles away from the Gargoyle to detect the player")]
@@ -31,6 +31,7 @@ public class GargoyleAI : MonoBehaviour
         else
         {
             inRange = false;
+            GetComponent<SpriteRenderer>().color = Color.gray;
         }
         Debug.Log(inRange);
     }
@@ -49,6 +50,7 @@ public class GargoyleAI : MonoBehaviour
         {
             if (inRange)
             {
+                GetComponent<SpriteRenderer>().color = Color.white;
                 yield return new WaitForSeconds(chargeUpTime);
                 GetComponent<SpriteRenderer>().color = Color.yellow;
                 yield return new WaitForSeconds(0.2f);
@@ -59,6 +61,18 @@ public class GargoyleAI : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = Color.white;
             }
             yield return new WaitForSeconds(timeBetweenShots);
+        }
+    }
+
+    public void OnHit()
+    {
+        Destroy(SwordSpawner.instance.cloneSword);
+        SwordSpawner.instance.cloneSword = null;
+        SwordSpawner.instance.closeToGround = false;
+        SwordSpawner.instance.swordSpawned = false;
+        if (SwordSpawner.instance.cursorManager != null)
+        {
+            SwordSpawner.instance.cursorManager.ChangeCursorState(false);
         }
     }
 }
