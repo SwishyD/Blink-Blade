@@ -7,8 +7,9 @@ public class SwordProjectile : MonoBehaviour
     public SwordSpawner spawner;
     public GameObject stuckSword;
     public float speed;
-
     public float throwDistance;
+
+    public float distanceFromWall;
     public Vector2 hitPoint;
     public LayerMask rayMask;
 
@@ -29,7 +30,7 @@ public class SwordProjectile : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, throwDistance, rayMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, distanceFromWall, rayMask);
         Debug.DrawLine(transform.position, hit.point, Color.yellow);
         if (hit.collider != null)
         {
@@ -125,6 +126,10 @@ public class SwordProjectile : MonoBehaviour
         if(stuckInObject == false)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
+        }
+        if(Vector2.Distance(this.transform.position, GameObject.Find("PlayerV2").transform.position) >= throwDistance)
+        {
+            DestroySword();
         }
     }
 

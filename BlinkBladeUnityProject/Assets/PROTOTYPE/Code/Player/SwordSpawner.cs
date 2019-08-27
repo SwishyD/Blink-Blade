@@ -22,7 +22,7 @@ public class SwordSpawner : MonoBehaviour
     public bool closeToGround;
     public LayerMask rayMask;
 
-    private CursorManager cursorManager;
+    public CursorManager cursorManager;
 
     private void Awake()
     {
