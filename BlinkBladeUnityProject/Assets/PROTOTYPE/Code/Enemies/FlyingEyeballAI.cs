@@ -32,6 +32,8 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     bool canTriggerHit = true;
 
+    [SerializeField] AudioSource respawnSFX;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -141,6 +143,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);
         Instantiate(respawnPFX, gameObject.transform);
+        respawnSFX.Play();
         yield return new WaitForSeconds(iFrameTimer);
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;

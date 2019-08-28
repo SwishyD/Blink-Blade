@@ -114,7 +114,7 @@ public class SwordProjectile : MonoBehaviour
         {
             SwordSpawner.instance.swordSpawned = false;
             spawner.cloneSword = null;
-            CursorManager.Instance.ChangeCursorState(true);
+            CursorManager.Instance.ChangeCursorState(false);
             Destroy(gameObject);
         }
     }
@@ -122,7 +122,7 @@ public class SwordProjectile : MonoBehaviour
     {
         SwordSpawner.instance.swordSpawned = false;
         spawner.cloneSword = null;
-        CursorManager.Instance.ChangeCursorState(true);
+        CursorManager.Instance.ChangeCursorState(false);
         Destroy(gameObject);
     }
 }
