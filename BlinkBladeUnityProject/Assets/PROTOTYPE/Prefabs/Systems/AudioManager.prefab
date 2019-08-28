@@ -62,3 +62,27 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: fc5ea9064b2579a4e855bccf63e4f570, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EyebatSquelch
+    clip: {fileID: 8300000, guid: 3060718deec8485429639b8f7c405e51, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Squeal
+    clip: {fileID: 8300000, guid: 4bdb6e2e149c125448c6d0acfaa0100b, type: 3}
+    volume: 0.26
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EyebatSquelch_02
+    clip: {fileID: 8300000, guid: 636dbfe453759d746b2519d243b58708, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
