@@ -9,6 +9,7 @@ public class SwordProjectile : MonoBehaviour
     public float speed;
     public float throwDistance;
 
+    public float circleSize;
     public float distanceFromWall;
     public Vector2 hitPoint;
     public LayerMask rayMask;
@@ -23,7 +24,7 @@ public class SwordProjectile : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, distanceFromWall, rayMask);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, circleSize, transform.right, distanceFromWall, rayMask);
         Debug.DrawLine(transform.position, hit.point, Color.yellow);
         if (hit.collider != null)
         {
@@ -139,5 +140,10 @@ public class SwordProjectile : MonoBehaviour
         spawner.cloneSword = null;
         CursorManager.Instance.ChangeCursorState(false);
         Destroy(gameObject);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, circleSize);
     }
 }

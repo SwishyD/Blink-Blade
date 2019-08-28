@@ -153,6 +153,7 @@ MonoBehaviour:
     type: 3}
   speed: 50
   throwDistance: 30
+  circleSize: 1
   distanceFromWall: 1.5
   hitPoint: {x: 0, y: 0}
   rayMask:
