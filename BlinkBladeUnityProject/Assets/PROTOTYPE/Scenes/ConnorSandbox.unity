@@ -1822,6 +1822,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5722015756847094077, guid: 2957004cc12937a4daa0ef257833a654,
         type: 3}
+    - target: {fileID: 4781057828086718360, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8835424059149307043, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
     - {fileID: 695114836, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
