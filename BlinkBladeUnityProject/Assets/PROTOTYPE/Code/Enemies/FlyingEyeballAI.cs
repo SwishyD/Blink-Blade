@@ -32,6 +32,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     bool canTriggerHit = true;
 
+    [SerializeField] AudioSource ghostVanishSFX;
     [SerializeField] AudioSource respawnSFX;
 
     private void Start()
@@ -134,6 +135,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         Instantiate(soulDisappearPFX, gameObject.transform);
+        ghostVanishSFX.Play();
         CursorManager.Instance.ChangeCursorState(false);
         StartCoroutine("Respawn");
     }

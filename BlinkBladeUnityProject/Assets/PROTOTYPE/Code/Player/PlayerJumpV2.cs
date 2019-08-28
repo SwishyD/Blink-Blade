@@ -195,6 +195,7 @@ public class PlayerJumpV2 : MonoBehaviour
         {
             playerAnim.PlayerJumpTrigger();
         }
+        AudioManager.instance.Play("Jump");
     }
     public void DoubleJump()
     {
@@ -203,6 +204,7 @@ public class PlayerJumpV2 : MonoBehaviour
         doubleJumpReady = false;
         hasJumped = true;
         t = 0f;
+        AudioManager.instance.Play("DJump");
     }
 
     public void ResetGravity()
