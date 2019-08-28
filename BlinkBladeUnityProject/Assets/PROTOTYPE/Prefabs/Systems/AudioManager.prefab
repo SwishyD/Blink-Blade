@@ -87,13 +87,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Jump
-    clip: {fileID: 8300000, guid: 159a64e604f7c454a9d5e1ba0aaab455, type: 3}
+    clip: {fileID: 8300000, guid: 066d2e24880ba0144bafc6a0058f550d, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: DJump
-    clip: {fileID: 8300000, guid: 159a64e604f7c454a9d5e1ba0aaab455, type: 3}
+    clip: {fileID: 8300000, guid: 066d2e24880ba0144bafc6a0058f550d, type: 3}
     volume: 1
     pitch: 1.5
     loop: 0
