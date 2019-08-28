@@ -17,6 +17,10 @@ public class SwordSpawner : MonoBehaviour
     public GameObject sword;
     public GameObject player;
 
+    public bool stuckLeft;
+    public bool stuckRight;
+    public bool stuckDown;
+
     public bool swordSpawned;
 
     public bool closeToGround;
@@ -121,7 +125,7 @@ public class SwordSpawner : MonoBehaviour
         }
         else if(hit.collider != null)
         {
-           if(hit.collider.gameObject.layer == 9 || hit.collider.tag == "Enemy")
+           if(hit.collider.gameObject.layer == 9 /* || hit.collider.tag == "Enemy"*/)
            {
                 if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
                 {
@@ -236,16 +240,28 @@ public class SwordSpawner : MonoBehaviour
         if (Input.GetMouseButton(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
             PlayerJumpV2.instance.ResetGravity();
-            if (!closeToGround)
+            if (!closeToGround && !stuckDown)
             {
                 transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
             }
-            else if (closeToGround)
+            else if (closeToGround && !stuckDown)
             {
-                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0,1.2f,0);
+                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0,1f,0);
+            }
+            else if(closeToGround && stuckDown)
+            {
+                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
             }
             player.GetComponent<PlayerJumpV2>().FreezePos();
             cursorManager.ChangeCursorState(false);
+            if (stuckLeft)
+            {
+                GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (stuckRight)
+            {
+                GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
         #endregion
     }
