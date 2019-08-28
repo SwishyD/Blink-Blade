@@ -22,8 +22,6 @@ public class SwordSpawner : MonoBehaviour
     public bool closeToGround;
     public LayerMask rayMask;
 
-    public CursorManager cursorManager;
-
     private void Awake()
     {
         if(instance == null)
@@ -40,11 +38,6 @@ public class SwordSpawner : MonoBehaviour
 
     private void Start()
     {
-        cursorManager = FindObjectOfType<CursorManager>();
-        if (cursorManager == null)
-        {
-            Debug.LogWarning("No CursorManager in Scene!");
-        }
     }
 
     // Update is called once per frame
@@ -65,10 +58,7 @@ public class SwordSpawner : MonoBehaviour
                 Debug.Log("SwordSpawned");
                 swordSpawned = true;
                 closeToGround = false;
-                if (cursorManager != null)
-                {
-                    cursorManager.ChangeCursorState(false);
-                }
+                CursorManager.Instance.ChangeCursorState(false);
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
             {
@@ -79,10 +69,7 @@ public class SwordSpawner : MonoBehaviour
                 cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
                 swordSpawned = true;
                 closeToGround = false;
-                if (cursorManager != null)
-                {
-                    cursorManager.ChangeCursorState(false);
-                }
+                CursorManager.Instance.ChangeCursorState(false);
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
             {
@@ -96,10 +83,7 @@ public class SwordSpawner : MonoBehaviour
                 player.GetComponent<PlayerJumpV2>().isHanging = false;
                 closeToGround = false;
                 swordSpawned = false;
-                if (cursorManager != null)
-                {
-                    cursorManager.ChangeCursorState(false);
-                }
+                CursorManager.Instance.ChangeCursorState(false);
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
             {
@@ -113,10 +97,7 @@ public class SwordSpawner : MonoBehaviour
                 player.GetComponent<PlayerJumpV2>().isHanging = false;
                 closeToGround = false;
                 swordSpawned = false;
-                if (cursorManager != null)
-                {
-                    cursorManager.ChangeCursorState(false);
-                }
+                CursorManager.Instance.ChangeCursorState(false);
             }
         }
         else if(hit.collider != null)
@@ -131,10 +112,7 @@ public class SwordSpawner : MonoBehaviour
                     Debug.Log("SwordSpawned");
                     swordSpawned = true;
                     closeToGround = false;
-                    if (cursorManager != null)
-                    {
-                        cursorManager.ChangeCursorState(false);
-                    }
+                    CursorManager.Instance.ChangeCursorState(false);
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
                 {
@@ -146,10 +124,7 @@ public class SwordSpawner : MonoBehaviour
                     cloneSword.GetComponent<SwordProjectile>().speed = 10;
                     swordSpawned = true;
                     closeToGround = false;
-                    if (cursorManager != null)
-                    {
-                        cursorManager.ChangeCursorState(false);
-                    }
+                    CursorManager.Instance.ChangeCursorState(false);
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
                 {
@@ -163,10 +138,7 @@ public class SwordSpawner : MonoBehaviour
                     player.GetComponent<PlayerJumpV2>().isHanging = false;
                     closeToGround = false;
                     swordSpawned = false;
-                    if (cursorManager != null)
-                    {
-                        cursorManager.ChangeCursorState(false);
-                    }
+                    CursorManager.Instance.ChangeCursorState(false);
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
                 {
@@ -180,10 +152,7 @@ public class SwordSpawner : MonoBehaviour
                     player.GetComponent<PlayerJumpV2>().isHanging = false;
                     closeToGround = false;
                     swordSpawned = false;
-                    if (cursorManager != null)
-                    {
-                        cursorManager.ChangeCursorState(false);
-                    }
+                    CursorManager.Instance.ChangeCursorState(false);
                 }
           
            }
@@ -245,7 +214,7 @@ public class SwordSpawner : MonoBehaviour
                 transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0,1.2f,0);
             }
             player.GetComponent<PlayerJumpV2>().FreezePos();
-            cursorManager.ChangeCursorState(false);
+            CursorManager.Instance.ChangeCursorState(false);
             FindObjectOfType<AudioManager>().Play("Blink");
         }
         #endregion

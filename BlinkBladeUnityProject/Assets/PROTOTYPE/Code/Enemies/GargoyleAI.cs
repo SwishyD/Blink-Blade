@@ -69,9 +69,6 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
         SwordSpawner.instance.cloneSword = null;
         SwordSpawner.instance.closeToGround = false;
         SwordSpawner.instance.swordSpawned = false;
-        if (SwordSpawner.instance.cursorManager != null)
-        {
-            SwordSpawner.instance.cursorManager.ChangeCursorState(false);
-        }
+        CursorManager.Instance.ChangeCursorState(false);
     }
 }
