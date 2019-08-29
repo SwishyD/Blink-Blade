@@ -32,6 +32,9 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     bool canTriggerHit = true;
 
+    [SerializeField] AudioSource ghostVanishSFX;
+    [SerializeField] AudioSource respawnSFX;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -106,6 +109,9 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
             Instantiate(deathPFX, gameObject.transform);
             isHit = true;
             Invoke("OnDeath", deathTimer);
+            FindObjectOfType<AudioManager>().Play("EyebatSquelch");
+            FindObjectOfType<AudioManager>().Play("EyebatSquelch_02");
+            FindObjectOfType<AudioManager>().Play("Squeal");
         }
         canTriggerHit = false;
     }
@@ -129,6 +135,8 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         Instantiate(soulDisappearPFX, gameObject.transform);
+        ghostVanishSFX.Play();
+        CursorManager.Instance.ChangeCursorState(false);
         StartCoroutine("Respawn");
     }
 
@@ -137,6 +145,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);
         Instantiate(respawnPFX, gameObject.transform);
+        respawnSFX.Play();
         yield return new WaitForSeconds(iFrameTimer);
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
