@@ -13,6 +13,9 @@ public class SwordProjectile : MonoBehaviour
     public Vector2 hitPoint;
     public LayerMask rayMask;
 
+    public GameObject trail1;
+    public GameObject trail2;
+
     public bool stuckInObject = false;
 
     private void Start()
@@ -89,6 +92,10 @@ public class SwordProjectile : MonoBehaviour
                         CursorManager.Instance.ChangeCursorState(true);
                     }
                 }
+                trail1.transform.parent = null;
+                trail2.transform.parent = null;
+                trail1.transform.position = hit.point;
+                trail2.transform.position = hit.point;
                 Destroy(gameObject);
             }
             else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
