@@ -26,6 +26,8 @@ public class SwordSpawner : MonoBehaviour
     public bool closeToGround;
     public LayerMask rayMask;
 
+    [SerializeField] Animator throwFXAnim;
+
     private void Awake()
     {
         if(instance == null)
@@ -63,6 +65,10 @@ public class SwordSpawner : MonoBehaviour
                 swordSpawned = true;
                 closeToGround = false;
                 CursorManager.Instance.ChangeCursorState(false);
+                throwFXAnim.SetTrigger("Throw");
+                AudioManager.instance.Play("SwordThrow");
+                AudioManager.instance.Play("SwordShwing");
+                AudioManager.instance.Play("SwordSwing_02");
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
             {
@@ -74,6 +80,10 @@ public class SwordSpawner : MonoBehaviour
                 swordSpawned = true;
                 closeToGround = false;
                 CursorManager.Instance.ChangeCursorState(false);
+                throwFXAnim.SetTrigger("Throw");
+                AudioManager.instance.Play("SwordThrow");
+                AudioManager.instance.Play("SwordShwing");
+                AudioManager.instance.Play("SwordSwing_02");
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
             {
@@ -117,6 +127,10 @@ public class SwordSpawner : MonoBehaviour
                     swordSpawned = true;
                     closeToGround = false;
                     CursorManager.Instance.ChangeCursorState(false);
+                    throwFXAnim.SetTrigger("Throw");
+                    AudioManager.instance.Play("SwordThrow");
+                    AudioManager.instance.Play("SwordShwing");
+                    AudioManager.instance.Play("SwordSwing_02");
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
                 {
@@ -129,6 +143,10 @@ public class SwordSpawner : MonoBehaviour
                     swordSpawned = true;
                     closeToGround = false;
                     CursorManager.Instance.ChangeCursorState(false);
+                    throwFXAnim.SetTrigger("Throw");
+                    AudioManager.instance.Play("SwordThrow");
+                    AudioManager.instance.Play("SwordShwing");
+                    AudioManager.instance.Play("SwordSwing_02");
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
                 {
@@ -208,30 +226,33 @@ public class SwordSpawner : MonoBehaviour
         #region Right Click Options
         if (Input.GetMouseButtonDown(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
-            PlayerJumpV2.instance.ResetGravity();
-            if (!closeToGround && !stuckDown)
+            if (!PlayerJumpV2.instance.isHanging)
             {
-                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
+                PlayerJumpV2.instance.ResetGravity();
+                if (!closeToGround && !stuckDown)
+                {
+                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
+                }
+                else if (closeToGround && !stuckDown)
+                {
+                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+                }
+                else if (closeToGround && stuckDown)
+                {
+                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
+                }
+                player.GetComponent<PlayerJumpV2>().FreezePos();
+                if (stuckLeft)
+                {
+                    GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else if (stuckRight)
+                {
+                    GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = false;
+                }
+                CursorManager.Instance.ChangeCursorState(false);
+                FindObjectOfType<AudioManager>().Play("Blink");
             }
-            else if (closeToGround && !stuckDown)
-            {
-                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0,1f,0);
-            }
-            else if(closeToGround && stuckDown)
-            {
-                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
-            }
-            player.GetComponent<PlayerJumpV2>().FreezePos();
-            if (stuckLeft)
-            {
-                GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if (stuckRight)
-            {
-                GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = false;
-            }
-            CursorManager.Instance.ChangeCursorState(false);
-            FindObjectOfType<AudioManager>().Play("Blink");
         }
         #endregion
     }
