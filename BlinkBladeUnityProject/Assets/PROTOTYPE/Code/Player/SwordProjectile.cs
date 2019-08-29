@@ -30,7 +30,7 @@ public class SwordProjectile : MonoBehaviour
         Debug.DrawLine(transform.position, hit.point, Color.yellow);
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.tag == "Enemy")
+            if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 28)
             {
                 hitPoint = hit.point;
                 Debug.Log("HitPoint: " + hitPoint);
