@@ -26,6 +26,8 @@ public class SwordSpawner : MonoBehaviour
     public bool closeToGround;
     public LayerMask rayMask;
 
+    [SerializeField] Animator throwFXAnim;
+
     private void Awake()
     {
         if(instance == null)
@@ -63,6 +65,10 @@ public class SwordSpawner : MonoBehaviour
                 swordSpawned = true;
                 closeToGround = false;
                 CursorManager.Instance.ChangeCursorState(false);
+                throwFXAnim.SetTrigger("Throw");
+                AudioManager.instance.Play("SwordThrow");
+                AudioManager.instance.Play("SwordShwing");
+                AudioManager.instance.Play("SwordSwing_02");
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
             {
@@ -74,6 +80,10 @@ public class SwordSpawner : MonoBehaviour
                 swordSpawned = true;
                 closeToGround = false;
                 CursorManager.Instance.ChangeCursorState(false);
+                throwFXAnim.SetTrigger("Throw");
+                AudioManager.instance.Play("SwordThrow");
+                AudioManager.instance.Play("SwordShwing");
+                AudioManager.instance.Play("SwordSwing_02");
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
             {
@@ -117,6 +127,10 @@ public class SwordSpawner : MonoBehaviour
                     swordSpawned = true;
                     closeToGround = false;
                     CursorManager.Instance.ChangeCursorState(false);
+                    throwFXAnim.SetTrigger("Throw");
+                    AudioManager.instance.Play("SwordThrow");
+                    AudioManager.instance.Play("SwordShwing");
+                    AudioManager.instance.Play("SwordSwing_02");
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
                 {
@@ -129,6 +143,10 @@ public class SwordSpawner : MonoBehaviour
                     swordSpawned = true;
                     closeToGround = false;
                     CursorManager.Instance.ChangeCursorState(false);
+                    throwFXAnim.SetTrigger("Throw");
+                    AudioManager.instance.Play("SwordThrow");
+                    AudioManager.instance.Play("SwordShwing");
+                    AudioManager.instance.Play("SwordSwing_02");
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
                 {
