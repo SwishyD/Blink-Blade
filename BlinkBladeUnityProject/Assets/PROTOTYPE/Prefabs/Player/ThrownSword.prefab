@@ -150,7 +150,7 @@ MonoBehaviour:
   stuckSword: {fileID: 8845266356583274550, guid: 45ccf9008bf25ac409639eec203f0e90,
     type: 3}
   speed: 50
-  throwDistance: 25
+  throwDistance: 37
   distanceFromWall: 1.5
   hitPoint: {x: 0, y: 0}
   rayMask:

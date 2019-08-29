@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerSpawnPoint : MonoBehaviour
 {
     public Vector2 spawnPoint;
     public ParticleSystem deathPFX;
+
+    public float deathCount;
+    public TMP_Text deathCountText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,7 @@ public class PlayerSpawnPoint : MonoBehaviour
         {
             Respawn();
         }
+        deathCountText.text = "DEATHS : " + deathCount.ToString();
     }
 
     public void Respawn()
@@ -32,5 +37,6 @@ public class PlayerSpawnPoint : MonoBehaviour
         PlayerJumpV2.instance.ResetGravity();
         PlayerJumpV2.instance.PlayerNormal();
         Instantiate(deathPFX, transform);
+        deathCount++;
     }
 }
