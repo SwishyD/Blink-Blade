@@ -289,7 +289,7 @@ MonoBehaviour:
     type: 3}
   speed: 50
   throwDistance: 37
-  distanceFromWall: 1.5
+  distanceFromWall: 1
   hitPoint: {x: 0, y: 0}
   rayMask:
     serializedVersion: 2
