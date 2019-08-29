@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1636906732194117018}
   - component: {fileID: 4781057828086718360}
-  - component: {fileID: 47835066}
+  - component: {fileID: 1795348961}
   m_Layer: 31
   m_Name: Sprite
   m_TagString: Untagged
@@ -141,7 +141,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &47835066
+--- !u!95 &1795348961
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -287,12 +287,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0
   shotPoint: {fileID: 5921857822077694295}
-  throwDistance: 0
+  throwDistance: 2
   cloneSword: {fileID: 0}
-  sword: {fileID: 5722015756847094077, guid: f894b9249bb63fe4e88bca4899fd166e, type: 3}
+  sword: {fileID: 5722015756847094077, guid: 2957004cc12937a4daa0ef257833a654, type: 3}
   player: {fileID: 5921857822077694296}
   swordSpawned: 0
   closeToGround: 0
+  rayMask:
+    serializedVersion: 2
+    m_Bits: 768
+  cursorManager: {fileID: 0}
 --- !u!212 &5166808852527385704
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -401,7 +405,7 @@ MonoBehaviour:
   fallMultiplier: 3
   lowJumpMultiplier: 6
   defaultGrav: 3
-  maxVelocityDown: -40
+  maxVelocityDown: -20
   quickFallMaxVelocityDown: -40
   boxOffset: 1.17
   currentVelocityDown: 0

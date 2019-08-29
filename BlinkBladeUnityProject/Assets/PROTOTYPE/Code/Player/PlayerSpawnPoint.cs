@@ -10,7 +10,7 @@ public class PlayerSpawnPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnPoint = transform.position;   
+        spawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -32,5 +32,8 @@ public class PlayerSpawnPoint : MonoBehaviour
         PlayerJumpV2.instance.ResetGravity();
         PlayerJumpV2.instance.PlayerNormal();
         Instantiate(deathPFX, transform);
+
+        CursorManager.Instance.ChangeCursorState(false);
+        FindObjectOfType<AudioManager>().Play("Death");
     }
 }

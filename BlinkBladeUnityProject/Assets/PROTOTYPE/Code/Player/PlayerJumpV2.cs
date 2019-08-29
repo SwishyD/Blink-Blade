@@ -81,13 +81,17 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         else if (isHanging)
         {
-            if (!spawner.closeToGround)
+            if (!spawner.closeToGround && !spawner.stuckDown)
             {
                 transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
             }
-            else if (spawner.closeToGround)
+            else if (spawner.closeToGround && !spawner.stuckDown)
             {
-                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1.2f, 0);
+                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+            }
+            else if (spawner.closeToGround && spawner.stuckDown)
+            {
+                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -195,6 +199,7 @@ public class PlayerJumpV2 : MonoBehaviour
         {
             playerAnim.PlayerJumpTrigger();
         }
+        AudioManager.instance.Play("Jump");
     }
     public void DoubleJump()
     {
@@ -203,6 +208,7 @@ public class PlayerJumpV2 : MonoBehaviour
         doubleJumpReady = false;
         hasJumped = true;
         t = 0f;
+        AudioManager.instance.Play("DJump");
     }
 
     public void ResetGravity()

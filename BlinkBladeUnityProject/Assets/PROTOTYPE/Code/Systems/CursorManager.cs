@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
+    public static CursorManager Instance { get; private set; }
 
     public Texture2D cursorNoBlink;
     public Texture2D cursorYesBlink;
@@ -11,6 +12,19 @@ public class CursorManager : MonoBehaviour
     Vector2 hotSpot;
 
     private SwordProjectile swordScript;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
