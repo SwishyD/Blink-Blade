@@ -100,7 +100,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Land
     clip: {fileID: 8300000, guid: c4005c1d55b02474893f626639f8072f, type: 3}
-    volume: 1
+    volume: 0.62
     pitch: 1
     loop: 0
     source: {fileID: 0}

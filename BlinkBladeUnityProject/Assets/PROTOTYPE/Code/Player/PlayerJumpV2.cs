@@ -156,7 +156,7 @@ public class PlayerJumpV2 : MonoBehaviour
             maxVelocityDown = -20f;
         }
 
-        isGrounded = (Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null);
+        isGrounded = Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null;
         playerAnim.SetPlayerGrounded(isGrounded);
 
 
