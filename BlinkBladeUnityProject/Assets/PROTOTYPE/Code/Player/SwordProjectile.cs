@@ -16,6 +16,8 @@ public class SwordProjectile : MonoBehaviour
     public GameObject trail1;
     public GameObject trail2;
 
+    public GameObject swordBreakPFX;
+
     public bool stuckInObject = false;
 
     private void Start()
@@ -100,6 +102,7 @@ public class SwordProjectile : MonoBehaviour
             }
             else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
             {
+                Instantiate(swordBreakPFX, hit.point, Quaternion.identity);
                 DestroySword();
             }
 

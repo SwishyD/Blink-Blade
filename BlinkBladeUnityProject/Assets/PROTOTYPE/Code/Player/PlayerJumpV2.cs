@@ -89,7 +89,7 @@ public class PlayerJumpV2 : MonoBehaviour
             {
                 transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
             }
-            else if (spawner.closeToGround && spawner.stuckDown)
+            else if (spawner.closeToGround && spawner.stuckDown || !spawner.closeToGround && spawner.stuckDown)
             {
                 transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
             }

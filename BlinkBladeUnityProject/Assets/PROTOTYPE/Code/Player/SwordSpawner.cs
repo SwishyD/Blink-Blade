@@ -116,7 +116,7 @@ public class SwordSpawner : MonoBehaviour
         }
         else if(hit.collider != null)
         {
-           if(hit.collider.gameObject.layer == 9 /* || hit.collider.tag == "Enemy"*/)
+           if(hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 28)
            {
                 if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
                 {
@@ -175,52 +175,8 @@ public class SwordSpawner : MonoBehaviour
                     closeToGround = false;
                     swordSpawned = false;
                     CursorManager.Instance.ChangeCursorState(false);
-                }
-          
+                } 
            }
-           /*if(hit.collider.gameObject.layer == 9 || hit.collider.tag == "Enemy")
-           {
-               if (hit.normal.x > 0)
-               {
-                   cloneSword = Instantiate(stuckSword, hit.point, Quaternion.Euler(0, 0, 180));
-                   cloneSword.transform.parent = hit.collider.transform;
-                   swordSpawned = true;
-                   if (cursorManager != null)
-                   {
-                       cursorManager.ChangeCursorState(true);
-                   }
-               }
-               else if (hit.normal.x < 0)
-               {
-                   cloneSword = Instantiate(stuckSword, hit.point, Quaternion.Euler(0, 0, 0));
-                   cloneSword.transform.parent = hit.collider.transform;
-                   swordSpawned = true;
-                   if (cursorManager != null)
-                   {
-                       cursorManager.ChangeCursorState(true);
-                   }
-               }
-               else if (hit.normal.y < 0)
-               {
-                   cloneSword = Instantiate(stuckSword, hit.point, Quaternion.Euler(0, 0, 90));
-                   cloneSword.transform.parent = hit.collider.transform;
-                   swordSpawned = true;
-                   if (cursorManager != null)
-                   {
-                       cursorManager.ChangeCursorState(true);
-                   }
-               }
-               else if (hit.normal.y > 0)
-               {
-                   cloneSword = Instantiate(stuckSword, hit.point, Quaternion.Euler(0, 0, 270));
-                   cloneSword.transform.parent = hit.collider.transform;
-                   swordSpawned = true;
-                   if (cursorManager != null)
-                   {
-                       cursorManager.ChangeCursorState(true);
-                   }
-               }
-           }*/
         }
         #endregion
         #region Right Click Options
@@ -237,7 +193,7 @@ public class SwordSpawner : MonoBehaviour
                 {
                     transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
                 }
-                else if (closeToGround && stuckDown)
+                else if (closeToGround && stuckDown || !closeToGround && stuckDown)
                 {
                     transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
                 }
