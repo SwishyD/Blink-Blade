@@ -8,4 +8,9 @@ public class PlayerAnimSound : MonoBehaviour
     {
         AudioManager.instance.Play(soundName);
     }
+
+    public void StopSound(string soundName)
+    {
+        AudioManager.instance.Stop(soundName);
+    }
 }

@@ -74,6 +74,10 @@ public class PlayerJumpV2 : MonoBehaviour
         if (isGrounded)
         {
             hasJumped = false;
+            if (isQuickFalling)
+            {
+                isQuickFalling = false;
+            }
         }
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
@@ -120,6 +124,10 @@ public class PlayerJumpV2 : MonoBehaviour
 
         if (isGrounded == false && Input.GetKey(KeyCode.S))
         {
+            if (!isQuickFalling)
+            {
+                AudioManager.instance.Play("QuickFall");
+            }
             isQuickFalling = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Lerp(currentVelocityDown, quickFallMaxVelocityDown, t));
             t += 0.5f * Time.deltaTime;
@@ -127,6 +135,7 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
+            AudioManager.instance.Stop("QuickFall");
             isQuickFalling = false;
             playerAnim.SetPlayerQuickFall(false);
         }

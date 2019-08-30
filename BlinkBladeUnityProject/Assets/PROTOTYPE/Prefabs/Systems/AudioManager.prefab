@@ -116,3 +116,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: QuickFall
+    clip: {fileID: 8300000, guid: 2fac9906a4e168f4dae36c719583d130, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
