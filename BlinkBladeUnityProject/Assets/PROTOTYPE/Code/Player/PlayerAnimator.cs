@@ -42,6 +42,13 @@ public class PlayerAnimator : MonoBehaviour
                     anim.SetBool("PlayerHangingCloseToGround", true);
                 }
             }
+            else if (pJumpScript.spawner.stuckDown) //Sword is in the ground
+            {
+                if (!anim.GetBool("PlayerHangingCloseToGround"))
+                {
+                    anim.SetBool("PlayerHangingCloseToGround", true);
+                }
+            }
             else if (!pJumpScript.spawner.closeToGround)
             {
                 if (anim.GetBool("PlayerHangingCloseToGround"))

@@ -296,6 +296,8 @@ MonoBehaviour:
     m_Bits: 805307137
   trail1: {fileID: 6277027399793549035}
   trail2: {fileID: 1023007152183891435}
+  swordBreakPFX: {fileID: 4251798116654482220, guid: 20160354d0cf6e84aa9c97063bf17699,
+    type: 3}
   stuckInObject: 0
 --- !u!114 &989429311
 MonoBehaviour:
