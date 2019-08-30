@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1559330257}
   - component: {fileID: -6839058637379495168}
   - component: {fileID: 4031997968983748822}
-  m_Layer: 9
+  m_Layer: 28
   m_Name: Flying Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}

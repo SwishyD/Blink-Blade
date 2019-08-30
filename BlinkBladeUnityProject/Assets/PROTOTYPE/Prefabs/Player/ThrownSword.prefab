@@ -293,7 +293,7 @@ MonoBehaviour:
   hitPoint: {x: 0, y: 0}
   rayMask:
     serializedVersion: 2
-    m_Bits: 536871681
+    m_Bits: 805307137
   trail1: {fileID: 6277027399793549035}
   trail2: {fileID: 1023007152183891435}
   stuckInObject: 0
