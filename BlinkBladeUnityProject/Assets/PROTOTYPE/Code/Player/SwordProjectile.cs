@@ -103,6 +103,7 @@ public class SwordProjectile : MonoBehaviour
             else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
             {
                 Instantiate(swordBreakPFX, hit.point, Quaternion.identity);
+                AudioManager.instance.Play("SwordBreak");
                 DestroySword();
             }
 
