@@ -1849,6 +1849,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2144858819, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
+      propertyPath: deathCountText
+      value: 
+      objectReference: {fileID: 1904170080}
     - target: {fileID: 5166808852527385707, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1885,21 +1889,17 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.3143898
       objectReference: {fileID: 0}
+    - target: {fileID: 4781057828086718360, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5166808852527385706, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: sword
       value: 
       objectReference: {fileID: 5722015756847094077, guid: 2957004cc12937a4daa0ef257833a654,
         type: 3}
-    - target: {fileID: 4781057828086718360, guid: 16afa2da28725424b9ba7b4b98fece6a,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2144858819, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
-      propertyPath: deathCountText
-      value: 
-      objectReference: {fileID: 1904170080}
     m_RemovedComponents:
     - {fileID: 8835424059149307043, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
     - {fileID: 695114836, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
@@ -5928,6 +5928,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 709718139213461433, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6031,31 +6056,6 @@ PrefabInstance:
     - target: {fileID: 709718139213461433, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 709718139630514689, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
@@ -6166,6 +6166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}

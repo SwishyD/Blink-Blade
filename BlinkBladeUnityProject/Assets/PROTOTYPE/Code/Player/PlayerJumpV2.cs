@@ -79,7 +79,7 @@ public class PlayerJumpV2 : MonoBehaviour
                 isQuickFalling = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
         {
             jumpRequest = true;
         }
@@ -93,11 +93,11 @@ public class PlayerJumpV2 : MonoBehaviour
             {
                 transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
             }
-            else if (spawner.closeToGround && spawner.stuckDown)
+            else if (spawner.closeToGround && spawner.stuckDown || !spawner.closeToGround && spawner.stuckDown)
             {
                 transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
             }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
                 ResetGravity();
                 Jump();                
@@ -107,7 +107,7 @@ public class PlayerJumpV2 : MonoBehaviour
                 spawner.swordSpawned = false;
             }
         }
-        else if (((doubleJumpReady || !hasJumped) && !isGrounded) && (Input.GetKeyDown(KeyCode.W) ))
+        else if (((doubleJumpReady || !hasJumped) && !isGrounded) && ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))))
         {
             doubleJumpRequest = true;
         }
@@ -174,7 +174,7 @@ public class PlayerJumpV2 : MonoBehaviour
         {
             rb.gravityScale = fallMultiplier;
         }
-        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.W) && !isHanging)
+        else if (rb.velocity.y > 0 && (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.Space)) && !isHanging)
         {
             rb.gravityScale = lowJumpMultiplier;
         }
