@@ -136,7 +136,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         GetComponent<SpriteRenderer>().enabled = false;
         Instantiate(soulDisappearPFX, gameObject.transform);
         ghostVanishSFX.Play();
-        CursorManager.Instance.ChangeCursorState(false);
+        //CursorManager.Instance.ChangeCursorState(false);
         StartCoroutine("Respawn");
     }
 

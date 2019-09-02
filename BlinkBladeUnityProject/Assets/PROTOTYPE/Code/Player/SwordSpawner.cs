@@ -64,7 +64,7 @@ public class SwordSpawner : MonoBehaviour
                 Debug.Log("SwordSpawned");
                 swordSpawned = true;
                 closeToGround = false;
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
                 throwFXAnim.SetTrigger("Throw");
                 AudioManager.instance.Play("SwordThrow");
                 AudioManager.instance.Play("SwordShwing");
@@ -79,7 +79,7 @@ public class SwordSpawner : MonoBehaviour
                 cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
                 swordSpawned = true;
                 closeToGround = false;
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
                 throwFXAnim.SetTrigger("Throw");
                 AudioManager.instance.Play("SwordThrow");
                 AudioManager.instance.Play("SwordShwing");
@@ -97,7 +97,7 @@ public class SwordSpawner : MonoBehaviour
                 player.GetComponent<PlayerJumpV2>().isHanging = false;
                 closeToGround = false;
                 swordSpawned = false;
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
             {
@@ -111,7 +111,7 @@ public class SwordSpawner : MonoBehaviour
                 player.GetComponent<PlayerJumpV2>().isHanging = false;
                 closeToGround = false;
                 swordSpawned = false;
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
             }
         }
         else if(hit.collider != null)
@@ -126,7 +126,7 @@ public class SwordSpawner : MonoBehaviour
                     Debug.Log("SwordSpawned");
                     swordSpawned = true;
                     closeToGround = false;
-                    CursorManager.Instance.ChangeCursorState(false);
+                    //CursorManager.Instance.ChangeCursorState(false);
                     throwFXAnim.SetTrigger("Throw");
                     AudioManager.instance.Play("SwordThrow");
                     AudioManager.instance.Play("SwordShwing");
@@ -142,7 +142,7 @@ public class SwordSpawner : MonoBehaviour
                     cloneSword.GetComponent<SwordProjectile>().speed = 10;
                     swordSpawned = true;
                     closeToGround = false;
-                    CursorManager.Instance.ChangeCursorState(false);
+                    //CursorManager.Instance.ChangeCursorState(false);
                     throwFXAnim.SetTrigger("Throw");
                     AudioManager.instance.Play("SwordThrow");
                     AudioManager.instance.Play("SwordShwing");
@@ -160,7 +160,7 @@ public class SwordSpawner : MonoBehaviour
                     player.GetComponent<PlayerJumpV2>().isHanging = false;
                     closeToGround = false;
                     swordSpawned = false;
-                    CursorManager.Instance.ChangeCursorState(false);
+                   // CursorManager.Instance.ChangeCursorState(false);
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
                 {
@@ -174,7 +174,7 @@ public class SwordSpawner : MonoBehaviour
                     player.GetComponent<PlayerJumpV2>().isHanging = false;
                     closeToGround = false;
                     swordSpawned = false;
-                    CursorManager.Instance.ChangeCursorState(false);
+                    //CursorManager.Instance.ChangeCursorState(false);
                 } 
            }
         }
@@ -206,7 +206,7 @@ public class SwordSpawner : MonoBehaviour
                 {
                     GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = false;
                 }
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
                 FindObjectOfType<AudioManager>().Play("Blink");
             }
         }

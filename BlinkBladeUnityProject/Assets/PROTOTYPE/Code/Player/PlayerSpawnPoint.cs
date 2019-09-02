@@ -38,7 +38,7 @@ public class PlayerSpawnPoint : MonoBehaviour
         PlayerJumpV2.instance.PlayerNormal();
         Instantiate(deathPFX, transform);
         deathCount++;
-        CursorManager.Instance.ChangeCursorState(false);
+        //CursorManager.Instance.ChangeCursorState(false);
         FindObjectOfType<AudioManager>().Play("Death");
     }
 }
