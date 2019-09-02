@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 1688007716436664829}
   - component: {fileID: 1688007716436664827}
   - component: {fileID: 1688007716436664826}
+  - component: {fileID: 6690767670455172993}
   m_Layer: 0
-  m_Name: Flag
+  m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688007716436664830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.52, y: -4.3, z: 0}
-  m_LocalScale: {x: 0.21, y: 0.236, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47.865, y: -1.857, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,13 +70,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 66e5075e40271984e900469cc35d0fde, type: 3}
+  m_SortingOrder: -3
+  m_Sprite: {fileID: 21300000, guid: 0637ec6f2f06dba469c63437aa7b1e3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6, y: 5.8}
+  m_Size: {x: 2.75, y: 4.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,6 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  isEnd: 0
+  isStart: 0
+  timer: {fileID: 0}
 --- !u!61 &1688007716436664826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111,12 +115,31 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 5.8}
-    newSize: {x: 6, y: 5.8}
+    oldSize: {x: 2.375, y: 4.125}
+    newSize: {x: 2.75, y: 4.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 5.8}
+  m_Size: {x: 2.375, y: 4.125}
   m_EdgeRadius: 0
+--- !u!95 &6690767670455172993
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688007716436664830}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0942e11ade154b44bf383aa32bded39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

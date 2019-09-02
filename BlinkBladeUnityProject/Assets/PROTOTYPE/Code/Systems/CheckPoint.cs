@@ -8,8 +8,14 @@ public class CheckPoint : MonoBehaviour
     public bool isEnd;
     public bool isStart;
 
+    Animator anim;
+
     public GameObject timer;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -24,9 +30,14 @@ public class CheckPoint : MonoBehaviour
                 timer.GetComponent<Timer>().levelStarted = true;
                 timer.GetComponent<Timer>().TimerToggleOn();
             }
-            GetComponent<SpriteRenderer>().color = Color.red;
-            triggered = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawnPoint>().spawnPoint = this.transform.position;
+            ActivateCheckpoint();
         }
+    }
+
+    void ActivateCheckpoint()
+    {
+        triggered = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawnPoint>().spawnPoint = this.transform.position;
+        anim.SetBool("Activated", true);
     }
 }
