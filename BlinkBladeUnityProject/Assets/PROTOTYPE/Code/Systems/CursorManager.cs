@@ -34,31 +34,18 @@ public class CursorManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //if (swordScript.stuckInObject)
-        {
-            //ChangeCursorState(true);
-        }
-        //else if (!swordScript.stuckInObject)
-        {
-            //ChangeCursorState(false);
-        }
-    }
-
-    public void ChangeCursorState(bool canBlink)
-    {
-        if (canBlink)
-        {
-            Debug.Log("CAN BLINK");
-            Cursor.SetCursor(cursorYesBlink, hotSpot, CursorMode.Auto);
-            cursorIsCanBlink = true;
-        }
-        if (!canBlink)
+        if(SwordSpawner.instance.cloneSword == null)
         {
             Debug.Log("CAN NOT BLINK");
             Cursor.SetCursor(cursorNoBlink, hotSpot, CursorMode.Auto);
-            cursorIsCanBlink = false;
+        }
+        else if (SwordSpawner.instance.cloneSword.name.Contains("StuckSword"))
+        {
+            Debug.Log("CAN BLINK");
+            Cursor.SetCursor(cursorYesBlink, hotSpot, CursorMode.Auto);
         }
     }
+
 }
