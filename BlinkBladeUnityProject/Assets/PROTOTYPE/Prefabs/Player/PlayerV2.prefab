@@ -428,7 +428,7 @@ MonoBehaviour:
   currentVelocityDown: 0
   mask:
     serializedVersion: 2
-    m_Bits: 1073742593
+    m_Bits: 1073742592
   feetPos: {fileID: 54922040}
   doubleJumpReady: 0
   isHanging: 0
@@ -528,6 +528,8 @@ MonoBehaviour:
   spawnPoint: {x: 0, y: 0}
   deathPFX: {fileID: 8661622743782496142, guid: 44e88a96f842115429f42a077615cd81,
     type: 3}
+  deathCount: 0
+  deathCountText: {fileID: 0}
 --- !u!114 &695114836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,7 +567,7 @@ GameObject:
   - component: {fileID: 7227250823314404439}
   - component: {fileID: 7227250823314404438}
   m_Layer: 31
-  m_Name: Trail
+  m_Name: ScarfTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -622,7 +624,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -1
   m_Time: 0.15
   m_Parameters:
     serializedVersion: 3
