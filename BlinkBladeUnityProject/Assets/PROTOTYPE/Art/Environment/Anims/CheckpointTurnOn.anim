@@ -86,7 +86,35 @@ AnimationClip:
     path: CageAnchor
   m_PositionCurves: []
   m_ScaleCurves: []
-  m_FloatCurves: []
+  m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Intensity
+    path: CageAnchor/Point Light
+    classID: 108
+    script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 1
@@ -130,6 +158,13 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2991556614
+      attribute: 898800009
+      script: {fileID: 0}
+      typeID: 108
+      customType: 25
+      isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: 83d68b9ed545f104f9abc4c83529229a, type: 3}
     - {fileID: 21300000, guid: 14d6c8919077d0140ba1f084cefd0226, type: 3}
@@ -372,6 +407,34 @@ AnimationClip:
     attribute: localEulerAnglesRaw.z
     path: CageAnchor
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Intensity
+    path: CageAnchor/Point Light
+    classID: 108
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
