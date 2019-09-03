@@ -9,12 +9,17 @@ public class CheckPoint : MonoBehaviour
     public bool isStart;
 
     Animator anim;
+    ParticleSystem triggerPFX;
 
     public GameObject timer;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        if (triggerPFX == null)
+        {
+            triggerPFX = GetComponentInChildren<ParticleSystem>();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -39,5 +44,6 @@ public class CheckPoint : MonoBehaviour
         triggered = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawnPoint>().spawnPoint = this.transform.position;
         anim.SetBool("Activated", true);
+        triggerPFX.Play();
     }
 }
