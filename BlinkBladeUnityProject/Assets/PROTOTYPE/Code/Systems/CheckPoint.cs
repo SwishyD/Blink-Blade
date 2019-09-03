@@ -24,18 +24,26 @@ public class CheckPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Player" && triggered == false)
+        if(col.tag == "Player")
         {
-            if (isEnd)
+            if (!triggered)
             {
-                timer.GetComponent<Timer>().TimerToggleOff();
+                if (isEnd)
+                {
+                    timer.GetComponent<Timer>().TimerToggleOff();
+                }
+                else if (isStart)
+                {
+                    timer.GetComponent<Timer>().levelStarted = true;
+                    timer.GetComponent<Timer>().TimerToggleOn();
+                }
+                ActivateCheckpoint();
             }
-            else if (isStart)
+            if (triggered)
             {
-                timer.GetComponent<Timer>().levelStarted = true;
-                timer.GetComponent<Timer>().TimerToggleOn();
+                //anim.SetTrigger("Shake");
+                //Play Sounds
             }
-            ActivateCheckpoint();
         }
     }
 
@@ -45,5 +53,6 @@ public class CheckPoint : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawnPoint>().spawnPoint = this.transform.position;
         anim.SetBool("Activated", true);
         triggerPFX.Play();
+        //Play Sounds
     }
 }
