@@ -33,7 +33,7 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
             inRange = false;
             GetComponent<SpriteRenderer>().color = Color.gray;
         }
-        Debug.Log(inRange);
+        //Debug.Log(inRange);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -69,6 +69,6 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
         SwordSpawner.instance.cloneSword = null;
         SwordSpawner.instance.closeToGround = false;
         SwordSpawner.instance.swordSpawned = false;
-        CursorManager.Instance.ChangeCursorState(false);
+        //CursorManager.Instance.ChangeCursorState(false);
     }
 }

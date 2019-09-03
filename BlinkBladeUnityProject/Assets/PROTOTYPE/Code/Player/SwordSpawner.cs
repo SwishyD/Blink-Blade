@@ -26,6 +26,8 @@ public class SwordSpawner : MonoBehaviour
     public bool closeToGround;
     public LayerMask rayMask;
 
+    [SerializeField] Animator throwFXAnim;
+
     private void Awake()
     {
         if(instance == null)
@@ -62,7 +64,11 @@ public class SwordSpawner : MonoBehaviour
                 Debug.Log("SwordSpawned");
                 swordSpawned = true;
                 closeToGround = false;
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
+                throwFXAnim.SetTrigger("Throw");
+                AudioManager.instance.Play("SwordThrow");
+                AudioManager.instance.Play("SwordShwing");
+                AudioManager.instance.Play("SwordSwing_02");
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
             {
@@ -73,7 +79,11 @@ public class SwordSpawner : MonoBehaviour
                 cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
                 swordSpawned = true;
                 closeToGround = false;
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
+                throwFXAnim.SetTrigger("Throw");
+                AudioManager.instance.Play("SwordThrow");
+                AudioManager.instance.Play("SwordShwing");
+                AudioManager.instance.Play("SwordSwing_02");
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
             {
@@ -87,7 +97,7 @@ public class SwordSpawner : MonoBehaviour
                 player.GetComponent<PlayerJumpV2>().isHanging = false;
                 closeToGround = false;
                 swordSpawned = false;
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
             }
             else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
             {
@@ -101,12 +111,12 @@ public class SwordSpawner : MonoBehaviour
                 player.GetComponent<PlayerJumpV2>().isHanging = false;
                 closeToGround = false;
                 swordSpawned = false;
-                CursorManager.Instance.ChangeCursorState(false);
+                //CursorManager.Instance.ChangeCursorState(false);
             }
         }
         else if(hit.collider != null)
         {
-           if(hit.collider.gameObject.layer == 9 /* || hit.collider.tag == "Enemy"*/)
+           if(hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 28)
            {
                 if (Input.GetMouseButtonDown(0) && swordSpawned == false && player.GetComponent<PlayerJumpV2>().isHanging == false)
                 {
@@ -116,7 +126,11 @@ public class SwordSpawner : MonoBehaviour
                     Debug.Log("SwordSpawned");
                     swordSpawned = true;
                     closeToGround = false;
-                    CursorManager.Instance.ChangeCursorState(false);
+                    //CursorManager.Instance.ChangeCursorState(false);
+                    throwFXAnim.SetTrigger("Throw");
+                    AudioManager.instance.Play("SwordThrow");
+                    AudioManager.instance.Play("SwordShwing");
+                    AudioManager.instance.Play("SwordSwing_02");
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && player.GetComponent<PlayerJumpV2>().isHanging == true)
                 {
@@ -128,7 +142,11 @@ public class SwordSpawner : MonoBehaviour
                     cloneSword.GetComponent<SwordProjectile>().speed = 10;
                     swordSpawned = true;
                     closeToGround = false;
-                    CursorManager.Instance.ChangeCursorState(false);
+                    //CursorManager.Instance.ChangeCursorState(false);
+                    throwFXAnim.SetTrigger("Throw");
+                    AudioManager.instance.Play("SwordThrow");
+                    AudioManager.instance.Play("SwordShwing");
+                    AudioManager.instance.Play("SwordSwing_02");
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("ThrownSword"))
                 {
@@ -142,7 +160,7 @@ public class SwordSpawner : MonoBehaviour
                     player.GetComponent<PlayerJumpV2>().isHanging = false;
                     closeToGround = false;
                     swordSpawned = false;
-                    CursorManager.Instance.ChangeCursorState(false);
+                   // CursorManager.Instance.ChangeCursorState(false);
                 }
                 else if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
                 {
@@ -156,82 +174,41 @@ public class SwordSpawner : MonoBehaviour
                     player.GetComponent<PlayerJumpV2>().isHanging = false;
                     closeToGround = false;
                     swordSpawned = false;
-                    CursorManager.Instance.ChangeCursorState(false);
-                }
-          
+                    //CursorManager.Instance.ChangeCursorState(false);
+                } 
            }
-           /*if(hit.collider.gameObject.layer == 9 || hit.collider.tag == "Enemy")
-           {
-               if (hit.normal.x > 0)
-               {
-                   cloneSword = Instantiate(stuckSword, hit.point, Quaternion.Euler(0, 0, 180));
-                   cloneSword.transform.parent = hit.collider.transform;
-                   swordSpawned = true;
-                   if (cursorManager != null)
-                   {
-                       cursorManager.ChangeCursorState(true);
-                   }
-               }
-               else if (hit.normal.x < 0)
-               {
-                   cloneSword = Instantiate(stuckSword, hit.point, Quaternion.Euler(0, 0, 0));
-                   cloneSword.transform.parent = hit.collider.transform;
-                   swordSpawned = true;
-                   if (cursorManager != null)
-                   {
-                       cursorManager.ChangeCursorState(true);
-                   }
-               }
-               else if (hit.normal.y < 0)
-               {
-                   cloneSword = Instantiate(stuckSword, hit.point, Quaternion.Euler(0, 0, 90));
-                   cloneSword.transform.parent = hit.collider.transform;
-                   swordSpawned = true;
-                   if (cursorManager != null)
-                   {
-                       cursorManager.ChangeCursorState(true);
-                   }
-               }
-               else if (hit.normal.y > 0)
-               {
-                   cloneSword = Instantiate(stuckSword, hit.point, Quaternion.Euler(0, 0, 270));
-                   cloneSword.transform.parent = hit.collider.transform;
-                   swordSpawned = true;
-                   if (cursorManager != null)
-                   {
-                       cursorManager.ChangeCursorState(true);
-                   }
-               }
-           }*/
         }
         #endregion
         #region Right Click Options
         if (Input.GetMouseButtonDown(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
-            PlayerJumpV2.instance.ResetGravity();
-            if (!closeToGround && !stuckDown)
+            if (!PlayerJumpV2.instance.isHanging)
             {
-                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
+                PlayerJumpV2.instance.ResetGravity();
+                if (!closeToGround && !stuckDown)
+                {
+                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
+                }
+                else if (closeToGround && !stuckDown)
+                {
+                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+                }
+                else if (closeToGround && stuckDown || !closeToGround && stuckDown)
+                {
+                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
+                }
+                player.GetComponent<PlayerJumpV2>().FreezePos();
+                if (stuckLeft)
+                {
+                    GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else if (stuckRight)
+                {
+                    GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = false;
+                }
+                //CursorManager.Instance.ChangeCursorState(false);
+                FindObjectOfType<AudioManager>().Play("Blink");
             }
-            else if (closeToGround && !stuckDown)
-            {
-                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0,1f,0);
-            }
-            else if(closeToGround && stuckDown)
-            {
-                transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
-            }
-            player.GetComponent<PlayerJumpV2>().FreezePos();
-            if (stuckLeft)
-            {
-                GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if (stuckRight)
-            {
-                GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = false;
-            }
-            CursorManager.Instance.ChangeCursorState(false);
-            FindObjectOfType<AudioManager>().Play("Blink");
         }
         #endregion
     }

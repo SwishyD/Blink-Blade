@@ -100,7 +100,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Land
     clip: {fileID: 8300000, guid: c4005c1d55b02474893f626639f8072f, type: 3}
+    volume: 0.62
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwordShwing
+    clip: {fileID: 8300000, guid: fbbfb273f2ba1714bafad59d369f1926, type: 3}
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: SwordSwing_02
+    clip: {fileID: 8300000, guid: 5b8018abb5f414f49b266308d97fc51d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: QuickFall
+    clip: {fileID: 8300000, guid: 2fac9906a4e168f4dae36c719583d130, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
