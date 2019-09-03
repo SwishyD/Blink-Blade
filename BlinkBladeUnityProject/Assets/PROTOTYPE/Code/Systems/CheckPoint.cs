@@ -54,5 +54,7 @@ public class CheckPoint : MonoBehaviour
         anim.SetBool("Activated", true);
         triggerPFX.Play();
         //Play Sounds
+        AudioManager.instance.Play("CageCreak");
+        AudioManager.instance.Play("FireWhoosh");
     }
 }
