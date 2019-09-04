@@ -122,3 +122,15 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: CageCreak
+    clip: {fileID: 8300000, guid: bc749f1a06a7468439f26e967c5fe6da, type: 3}
+    volume: 0.235
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FireWhoosh
+    clip: {fileID: 8300000, guid: 56d7c8879fa0e4a4e842cb61f550af2a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
