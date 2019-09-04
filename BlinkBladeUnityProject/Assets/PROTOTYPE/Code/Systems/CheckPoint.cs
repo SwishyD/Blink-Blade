@@ -8,25 +8,53 @@ public class CheckPoint : MonoBehaviour
     public bool isEnd;
     public bool isStart;
 
+    Animator anim;
+    ParticleSystem triggerPFX;
+
     public GameObject timer;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        if (triggerPFX == null)
+        {
+            triggerPFX = GetComponentInChildren<ParticleSystem>();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Player" && triggered == false)
+        if(col.tag == "Player")
         {
-            if (isEnd)
+            if (!triggered)
             {
-                timer.GetComponent<Timer>().TimerToggleOff();
+                if (isEnd)
+                {
+                    timer.GetComponent<Timer>().TimerToggleOff();
+                }
+                else if (isStart)
+                {
+                    timer.GetComponent<Timer>().levelStarted = true;
+                    timer.GetComponent<Timer>().TimerToggleOn();
+                }
+                ActivateCheckpoint();
             }
-            else if (isStart)
+            if (triggered)
             {
-                timer.GetComponent<Timer>().levelStarted = true;
-                timer.GetComponent<Timer>().TimerToggleOn();
+                //anim.SetTrigger("Shake");
+                //Play Sounds
             }
-            GetComponent<SpriteRenderer>().color = Color.red;
-            triggered = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawnPoint>().spawnPoint = this.transform.position;
         }
+    }
+
+    void ActivateCheckpoint()
+    {
+        triggered = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSpawnPoint>().spawnPoint = this.transform.position;
+        anim.SetBool("Activated", true);
+        triggerPFX.Play();
+        //Play Sounds
+        AudioManager.instance.Play("CageCreak");
+        AudioManager.instance.Play("FireWhoosh");
     }
 }
