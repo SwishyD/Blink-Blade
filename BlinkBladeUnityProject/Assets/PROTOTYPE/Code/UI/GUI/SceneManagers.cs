@@ -21,19 +21,9 @@ public class SceneManagers : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void ToBattle()
+    public void MoveToScene(string nameOfScene)
     {
-        SceneManager.LoadScene(2);
-    }
-
-    public void ToOverWorld()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void MoveToScene(int sceneNo)
-    {
-        SceneManager.LoadScene(sceneNo);
+        StartCoroutine(SceneTransitionToScene(nameOfScene));
     }
 
     public IEnumerator SceneTransitionToScene(string sceneName)
