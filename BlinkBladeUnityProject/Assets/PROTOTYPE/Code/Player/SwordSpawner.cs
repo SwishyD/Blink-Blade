@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwordSpawner : MonoBehaviour
 {
@@ -44,6 +45,10 @@ public class SwordSpawner : MonoBehaviour
 
     private void Start()
     {
+        if(SceneManager.GetActiveScene().name == "TUTORIAL")
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame

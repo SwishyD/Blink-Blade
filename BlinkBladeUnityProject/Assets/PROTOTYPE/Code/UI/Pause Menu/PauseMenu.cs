@@ -14,12 +14,18 @@ public class PauseMenu : MonoBehaviour {
     public GameObject player;
     public GameObject timer;
 
+    public bool swordScriptActive;
+
     public static bool quitActive = false;
     public static bool menuActive = false;
 
     // Use this for initialization
     void Start () {
         gameIsPaused = false;
+        if(SceneManager.GetActiveScene().name == "TUTORIAL")
+        {
+            swordScriptActive = false;
+        }
     }
 	
 	// Update is called once per frame
@@ -29,15 +35,19 @@ public class PauseMenu : MonoBehaviour {
         {
             player.GetComponent<PlayerMovementV2>().enabled = false;
             player.GetComponent<PlayerJumpV2>().enabled = false;
-            player.GetComponentInChildren<SwordSpawner>().enabled = false;
-
+            if (swordScriptActive)
+            {
+                player.GetComponentInChildren<SwordSpawner>().enabled = false;
+            }
         }
         if (!gameIsPaused)
         {
             player.GetComponent<PlayerMovementV2>().enabled = true;
             player.GetComponent<PlayerJumpV2>().enabled = true;
-            player.GetComponentInChildren<SwordSpawner>().enabled = true;
-
+            if (swordScriptActive)
+            {
+                player.GetComponentInChildren<SwordSpawner>().enabled = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
