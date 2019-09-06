@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagers : MonoBehaviour {
 
     public static SceneManagers instance;
-    //public Animator sceneTransitionAnimator; //For scene transitions
+    public Animator sceneTransitionAnimator; //For scene transitions
 
     private void Awake()
     {
@@ -28,8 +28,17 @@ public class SceneManagers : MonoBehaviour {
 
     public IEnumerator SceneTransitionToScene(string sceneName)
     {
-        //sceneTransitionAnimator.SetTrigger("End");
-        yield return new WaitForSeconds(0.25f);
+        if (sceneTransitionAnimator == null)
+        {
+            sceneTransitionAnimator = GameObject.Find("SceneTransitionCanvas").GetComponentInChildren<Animator>();
+            if (sceneTransitionAnimator == null)
+            {
+                Debug.LogWarning("No SceneTransitionCanvas Found!");
+            }
+        }
+        sceneTransitionAnimator.SetBool("FadingToBlack", true);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
+        sceneTransitionAnimator.SetBool("FadingToBlack", false);
     }
 }
