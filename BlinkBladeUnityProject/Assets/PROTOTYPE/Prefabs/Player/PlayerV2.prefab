@@ -374,7 +374,6 @@ GameObject:
   - component: {fileID: 5921857822077694290}
   - component: {fileID: 7381843872453244425}
   - component: {fileID: 5921857822077694293}
-  - component: {fileID: 1734143441828072275}
   - component: {fileID: 5921857822077694292}
   - component: {fileID: 5921857822077694291}
   - component: {fileID: 2144858819}
@@ -436,6 +435,8 @@ MonoBehaviour:
   isQuickFalling: 0
   boxSize: {x: 0, y: 0}
   spawner: {fileID: 5166808852527385706}
+  dJumpPFX: {fileID: 7758840546836574853, guid: 8b34fa88748574e4980733b261f18e94,
+    type: 3}
 --- !u!114 &7381843872453244425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,18 +468,6 @@ MonoBehaviour:
   timeMaxToZero: 0.05
   canMove: 0
   spawner: {fileID: 5166808852527385706}
---- !u!114 &1734143441828072275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5921857822077694296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c5e409f7a931ee4791088cdd4052440, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &5921857822077694292
 Rigidbody2D:
   serializedVersion: 4

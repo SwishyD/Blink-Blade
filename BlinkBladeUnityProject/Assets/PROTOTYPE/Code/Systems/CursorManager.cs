@@ -11,8 +11,6 @@ public class CursorManager : MonoBehaviour
     private bool cursorIsCanBlink;
     Vector2 hotSpot;
 
-    private SwordProjectile swordScript;
-
     private void Awake()
     {
         if (Instance == null)
@@ -30,7 +28,6 @@ public class CursorManager : MonoBehaviour
     void Start()
     {
         hotSpot = new Vector2(17, 17);
-        swordScript = FindObjectOfType<SwordProjectile>();
     }
 
     // Update is called once per frame

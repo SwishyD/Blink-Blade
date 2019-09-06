@@ -38,6 +38,7 @@ public class PlayerJumpV2 : MonoBehaviour
     Rigidbody2D rb;
 
     public SwordSpawner spawner;
+    [SerializeField] ParticleSystem dJumpPFX;
 
     public static PlayerJumpV2 instance = null;
 
@@ -218,6 +219,8 @@ public class PlayerJumpV2 : MonoBehaviour
         hasJumped = true;
         t = 0f;
         AudioManager.instance.Play("DJump");
+        playerAnim.PlayerDoubleJumpTrig();
+        Instantiate(dJumpPFX, transform);
     }
 
     public void ResetGravity()
