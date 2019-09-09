@@ -99,6 +99,11 @@ public class PlayerAnimator : MonoBehaviour
         anim.SetTrigger("PlayerStartJump");
     }
 
+    public void PlayerDoubleJumpTrig()
+    {
+        anim.SetTrigger("PlayerDoubleJump");
+    }
+
     public void SetPlayerYVelocity(float yVel)
     {
         anim.SetFloat("PlayerYVelocity", -yVel);

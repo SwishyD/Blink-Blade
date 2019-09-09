@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerAnimSound : MonoBehaviour
+public class AnimSound : MonoBehaviour
 {
     public void PlaySound(string soundName)
     {
