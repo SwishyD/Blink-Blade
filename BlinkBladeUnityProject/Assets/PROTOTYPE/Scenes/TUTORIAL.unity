@@ -603,7 +603,11 @@ PrefabInstance:
       objectReference: {fileID: 401876837}
     - target: {fileID: 592300298, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067735716, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 958231635, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
       propertyPath: m_AnchorMin.x
@@ -617,18 +621,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1160370812, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1160370812, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1067735716, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1067735717, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -636,6 +628,14 @@ PrefabInstance:
     - target: {fileID: 1067735717, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResolutionChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160370812, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160370812, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 629118145, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -132545,6 +132545,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3004554076477557640, guid: 18941748f8477ad4a8df3ea6bd951944,
+        type: 3}
+      propertyPath: resDropdown
+      value: 
+      objectReference: {fileID: 276401095}
+    - target: {fileID: 3004554076477557640, guid: 18941748f8477ad4a8df3ea6bd951944,
+        type: 3}
+      propertyPath: fullScreenToggle
+      value: 
+      objectReference: {fileID: 276401092}
     - target: {fileID: 3004554076477557641, guid: 18941748f8477ad4a8df3ea6bd951944,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -132610,15 +132620,5 @@ PrefabInstance:
       propertyPath: volumeNumber
       value: 
       objectReference: {fileID: 276401093}
-    - target: {fileID: 3004554076477557640, guid: 18941748f8477ad4a8df3ea6bd951944,
-        type: 3}
-      propertyPath: resDropdown
-      value: 
-      objectReference: {fileID: 276401095}
-    - target: {fileID: 3004554076477557640, guid: 18941748f8477ad4a8df3ea6bd951944,
-        type: 3}
-      propertyPath: fullScreenToggle
-      value: 
-      objectReference: {fileID: 276401092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18941748f8477ad4a8df3ea6bd951944, type: 3}

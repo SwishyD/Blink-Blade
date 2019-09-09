@@ -139,6 +139,7 @@ public class SwordProjectile : MonoBehaviour
             if (hit.transform.tag == "Enemy")
             {
                 hit.transform.gameObject.GetComponent<IEnemyDeath>().OnHit();
+                hit.transform.gameObject.layer = 10;
                 speed = 0;
                 stuckInObject = true;
                 //CursorManager.Instance.ChangeCursorState(true);
