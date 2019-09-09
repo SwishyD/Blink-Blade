@@ -85,6 +85,15 @@ Tilemap:
   m_GameObject: {fileID: 5647311777706796634}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: -7, y: -4, z: 0}
+    second:
+      m_TileIndex: 34
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: 4, y: -4, z: 0}
     second:
       m_TileIndex: 15
@@ -421,7 +430,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 7f8c357ce9c6b2849b6b7e239731e915, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 5d308ab4a01a3574fbc414ed4fd6c99c, type: 2}
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 2e459b56533fde64eb7a8f42f5b3995f, type: 2}
   - m_RefCount: 1
@@ -452,6 +461,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 28247f41e60f6864d9e46733a3f5d493, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 290df7e9e043aa047a960ba639da78ad, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 5d308ab4a01a3574fbc414ed4fd6c99c, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -463,8 +474,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 410b6d5464de8ab4eb497637d58f0bcf, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 4f8a1b18db23b1b498704a33a2d9ae80, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 688af185742c5a6448d7bd7e884b3f64, type: 3}
   - m_RefCount: 1
@@ -518,7 +529,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: db53b5a51ab5f184082f27b4763c7eac, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 34
+  - m_RefCount: 35
     m_Data:
       e00: 1
       e01: 0
@@ -537,7 +548,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 33
+  - m_RefCount: 34
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: -8.4592125e+20, g: -8.4592125e+20, b: -8.4592125e+20, a: -8.4592125e+20}
