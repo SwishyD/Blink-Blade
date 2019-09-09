@@ -31,7 +31,7 @@ public class CursorManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         if(SwordSpawner.instance.cloneSword == null)
         {
@@ -43,6 +43,19 @@ public class CursorManager : MonoBehaviour
             Debug.Log("CAN BLINK");
             Cursor.SetCursor(cursorYesBlink, hotSpot, CursorMode.Auto);
         }
+    }*/
+    
+    public void ChangeCursor(bool active)
+    {
+        if (active)
+        {
+            Debug.Log("CAN BLINK");
+            Cursor.SetCursor(cursorYesBlink, hotSpot, CursorMode.Auto);
+        }
+        else if (!active)
+        {
+            Debug.Log("CAN NOT BLINK");
+            Cursor.SetCursor(cursorNoBlink, hotSpot, CursorMode.Auto);
+        }
     }
-
 }
