@@ -69,6 +69,7 @@ public class SwordSpawner : MonoBehaviour
                 Debug.Log("SwordSpawned");
                 swordSpawned = true;
                 closeToGround = false;
+                CursorManager.Instance.ChangeCursor(false);
                 //CursorManager.Instance.ChangeCursorState(false);
                 throwFXAnim.SetTrigger("Throw");
                 AudioManager.instance.Play("SwordThrow");
@@ -84,6 +85,7 @@ public class SwordSpawner : MonoBehaviour
                 cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
                 swordSpawned = true;
                 closeToGround = false;
+                CursorManager.Instance.ChangeCursor(false);
                 //CursorManager.Instance.ChangeCursorState(false);
                 throwFXAnim.SetTrigger("Throw");
                 AudioManager.instance.Play("SwordThrow");
@@ -98,6 +100,7 @@ public class SwordSpawner : MonoBehaviour
                 var returnSword = Instantiate(sword, swordPoint, transform.rotation);
                 returnSword.GetComponent<SwordProjectile>().enabled = false;
                 returnSword.GetComponent<ReturnSword>().enabled = true;
+                CursorManager.Instance.ChangeCursor(false);
                 //player.GetComponent<PlayerJumpV2>().ResetGravity();
                 player.GetComponent<PlayerJumpV2>().isHanging = false;
                 closeToGround = false;
@@ -112,6 +115,7 @@ public class SwordSpawner : MonoBehaviour
                 var returnSword = Instantiate(sword, swordPoint, transform.rotation);
                 returnSword.GetComponent<SwordProjectile>().enabled = false;
                 returnSword.GetComponent<ReturnSword>().enabled = true;
+                CursorManager.Instance.ChangeCursor(false);
                 //player.GetComponent<PlayerJumpV2>().ResetGravity();
                 player.GetComponent<PlayerJumpV2>().isHanging = false;
                 closeToGround = false;
@@ -131,6 +135,7 @@ public class SwordSpawner : MonoBehaviour
                     Debug.Log("SwordSpawned");
                     swordSpawned = true;
                     closeToGround = false;
+                    CursorManager.Instance.ChangeCursor(false);
                     //CursorManager.Instance.ChangeCursorState(false);
                     throwFXAnim.SetTrigger("Throw");
                     AudioManager.instance.Play("SwordThrow");
@@ -147,6 +152,7 @@ public class SwordSpawner : MonoBehaviour
                     cloneSword.GetComponent<SwordProjectile>().speed = 10;
                     swordSpawned = true;
                     closeToGround = false;
+                    CursorManager.Instance.ChangeCursor(false);
                     //CursorManager.Instance.ChangeCursorState(false);
                     throwFXAnim.SetTrigger("Throw");
                     AudioManager.instance.Play("SwordThrow");
@@ -161,6 +167,7 @@ public class SwordSpawner : MonoBehaviour
                     var returnSword = Instantiate(sword, swordPoint, transform.rotation);
                     returnSword.GetComponent<SwordProjectile>().enabled = false;
                     returnSword.GetComponent<ReturnSword>().enabled = true;
+                    CursorManager.Instance.ChangeCursor(false);
                     //player.GetComponent<PlayerJumpV2>().ResetGravity();
                     player.GetComponent<PlayerJumpV2>().isHanging = false;
                     closeToGround = false;
@@ -175,6 +182,7 @@ public class SwordSpawner : MonoBehaviour
                     var returnSword = Instantiate(sword, swordPoint, transform.rotation);
                     returnSword.GetComponent<SwordProjectile>().enabled = false;
                     returnSword.GetComponent<ReturnSword>().enabled = true;
+                    CursorManager.Instance.ChangeCursor(false);
                     //player.GetComponent<PlayerJumpV2>().ResetGravity();
                     player.GetComponent<PlayerJumpV2>().isHanging = false;
                     closeToGround = false;
