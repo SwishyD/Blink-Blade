@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
     {
         if (timerActive)
         {
-            timeStart = Mathf.Min(timeStart + Time.deltaTime, 300);
+            timeStart = Mathf.Min(timeStart + Time.deltaTime, 359999);
             var timeSpan = TimeSpan.FromSeconds(timeStart);
             textBox.text = "<mspace=0.38em>" + timeSpan.ToString("mm':'ss'.'fff") + "</mspace>";
         }
