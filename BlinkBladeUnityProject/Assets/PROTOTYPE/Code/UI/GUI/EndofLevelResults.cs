@@ -14,7 +14,10 @@ public class EndofLevelResults : MonoBehaviour
     public TMP_Text resultTime;
     public TMP_Text resultsGrade;
 
-    public string grade;
+    public float[] requiredTime;
+    public float[] requiredDeaths;
+
+    private string grade;
 
     private void OnEnable()
     {
@@ -23,11 +26,30 @@ public class EndofLevelResults : MonoBehaviour
         CalculateGrade();
     }
 
+    private void OnDisable()
+    {
+        resultDeathCount.text = "";
+        resultTime.text = "";
+        resultsGrade.text = "";
+    }
+
     void CalculateGrade()
     {
-        if(unRoundedTime <= 60 && resultsDeaths.deathCount <= 1)
+        if(unRoundedTime <= requiredTime[0] && resultsDeaths.deathCount <= requiredDeaths[0])
         {
-            grade = "S+";
+            grade = "S";
+        }
+        else if(unRoundedTime <= requiredTime[1] && resultsDeaths.deathCount <= requiredDeaths[1])
+        {
+            grade = "A";
+        }
+        else if (unRoundedTime <= requiredTime[2] && resultsDeaths.deathCount <= requiredDeaths[2])
+        {
+            grade = "B";
+        }
+        else if (unRoundedTime <= requiredTime[3] && resultsDeaths.deathCount <= requiredDeaths[3])
+        {
+            grade = "C";
         }
     }
 
