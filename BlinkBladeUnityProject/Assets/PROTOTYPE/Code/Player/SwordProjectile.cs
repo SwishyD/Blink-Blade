@@ -121,6 +121,7 @@ public class SwordProjectile : MonoBehaviour
                 trail2.transform.parent = null;
                 trail1.transform.position = hit.point;
                 trail2.transform.position = hit.point;
+                CursorManager.Instance.ChangeCursor(true);
                 Destroy(gameObject);
             }
             else if (hit.collider.gameObject.layer == 8 || hit.collider.gameObject.layer == 29)
@@ -138,6 +139,7 @@ public class SwordProjectile : MonoBehaviour
             if (hit.transform.tag == "Enemy")
             {
                 hit.transform.gameObject.GetComponent<IEnemyDeath>().OnHit();
+                hit.transform.gameObject.layer = 10;
                 speed = 0;
                 stuckInObject = true;
                 //CursorManager.Instance.ChangeCursorState(true);
@@ -151,6 +153,7 @@ public class SwordProjectile : MonoBehaviour
         {
             SwordSpawner.instance.swordSpawned = false;
             spawner.cloneSword = null;
+            CursorManager.Instance.ChangeCursor(false);
             //CursorManager.Instance.ChangeCursorState(false);
             Destroy(gameObject);
         }
@@ -159,6 +162,7 @@ public class SwordProjectile : MonoBehaviour
     {
         SwordSpawner.instance.swordSpawned = false;
         spawner.cloneSword = null;
+        CursorManager.Instance.ChangeCursor(false);
         //CursorManager.Instance.ChangeCursorState(false);
         Destroy(gameObject);
     }

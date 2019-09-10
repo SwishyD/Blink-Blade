@@ -137,6 +137,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         Instantiate(soulDisappearPFX, gameObject.transform);
         ghostVanishSFX.Play();
         //CursorManager.Instance.ChangeCursorState(false);
+        CursorManager.Instance.ChangeCursor(false);
         StartCoroutine("Respawn");
     }
 
@@ -150,7 +151,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
-        
+        gameObject.layer = 28;
         isHit = false;
         canTriggerHit = true;
     }
