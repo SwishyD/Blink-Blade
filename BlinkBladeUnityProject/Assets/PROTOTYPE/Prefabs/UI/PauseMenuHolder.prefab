@@ -4146,7 +4146,7 @@ MonoBehaviour:
   menuConfirmUI: {fileID: 6922165193033341936}
   player: {fileID: 0}
   timer: {fileID: 0}
-  swordScriptActive: 0
+  swordScriptActive: 1
 --- !u!1 &6922165192985289149
 GameObject:
   m_ObjectHideFlags: 0
