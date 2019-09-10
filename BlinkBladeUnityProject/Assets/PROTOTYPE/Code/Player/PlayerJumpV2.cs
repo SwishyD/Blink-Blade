@@ -106,6 +106,7 @@ public class PlayerJumpV2 : MonoBehaviour
                 Destroy(spawner.cloneSword);
                 spawner.cloneSword = null;
                 spawner.swordSpawned = false;
+                CursorManager.Instance.ChangeCursor(false);
             }
         }
         else if (((doubleJumpReady || !hasJumped) && !isGrounded) && ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))))
@@ -121,6 +122,7 @@ public class PlayerJumpV2 : MonoBehaviour
             spawner.cloneSword = null;
             spawner.swordSpawned = false;
             doubleJumpReady = true;
+            CursorManager.Instance.ChangeCursor(false);
         }
 
         if (isGrounded == false && Input.GetKey(KeyCode.S))
