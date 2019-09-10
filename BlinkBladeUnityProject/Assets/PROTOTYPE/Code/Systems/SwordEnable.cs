@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwordEnable : MonoBehaviour
 {
     public GameObject swordActivator;
+    public ParticleSystem collectPFX;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +13,7 @@ public class SwordEnable : MonoBehaviour
         {
             swordActivator.SetActive(true);
             GameObject.Find("PauseMenuHolder").GetComponent<PauseMenu>().swordScriptActive = true;
+            collectPFX.gameObject.SetActive(true);
             Destroy(gameObject);
         }
     }
