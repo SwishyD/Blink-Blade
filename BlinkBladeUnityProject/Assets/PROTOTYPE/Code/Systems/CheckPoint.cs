@@ -12,6 +12,7 @@ public class CheckPoint : MonoBehaviour
     ParticleSystem triggerPFX;
 
     public GameObject timer;
+    public GameObject endOfLevelResults;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class CheckPoint : MonoBehaviour
                 if (isEnd)
                 {
                     timer.GetComponent<Timer>().TimerToggleOff();
+                    endOfLevelResults.SetActive(true);
                 }
                 else if (isStart)
                 {
