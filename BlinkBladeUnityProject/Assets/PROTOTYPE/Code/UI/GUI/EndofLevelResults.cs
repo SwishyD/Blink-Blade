@@ -26,6 +26,7 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnEnable()
     {
+        PauseMenu.gameIsPaused = true;
         gameGUI.SetActive(false);
         unRoundedTime = resultsTimer.timeStart;
         StartCoroutine(ShowResults());
@@ -34,10 +35,7 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnDisable()
     {
-        if (gameGUI != null)
-        {
-            gameGUI.SetActive(true);
-        }
+        gameGUI.SetActive(true);
         resultDeathCount.text = "";
         resultTime.text = "";
         resultsGrade.text = "";
@@ -91,3 +89,6 @@ public class EndofLevelResults : MonoBehaviour
         SceneManagers.instance.MoveToScene(nameOfScene);
     }
 }
+
+        PauseMenu.gameIsPaused = false;
+        gameGUI.SetActive(true);
