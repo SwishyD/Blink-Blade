@@ -13,13 +13,16 @@ public class PauseMenu : MonoBehaviour {
     public GameObject menuConfirmUI;
     public GameObject player;
     public GameObject timer;
+  
 
     public bool swordScriptActive;
 
     public static bool quitActive = false;
     public static bool menuActive = false;
 
-    // Use this for initialization
+
+
+    
     void Start () {
         gameIsPaused = false;
         if(SceneManager.GetActiveScene().name == "TUTORIAL")
@@ -28,7 +31,6 @@ public class PauseMenu : MonoBehaviour {
         }
     }
 	
-	// Update is called once per frame
 	void Update () {
 
         if (gameIsPaused)
@@ -67,7 +69,7 @@ public class PauseMenu : MonoBehaviour {
                     quitActive = false;
                     
                 }
-              
+                
                 else
                 {
                     Resume();
@@ -102,7 +104,10 @@ public class PauseMenu : MonoBehaviour {
         quitActive = true;
         pauseMenuUI.SetActive(false);
         quitConfirmUI.SetActive(true);
+
     }
+
+    
 
     public void QuitGame()
     {
@@ -123,6 +128,7 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         quitConfirmUI.SetActive(false);
         menuConfirmUI.SetActive(false);
+
     }
 
     public void MenuConfrim()
@@ -130,6 +136,7 @@ public class PauseMenu : MonoBehaviour {
         menuActive = true;
         pauseMenuUI.SetActive(false);
         menuConfirmUI.SetActive(true);
+
     }
 
 }

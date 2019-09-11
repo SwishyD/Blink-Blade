@@ -9,11 +9,9 @@ public class MenuScreen : MonoBehaviour {
     public GameObject menuScreenUI;
     public GameObject quitConfirmUI;
     public static bool quitActive = false;
+    
 
-    private void Awake()
-    {
-        DoNotDestroy.instance.gameObject.GetComponent<PauseMenu>().enabled = false;
-    }
+    
 
     void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -31,7 +29,6 @@ public class MenuScreen : MonoBehaviour {
 
     public void StartGame()
     {
-        DoNotDestroy.instance.gameObject.GetComponent<PauseMenu>().enabled = true;
         SceneManager.LoadScene(1);
     }
        
@@ -48,6 +45,9 @@ public class MenuScreen : MonoBehaviour {
         menuScreenUI.SetActive(true);
         quitConfirmUI.SetActive(false);
     }
+
+
+   
 
     public void QuitGame()
     {
