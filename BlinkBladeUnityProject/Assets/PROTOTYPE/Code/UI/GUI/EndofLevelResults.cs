@@ -35,7 +35,11 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnDisable()
     {
-        gameGUI.SetActive(true);
+        PauseMenu.gameIsPaused = false;
+        if(gameGUI != null)
+        {
+            gameGUI.SetActive(true);
+        }
         resultDeathCount.text = "";
         resultTime.text = "";
         resultsGrade.text = "";
@@ -88,7 +92,4 @@ public class EndofLevelResults : MonoBehaviour
         string nameOfScene = SceneManager.GetActiveScene().name;
         SceneManagers.instance.MoveToScene(nameOfScene);
     }
-}
-
-        PauseMenu.gameIsPaused = false;
-        gameGUI.SetActive(true);
+}
