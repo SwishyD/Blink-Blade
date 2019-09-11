@@ -34,7 +34,10 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnDisable()
     {
-        gameGUI.SetActive(true);
+        if (gameGUI != null)
+        {
+            gameGUI.SetActive(true);
+        }
         resultDeathCount.text = "";
         resultTime.text = "";
         resultsGrade.text = "";

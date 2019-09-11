@@ -1400,8 +1400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuScreenUI: {fileID: 8714065625105859286}
   quitConfirmUI: {fileID: 8714065625041223499}
-  settingsMenuParent: {fileID: 0}
-  settingsMenu: {fileID: 0}
 --- !u!224 &8714065624526435201
 RectTransform:
   m_ObjectHideFlags: 0
