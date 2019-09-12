@@ -40,6 +40,8 @@ public class PlayerJumpV2 : MonoBehaviour
     public SwordSpawner spawner;
     [SerializeField] ParticleSystem dJumpPFX;
 
+    [SerializeField] AudioSource quickFallSound;
+
     public static PlayerJumpV2 instance = null;
 
     private void Awake()
@@ -62,10 +64,10 @@ public class PlayerJumpV2 : MonoBehaviour
 
     private void Start()
     {
-        PlayerNormal();
         ResetGravity();
         playerAnim = GetComponentInChildren<PlayerAnimator>();
         PlayerMovementV2.instance.canMove = true;
+        PlayerNormal();
     }
 
     private void Update()
@@ -77,7 +79,9 @@ public class PlayerJumpV2 : MonoBehaviour
             hasJumped = false;
             if (isQuickFalling)
             {
+                quickFallSound.Stop();
                 isQuickFalling = false;
+                playerAnim.SetPlayerQuickFall(false);
             }
         }
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
@@ -129,7 +133,7 @@ public class PlayerJumpV2 : MonoBehaviour
         {
             if (!isQuickFalling)
             {
-                AudioManager.instance.Play("QuickFall");
+                quickFallSound.Play();
             }
             isQuickFalling = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Lerp(currentVelocityDown, quickFallMaxVelocityDown, t));
@@ -138,7 +142,7 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            AudioManager.instance.Stop("QuickFall");
+            quickFallSound.Stop();
             isQuickFalling = false;
             playerAnim.SetPlayerQuickFall(false);
         }
@@ -246,6 +250,9 @@ public class PlayerJumpV2 : MonoBehaviour
     {
         PlayerMovementV2.instance.canMove = true;
         isHanging = false;
+        quickFallSound.Stop();
+        isQuickFalling = false;
+        playerAnim.SetPlayerQuickFall(false);
     }
    
     private void OnDrawGizmos()
