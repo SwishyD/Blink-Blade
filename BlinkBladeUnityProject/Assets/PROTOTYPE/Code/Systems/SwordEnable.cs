@@ -14,6 +14,8 @@ public class SwordEnable : MonoBehaviour
             swordActivator.SetActive(true);
             GameObject.Find("PauseMenuHolder").GetComponent<PauseMenu>().swordScriptActive = true;
             collectPFX.gameObject.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("SwordShwing_02");
+            FindObjectOfType<AudioManager>().Play("FireWhoosh");
             Destroy(gameObject);
         }
     }

@@ -40,5 +40,6 @@ public class PlayerSpawnPoint : MonoBehaviour
         deathCount++;
         //CursorManager.Instance.ChangeCursorState(false);
         FindObjectOfType<AudioManager>().Play("Death");
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 1f, .5f);
     }
 }

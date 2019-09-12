@@ -221,6 +221,7 @@ public class SwordSpawner : MonoBehaviour
                 }
                 //CursorManager.Instance.ChangeCursorState(false);
                 FindObjectOfType<AudioManager>().Play("Blink");
+                //FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.4f, 0.4f, .5f);
             }
         }
         #endregion
