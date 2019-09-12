@@ -839,6 +839,12 @@ MonoBehaviour:
   - 1
   - 3
   - 5
+  gradeLetter:
+  - S
+  - A
+  - B
+  - C
+  - D
 --- !u!1 &6093363085696700841
 GameObject:
   m_ObjectHideFlags: 0
