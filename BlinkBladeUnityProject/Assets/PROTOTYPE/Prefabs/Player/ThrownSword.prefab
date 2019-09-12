@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 77120068735979934}
   - component: {fileID: 989429311}
   - component: {fileID: 2713605085868243555}
+  - component: {fileID: 2005400571013571600}
   - component: {fileID: 5715068315648464389}
   m_Layer: 0
   m_Name: ThrownSword
@@ -409,6 +410,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2005400571013571600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5722015756847094077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a97ec913c6553e48b8322d2fabdbec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSound: {fileID: 5715068315648464389}
+  normalVolume: 0
 --- !u!82 &5715068315648464389
 AudioSource:
   m_ObjectHideFlags: 0
