@@ -21,12 +21,14 @@ public class EndofLevelResults : MonoBehaviour
 
     public float[] requiredTime;
     public float[] requiredDeaths;
+    public string[] gradeLetter;
 
     private string grade;
 
     private void OnEnable()
     {
         PauseMenu.gameIsPaused = true;
+        resultsDeaths.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameGUI.SetActive(false);
         unRoundedTime = resultsTimer.timeStart;
         StartCoroutine(ShowResults());
@@ -51,19 +53,23 @@ public class EndofLevelResults : MonoBehaviour
     {
         if(unRoundedTime <= requiredTime[0] && resultsDeaths.deathCount <= requiredDeaths[0])
         {
-            grade = "S";
+            grade = gradeLetter[0];
         }
         else if(unRoundedTime <= requiredTime[1] && resultsDeaths.deathCount <= requiredDeaths[1])
         {
-            grade = "A";
+            grade = gradeLetter[1];
         }
         else if (unRoundedTime <= requiredTime[2] && resultsDeaths.deathCount <= requiredDeaths[2])
         {
-            grade = "B";
+            grade = gradeLetter[2];
         }
         else if (unRoundedTime <= requiredTime[3] && resultsDeaths.deathCount <= requiredDeaths[3])
         {
-            grade = "C";
+            grade = gradeLetter[3];
+        }
+        else
+        {
+            grade = gradeLetter[4];
         }
     }
 
