@@ -26,6 +26,8 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnEnable()
     {
+        PauseMenu.gameIsPaused = true;
+        resultsDeaths.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameGUI.SetActive(false);
         unRoundedTime = resultsTimer.timeStart;
         StartCoroutine(ShowResults());
@@ -34,7 +36,11 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnDisable()
     {
-        gameGUI.SetActive(true);
+        PauseMenu.gameIsPaused = false;
+        if(gameGUI != null)
+        {
+            gameGUI.SetActive(true);
+        }
         resultDeathCount.text = "";
         resultTime.text = "";
         resultsGrade.text = "";
@@ -59,6 +65,10 @@ public class EndofLevelResults : MonoBehaviour
         else if (unRoundedTime <= requiredTime[3] && resultsDeaths.deathCount <= requiredDeaths[3])
         {
             grade = "C";
+        }
+        else
+        {
+            grade = "F";
         }
     }
 
@@ -87,4 +97,4 @@ public class EndofLevelResults : MonoBehaviour
         string nameOfScene = SceneManager.GetActiveScene().name;
         SceneManagers.instance.MoveToScene(nameOfScene);
     }
-}
+}
