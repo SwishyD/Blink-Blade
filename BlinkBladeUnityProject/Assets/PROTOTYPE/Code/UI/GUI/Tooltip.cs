@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum RevealType
 {
@@ -20,7 +18,7 @@ public class Tooltip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tooltipAnim = tooltip.GetComponent<Animator>();
+        tooltipAnim = tooltip.GetComponentInParent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
