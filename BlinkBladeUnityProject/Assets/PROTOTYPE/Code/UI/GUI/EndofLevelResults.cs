@@ -31,8 +31,8 @@ public class EndofLevelResults : MonoBehaviour
         resultsDeaths.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         gameGUI.SetActive(false);
         unRoundedTime = resultsTimer.timeStart;
-        StartCoroutine(ShowResults());
         CalculateGrade();
+        StartCoroutine(ShowResults());
     }
 
     private void OnDisable()

@@ -9,6 +9,9 @@ public class SwordProjectile : MonoBehaviour
     public float speed;
     public float throwDistance;
 
+    private float swordRotation;
+    private Transform swordHit;
+
     public float hitPointRay;
 
     public float distanceFromWall;
@@ -25,7 +28,6 @@ public class SwordProjectile : MonoBehaviour
     private void Start()
     {
         spawner = GameObject.Find("Aim Ring").GetComponent<SwordSpawner>();
-        Invoke("DestroyUnstuckSword", 2f);
     }
 
     private void FixedUpdate()
@@ -52,68 +54,35 @@ public class SwordProjectile : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 28)
             {
-                Debug.Log("HitPoint: " + hitPoint);
-                if(Mathf.Abs(hit.normal.x) > Mathf.Abs(hit.normal.y))
+                swordHit = hit.collider.transform;
+                if (Mathf.Abs(hit.normal.x) > Mathf.Abs(hit.normal.y))
                 {
                     if (hit.normal.x > 0)
                     {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 180));
-                        spawner.cloneSword = CloneSword;
-                        spawner.stuckLeft = true;
-                        spawner.stuckRight = false;
-                        spawner.stuckDown = false;
-                        CloneSword.transform.parent = hit.collider.transform;
-                        stuckInObject = true;
-                        //CursorManager.Instance.ChangeCursorState(true);
+                        swordRotation = 180;
+                        SpawnStuckSword();
+                        spawner.stuckLeft = true;                       
                     }
                     else if (hit.normal.x < 0)
                     {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 0));
-                        spawner.cloneSword = CloneSword;
-                        CloneSword.transform.parent = hit.collider.transform;
-                        stuckInObject = true;
-                        spawner.stuckLeft = false;
+                        swordRotation = 0;
+                        SpawnStuckSword();
                         spawner.stuckRight = true;
-                        spawner.stuckDown = false;
-                        //CursorManager.Instance.ChangeCursorState(true);
                     }
                 }
                 else if(Mathf.Abs(hit.normal.x) < Mathf.Abs(hit.normal.y))
                 {
                     if (hit.normal.y < 0)
                     {
-                        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 90));
-                        spawner.cloneSword = CloneSword;
-                        CloneSword.transform.parent = hit.collider.transform;
-                        stuckInObject = true;
-                        spawner.stuckLeft = false;
-                        spawner.stuckRight = false;
-                        spawner.stuckDown = false;
-                        //CursorManager.Instance.ChangeCursorState(true);
+                        swordRotation = 90;
+                        SpawnStuckSword();
                     }
                     else if (hit.normal.y > 0)
                     {
-                        if (hit.collider.name.Contains("Soul"))
                         {
-                            var ClonerSword = Instantiate(stuckSword, hitPoint - new Vector2(0, 1), Quaternion.Euler(0, 0, 90));
-                            spawner.cloneSword = ClonerSword;
-                            ClonerSword.transform.parent = hit.collider.transform;
-                            stuckInObject = true;
-                            spawner.stuckLeft = false;
-                            spawner.stuckRight = false;
-                            spawner.stuckDown = false;
-                            //CursorManager.Instance.ChangeCursorState(true);
-                        }
-                        else
-                        {
-                            var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, 270));
-                            spawner.cloneSword = CloneSword;
-                            CloneSword.transform.parent = hit.collider.transform;
-                            spawner.stuckLeft = false;
-                            spawner.stuckRight = false;
+                            swordRotation = 270;
+                            SpawnStuckSword();
                             spawner.stuckDown = true;
-                            stuckInObject = true;
-                            //CursorManager.Instance.ChangeCursorState(true);
                         }
                     }
                 }
@@ -133,7 +102,6 @@ public class SwordProjectile : MonoBehaviour
 
             if (hit.transform.name.Contains("Bullet"))
             {
-                Debug.Log("BulletSplit");
                 Destroy(hit.collider.gameObject);
             }
             if (hit.transform.tag == "Enemy")
@@ -142,28 +110,31 @@ public class SwordProjectile : MonoBehaviour
                 hit.transform.gameObject.layer = 10;
                 speed = 0;
                 stuckInObject = true;
-                //CursorManager.Instance.ChangeCursorState(true);
             }
         }
     }
 
-    public void DestroyUnstuckSword()
+    void SpawnStuckSword()
     {
-        if(stuckInObject == false)
-        {
-            SwordSpawner.instance.swordSpawned = false;
-            spawner.cloneSword = null;
-            CursorManager.Instance.ChangeCursor(false);
-            //CursorManager.Instance.ChangeCursorState(false);
-            Destroy(gameObject);
-        }
+        var CloneSword = Instantiate(stuckSword, hitPoint, Quaternion.Euler(0, 0, swordRotation));
+        spawner.cloneSword = CloneSword;
+        ResetDirection();
+        CloneSword.transform.parent = swordHit;
+        stuckInObject = true;
     }
+
+    void ResetDirection()
+    {
+        spawner.stuckLeft = false;
+        spawner.stuckRight = false;
+        spawner.stuckDown = false;
+    }
+
     public void DestroySword()
     {
         SwordSpawner.instance.swordSpawned = false;
         spawner.cloneSword = null;
         CursorManager.Instance.ChangeCursor(false);
-        //CursorManager.Instance.ChangeCursorState(false);
         Destroy(gameObject);
     }
 }
