@@ -14,7 +14,7 @@ public class Tooltip : MonoBehaviour
     string tagName = "Player";
     [SerializeField] bool tooltipActiveState;
 
-    public GameObject tooltip;
+    [SerializeField] GameObject tooltip;
     Animator tooltipAnim;
 
     // Start is called before the first frame update
@@ -39,17 +39,17 @@ public class Tooltip : MonoBehaviour
         }
     }
 
-    private void OnMouseOver(RevealType type)
+    private void OnMouseOver()
     {
-        if (type == RevealType.Mouse)
+        if (revealType == RevealType.Mouse)
         {
             SwitchTooltipActivationState(true);
         }
     }
 
-    private void OnMouseExit(RevealType type)
+    private void OnMouseExit()
     {
-        if (type == RevealType.Mouse)
+        if (revealType == RevealType.Mouse)
         {
             SwitchTooltipActivationState(false);
         }
