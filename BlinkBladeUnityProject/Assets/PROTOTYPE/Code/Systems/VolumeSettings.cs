@@ -29,7 +29,5 @@ public class VolumeSettings : MonoBehaviour
     {
         volumeNumber.text = volumeSlider.value.ToString();
         AudioListener.volume = volumeSlider.value / 100;
-        //Debug.Log(AudioListener.volume);
-        //Debug.Log(Screen.currentResolution);
     }
 }

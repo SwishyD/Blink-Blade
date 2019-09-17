@@ -21,8 +21,6 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
     [Tooltip("(Seconds) Time that the Enemy doesn't have a hitbox")]
     public float iFrameTimer;
 
-    //public Sprite soul;
-    //public Sprite normal;
     public bool isHit;
 
     Animator anim;
@@ -102,7 +100,6 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     public void OnHit()
     {
-        //GetComponent<SpriteRenderer>().sprite = soul;
         if (canTriggerHit)
         {
             anim.SetBool("showSoul", true);
@@ -137,7 +134,6 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         GetComponent<SpriteRenderer>().enabled = false;
         Instantiate(soulDisappearPFX, gameObject.transform);
         ghostVanishSFX.Play();
-        //CursorManager.Instance.ChangeCursorState(false);
         CursorManager.Instance.ChangeCursor(false);
         StartCoroutine("Respawn");
     }
