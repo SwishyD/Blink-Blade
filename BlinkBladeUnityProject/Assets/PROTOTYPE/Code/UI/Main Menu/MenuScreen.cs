@@ -27,9 +27,10 @@ public class MenuScreen : MonoBehaviour {
         }
 	}
 
-    public void StartGame()
+    public void StartGame(string moveToLevel)
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        SceneManagers.instance.MoveToScene(moveToLevel);
     }
        
     public void QuitGameConfirmation()
