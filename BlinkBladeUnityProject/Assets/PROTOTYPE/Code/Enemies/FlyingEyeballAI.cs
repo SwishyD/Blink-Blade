@@ -109,7 +109,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
             FindObjectOfType<AudioManager>().Play("EyebatSquelch");
             FindObjectOfType<AudioManager>().Play("EyebatSquelch_02");
             FindObjectOfType<AudioManager>().Play("Squeal");
-            FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.3f,0.5f,0.5f);
+            //FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.3f,0.5f,0.5f);
         }
         canTriggerHit = false;
     }
