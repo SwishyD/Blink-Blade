@@ -27,8 +27,8 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnEnable()
     {
-        PauseMenu.gameIsPaused = true;
-        resultsDeaths.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        PlayerJumpV2.instance.ResetGravity();
+        PlayerScriptManager.instance.PlayerScriptDisable();
         gameGUI.SetActive(false);
         unRoundedTime = resultsTimer.timeStart;
         CalculateGrade();
@@ -42,6 +42,7 @@ public class EndofLevelResults : MonoBehaviour
         {
             gameGUI.SetActive(true);
         }
+        PlayerScriptManager.instance.PlayerScriptEnable();
         resultDeathCount.text = "";
         resultTime.text = "";
         resultsGrade.text = "";
