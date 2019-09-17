@@ -111,6 +111,7 @@ public class SwordSpawner : MonoBehaviour
         }
         #endregion
         #region Right Click Options
+        //Blinking to the Blade
         if (Input.GetMouseButtonDown(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
             if (!plJump.isHanging)
