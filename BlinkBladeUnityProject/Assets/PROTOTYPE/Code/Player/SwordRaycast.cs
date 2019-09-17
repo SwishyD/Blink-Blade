@@ -7,6 +7,11 @@ public class SwordRaycast : MonoBehaviour
     public float groundDistance;
     public LayerMask rayMask;
 
+    private void Start()
+    {
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.1f, 0.2f, 0.3f);
+    }
+
     // Update is called once per frame
     void Update()
     {
