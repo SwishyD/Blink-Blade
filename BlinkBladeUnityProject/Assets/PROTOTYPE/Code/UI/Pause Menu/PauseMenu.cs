@@ -13,9 +13,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject menuConfirmUI;
     public GameObject player;
     public GameObject timer;
-  
 
-    public bool swordScriptActive;
 
     public static bool quitActive = false;
     public static bool menuActive = false;
@@ -25,38 +23,14 @@ public class PauseMenu : MonoBehaviour {
     
     void Start () {
         gameIsPaused = false;
-        if(SceneManager.GetActiveScene().name == "TUTORIAL")
-        {
-            swordScriptActive = false;
-        }
+        
     }
 	
 	void Update () {
-
-        if (gameIsPaused)
-        {
-            player.GetComponent<PlayerMovementV2>().enabled = false;
-            player.GetComponent<PlayerJumpV2>().enabled = false;
-            if (swordScriptActive)
-            {
-                player.GetComponentInChildren<SwordSpawner>().enabled = false;
-            }
-        }
-        if (!gameIsPaused)
-        {
-            player.GetComponent<PlayerMovementV2>().enabled = true;
-            player.GetComponent<PlayerJumpV2>().enabled = true;
-            if (swordScriptActive)
-            {
-                player.GetComponentInChildren<SwordSpawner>().enabled = true;
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)
             {
-                
                 if (menuActive == true)
                 {
                     ReturnToPause();
@@ -88,6 +62,7 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1f;
         gameIsPaused = false;
         timer.GetComponent<Timer>().TimerToggleOn();
+        PlayerScriptManager.instance.PlayerScriptEnable();
 
     }
 
@@ -97,6 +72,7 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 0f;
         gameIsPaused = true;
         timer.GetComponent<Timer>().TimerToggleOff();
+        PlayerScriptManager.instance.PlayerScriptDisable();
     }
 
     public void QuitGameConfrim()

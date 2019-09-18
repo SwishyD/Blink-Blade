@@ -49,7 +49,9 @@ public class SwordSpawner : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "TUTORIAL")
         {
-            this.gameObject.SetActive(false);
+            PlayerScriptManager.instance.tutorialCheck = true;
+            this.enabled = false;
+            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
         plJump = player.GetComponent<PlayerJumpV2>();
     }
@@ -57,10 +59,12 @@ public class SwordSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Aim Ring direction
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
         #region Left Click Options
+        //Raycast
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, throwDistance, rayMask);
         Debug.DrawLine(transform.position, hit.point, Color.yellow);
         if(hit.collider == null)
@@ -117,14 +121,17 @@ public class SwordSpawner : MonoBehaviour
             if (!plJump.isHanging)
             {
                 plJump.ResetGravity();
+                //Not close to ground and Sword isn't stuck in top of collider
                 if (!closeToGround && !stuckDown)
                 {
                     transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
                 }
+                //Is close to ground and Sword isn't stuck in top of collider
                 else if (closeToGround && !stuckDown)
                 {
                     transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
                 }
+                //Is close to ground and Sword is stuck in top of collider or Not close to ground and Sword is stuck in top of collider
                 else if (closeToGround && stuckDown || !closeToGround && stuckDown)
                 {
                     transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
