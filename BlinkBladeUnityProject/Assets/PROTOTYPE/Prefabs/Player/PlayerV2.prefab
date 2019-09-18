@@ -372,6 +372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5921857822077694295}
   - component: {fileID: 5921857822077694290}
+  - component: {fileID: 2464485035776768235}
   - component: {fileID: 7381843872453244425}
   - component: {fileID: 5921857822077694293}
   - component: {fileID: 5921857822077694292}
@@ -414,6 +415,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74b60ce7097533c4d914470c60dfba2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpVelocity: 15
+  doubleJumpVelocity: 12
+  groundedSkin: 0.05
+  fallMultiplier: 3
+  lowJumpMultiplier: 6
+  defaultGrav: 3
+  maxVelocityDown: -20
+  quickFallMaxVelocityDown: -40
+  boxOffset: 1.17
+  currentVelocityDown: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 1073742592
+  feetPos: {fileID: 54922040}
+  doubleJumpReady: 0
+  isHanging: 0
+  isQuickFalling: 0
+  boxSize: {x: 0, y: 0}
+  spawner: {fileID: 5166808852527385706}
+  dJumpPFX: {fileID: 7758840546836574853, guid: 8b34fa88748574e4980733b261f18e94,
+    type: 3}
+  quickFallSound: {fileID: 4204903047918256843}
+--- !u!114 &2464485035776768235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5921857822077694296}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0a2b34fc81c7046bba52b6704b8885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpVelocity: 15

@@ -118,9 +118,10 @@ public class SwordSpawner : MonoBehaviour
         //Blinking to the Blade
         if (Input.GetMouseButtonDown(1) && swordSpawned == true && cloneSword.name.Contains("StuckSword"))
         {
-            if (!plJump.isHanging)
+            if (!plJump.isHanging || !PlayerJumpV2Mirror.instance.isHanging)
             {
                 plJump.ResetGravity();
+                PlayerJumpV2Mirror.instance.ResetGravity();
                 //Not close to ground and Sword isn't stuck in top of collider
                 if (!closeToGround && !stuckDown)
                 {
@@ -137,6 +138,7 @@ public class SwordSpawner : MonoBehaviour
                     transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
                 }
                 plJump.FreezePos();
+                PlayerJumpV2Mirror.instance.FreezePos();
                 if (stuckLeft)
                 {
                     GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = true;
