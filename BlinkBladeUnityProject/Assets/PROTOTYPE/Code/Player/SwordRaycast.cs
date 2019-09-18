@@ -9,7 +9,7 @@ public class SwordRaycast : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.1f, 0.2f, 0.3f);
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.2f, 0.2f, 0.3f);
     }
 
     // Update is called once per frame
