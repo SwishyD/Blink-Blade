@@ -145,7 +145,7 @@ public class SwordSpawner : MonoBehaviour
                     //Not close to ground and Sword isn't stuck in top of collider
                     if (!closeToRoof && !stuckUp)
                     {
-                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
+                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.7f, 0);
                     }
                     //Is close to ground and Sword isn't stuck in top of collider
                     else if (closeToRoof && !stuckUp)
@@ -155,7 +155,7 @@ public class SwordSpawner : MonoBehaviour
                     //Is close to ground and Sword is stuck in top of collider or Not close to ground and Sword is stuck in top of collider
                     else if (closeToRoof && stuckUp || !closeToRoof && stuckUp)
                     {
-                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
+                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position - new Vector3(0, 0.8f, 0);
                     }
                 }
                 plJump.ResetGravity();

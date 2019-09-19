@@ -15,7 +15,7 @@ public class PlayerJumpV2 : MonoBehaviour
     public float maxVelocityDown = -20f;
     public float quickFallMaxVelocityDown = -40f;
     public float boxOffset;
-    static float t = 0.0f;
+    public static float t = 0.0f;
     public float currentVelocityDown;
      
     //For ground check
@@ -91,17 +91,35 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         else if (isHanging)
         {
-            if (!spawner.closeToGround && !spawner.stuckDown)
+            if (!isFlipped)
             {
-                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+                if (!spawner.closeToGround && !spawner.stuckDown)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+                }
+                else if (spawner.closeToGround && !spawner.stuckDown)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+                }
+                else if (spawner.closeToGround && spawner.stuckDown || !spawner.closeToGround && spawner.stuckDown)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
+                }
             }
-            else if (spawner.closeToGround && !spawner.stuckDown)
+            else if (isFlipped)
             {
-                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
-            }
-            else if (spawner.closeToGround && spawner.stuckDown || !spawner.closeToGround && spawner.stuckDown)
-            {
-                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
+                if (!spawner.closeToRoof && !spawner.stuckUp)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.7f, 0);
+                }
+                else if (spawner.closeToRoof && !spawner.stuckUp)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+                }
+                else if (spawner.closeToRoof && spawner.stuckUp || !spawner.closeToRoof && spawner.stuckUp)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position - new Vector3(0, 0.8f, 0);
+                }
             }
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
@@ -217,6 +235,7 @@ public class PlayerJumpV2 : MonoBehaviour
         doubleJumpReady = true;
         PlayerMovementV2.instance.canMove = true;
         hasJumped = true;
+        t = 0;
 
         //Anim and sound
         if (isGrounded)
