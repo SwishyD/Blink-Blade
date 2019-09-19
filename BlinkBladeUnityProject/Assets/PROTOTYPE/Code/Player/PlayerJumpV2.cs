@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerJumpV2 : MonoBehaviour
 {
     private PlayerAnimator playerAnim;
-    
     //Jump
     public float jumpVelocity;
     public float doubleJumpVelocity;
@@ -31,6 +30,7 @@ public class PlayerJumpV2 : MonoBehaviour
     bool hasJumped;
     public bool isHanging;
     public bool isQuickFalling;
+    public bool isFlipped;
 
 
 
@@ -142,6 +142,12 @@ public class PlayerJumpV2 : MonoBehaviour
             isQuickFalling = false;
             playerAnim.SetPlayerQuickFall(false);
         }
+
+        //Debug
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlayerFlip();
+        }
     }
 
     private void FixedUpdate()
@@ -159,6 +165,10 @@ public class PlayerJumpV2 : MonoBehaviour
         if (isHanging)
         {
             maxVelocityDown = 0f;
+        }
+        else if (isFlipped)
+        {
+            maxVelocityDown = 20f;
         }
         else
         {
@@ -182,7 +192,11 @@ public class PlayerJumpV2 : MonoBehaviour
             rb.gravityScale = defaultGrav;
         }
        
-        if (rb.velocity.y < maxVelocityDown && !isQuickFalling && !isHanging)
+        if (rb.velocity.y < maxVelocityDown && !isQuickFalling && !isHanging && !isFlipped)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
+        }
+        else if (rb.velocity.y > maxVelocityDown && !isQuickFalling && !isHanging && isFlipped)
         {
             rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
         }
@@ -257,4 +271,27 @@ public class PlayerJumpV2 : MonoBehaviour
         //Anim
         playerAnim.SetPlayerQuickFall(false);
     } 
+
+    public void PlayerFlip()
+    {
+        isFlipped = !isFlipped;
+        jumpVelocity = -jumpVelocity;
+        doubleJumpVelocity = -doubleJumpVelocity;
+        fallMultiplier = -fallMultiplier;
+        lowJumpMultiplier = -lowJumpMultiplier;
+        defaultGrav = -defaultGrav;
+        maxVelocityDown = -maxVelocityDown;
+        quickFallMaxVelocityDown = -quickFallMaxVelocityDown;
+        gameObject.GetComponent<Collider2D>().offset = new Vector2(gameObject.GetComponent<Collider2D>().offset.x, -gameObject.GetComponent<Collider2D>().offset.y);
+        if (isFlipped)
+        {
+            playerAnim.spriteRend.flipY = true;
+            feetPos.localPosition = new Vector3(0.043f, 1.032f, 0);
+        }
+        else if (!isFlipped)
+        {
+            playerAnim.spriteRend.flipY = false;
+            feetPos.localPosition = new Vector3(0.043f, -1.032f, 0);
+        }
+    }
 }

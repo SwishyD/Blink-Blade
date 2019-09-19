@@ -15,13 +15,29 @@ public class SwordRaycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundDistance, rayMask);
-        Debug.DrawLine(transform.position, hit.point, Color.yellow);
-        Debug.Log(hit.point);
-
-        if(hit.collider != null)
+        if (!PlayerJumpV2.instance.isFlipped)
         {
-            SwordSpawner.instance.closeToGround = true;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundDistance, rayMask);
+            Debug.DrawLine(transform.position, hit.point, Color.yellow);
+            Debug.Log(hit.point);
+            SwordSpawner.instance.closeToRoof = false;
+
+            if (hit.collider != null)
+            {
+                SwordSpawner.instance.closeToGround = true;
+            }
+        }
+        else if (PlayerJumpV2.instance.isFlipped)
+        {
+            RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, groundDistance, rayMask);
+            Debug.DrawLine(transform.position, hitUp.point, Color.yellow);
+            Debug.Log(hitUp.point);
+            SwordSpawner.instance.closeToGround = false;
+
+            if (hitUp.collider != null)
+            {
+                SwordSpawner.instance.closeToRoof = true;
+            }
         }
     }
 }
