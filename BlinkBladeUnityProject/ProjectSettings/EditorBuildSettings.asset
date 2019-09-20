@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/LEVEL1.unity
     guid: 86d5d21e252bfe34c8b7bf8c0c013fc7
+  - enabled: 1
+    path: Assets/PROTOTYPE/Scenes/In-Game Scenes/LEVEL2.unity
+    guid: 8eaf40087fd7e184198193f817b2589a
   m_configObjects: {}
