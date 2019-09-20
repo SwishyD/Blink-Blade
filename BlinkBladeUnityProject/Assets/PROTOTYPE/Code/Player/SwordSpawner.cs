@@ -23,10 +23,12 @@ public class SwordSpawner : MonoBehaviour
     public bool stuckLeft;
     public bool stuckRight;
     public bool stuckDown;
+    public bool stuckUp;
 
     public bool swordSpawned;
 
     public bool closeToGround;
+    public bool closeToRoof;
     public LayerMask rayMask;
 
     [SerializeField] Animator throwFXAnim;
@@ -120,22 +122,43 @@ public class SwordSpawner : MonoBehaviour
         {
             if (!plJump.isHanging)
             {
+                if (!plJump.isFlipped)
+                {
+                    //Not close to ground and Sword isn't stuck in top of collider
+                    if (!closeToGround && !stuckDown)
+                    {
+                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
+                    }
+                    //Is close to ground and Sword isn't stuck in top of collider
+                    else if (closeToGround && !stuckDown)
+                    {
+                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+                    }
+                    //Is close to ground and Sword is stuck in top of collider or Not close to ground and Sword is stuck in top of collider
+                    else if (closeToGround && stuckDown || !closeToGround && stuckDown)
+                    {
+                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
+                    }
+                }
+                if (plJump.isFlipped)
+                {
+                    //Not close to ground and Sword isn't stuck in top of collider
+                    if (!closeToRoof && !stuckUp)
+                    {
+                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.7f, 0);
+                    }
+                    //Is close to ground and Sword isn't stuck in top of collider
+                    else if (closeToRoof && !stuckUp)
+                    {
+                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+                    }
+                    //Is close to ground and Sword is stuck in top of collider or Not close to ground and Sword is stuck in top of collider
+                    else if (closeToRoof && stuckUp || !closeToRoof && stuckUp)
+                    {
+                        transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position - new Vector3(0, 0.8f, 0);
+                    }
+                }
                 plJump.ResetGravity();
-                //Not close to ground and Sword isn't stuck in top of collider
-                if (!closeToGround && !stuckDown)
-                {
-                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position;
-                }
-                //Is close to ground and Sword isn't stuck in top of collider
-                else if (closeToGround && !stuckDown)
-                {
-                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
-                }
-                //Is close to ground and Sword is stuck in top of collider or Not close to ground and Sword is stuck in top of collider
-                else if (closeToGround && stuckDown || !closeToGround && stuckDown)
-                {
-                    transform.parent.transform.position = cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
-                }
                 plJump.FreezePos();
                 if (stuckLeft)
                 {
@@ -158,6 +181,7 @@ public class SwordSpawner : MonoBehaviour
         Debug.Log("SwordSpawned");
         swordSpawned = true;
         closeToGround = false;
+        closeToRoof = false;
         CursorManager.Instance.ChangeCursor(false);
         throwFXAnim.SetTrigger("Throw");
         AudioManager.instance.Play("SwordThrow");
@@ -176,6 +200,7 @@ public class SwordSpawner : MonoBehaviour
         CursorManager.Instance.ChangeCursor(false);
         plJump.isHanging = false;
         closeToGround = false;
+        closeToRoof = false;
         swordSpawned = false;
     }
 }

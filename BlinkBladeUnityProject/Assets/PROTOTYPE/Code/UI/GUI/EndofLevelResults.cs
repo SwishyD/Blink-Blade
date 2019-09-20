@@ -25,8 +25,11 @@ public class EndofLevelResults : MonoBehaviour
 
     private string grade;
 
+    public bool levelEnd;
+
     private void OnEnable()
     {
+        levelEnd = true;
         PlayerJumpV2.instance.ResetGravity();
         PlayerScriptManager.instance.PlayerScriptDisable();
         gameGUI.SetActive(false);
@@ -91,11 +94,13 @@ public class EndofLevelResults : MonoBehaviour
 
     public void BackToHub()
     {
+        levelEnd = false;
         SceneManagers.instance.MoveToScene("HUB");
     }
 
     public void RestartLevel()
     {
+        levelEnd = false;
         string nameOfScene = SceneManager.GetActiveScene().name;
         SceneManagers.instance.MoveToScene(nameOfScene);
     }

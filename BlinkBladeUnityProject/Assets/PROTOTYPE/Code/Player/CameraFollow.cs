@@ -19,6 +19,14 @@ public class CameraFollow : MonoBehaviour {
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
+        if(PlayerJumpV2.instance.isQuickFalling == true)
+        {
+            offset.y = Mathf.Lerp(0, -12, PlayerJumpV2.t);
+        }
+        else
+        {
+            offset.y = 0;
+        }
 	}
 
     public void ChangeCameraTarget(Transform newTarget)

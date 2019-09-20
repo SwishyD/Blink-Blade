@@ -79,6 +79,7 @@ public class SwordProjectile : MonoBehaviour
                     {
                         swordRotation = 90;
                         SpawnStuckSword();
+                        spawner.stuckUp = true;
                     }
                     else if (hit.normal.y > 0)
                     {
@@ -132,6 +133,7 @@ public class SwordProjectile : MonoBehaviour
         spawner.stuckLeft = false;
         spawner.stuckRight = false;
         spawner.stuckDown = false;
+        spawner.stuckUp = false;
     }
 
     public void DestroySword()
