@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerLand
+  m_Name: Bark
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -7231154831711190130, guid: 8c8caa92aef3221429301329539b2efc,
+      value: {fileID: 2269055099296615711, guid: 34b44d354f7c15d4499ac28e8860c287,
         type: 3}
-    - time: 0.06666667
-      value: {fileID: -4191319321214602583, guid: 8c8caa92aef3221429301329539b2efc,
+    - time: 0.083333336
+      value: {fileID: 2786852028375665511, guid: 34b44d354f7c15d4499ac28e8860c287,
+        type: 3}
+    - time: 0.16666667
+      value: {fileID: -7775769993083000138, guid: 34b44d354f7c15d4499ac28e8860c287,
+        type: 3}
+    - time: 0.25
+      value: {fileID: -7465213374505566767, guid: 34b44d354f7c15d4499ac28e8860c287,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 15
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -44,14 +50,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -7231154831711190130, guid: 8c8caa92aef3221429301329539b2efc, type: 3}
-    - {fileID: -4191319321214602583, guid: 8c8caa92aef3221429301329539b2efc, type: 3}
+    - {fileID: 2269055099296615711, guid: 34b44d354f7c15d4499ac28e8860c287, type: 3}
+    - {fileID: 2786852028375665511, guid: 34b44d354f7c15d4499ac28e8860c287, type: 3}
+    - {fileID: -7775769993083000138, guid: 34b44d354f7c15d4499ac28e8860c287, type: 3}
+    - {fileID: -7465213374505566767, guid: 34b44d354f7c15d4499ac28e8860c287, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.13333334
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -70,25 +78,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: PlaySound
-    data: Land
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
-    functionName: StopSound
-    data: QuickFall
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
-    functionName: CheckIfQuickFalling
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

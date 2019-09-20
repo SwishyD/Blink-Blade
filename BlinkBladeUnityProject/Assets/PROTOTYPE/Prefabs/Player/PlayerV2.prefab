@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4781057828086718360}
   - component: {fileID: 1795348961}
   - component: {fileID: 2111390319}
+  - component: {fileID: 228984988514452093}
   m_Layer: 31
   m_Name: Sprite
   m_TagString: Untagged
@@ -173,6 +174,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e54f624247a27c45b72fa1bf5cac6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &228984988514452093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777386927363507942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f994ea290d741246afc97d7ddd20e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pJump: {fileID: 5921857822077694290}
 --- !u!1 &5166808852116188933
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,8 +322,10 @@ MonoBehaviour:
   stuckLeft: 0
   stuckRight: 0
   stuckDown: 0
+  stuckUp: 0
   swordSpawned: 0
   closeToGround: 0
+  closeToRoof: 0
   rayMask:
     serializedVersion: 2
     m_Bits: 768
@@ -433,6 +449,7 @@ MonoBehaviour:
   doubleJumpReady: 0
   isHanging: 0
   isQuickFalling: 0
+  isFlipped: 0
   boxSize: {x: 0, y: 0}
   spawner: {fileID: 5166808852527385706}
   dJumpPFX: {fileID: 7758840546836574853, guid: 8b34fa88748574e4980733b261f18e94,

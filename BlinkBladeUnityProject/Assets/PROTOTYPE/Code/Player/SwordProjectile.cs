@@ -57,12 +57,14 @@ public class SwordProjectile : MonoBehaviour
                 swordHit = hit.collider.transform;
                 if (Mathf.Abs(hit.normal.x) > Mathf.Abs(hit.normal.y))
                 {
+                    //If Sword hits right side of collider
                     if (hit.normal.x > 0)
                     {
                         swordRotation = 180;
                         SpawnStuckSword();
                         spawner.stuckLeft = true;                       
                     }
+                    //If sword hits left side of collider
                     else if (hit.normal.x < 0)
                     {
                         swordRotation = 0;
@@ -72,13 +74,16 @@ public class SwordProjectile : MonoBehaviour
                 }
                 else if(Mathf.Abs(hit.normal.x) < Mathf.Abs(hit.normal.y))
                 {
+                    //If sword hits bottom of collider
                     if (hit.normal.y < 0)
                     {
                         swordRotation = 90;
                         SpawnStuckSword();
+                        spawner.stuckUp = true;
                     }
                     else if (hit.normal.y > 0)
                     {
+                        //If sword hits top of collider
                         {
                             swordRotation = 270;
                             SpawnStuckSword();
@@ -128,6 +133,7 @@ public class SwordProjectile : MonoBehaviour
         spawner.stuckLeft = false;
         spawner.stuckRight = false;
         spawner.stuckDown = false;
+        spawner.stuckUp = false;
     }
 
     public void DestroySword()

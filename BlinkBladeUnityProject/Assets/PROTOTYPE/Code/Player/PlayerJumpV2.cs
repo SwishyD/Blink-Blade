@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerJumpV2 : MonoBehaviour
 {
     private PlayerAnimator playerAnim;
-    
     //Jump
     public float jumpVelocity;
     public float doubleJumpVelocity;
@@ -16,7 +15,7 @@ public class PlayerJumpV2 : MonoBehaviour
     public float maxVelocityDown = -20f;
     public float quickFallMaxVelocityDown = -40f;
     public float boxOffset;
-    static float t = 0.0f;
+    public static float t = 0.0f;
     public float currentVelocityDown;
      
     //For ground check
@@ -31,6 +30,7 @@ public class PlayerJumpV2 : MonoBehaviour
     bool hasJumped;
     public bool isHanging;
     public bool isQuickFalling;
+    public bool isFlipped;
 
 
 
@@ -91,17 +91,35 @@ public class PlayerJumpV2 : MonoBehaviour
         }
         else if (isHanging)
         {
-            if (!spawner.closeToGround && !spawner.stuckDown)
+            if (!isFlipped)
             {
-                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+                if (!spawner.closeToGround && !spawner.stuckDown)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position;
+                }
+                else if (spawner.closeToGround && !spawner.stuckDown)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+                }
+                else if (spawner.closeToGround && spawner.stuckDown || !spawner.closeToGround && spawner.stuckDown)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
+                }
             }
-            else if (spawner.closeToGround && !spawner.stuckDown)
+            else if (isFlipped)
             {
-                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
-            }
-            else if (spawner.closeToGround && spawner.stuckDown || !spawner.closeToGround && spawner.stuckDown)
-            {
-                transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.8f, 0);
+                if (!spawner.closeToRoof && !spawner.stuckUp)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 0.7f, 0);
+                }
+                else if (spawner.closeToRoof && !spawner.stuckUp)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position + new Vector3(0, 1f, 0);
+                }
+                else if (spawner.closeToRoof && spawner.stuckUp || !spawner.closeToRoof && spawner.stuckUp)
+                {
+                    transform.position = spawner.cloneSword.transform.GetChild(0).transform.position - new Vector3(0, 0.8f, 0);
+                }
             }
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
             {
@@ -142,6 +160,12 @@ public class PlayerJumpV2 : MonoBehaviour
             isQuickFalling = false;
             playerAnim.SetPlayerQuickFall(false);
         }
+
+        //Debug
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PlayerFlip();
+        }
     }
 
     private void FixedUpdate()
@@ -159,6 +183,10 @@ public class PlayerJumpV2 : MonoBehaviour
         if (isHanging)
         {
             maxVelocityDown = 0f;
+        }
+        else if (isFlipped)
+        {
+            maxVelocityDown = 20f;
         }
         else
         {
@@ -182,7 +210,11 @@ public class PlayerJumpV2 : MonoBehaviour
             rb.gravityScale = defaultGrav;
         }
        
-        if (rb.velocity.y < maxVelocityDown && !isQuickFalling && !isHanging)
+        if (rb.velocity.y < maxVelocityDown && !isQuickFalling && !isHanging && !isFlipped)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
+        }
+        else if (rb.velocity.y > maxVelocityDown && !isQuickFalling && !isHanging && isFlipped)
         {
             rb.velocity = new Vector2(rb.velocity.x, maxVelocityDown);
         }
@@ -203,6 +235,7 @@ public class PlayerJumpV2 : MonoBehaviour
         doubleJumpReady = true;
         PlayerMovementV2.instance.canMove = true;
         hasJumped = true;
+        t = 0;
 
         //Anim and sound
         if (isGrounded)
@@ -257,4 +290,27 @@ public class PlayerJumpV2 : MonoBehaviour
         //Anim
         playerAnim.SetPlayerQuickFall(false);
     } 
+
+    public void PlayerFlip()
+    {
+        isFlipped = !isFlipped;
+        jumpVelocity = -jumpVelocity;
+        doubleJumpVelocity = -doubleJumpVelocity;
+        fallMultiplier = -fallMultiplier;
+        lowJumpMultiplier = -lowJumpMultiplier;
+        defaultGrav = -defaultGrav;
+        maxVelocityDown = -maxVelocityDown;
+        quickFallMaxVelocityDown = -quickFallMaxVelocityDown;
+        gameObject.GetComponent<Collider2D>().offset = new Vector2(gameObject.GetComponent<Collider2D>().offset.x, -gameObject.GetComponent<Collider2D>().offset.y);
+        if (isFlipped)
+        {
+            playerAnim.spriteRend.flipY = true;
+            feetPos.localPosition = new Vector3(0.043f, 1.032f, 0);
+        }
+        else if (!isFlipped)
+        {
+            playerAnim.spriteRend.flipY = false;
+            feetPos.localPosition = new Vector3(0.043f, -1.032f, 0);
+        }
+    }
 }
