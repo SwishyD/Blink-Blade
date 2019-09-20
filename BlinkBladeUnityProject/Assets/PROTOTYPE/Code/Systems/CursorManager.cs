@@ -30,31 +30,14 @@ public class CursorManager : MonoBehaviour
         hotSpot = new Vector2(17, 17);
     }
 
-    // Update is called once per frame
-    /*void FixedUpdate()
-    {
-        if(SwordSpawner.instance.cloneSword == null)
-        {
-            Debug.Log("CAN NOT BLINK");
-            Cursor.SetCursor(cursorNoBlink, hotSpot, CursorMode.Auto);
-        }
-        else if (SwordSpawner.instance.cloneSword.name.Contains("StuckSword"))
-        {
-            Debug.Log("CAN BLINK");
-            Cursor.SetCursor(cursorYesBlink, hotSpot, CursorMode.Auto);
-        }
-    }*/
-    
     public void ChangeCursor(bool active)
     {
         if (active)
         {
-            Debug.Log("CAN BLINK");
             Cursor.SetCursor(cursorYesBlink, hotSpot, CursorMode.Auto);
         }
         else if (!active)
         {
-            Debug.Log("CAN NOT BLINK");
             Cursor.SetCursor(cursorNoBlink, hotSpot, CursorMode.Auto);
         }
     }
