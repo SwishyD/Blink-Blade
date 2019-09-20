@@ -5,17 +5,20 @@ using UnityEngine;
 public class QuickFallCamShake : MonoBehaviour
 {
     [SerializeField] PlayerJumpV2 pJump;
+    [SerializeField] ParticleSystem heavyLandPFX;
 
     public void CheckIfQuickFalling()
     {
         if (Input.GetKey(KeyCode.S))
         {
-            CamShake();
+            HeavyLand();
         }
     }
 
-    void CamShake()
+    void HeavyLand()
     {
         FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 0.8f, .5f);
+        Instantiate(heavyLandPFX, transform);
+        AudioManager.instance.Play("HeavyLand");
     }
 }

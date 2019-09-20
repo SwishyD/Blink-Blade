@@ -27,7 +27,6 @@ public class DogAnim : MonoBehaviour
         {
             int newIndex = Random.Range(1, 3);
             anim.SetInteger("IdleAnimIndex", newIndex);
-            Debug.Log(newIndex);
             anim.SetTrigger("IdleAnim");
             if (newIndex == 2)
             {
