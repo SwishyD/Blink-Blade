@@ -178,7 +178,6 @@ public class SwordSpawner : MonoBehaviour
     {
         Destroy(cloneSword);
         cloneSword = Instantiate(sword, shotPoint.position, transform.rotation);
-        Debug.Log("SwordSpawned");
         swordSpawned = true;
         closeToGround = false;
         closeToRoof = false;

@@ -21,7 +21,14 @@ public class CameraFollow : MonoBehaviour {
         transform.position = smoothedPosition;
         if(PlayerJumpV2.instance.isQuickFalling == true)
         {
-            offset.y = Mathf.Lerp(0, -12, PlayerJumpV2.t);
+            if (!PlayerJumpV2.instance.isFlipped)
+            {
+                offset.y = Mathf.Lerp(0, -12, PlayerJumpV2.t);
+            }
+            else if (PlayerJumpV2.instance.isFlipped)
+            {
+                offset.y = Mathf.Lerp(0, 12, PlayerJumpV2.t);
+            }
         }
         else
         {

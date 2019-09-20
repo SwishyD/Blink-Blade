@@ -19,7 +19,6 @@ public class SwordRaycast : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundDistance, rayMask);
             Debug.DrawLine(transform.position, hit.point, Color.yellow);
-            Debug.Log(hit.point);
             SwordSpawner.instance.closeToRoof = false;
 
             if (hit.collider != null)
@@ -31,7 +30,6 @@ public class SwordRaycast : MonoBehaviour
         {
             RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, groundDistance, rayMask);
             Debug.DrawLine(transform.position, hitUp.point, Color.yellow);
-            Debug.Log(hitUp.point);
             SwordSpawner.instance.closeToGround = false;
 
             if (hitUp.collider != null)
