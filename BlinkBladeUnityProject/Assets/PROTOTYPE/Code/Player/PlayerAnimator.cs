@@ -148,4 +148,9 @@ public class PlayerAnimator : MonoBehaviour
             anim.SetBool("PlayerQuickFalling", newState);
         }
     }
+
+    public void PlayerPetDog()
+    {
+        anim.SetTrigger("PlayerPet");
+    }
 }
