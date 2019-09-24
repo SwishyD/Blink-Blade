@@ -13,12 +13,17 @@ public class SwingingPlatform : MonoBehaviour
     public float t;
 
     public bool rotateLeft;
-    private bool hitLimit;
+    public bool hitLimit;
+
+    public bool midLeft;
+    public bool midRight;
+    public bool speedUp;
 
 
     public GameObject rotator;
     public GameObject rotatedObject;
     public GameObject spriteHolder;
+    public GameObject midPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +31,12 @@ public class SwingingPlatform : MonoBehaviour
         rotateLeft = true;
         speed = maxSpeed;
         rotatedObject.transform.position = transform.position - new Vector3(0, rotateLength, 0);
+        midPoint.transform.position = transform.position - new Vector3(0, rotateLength, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rotator.transform.rotation.z);
         spriteHolder.transform.position = rotatedObject.transform.position;
         rotator.transform.eulerAngles += new Vector3(0, 0, speed * Time.deltaTime);
         if (rotateLeft)
@@ -55,6 +60,17 @@ public class SwingingPlatform : MonoBehaviour
         {
             Debug.Log("Bottom");
         }
+
+        if (midLeft || midRight)
+        {
+            speed = Mathf.Lerp(speed, 0, t);
+            t = 0.3f * Time.deltaTime;
+        }
+        if(speedUp)
+        {
+            speed = Mathf.Lerp(speed, maxSpeed, t);
+            t = 0.6f * Time.deltaTime;
+        }
     }
 
     IEnumerator ChangeRotation()
@@ -63,7 +79,9 @@ public class SwingingPlatform : MonoBehaviour
         speed = 0;
         maxSpeed = -maxSpeed;
         yield return new WaitForSeconds(1f);
-        speed = maxSpeed;
-        hitLimit = false;
+        //speed = maxSpeed;
+        speedUp = true;
+        midRight = false;
+        midLeft = false;
     }
 }
