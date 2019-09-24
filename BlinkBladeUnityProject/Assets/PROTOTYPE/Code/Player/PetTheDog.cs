@@ -18,29 +18,15 @@ public class PetTheDog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canPetDog && !beingPet)
+        if (Input.GetKeyDown(KeyCode.E) && canPetDog && !beingPet && playerAnim.pJumpScript.isGrounded)
         {
-            RetrieveAnims();
-            dogAnimScript.PetDog();
-            beingPet = true;
-            playerAnim.PlayerPetDog();
+            SetDogPetToTrue();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void SetDogPettability(bool newState)
     {
-        if (collision.tag == "Player")
-        {
-            canPetDog = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            canPetDog = false;
-        }
+        canPetDog = newState;
     }
 
     void RetrieveAnims()
@@ -55,8 +41,18 @@ public class PetTheDog : MonoBehaviour
         }
     }
 
+    void SetDogPetToTrue()
+    {
+        RetrieveAnims();
+        PlayerScriptManager.instance.PlayerScriptDisable();
+        beingPet = true;
+        playerAnim.PlayerPetDog();
+        dogAnimScript.PetDog();
+    }
+
     public void SetDogPetToFalse()
     {
         beingPet = false;
+        PlayerScriptManager.instance.PlayerScriptEnable();
     }
 }

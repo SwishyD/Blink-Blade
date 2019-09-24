@@ -26,7 +26,7 @@ public class PlayerJumpV2 : MonoBehaviour
     public bool doubleJumpReady = false;
     bool jumpRequest;
     bool doubleJumpRequest;
-    bool isGrounded;
+    public bool isGrounded;
     bool hasJumped;
     public bool isHanging;
     public bool isQuickFalling;
