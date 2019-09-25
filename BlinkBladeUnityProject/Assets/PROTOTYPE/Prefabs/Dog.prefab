@@ -5051,6 +5051,8 @@ MonoBehaviour:
   canPetDog: 0
   beingPet: 0
   petAnim: {fileID: 7400000, guid: c7524aad7bdac8c46b8499fc9fae1c0a, type: 2}
+  dirMult: 0
+  aimArrow: {fileID: 0}
 --- !u!61 &2342146767550090652
 BoxCollider2D:
   m_ObjectHideFlags: 0

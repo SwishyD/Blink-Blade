@@ -10,6 +10,7 @@ public class PetTheDog : MonoBehaviour
     PlayerAnimator playerAnim;
     [SerializeField] AnimationClip petAnim;
     public int dirMult;
+    [SerializeField] SpriteRenderer aimArrow;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +62,7 @@ public class PetTheDog : MonoBehaviour
         playerAnim.PlayerPetDog();
         dogAnimScript.PetDog();
         Invoke("EnablePlayerMovement", petAnim.length);
+        aimArrow.color = new Color(aimArrow.color.r, aimArrow.color.g, aimArrow.color.b, 0f);
     }
 
     public void SetDogPetToFalse()
@@ -71,5 +73,6 @@ public class PetTheDog : MonoBehaviour
     public void EnablePlayerMovement()
     {
         PlayerScriptManager.instance.PlayerScriptEnable();
+        aimArrow.color = new Color(aimArrow.color.r, aimArrow.color.g, aimArrow.color.b, 1f);
     }
 }
