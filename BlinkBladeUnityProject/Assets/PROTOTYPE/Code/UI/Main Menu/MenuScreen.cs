@@ -9,8 +9,11 @@ public class MenuScreen : MonoBehaviour {
     public GameObject menuScreenUI;
     public GameObject quitConfirmUI;
     public static bool quitActive = false;
-  
-	void Update () {
+    
+
+    
+
+    void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (quitActive == true)
@@ -24,9 +27,10 @@ public class MenuScreen : MonoBehaviour {
         }
 	}
 
-    public void StartGame()
+    public void StartGame(string moveToLevel)
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        SceneManagers.instance.MoveToScene(moveToLevel);
     }
        
     public void QuitGameConfirmation()
@@ -42,6 +46,9 @@ public class MenuScreen : MonoBehaviour {
         menuScreenUI.SetActive(true);
         quitConfirmUI.SetActive(false);
     }
+
+
+   
 
     public void QuitGame()
     {

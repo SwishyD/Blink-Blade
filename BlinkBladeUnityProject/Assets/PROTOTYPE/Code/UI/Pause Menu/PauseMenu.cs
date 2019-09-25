@@ -11,22 +11,26 @@ public class PauseMenu : MonoBehaviour {
     public GameObject pauseMenuUI;
     public GameObject quitConfirmUI;
     public GameObject menuConfirmUI;
+    public GameObject player;
+    public GameObject timer;
+
 
     public static bool quitActive = false;
     public static bool menuActive = false;
 
-    // Use this for initialization
+
+
+    
     void Start () {
-       
+        gameIsPaused = false;
+        
     }
 	
-	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)
             {
-                
                 if (menuActive == true)
                 {
                     ReturnToPause();
@@ -39,7 +43,7 @@ public class PauseMenu : MonoBehaviour {
                     quitActive = false;
                     
                 }
-              
+                
                 else
                 {
                     Resume();
@@ -57,6 +61,9 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        timer.GetComponent<Timer>().TimerToggleOn();
+        PlayerScriptManager.instance.PlayerScriptEnable();
+
     }
 
     public  void Pause()
@@ -64,6 +71,8 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        timer.GetComponent<Timer>().TimerToggleOff();
+        PlayerScriptManager.instance.PlayerScriptDisable();
     }
 
     public void QuitGameConfrim()
@@ -71,7 +80,10 @@ public class PauseMenu : MonoBehaviour {
         quitActive = true;
         pauseMenuUI.SetActive(false);
         quitConfirmUI.SetActive(true);
+
     }
+
+    
 
     public void QuitGame()
     {
@@ -92,6 +104,7 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         quitConfirmUI.SetActive(false);
         menuConfirmUI.SetActive(false);
+
     }
 
     public void MenuConfrim()
@@ -99,6 +112,7 @@ public class PauseMenu : MonoBehaviour {
         menuActive = true;
         pauseMenuUI.SetActive(false);
         menuConfirmUI.SetActive(true);
+
     }
 
 }
