@@ -110,6 +110,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         yield return new WaitForSeconds(iFrameTimer);
         GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
+        this.gameObject.layer = 9;
         active = true;
     }
 }
