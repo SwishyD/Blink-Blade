@@ -3405,12 +3405,12 @@ PrefabInstance:
     - target: {fileID: 5921857822077694295, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.39
+      value: -5.9
       objectReference: {fileID: 0}
     - target: {fileID: 5921857822077694295, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -45.78
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5921857822077694295, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
@@ -38447,31 +38447,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3806469042316245083, guid: e0769fcfd7179ee49b9389590737002d,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 3806469042316245083, guid: e0769fcfd7179ee49b9389590737002d,
-        type: 3}
-      propertyPath: sounds.Array.data[18].name
-      value: Bark
-      objectReference: {fileID: 0}
-    - target: {fileID: 3806469042316245083, guid: e0769fcfd7179ee49b9389590737002d,
-        type: 3}
-      propertyPath: sounds.Array.data[18].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7719b1ada58fa9647bc4691f79f3dc7b, type: 3}
-    - target: {fileID: 3806469042316245083, guid: e0769fcfd7179ee49b9389590737002d,
-        type: 3}
-      propertyPath: sounds.Array.data[18].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3806469042316245083, guid: e0769fcfd7179ee49b9389590737002d,
-        type: 3}
-      propertyPath: sounds.Array.data[18].pitch
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0769fcfd7179ee49b9389590737002d, type: 3}
