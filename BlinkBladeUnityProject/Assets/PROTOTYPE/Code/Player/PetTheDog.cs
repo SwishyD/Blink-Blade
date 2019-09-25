@@ -8,6 +8,8 @@ public class PetTheDog : MonoBehaviour
     [SerializeField] bool beingPet;
     DogAnim dogAnimScript;
     PlayerAnimator playerAnim;
+    [SerializeField] AnimationClip petAnim;
+    public int dirMult;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,14 @@ public class PetTheDog : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && canPetDog && !beingPet && playerAnim.pJumpScript.isGrounded)
         {
             SetDogPetToTrue();
+        }
+        if (playerAnim.spriteRend.flipX)
+        {
+            dirMult = -1;
+        }
+        else
+        {
+            dirMult = 1;
         }
     }
 
@@ -44,15 +54,22 @@ public class PetTheDog : MonoBehaviour
     void SetDogPetToTrue()
     {
         RetrieveAnims();
+        playerAnim.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        playerAnim.GetComponent<Rigidbody2D>().angularVelocity = 0;
         PlayerScriptManager.instance.PlayerScriptDisable();
         beingPet = true;
         playerAnim.PlayerPetDog();
         dogAnimScript.PetDog();
+        Invoke("EnablePlayerMovement", petAnim.length);
     }
 
     public void SetDogPetToFalse()
     {
         beingPet = false;
+    }
+
+    public void EnablePlayerMovement()
+    {
         PlayerScriptManager.instance.PlayerScriptEnable();
     }
 }
