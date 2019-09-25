@@ -23,11 +23,11 @@ public class DogPetterRaycast : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0,-1,0), transform.right * dirMult, rayDist, rayMask, -Mathf.Infinity, Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0,-0.5f,0), transform.right * dirMult, rayDist, rayMask, -Mathf.Infinity, Mathf.Infinity);
         Debug.DrawLine(transform.position, hit.point, Color.green);
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject.layer == 10 && hit.collider.gameObject.name == "DogSprite")
+            if (hit.collider.gameObject.layer == 10)
             {
                 dogPetScript.SetDogPettability(true);
             }
