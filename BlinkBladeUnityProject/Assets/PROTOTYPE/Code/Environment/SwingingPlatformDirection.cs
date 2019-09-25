@@ -13,12 +13,14 @@ public class SwingingPlatformDirection : MonoBehaviour
             swing.midLeft = true;
             swing.speedUp = false;
             swing.hitLimit = false;
+            swing.t = 0;
         }
         else if(!swing.rotateLeft && collision.name == "Swinger")
         {
             swing.midRight = true;
             swing.speedUp = false;
             swing.hitLimit = false;
+            swing.t = 0;
         }
     }
 }

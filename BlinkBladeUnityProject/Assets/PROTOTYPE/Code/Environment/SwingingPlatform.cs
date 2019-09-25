@@ -10,6 +10,9 @@ public class SwingingPlatform : MonoBehaviour
     public float maxSpeed;
     public float speed;
 
+    public float speedUpSpeed;
+    public float slowDownSpeed;
+
     public float t;
 
     public bool rotateLeft;
@@ -64,12 +67,12 @@ public class SwingingPlatform : MonoBehaviour
         if (midLeft || midRight)
         {
             speed = Mathf.Lerp(speed, 0, t);
-            t = 0.3f * Time.deltaTime;
+            t = slowDownSpeed * Time.deltaTime;
         }
         if(speedUp)
         {
             speed = Mathf.Lerp(speed, maxSpeed, t);
-            t = 0.6f * Time.deltaTime;
+            t = speedUpSpeed * Time.deltaTime;
         }
     }
 
@@ -78,7 +81,7 @@ public class SwingingPlatform : MonoBehaviour
         rotateLeft = !rotateLeft;
         speed = 0;
         maxSpeed = -maxSpeed;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         //speed = maxSpeed;
         speedUp = true;
         midRight = false;

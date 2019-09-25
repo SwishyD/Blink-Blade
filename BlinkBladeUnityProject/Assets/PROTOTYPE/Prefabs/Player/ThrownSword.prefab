@@ -290,12 +290,12 @@ MonoBehaviour:
     type: 3}
   speed: 50
   throwDistance: 37
-  hitPointRay: 50
+  hitPointRay: 2
   distanceFromWall: 1
   hitPoint: {x: 0, y: 0}
   rayMask:
     serializedVersion: 2
-    m_Bits: 805309184
+    m_Bits: 805309185
   trail1: {fileID: 6277027399793549035}
   trail2: {fileID: 1023007152183891435}
   swordBreakPFX: {fileID: 4251798116654482220, guid: 20160354d0cf6e84aa9c97063bf17699,

@@ -505,8 +505,10 @@ MonoBehaviour:
   rotateLength: 7
   angleLimitLeft: 80
   angleLimitRight: 280
-  maxSpeed: 50
+  maxSpeed: 70
   speed: 0
+  speedUpSpeed: 0.6
+  slowDownSpeed: 0.3
   t: 0
   rotateLeft: 0
   hitLimit: 0
