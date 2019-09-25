@@ -1503,7 +1503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   foundPlayer: 0
-  swordScriptActive: 0
+  swordScriptActive: 1
   tutorialCheck: 0
 --- !u!114 &623073353
 MonoBehaviour:
