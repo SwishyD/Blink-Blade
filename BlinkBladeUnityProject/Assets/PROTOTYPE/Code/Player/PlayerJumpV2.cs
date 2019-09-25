@@ -26,7 +26,7 @@ public class PlayerJumpV2 : MonoBehaviour
     public bool doubleJumpReady = false;
     bool jumpRequest;
     bool doubleJumpRequest;
-    bool isGrounded;
+    public bool isGrounded;
     bool hasJumped;
     public bool isHanging;
     public bool isQuickFalling;
@@ -74,7 +74,6 @@ public class PlayerJumpV2 : MonoBehaviour
     private void Update()
     {
         currentVelocityDown = rb.velocity.y;
-
         if (isGrounded)
         {
             hasJumped = false;
@@ -85,7 +84,7 @@ public class PlayerJumpV2 : MonoBehaviour
                 playerAnim.SetPlayerQuickFall(false);
             }
         }
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumpRequest)
         {
             jumpRequest = true;
         }
@@ -173,11 +172,17 @@ public class PlayerJumpV2 : MonoBehaviour
         if (jumpRequest == true)
         {
             Jump();
+            jumpRequest = false;
         }
         else if(doubleJumpRequest == true)
         {
             ResetGravity();
             DoubleJump();
+        } else
+        {
+            //GROUND CHECK
+            isGrounded = Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null;
+            playerAnim.SetPlayerGrounded(isGrounded);
         }
 
         if (isHanging)
@@ -192,10 +197,6 @@ public class PlayerJumpV2 : MonoBehaviour
         {
             maxVelocityDown = -20f;
         }
-
-        //GROUND CHECK
-        isGrounded = Physics2D.OverlapBox(feetPos.position, boxSize, 0f, mask) != null;
-        playerAnim.SetPlayerGrounded(isGrounded); 
         
         if (rb.velocity.y < 0 && !isHanging)
         {
@@ -230,7 +231,6 @@ public class PlayerJumpV2 : MonoBehaviour
     void Jump()
     {
         rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
-        jumpRequest = false;
         isGrounded = false;
         doubleJumpReady = true;
         PlayerMovementV2.instance.canMove = true;

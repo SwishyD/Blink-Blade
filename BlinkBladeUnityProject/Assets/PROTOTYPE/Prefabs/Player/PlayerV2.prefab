@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pJump: {fileID: 5921857822077694290}
+  heavyLandPFX: {fileID: 7758840546836574853, guid: 12f0840d9e4cdae41ad822bd6a61141d,
+    type: 3}
 --- !u!1 &5166808852116188933
 GameObject:
   m_ObjectHideFlags: 0
