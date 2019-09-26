@@ -37,6 +37,7 @@ public class SceneManagers : MonoBehaviour {
             }
         }
         sceneTransitionAnimator.SetBool("FadingToBlack", true);
+        StartCoroutine(MusicManager.instance.FadeOut("", 1f));
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
         sceneTransitionAnimator.SetBool("FadingToBlack", false);
