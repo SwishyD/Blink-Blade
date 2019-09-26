@@ -312,5 +312,6 @@ public class PlayerJumpV2 : MonoBehaviour
             playerAnim.spriteRend.flipY = false;
             feetPos.localPosition = new Vector3(0.043f, -1.032f, 0);
         }
+        AudioManager.instance.Play("GravFlip");
     }
 }
