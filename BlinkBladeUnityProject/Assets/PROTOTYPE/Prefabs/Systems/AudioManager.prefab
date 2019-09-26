@@ -158,3 +158,9 @@ MonoBehaviour:
     pitch: 1.37
     loop: 0
     source: {fileID: 0}
+  - name: GravFlip
+    clip: {fileID: 8300000, guid: b1c576f47655d3045abbd646a38463e4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
