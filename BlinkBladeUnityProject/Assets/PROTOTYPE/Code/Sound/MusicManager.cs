@@ -75,7 +75,6 @@ public class MusicManager : MonoBehaviour
         {
             m.volume += speed * Time.deltaTime;
             m.source.volume = m.volume;
-            Debug.Log(m.volume);
             yield return null;
         }
 
@@ -103,6 +102,6 @@ public class MusicManager : MonoBehaviour
 
         m.volume = 0;
         m.source.Stop();
-        currentlyPlaying = null;
+        //currentlyPlaying = null;
     }
 }
