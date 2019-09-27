@@ -5,39 +5,29 @@ using UnityEngine;
 public class DogAnim : MonoBehaviour
 {
     Animator anim;
-    [SerializeField] float timeUntilTrig;
-    AudioSource barkSound;
+    AudioSource dogBark;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        SetNewTime();
-        barkSound = GetComponent<AudioSource>();
+        dogBark = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetNewAnimIndex()
     {
-        if (timeUntilTrig > 0)
-        {
-            timeUntilTrig -= Time.deltaTime;
-        }
-        if (timeUntilTrig <= 0)
-        {
-            int newIndex = Random.Range(1, 3);
-            anim.SetInteger("IdleAnimIndex", newIndex);
-            anim.SetTrigger("IdleAnim");
-            if (newIndex == 2)
-            {
-                barkSound.Play();
-            }
-            SetNewTime();
-        }
+        int newIndex;
+        newIndex = Random.Range(0, 5); // 0-2 loop, 3 tail wag, 4 bark
+        anim.SetInteger("IdleAnimIndex", newIndex);
     }
 
-    void SetNewTime()
+    public void DogBark()
     {
-        timeUntilTrig = Mathf.CeilToInt(Random.Range(1, 5));
+        dogBark.Play();
+    }
+
+    public void PetDog()
+    {
+        anim.SetTrigger("Pet");
     }
 }

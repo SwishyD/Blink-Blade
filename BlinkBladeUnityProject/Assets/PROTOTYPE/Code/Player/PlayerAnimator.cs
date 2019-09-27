@@ -8,7 +8,8 @@ public class PlayerAnimator : MonoBehaviour
     public SpriteRenderer spriteRend;
 
     private PlayerMovementV2 pMoveScript;
-    private PlayerJumpV2 pJumpScript;
+    [HideInInspector]
+    public PlayerJumpV2 pJumpScript;
 
     // Start is called before the first frame update
     void Start()
@@ -147,5 +148,10 @@ public class PlayerAnimator : MonoBehaviour
         {
             anim.SetBool("PlayerQuickFalling", newState);
         }
+    }
+
+    public void PlayerPetDog()
+    {
+        anim.SetTrigger("PlayerPet");
     }
 }

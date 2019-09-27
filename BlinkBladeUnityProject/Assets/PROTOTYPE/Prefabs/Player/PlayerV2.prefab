@@ -446,9 +446,10 @@ MonoBehaviour:
   currentVelocityDown: 0
   mask:
     serializedVersion: 2
-    m_Bits: 1073742592
+    m_Bits: 1073744640
   feetPos: {fileID: 54922040}
   doubleJumpReady: 0
+  isGrounded: 0
   isHanging: 0
   isQuickFalling: 0
   isFlipped: 0
@@ -470,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRend: {fileID: 4781057828086718360}
+  pJumpScript: {fileID: 0}
 --- !u!114 &5921857822077694293
 MonoBehaviour:
   m_ObjectHideFlags: 0

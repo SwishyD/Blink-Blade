@@ -26,7 +26,7 @@ public class PlayerJumpV2 : MonoBehaviour
     public bool doubleJumpReady = false;
     bool jumpRequest;
     bool doubleJumpRequest;
-    bool isGrounded;
+    public bool isGrounded;
     bool hasJumped;
     public bool isHanging;
     public bool isQuickFalling;
@@ -227,6 +227,14 @@ public class PlayerJumpV2 : MonoBehaviour
         playerAnim.SetPlayerYVelocity(rb.velocity.y);
     }
 
+    public void GhostJump()
+    {
+        ResetGravity();
+        Jump();
+        isHanging = false;
+        DestroySword();
+        CursorManager.Instance.ChangeCursor(false);
+    }
 
     void Jump()
     {
@@ -312,5 +320,6 @@ public class PlayerJumpV2 : MonoBehaviour
             playerAnim.spriteRend.flipY = false;
             feetPos.localPosition = new Vector3(0.043f, -1.032f, 0);
         }
+        AudioManager.instance.Play("GravFlip");
     }
 }
