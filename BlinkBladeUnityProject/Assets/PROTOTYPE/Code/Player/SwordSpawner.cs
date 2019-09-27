@@ -61,6 +61,10 @@ public class SwordSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(cloneSword != null)
+        {
+            swordSpawned = true;
+        }
         //Aim Ring direction
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
@@ -169,6 +173,10 @@ public class SwordSpawner : MonoBehaviour
                     GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = false;
                 }
                 FindObjectOfType<AudioManager>().Play("Blink");
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
+                {
+                    PlayerJumpV2.instance.GhostJump();
+                }
             }
         }
         #endregion
