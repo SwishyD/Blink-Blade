@@ -4912,8 +4912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851e38d955455b143a9a9069d9448f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indicator: {fileID: 2800000, guid: 8f368026e85c7eb43b50f8b62066b9d0, type: 3}
-  indicatorSize: 50
+  indicator: {fileID: 2800000, guid: ee693a11f5abd42418b1136be289520f, type: 3}
+  indicatorSize: 118.96
   swordBox:
     m_Name: 
     m_Normal:
