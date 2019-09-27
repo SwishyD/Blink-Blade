@@ -57,6 +57,7 @@ public class PetTheDog : MonoBehaviour
         RetrieveAnims();
         playerAnim.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         playerAnim.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        PlayerScriptManager.instance.swordScriptActive = true;
         PlayerScriptManager.instance.PlayerScriptDisable();
         beingPet = true;
         playerAnim.PlayerPetDog();
@@ -74,5 +75,6 @@ public class PetTheDog : MonoBehaviour
     {
         PlayerScriptManager.instance.PlayerScriptEnable();
         aimArrow.color = new Color(aimArrow.color.r, aimArrow.color.g, aimArrow.color.b, 1f);
+        
     }
 }
