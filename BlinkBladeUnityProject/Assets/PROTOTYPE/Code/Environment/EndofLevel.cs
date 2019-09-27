@@ -11,10 +11,7 @@ public class EndofLevel : MonoBehaviour
     {
         if (col.name == "PlayerV2")
         {
-            if (gameObject.name.Contains("Door"))
-            {
-                inDoor = true;
-            }
+            inDoor = true;
         }
     }
 
@@ -22,10 +19,7 @@ public class EndofLevel : MonoBehaviour
     {
         if (collision.name == "PlayerV2")
         {
-            if (gameObject.name.Contains("Door"))
-            {
-                inDoor = false;
-            }
+            inDoor = false;
         }
     }
 

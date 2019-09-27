@@ -173,10 +173,6 @@ public class SwordSpawner : MonoBehaviour
                     GameObject.Find("PlayerV2/Sprite").GetComponent<SpriteRenderer>().flipX = false;
                 }
                 FindObjectOfType<AudioManager>().Play("Blink");
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
-                {
-                    PlayerJumpV2.instance.GhostJump();
-                }
             }
         }
         #endregion

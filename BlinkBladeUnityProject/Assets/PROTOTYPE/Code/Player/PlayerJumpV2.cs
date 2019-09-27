@@ -227,15 +227,6 @@ public class PlayerJumpV2 : MonoBehaviour
         playerAnim.SetPlayerYVelocity(rb.velocity.y);
     }
 
-    public void GhostJump()
-    {
-        ResetGravity();
-        Jump();
-        isHanging = false;
-        DestroySword();
-        CursorManager.Instance.ChangeCursor(false);
-    }
-
     void Jump()
     {
         rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
