@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class EndofLevelResults : MonoBehaviour
 {
     public GameObject gameGUI;
+    public PauseMenu pauseMenu;
 
     public PlayerSpawnPoint resultsDeaths;
     public Timer resultsTimer;
@@ -29,6 +30,7 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnEnable()
     {
+        pauseMenu.enabled = false;
         levelEnd = true;
         PlayerJumpV2.instance.ResetGravity();
         PlayerScriptManager.instance.PlayerScriptDisable();
@@ -40,8 +42,8 @@ public class EndofLevelResults : MonoBehaviour
 
     private void OnDisable()
     {
-        PauseMenu.gameIsPaused = false;
-        if(gameGUI != null)
+        pauseMenu.enabled = true;
+        if (gameGUI != null)
         {
             gameGUI.SetActive(true);
         }

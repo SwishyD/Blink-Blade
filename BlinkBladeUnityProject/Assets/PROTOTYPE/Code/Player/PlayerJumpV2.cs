@@ -153,7 +153,7 @@ public class PlayerJumpV2 : MonoBehaviour
             t += 0.5f * Time.deltaTime;
             playerAnim.SetPlayerQuickFall(true);
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S) || isHanging)
         {
             quickFallSound.Stop();
             isQuickFalling = false;
