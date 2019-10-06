@@ -11,6 +11,7 @@ public class SwordProjectile : MonoBehaviour
 
     private float swordRotation;
     private Transform swordHit;
+    private Vector2 spawnPlace;
 
     public float hitPointRay;
 
@@ -28,6 +29,7 @@ public class SwordProjectile : MonoBehaviour
     private void Start()
     {
         spawner = GameObject.Find("Aim Ring").GetComponent<SwordSpawner>();
+        spawnPlace = this.transform.position;
     }
 
     private void FixedUpdate()
@@ -36,17 +38,22 @@ public class SwordProjectile : MonoBehaviour
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
-        if (Vector2.Distance(this.transform.position, GameObject.Find("PlayerV2").transform.position) >= throwDistance)
+        if (Vector2.Distance(this.transform.position, spawnPlace) >= throwDistance)
         {
             DestroySword();
         }
         RaycastHit2D longHitPoint = Physics2D.Raycast(transform.position, transform.right, hitPointRay, rayMask);
         if (longHitPoint.collider != null)
         {
+            speed = 25;
             if (longHitPoint.collider.gameObject.layer == 9 || longHitPoint.collider.gameObject.layer == 28)
             {
                 hitPoint = longHitPoint.point;
             }
+        }
+        else
+        {
+            speed = 50;
         }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, distanceFromWall, rayMask);
         Debug.DrawLine(transform.position, hit.point, Color.yellow);
@@ -57,12 +64,14 @@ public class SwordProjectile : MonoBehaviour
                 swordHit = hit.collider.transform;
                 if (Mathf.Abs(hit.normal.x) > Mathf.Abs(hit.normal.y))
                 {
+                    //If Sword hits right side of collider
                     if (hit.normal.x > 0)
                     {
                         swordRotation = 180;
                         SpawnStuckSword();
                         spawner.stuckLeft = true;                       
                     }
+                    //If sword hits left side of collider
                     else if (hit.normal.x < 0)
                     {
                         swordRotation = 0;
@@ -72,13 +81,16 @@ public class SwordProjectile : MonoBehaviour
                 }
                 else if(Mathf.Abs(hit.normal.x) < Mathf.Abs(hit.normal.y))
                 {
+                    //If sword hits bottom of collider
                     if (hit.normal.y < 0)
                     {
                         swordRotation = 90;
                         SpawnStuckSword();
+                        spawner.stuckUp = true;
                     }
                     else if (hit.normal.y > 0)
                     {
+                        //If sword hits top of collider
                         {
                             swordRotation = 270;
                             SpawnStuckSword();
@@ -98,6 +110,12 @@ public class SwordProjectile : MonoBehaviour
                 Instantiate(swordBreakPFX, hit.point, Quaternion.identity);
                 AudioManager.instance.Play("SwordBreak");
                 DestroySword();
+            }
+            else if(hit.collider.gameObject.layer == 11)
+            {
+                Debug.Log("Bounce");
+                hit.collider.gameObject.GetComponent<BouncyTiles>().ChooseDirection();
+                //transform.position = hit.point;
             }
 
             if (hit.transform.name.Contains("Bullet"))
@@ -128,6 +146,7 @@ public class SwordProjectile : MonoBehaviour
         spawner.stuckLeft = false;
         spawner.stuckRight = false;
         spawner.stuckDown = false;
+        spawner.stuckUp = false;
     }
 
     public void DestroySword()

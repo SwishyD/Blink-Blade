@@ -8,7 +8,8 @@ public class PlayerAnimator : MonoBehaviour
     public SpriteRenderer spriteRend;
 
     private PlayerMovementV2 pMoveScript;
-    private PlayerJumpV2 pJumpScript;
+    [HideInInspector]
+    public PlayerJumpV2 pJumpScript;
 
     // Start is called before the first frame update
     void Start()
@@ -35,31 +36,63 @@ public class PlayerAnimator : MonoBehaviour
 
         if (pJumpScript.isHanging)
         {
-            if (pJumpScript.spawner.closeToGround)
+            if (!pJumpScript.isFlipped)
             {
-                if (!anim.GetBool("PlayerHangingCloseToGround"))
+                if (pJumpScript.spawner.closeToGround)
                 {
-                    anim.SetBool("PlayerHangingCloseToGround", true);
+                    if (!anim.GetBool("PlayerHangingCloseToGround"))
+                    {
+                        anim.SetBool("PlayerHangingCloseToGround", true);
+                    }
                 }
-            }
-            else if (pJumpScript.spawner.stuckDown) //Sword is in the ground
-            {
-                if (!anim.GetBool("PlayerHangingCloseToGround"))
+                else if (pJumpScript.spawner.stuckDown) //Sword is in the ground
                 {
-                    anim.SetBool("PlayerHangingCloseToGround", true);
+                    if (!anim.GetBool("PlayerHangingCloseToGround"))
+                    {
+                        anim.SetBool("PlayerHangingCloseToGround", true);
+                    }
                 }
-            }
-            else if (!pJumpScript.spawner.closeToGround)
-            {
-                if (anim.GetBool("PlayerHangingCloseToGround"))
+                else if (!pJumpScript.spawner.closeToGround)
                 {
-                    anim.SetBool("PlayerHangingCloseToGround", false);
+                    if (anim.GetBool("PlayerHangingCloseToGround"))
+                    {
+                        anim.SetBool("PlayerHangingCloseToGround", false);
+                    }
                 }
-            }
 
-            if (!anim.GetBool("PlayerHangingFromSword"))
+                if (!anim.GetBool("PlayerHangingFromSword"))
+                {
+                    anim.SetBool("PlayerHangingFromSword", true);
+                }
+            }
+            else if (pJumpScript.isFlipped)
             {
-                anim.SetBool("PlayerHangingFromSword", true);
+                if (pJumpScript.spawner.closeToRoof)
+                {
+                    if (!anim.GetBool("PlayerHangingCloseToGround"))
+                    {
+                        anim.SetBool("PlayerHangingCloseToGround", true);
+                    }
+                }
+                else if (pJumpScript.spawner.stuckUp) //Sword is in the ground
+                {
+                    if (!anim.GetBool("PlayerHangingCloseToGround"))
+                    {
+                        anim.SetBool("PlayerHangingCloseToGround", true);
+                    }
+                }
+                else if (!pJumpScript.spawner.closeToRoof)
+                {
+                    if (anim.GetBool("PlayerHangingCloseToGround"))
+                    {
+                        anim.SetBool("PlayerHangingCloseToGround", false);
+                    }
+                }
+
+                if (!anim.GetBool("PlayerHangingFromSword"))
+                {
+                    anim.SetBool("PlayerHangingFromSword", true);
+                }
             }
         }
     }
@@ -115,5 +148,10 @@ public class PlayerAnimator : MonoBehaviour
         {
             anim.SetBool("PlayerQuickFalling", newState);
         }
+    }
+
+    public void PlayerPetDog()
+    {
+        anim.SetTrigger("PlayerPet");
     }
 }

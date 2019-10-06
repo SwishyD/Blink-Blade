@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4781057828086718360}
   - component: {fileID: 1795348961}
   - component: {fileID: 2111390319}
+  - component: {fileID: 228984988514452093}
   m_Layer: 31
   m_Name: Sprite
   m_TagString: Untagged
@@ -173,6 +174,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e54f624247a27c45b72fa1bf5cac6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &228984988514452093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777386927363507942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f994ea290d741246afc97d7ddd20e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pJump: {fileID: 5921857822077694290}
+  heavyLandPFX: {fileID: 7758840546836574853, guid: 12f0840d9e4cdae41ad822bd6a61141d,
+    type: 3}
 --- !u!1 &5166808852116188933
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +258,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 97e809178a944db43afad591d8da4a40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -308,8 +324,10 @@ MonoBehaviour:
   stuckLeft: 0
   stuckRight: 0
   stuckDown: 0
+  stuckUp: 0
   swordSpawned: 0
   closeToGround: 0
+  closeToRoof: 0
   rayMask:
     serializedVersion: 2
     m_Bits: 768
@@ -428,11 +446,13 @@ MonoBehaviour:
   currentVelocityDown: 0
   mask:
     serializedVersion: 2
-    m_Bits: 1073742592
+    m_Bits: 1073744640
   feetPos: {fileID: 54922040}
   doubleJumpReady: 0
+  isGrounded: 0
   isHanging: 0
   isQuickFalling: 0
+  isFlipped: 0
   boxSize: {x: 0, y: 0}
   spawner: {fileID: 5166808852527385706}
   dJumpPFX: {fileID: 7758840546836574853, guid: 8b34fa88748574e4980733b261f18e94,
@@ -451,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRend: {fileID: 4781057828086718360}
+  pJumpScript: {fileID: 0}
 --- !u!114 &5921857822077694293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +864,16 @@ PrefabInstance:
     - target: {fileID: 7353961078310265387, guid: 25d96ab8b95bfc444af4e254e4a57dd1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795928836847593724, guid: 25d96ab8b95bfc444af4e254e4a57dd1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795928836847593724, guid: 25d96ab8b95bfc444af4e254e4a57dd1,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

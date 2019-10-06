@@ -152,3 +152,21 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: HeavyLand
+    clip: {fileID: 8300000, guid: d02610eab4e43b2439458607370c299b, type: 3}
+    volume: 0.245
+    pitch: 1.37
+    loop: 0
+    source: {fileID: 0}
+  - name: GravFlip
+    clip: {fileID: 8300000, guid: b1c576f47655d3045abbd646a38463e4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep
+    clip: {fileID: 8300000, guid: 3e7904a655a7b354485a16a738a5f3e6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

@@ -59,13 +59,11 @@ public class PlayerMovementV2 : MonoBehaviour
         }
         accelRatePerSec = moveSpeedMax / timeZeroToMax;
         decelRatePerSec = -moveSpeedMax / timeMaxToZero;
-
     }    
 
     public void HandleMove()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-       // rb.velocity = new Vector2(moveInput * currentMoveSpeed, rb.velocity.y);
         if(moveInput != 0)
         {
             currentMoveSpeed += accelRatePerSec * Time.deltaTime;
