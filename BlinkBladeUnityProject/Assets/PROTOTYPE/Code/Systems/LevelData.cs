@@ -5,10 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class LevelData
 {
-    public bool levels;
-    public float levelTimes;
-    public int levelDeaths;
-    public string levelGrades;
+    public bool[] levels;
+    public float[] levelTimes;
+    public int[] levelDeaths;
+    public string[] levelGrades;
 
     public float[] playerPosition;
 
