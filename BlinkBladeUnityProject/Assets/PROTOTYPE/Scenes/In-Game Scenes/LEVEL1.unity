@@ -2139,6 +2139,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1196297768}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &526812477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526812476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1301743bdd2ad4f8534bef6c943374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelTime: {fileID: 789895246}
+  levelDeaths: {fileID: 248466958}
+  levelGrades: {fileID: 1196297769}
+  levelNo: 0
 --- !u!1 &532414536
 GameObject:
   m_ObjectHideFlags: 0
@@ -5212,6 +5228,18 @@ PrefabInstance:
       objectReference: {fileID: 1877785953362869937}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+--- !u!114 &1196297769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
+    type: 3}
+  m_PrefabInstance: {fileID: 1196297768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526812476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c857572a99a6af4b8e74095112bdeac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1197531315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8058379387688922267, guid: 9e297e00e1e1c524d8d93c937e50a2fa,
@@ -9635,6 +9663,11 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1896631388}
+    - target: {fileID: 6922165192452187406, guid: 88064930fd50aff4d819aa5fd3753907,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1634612857724759793, guid: 88064930fd50aff4d819aa5fd3753907,
         type: 3}
       propertyPath: volumeSlider
@@ -9648,11 +9681,6 @@ PrefabInstance:
     - target: {fileID: 278241454, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
       propertyPath: fullScreenToggle
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6922165192452187406, guid: 88064930fd50aff4d819aa5fd3753907,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}

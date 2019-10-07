@@ -24,7 +24,7 @@ public class EndofLevelResults : MonoBehaviour
     public float[] requiredDeaths;
     public string[] gradeLetter;
 
-    private string grade;
+    public string grade;
 
     public bool levelEnd;
 
@@ -38,21 +38,6 @@ public class EndofLevelResults : MonoBehaviour
         unRoundedTime = resultsTimer.timeStart;
         CalculateGrade();
         StartCoroutine(ShowResults());
-    }
-
-    private void OnDisable()
-    {
-        pauseMenu.enabled = true;
-        if (gameGUI != null)
-        {
-            gameGUI.SetActive(true);
-        }
-        PlayerScriptManager.instance.PlayerScriptEnable();
-        resultDeathCount.text = "";
-        resultTime.text = "";
-        resultsGrade.text = "";
-        resultsToHub.SetActive(false);
-        resultsRestart.SetActive(false);
     }
 
     void CalculateGrade()
@@ -90,6 +75,7 @@ public class EndofLevelResults : MonoBehaviour
         yield return new WaitForSeconds(1f);
         resultsGrade.text = "Grade: " + grade;
         yield return new WaitForSeconds(1f);
+        GetComponent<LevelResultTransfer>().SetResults();
         resultsToHub.SetActive(true);
         resultsRestart.SetActive(true);
     }
