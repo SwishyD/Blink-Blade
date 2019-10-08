@@ -25,27 +25,15 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void ResetVariables()
     {
-        /*if (Input.GetKeyDown(KeyCode.O))
+        for (int i = 0; i < levelComplete.Length; i++)
         {
-            SaveSystem.SavePlayer(this);
-        }*/
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            LevelData data = SaveSystem.LoadData();
-
-            for (int i = 0; i < levelComplete.Length; i++)
-            {
-                levelComplete[i] = data.levels[i];
-                time[i] = data.levelTimes[i];
-                deaths[i] = data.levelDeaths[i];
-                grade[i] = data.levelGrades[i];
-            }
-            playerPos.x = data.playerPosition[0];
-            playerPos.y = data.playerPosition[1];
-            //GameObject.Find("PlayerV2").transform.position = position;
+            levelComplete[i] = false;
+            time[i] = 9999;
+            deaths[i] = 9999;
+            grade[i] = "";
         }
+        playerPos = Vector2.zero;
     }
 }

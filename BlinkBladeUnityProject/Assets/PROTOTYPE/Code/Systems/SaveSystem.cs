@@ -35,4 +35,23 @@ public static class SaveSystem
             return null;
         }
     }
+
+    public static void DeleteSave()
+    {
+        string path = Application.persistentDataPath + "/levels.blink";
+        File.Delete(path);
+    }
+
+    public static bool DataExists()
+    {
+        string path = Application.persistentDataPath + "/levels.blink";
+        if (File.Exists(path))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

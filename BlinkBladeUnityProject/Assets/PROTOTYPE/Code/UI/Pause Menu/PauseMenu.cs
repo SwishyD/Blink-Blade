@@ -92,7 +92,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void MainMenu()
     {
-        
+        LevelManager.instance.ResetVariables();
         //SceneManager.LoadScene(0);      
         StartCoroutine(SceneManagers.instance.SceneTransitionToScene("MainMenu"));
         Time.timeScale = 1f;
