@@ -21,18 +21,10 @@ public class LevelResultTransfer : MonoBehaviour
         {
             LevelManager.instance.time[levelNo] = levelTime.timeStart;
         }
-        else
-        {
-            return;
-        }
 
         if(LevelManager.instance.deaths[levelNo] > levelDeaths.deathCount)
         {
             LevelManager.instance.deaths[levelNo] = levelDeaths.deathCount;
-        }
-        else
-        {
-            return;
         }
 
         if(LevelManager.instance.grade[levelNo] == "")

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -28,14 +27,10 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().name == "HUB")
-        {
-            playerPos = GameObject.Find("PlayerV2").transform.position;
-        }
-        if (Input.GetKeyDown(KeyCode.O))
+        /*if (Input.GetKeyDown(KeyCode.O))
         {
             SaveSystem.SavePlayer(this);
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -48,10 +43,9 @@ public class LevelManager : MonoBehaviour
                 deaths[i] = data.levelDeaths[i];
                 grade[i] = data.levelGrades[i];
             }
-            Vector2 position;
-            position.x = data.playerPosition[0];
-            position.y = data.playerPosition[1];
-            GameObject.Find("PlayerV2").transform.position = position;
+            playerPos.x = data.playerPosition[0];
+            playerPos.y = data.playerPosition[1];
+            //GameObject.Find("PlayerV2").transform.position = position;
         }
     }
 }
