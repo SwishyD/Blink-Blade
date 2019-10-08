@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: fireplaceBR01
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: b504c1a18e4648d4988497395de1fef6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6942c65858bf00349b02b4db2391d3d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
