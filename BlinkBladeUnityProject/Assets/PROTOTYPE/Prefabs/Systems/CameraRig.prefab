@@ -127,6 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8755195208262534578}
   - component: {fileID: 8755195208262534579}
+  - component: {fileID: 1026465368}
   m_Layer: 0
   m_Name: CameraRig
   m_TagString: Untagged
@@ -162,5 +163,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  smoothSpeed: 10
+  smoothSpeed: 5
   offset: {x: 0, y: 0, z: -10}
+--- !u!114 &1026465368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755195208262534588}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f48276226a83b04594cfc5f10b00d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camFollow: {fileID: 8755195208262534579}
+  scripts: {fileID: 0}
+  GUI: {fileID: 0}
+  speed: 10

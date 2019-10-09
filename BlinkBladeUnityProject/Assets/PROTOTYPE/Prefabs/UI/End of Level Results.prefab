@@ -717,6 +717,7 @@ GameObject:
   - component: {fileID: 5405750781197769315}
   - component: {fileID: 5405750781197769314}
   - component: {fileID: 5405750781197769630}
+  - component: {fileID: 526812477}
   m_Layer: 5
   m_Name: End of Level Results
   m_TagString: Untagged
@@ -822,6 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameGUI: {fileID: 0}
+  pauseMenu: {fileID: 0}
   resultsDeaths: {fileID: 0}
   resultsTimer: {fileID: 0}
   resultDeathCount: {fileID: 5405750780038267488}
@@ -830,21 +832,39 @@ MonoBehaviour:
   resultsToHub: {fileID: 2440513640065159960}
   resultsRestart: {fileID: 6722718242667684852}
   requiredTime:
+  - 25
+  - 30
   - 60
   - 120
-  - 150
-  - 180
   requiredDeaths:
   - 0
-  - 1
-  - 3
-  - 5
+  - 2
+  - 7
+  - 15
   gradeLetter:
   - S
   - A
   - B
   - C
   - D
+  grade: 
+  levelEnd: 0
+--- !u!114 &526812477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405750781197769317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1301743bdd2ad4f8534bef6c943374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelTime: {fileID: 0}
+  levelDeaths: {fileID: 0}
+  levelGrades: {fileID: 5405750781197769630}
+  levelNo: 0
 --- !u!1 &6093363085696700841
 GameObject:
   m_ObjectHideFlags: 0

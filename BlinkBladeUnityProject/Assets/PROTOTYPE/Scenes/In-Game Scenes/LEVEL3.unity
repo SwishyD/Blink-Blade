@@ -99612,6 +99612,18 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 962214677}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelTime
+      value: 
+      objectReference: {fileID: 1590586881}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelDeaths
+      value: 
+      objectReference: {fileID: 1407065941}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelNo
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
 --- !u!1001 &689016898

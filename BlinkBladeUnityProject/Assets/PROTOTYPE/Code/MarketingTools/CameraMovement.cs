@@ -1,0 +1,80 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraMovement : MonoBehaviour
+{
+    public CameraFollow camFollow;
+    public PlayerScriptManager scripts;
+    public GameObject GUI;
+    private bool guiActive;
+
+    public float speed;
+
+    private void OnEnable()
+    {
+        camFollow.enabled = false;
+        scripts.PlayerScriptDisable();
+        guiActive = true;
+    }
+
+    private void OnDisable()
+    {
+        camFollow.enabled = true;
+        scripts.PlayerScriptEnable();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Translate(-speed * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(speed * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(0, speed * Time.deltaTime, 0);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(0, -speed * Time.deltaTime, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Equals))
+        {
+            speed++;
+        }
+        if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            speed--;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            guiActive = !guiActive;
+            GUI.SetActive(guiActive);
+        }
+
+        if (Input.GetKey(KeyCode.RightShift))
+        {
+            var spawner = SwordSpawner.instance;
+            if (spawner.cloneSword != null)
+            {
+                transform.position = new Vector3(spawner.cloneSword.transform.position.x, spawner.cloneSword.transform.position.y, -10);
+            }
+            else
+            {
+                Debug.Log("No Sword is spawned");
+            }
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            var player = PlayerJumpV2.instance.gameObject;
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+        }
+    }
+}

@@ -8,7 +8,7 @@ public class PlayerSpawnPoint : MonoBehaviour
     public Vector2 spawnPoint;
     public ParticleSystem deathPFX;
 
-    public float deathCount;
+    public int deathCount;
     public TMP_Text deathCountText;
 
     // Start is called before the first frame update
@@ -29,6 +29,7 @@ public class PlayerSpawnPoint : MonoBehaviour
 
     public void Respawn()
     {
+        CursorManager.Instance.ChangeCursor(false);
         Instantiate(deathPFX, gameObject.transform.position, Quaternion.identity);
         gameObject.transform.position = spawnPoint;
         Destroy(SwordSpawner.instance.cloneSword);

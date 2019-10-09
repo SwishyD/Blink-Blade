@@ -5045,11 +5045,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: End of Level Results
       objectReference: {fileID: 0}
-    - target: {fileID: 5405750781197769317, guid: eaa7bd38a0ff00b42b372946f9056273,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5405750781197769313, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5162,9 +5157,9 @@ PrefabInstance:
       objectReference: {fileID: 789895247}
     - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
-      propertyPath: resultsTimer
+      propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 789895246}
+      objectReference: {fileID: 1877785953362869937}
     - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
       propertyPath: resultsDeaths
@@ -5172,44 +5167,17 @@ PrefabInstance:
       objectReference: {fileID: 248466958}
     - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
-      propertyPath: requiredTime.Array.data[1]
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
-        type: 3}
-      propertyPath: requiredDeaths.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
-        type: 3}
-      propertyPath: requiredDeaths.Array.data[2]
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
-        type: 3}
-      propertyPath: requiredDeaths.Array.data[3]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
-        type: 3}
-      propertyPath: requiredTime.Array.data[0]
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
-        type: 3}
-      propertyPath: requiredTime.Array.data[2]
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
-        type: 3}
-      propertyPath: requiredTime.Array.data[3]
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
-        type: 3}
-      propertyPath: pauseMenu
+      propertyPath: resultsTimer
       value: 
-      objectReference: {fileID: 1877785953362869937}
+      objectReference: {fileID: 789895246}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelTime
+      value: 
+      objectReference: {fileID: 789895246}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelDeaths
+      value: 
+      objectReference: {fileID: 248466958}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
 --- !u!4 &1197531315 stripped
@@ -9635,6 +9603,11 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1896631388}
+    - target: {fileID: 6922165192452187406, guid: 88064930fd50aff4d819aa5fd3753907,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1634612857724759793, guid: 88064930fd50aff4d819aa5fd3753907,
         type: 3}
       propertyPath: volumeSlider
@@ -9648,11 +9621,6 @@ PrefabInstance:
     - target: {fileID: 278241454, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
       propertyPath: fullScreenToggle
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6922165192452187406, guid: 88064930fd50aff4d819aa5fd3753907,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}

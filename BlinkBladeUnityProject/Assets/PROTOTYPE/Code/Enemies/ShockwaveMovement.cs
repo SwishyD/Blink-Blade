@@ -10,11 +10,14 @@ public class ShockwaveMovement : MonoBehaviour
     public int numberOfTiles;
     public bool isRight;
     public Vector2 startPosition;
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         //StartCoroutine("ShockMove");
         startPosition = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -25,7 +28,7 @@ public class ShockwaveMovement : MonoBehaviour
         }
         if(col.gameObject.layer == 8 || col.gameObject.layer == 9)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("Kill");
         }
     }
 
@@ -42,8 +45,13 @@ public class ShockwaveMovement : MonoBehaviour
 
         if(Vector2.Distance(startPosition, this.transform.position) >= numberOfTiles)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("Kill");
         }
+    }
+
+    public void KillShockwave()
+    {
+        Destroy(gameObject);
     }
 
     /*IEnumerator ShockMove()
