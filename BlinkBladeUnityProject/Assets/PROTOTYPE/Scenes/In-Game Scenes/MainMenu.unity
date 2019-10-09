@@ -194,13 +194,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec17591143abc94bbc698fadfee6338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelComplete: 000000
+  levelComplete: 00000000
   time:
   - 9999
   - 9999
   - 9999
-  deaths: 0f2700000f2700000f270000
+  - 9999
+  deaths: 0f2700000f2700000f2700000f270000
   grade:
+  - 
   - 
   - 
   - 
