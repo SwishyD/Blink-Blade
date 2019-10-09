@@ -7,6 +7,8 @@ public class CameraMovement : MonoBehaviour
     public CameraFollow camFollow;
     public PlayerScriptManager scripts;
     public GameObject GUI;
+    public GameObject aimArrow;
+
     private bool guiActive;
 
     public float speed;
@@ -57,6 +59,7 @@ public class CameraMovement : MonoBehaviour
         {
             guiActive = !guiActive;
             GUI.SetActive(guiActive);
+            aimArrow.SetActive(guiActive);
         }
 
         if (Input.GetKey(KeyCode.RightShift))
