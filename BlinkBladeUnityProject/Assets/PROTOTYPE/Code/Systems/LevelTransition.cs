@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class LevelTransition : MonoBehaviour
     {
         if(inDoor && Input.GetKeyDown(KeyCode.E))
         {
+            if(SceneManager.GetActiveScene().name == "HUB")
+            {
+                LevelManager.instance.playerPos = GameObject.Find("PlayerV2").transform.position;
+            }
             SceneManagers.instance.MoveToScene(moveToLevel);
         }
     }

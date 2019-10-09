@@ -8,6 +8,7 @@ public class MenuScreen : MonoBehaviour {
 
     public GameObject menuScreenUI;
     public GameObject quitConfirmUI;
+    public GameObject continueButton;
     public static bool quitActive = false;
     
 
@@ -24,6 +25,19 @@ public class MenuScreen : MonoBehaviour {
             {
                 QuitGameConfirmation();
             }
+        }
+        if (SaveSystem.DataExists())
+        {
+            continueButton.SetActive(true);
+        }
+        else
+        {
+            continueButton.SetActive(false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.L) && Input.GetKey(KeyCode.LeftControl))
+        {
+            SaveSystem.DeleteSave();
         }
 	}
 

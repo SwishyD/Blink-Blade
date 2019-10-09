@@ -56,7 +56,6 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     {
         while (enabled)
         {
-            Debug.Log("Shoot");
             if (active)
             {
                 for (int i = 0; i < numberOfShots; i++)
