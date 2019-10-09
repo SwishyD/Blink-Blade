@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3985237764467520325}
   - component: {fileID: 4219604376428589212}
   - component: {fileID: 5465127960070195049}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GargoyleShockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7487248577771294572, guid: 9f25889bcc9f677469604cf2ee1ad362,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -116,7 +116,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1.125, y: 2}
     newSize: {x: 8.42, y: 10.01}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

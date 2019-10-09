@@ -10,6 +10,7 @@ public class CursorManager : MonoBehaviour
     public Texture2D cursorYesBlink;
     private bool cursorIsCanBlink;
     Vector2 hotSpot;
+    public bool blinkCursorOn;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class CursorManager : MonoBehaviour
 
     public void ChangeCursor(bool active)
     {
+        blinkCursorOn = active;
         if (active)
         {
             Cursor.SetCursor(cursorYesBlink, hotSpot, CursorMode.Auto);
