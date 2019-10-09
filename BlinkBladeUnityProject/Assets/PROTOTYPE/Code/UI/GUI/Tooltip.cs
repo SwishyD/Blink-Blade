@@ -13,12 +13,13 @@ public class Tooltip : MonoBehaviour
     [SerializeField] bool tooltipActiveState;
 
     [SerializeField] GameObject tooltip;
-    Animator tooltipAnim;
+    //Animator tooltipAnim;
 
     // Start is called before the first frame update
     void Start()
     {
-        tooltipAnim = tooltip.GetComponentInParent<Animator>();
+        //tooltipAnim = tooltip.GetComponentInParent<Animator>();
+        SwitchTooltipActivationState(tooltipActiveState);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,7 +57,8 @@ public class Tooltip : MonoBehaviour
     void SwitchTooltipActivationState(bool newState)
     {
         tooltipActiveState = newState;
-        tooltipAnim.SetBool("ActiveState", newState);
+        //tooltipAnim.SetBool("ActiveState", newState);
+        tooltip.SetActive(newState);
     }
 
     
