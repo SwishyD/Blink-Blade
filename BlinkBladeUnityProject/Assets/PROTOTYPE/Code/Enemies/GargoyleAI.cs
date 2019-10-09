@@ -17,9 +17,14 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
 
     public GameObject shockWave;
 
+    Animator anim;
+    ParticleSystem smashPFX;
+
     private void Start()
     {
         StartCoroutine("ShockWave");
+        anim = GetComponent<Animator>();
+        smashPFX = GetComponentInChildren<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -51,13 +56,7 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
             if (inRange)
             {
                 yield return new WaitForSeconds(chargeUpTime);
-                GetComponent<SpriteRenderer>().color = Color.yellow;
-                yield return new WaitForSeconds(0.2f);
-                Instantiate(shockWave, leftSide.position, Quaternion.identity);
-                var rightShock = Instantiate(shockWave, rightSide.position, Quaternion.identity);
-                rightShock.GetComponent<SpriteRenderer>().flipX = true;
-                rightShock.GetComponent<ShockwaveMovement>().isRight = true;
-                GetComponent<SpriteRenderer>().color = Color.white;
+                anim.SetTrigger("Smash");
             }
             yield return new WaitForSeconds(timeBetweenShots);
         }
@@ -70,5 +69,16 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
         SwordSpawner.instance.closeToGround = false;
         SwordSpawner.instance.swordSpawned = false;
         //CursorManager.Instance.ChangeCursorState(false);
+    }
+
+    public void SpawnShockwaves()
+    {
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 0.8f, .5f);
+        Instantiate(shockWave, leftSide.position, Quaternion.identity);
+        var rightShock = Instantiate(shockWave, rightSide.position, Quaternion.identity);
+        rightShock.GetComponent<SpriteRenderer>().flipX = true;
+        rightShock.GetComponent<ShockwaveMovement>().isRight = true;
+        AudioManager.instance.Play("HeavyLand");
+        smashPFX.Play();
     }
 }

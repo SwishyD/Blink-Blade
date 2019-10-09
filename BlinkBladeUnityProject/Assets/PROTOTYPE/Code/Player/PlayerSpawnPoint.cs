@@ -29,6 +29,7 @@ public class PlayerSpawnPoint : MonoBehaviour
 
     public void Respawn()
     {
+        CursorManager.Instance.ChangeCursor(false);
         Instantiate(deathPFX, gameObject.transform.position, Quaternion.identity);
         gameObject.transform.position = spawnPoint;
         Destroy(SwordSpawner.instance.cloneSword);
