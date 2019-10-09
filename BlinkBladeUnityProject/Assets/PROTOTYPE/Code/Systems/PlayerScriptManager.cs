@@ -10,7 +10,9 @@ public class PlayerScriptManager : MonoBehaviour
     public GameObject player;
     public bool foundPlayer;
 
-    public bool swordScriptActive;
+    public bool scriptsActive;
+
+    public bool swordScriptActive = true;
     public bool tutorialCheck;
 
 
@@ -56,6 +58,7 @@ public class PlayerScriptManager : MonoBehaviour
 
     public void PlayerScriptEnable()
     {
+        scriptsActive = true;
         player.GetComponent<PlayerMovementV2>().enabled = true;
         player.GetComponent<PlayerJumpV2>().enabled = true;
         player.GetComponent<PlayerAnimator>().enabled = true;
@@ -68,6 +71,7 @@ public class PlayerScriptManager : MonoBehaviour
 
     public void PlayerScriptDisable()
     {
+        scriptsActive = false;
         player.GetComponent<PlayerMovementV2>().enabled = false;
         player.GetComponent<PlayerJumpV2>().enabled = false;
         player.GetComponent<PlayerAnimator>().enabled = false;

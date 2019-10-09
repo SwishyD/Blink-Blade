@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PatrolDir { Left, Right, Up, Down}
-
 public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 {
-    public PatrolDir direction;
+    public Transform[] wayPoints;
+    public int moveToward;
+
     [Tooltip("(Seconds) Time that the Enemy pauses for on each side")]
     public float pauseTimer;
     public bool active;
@@ -39,44 +39,20 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-            if (active)
-            {
-                patrolTime += Time.deltaTime;
-            }
-            if (patrolTime >= maxPatrolTime)
-            {
-                StartCoroutine("EdgePause");
-                if (direction == PatrolDir.Left || direction == PatrolDir.Up)
-                {
-                    direction++;
-                    patrolTime = 0;
-                }
-                else if (direction == PatrolDir.Right || direction == PatrolDir.Down)
-                {
-                    direction--;
-                    patrolTime = 0;
-                }
-            }
-
-        switch (direction)
+        if(wayPoints.Length > 1)
         {
-            case PatrolDir.Left:
-                transform.position -= new Vector3(speed, 0,0);
-                break;
+            transform.position = Vector2.MoveTowards(transform.position, wayPoints[moveToward].position, speed * Time.deltaTime);
+        }
+        else
+        {
+            speed = 0;
+        }
 
-            case PatrolDir.Right:
-                transform.position += new Vector3(speed, 0, 0);
-                break;
-
-            case PatrolDir.Up:
-                transform.position += new Vector3(0, speed, 0);
-                break;
-
-            case PatrolDir.Down:
-                transform.position -= new Vector3(0, speed, 0);
-                break;
+        if(wayPoints.Length > 1 && Vector2.Distance(this.transform.position, wayPoints[moveToward].position) < 0.2f)
+        {
+            StartCoroutine("EdgePause");
         }
     }
 
@@ -90,12 +66,17 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     IEnumerator EdgePause()
     {
-            active = false;
-            var normalSpeed = speed;
-            speed = 0;
-            yield return new WaitForSeconds(pauseTimer);
-            active = true;
-            speed = normalSpeed;
+        active = false;
+        var normalSpeed = speed;
+        speed = 0;
+        moveToward++;
+        if(moveToward > wayPoints.Length - 1)
+        {
+            moveToward = 0;
+        }
+        yield return new WaitForSeconds(pauseTimer);
+        active = true;
+        speed = normalSpeed;
     }
 
     public void OnHit()

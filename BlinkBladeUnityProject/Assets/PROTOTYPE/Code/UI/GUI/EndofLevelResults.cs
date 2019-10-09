@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class EndofLevelResults : MonoBehaviour
 {
     public GameObject gameGUI;
+    public PauseMenu pauseMenu;
 
     public PlayerSpawnPoint resultsDeaths;
     public Timer resultsTimer;
@@ -23,12 +24,13 @@ public class EndofLevelResults : MonoBehaviour
     public float[] requiredDeaths;
     public string[] gradeLetter;
 
-    private string grade;
+    public string grade;
 
     public bool levelEnd;
 
     private void OnEnable()
     {
+        pauseMenu.enabled = false;
         levelEnd = true;
         PlayerJumpV2.instance.ResetGravity();
         PlayerScriptManager.instance.PlayerScriptDisable();
@@ -36,21 +38,6 @@ public class EndofLevelResults : MonoBehaviour
         unRoundedTime = resultsTimer.timeStart;
         CalculateGrade();
         StartCoroutine(ShowResults());
-    }
-
-    private void OnDisable()
-    {
-        PauseMenu.gameIsPaused = false;
-        if(gameGUI != null)
-        {
-            gameGUI.SetActive(true);
-        }
-        PlayerScriptManager.instance.PlayerScriptEnable();
-        resultDeathCount.text = "";
-        resultTime.text = "";
-        resultsGrade.text = "";
-        resultsToHub.SetActive(false);
-        resultsRestart.SetActive(false);
     }
 
     void CalculateGrade()
@@ -88,6 +75,7 @@ public class EndofLevelResults : MonoBehaviour
         yield return new WaitForSeconds(1f);
         resultsGrade.text = "Grade: " + grade;
         yield return new WaitForSeconds(1f);
+        GetComponent<LevelResultTransfer>().SetResults();
         resultsToHub.SetActive(true);
         resultsRestart.SetActive(true);
     }

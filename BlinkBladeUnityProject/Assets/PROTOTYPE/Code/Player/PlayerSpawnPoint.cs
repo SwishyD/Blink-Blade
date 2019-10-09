@@ -8,7 +8,7 @@ public class PlayerSpawnPoint : MonoBehaviour
     public Vector2 spawnPoint;
     public ParticleSystem deathPFX;
 
-    public float deathCount;
+    public int deathCount;
     public TMP_Text deathCountText;
 
     // Start is called before the first frame update

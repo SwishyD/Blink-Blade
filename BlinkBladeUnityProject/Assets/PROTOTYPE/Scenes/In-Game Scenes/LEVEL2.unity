@@ -1898,6 +1898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   foundPlayer: 0
+  scriptsActive: 0
   swordScriptActive: 0
   tutorialCheck: 0
 --- !u!114 &367861874
@@ -6025,6 +6026,23 @@ PrefabInstance:
       propertyPath: requiredTime.Array.data[3]
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1877785953362869937}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelNo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelTime
+      value: 
+      objectReference: {fileID: 789895246}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelDeaths
+      value: 
+      objectReference: {fileID: 248466958}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
 --- !u!4 &1221369936 stripped
@@ -10121,6 +10139,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
+--- !u!114 &1877785953362869937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6922165192945570909, guid: 88064930fd50aff4d819aa5fd3753907,
+    type: 3}
+  m_PrefabInstance: {fileID: 1877785953362869936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7391ad4587a126946987719f2e4fdd63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1839735485 &7788830813514142448
 Tilemap:
   m_ObjectHideFlags: 0
