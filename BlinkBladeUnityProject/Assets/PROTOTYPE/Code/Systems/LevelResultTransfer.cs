@@ -47,7 +47,7 @@ public class LevelResultTransfer : MonoBehaviour
         {
             LevelManager.instance.grade[levelNo] = levelGrades.grade;
         }
-        else if(LevelManager.instance.grade[levelNo] == "S")
+        else if(LevelManager.instance.grade[levelNo] == "S" && levelGrades.grade != "D" && levelGrades.grade != "C" && levelGrades.grade != "B" && levelGrades.grade != "A")
         {
             LevelManager.instance.grade[levelNo] = levelGrades.grade;
         }
