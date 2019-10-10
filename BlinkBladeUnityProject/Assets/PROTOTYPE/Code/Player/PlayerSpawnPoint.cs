@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpawnPoint : MonoBehaviour
 {
@@ -11,10 +12,16 @@ public class PlayerSpawnPoint : MonoBehaviour
     public int deathCount;
     public TMP_Text deathCountText;
 
+    private Timer timer;
+
     // Start is called before the first frame update
     void Start()
     {
         spawnPoint = transform.position;
+        if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
+        {
+            timer = GameObject.Find("GUI").GetComponentInChildren<Timer>();
+        }
     }
 
     // Update is called once per frame
@@ -38,7 +45,13 @@ public class PlayerSpawnPoint : MonoBehaviour
         PlayerJumpV2.instance.ResetGravity();
         PlayerJumpV2.instance.PlayerNormal();
         Instantiate(deathPFX, transform);
-        deathCount++;
+        if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
+        {
+            if (timer.timerActive)
+            {
+                deathCount++;
+            }
+        }
         //CursorManager.Instance.ChangeCursorState(false);
         FindObjectOfType<AudioManager>().Play("Death");
         FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 1f, .5f);

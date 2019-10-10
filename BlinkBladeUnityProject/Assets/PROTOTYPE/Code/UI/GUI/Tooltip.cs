@@ -10,6 +10,7 @@ public class Tooltip : MonoBehaviour
 {
     public RevealType revealType;
     string tagName = "Player";
+    public int level;
     [SerializeField] bool tooltipActiveState;
 
     [SerializeField] GameObject tooltip;
@@ -24,7 +25,7 @@ public class Tooltip : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == tagName)
+        if (collision.tag == tagName && LevelManager.instance.levelComplete[level])
         {
             SwitchTooltipActivationState(true);
         }

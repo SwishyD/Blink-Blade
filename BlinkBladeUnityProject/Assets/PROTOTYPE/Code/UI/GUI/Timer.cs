@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     public TMP_Text textBox;
 
 
-    bool timerActive;
+    public bool timerActive;
     public bool levelStarted;
     // Start is called before the first frame update
     void Start()
