@@ -79,6 +79,7 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
         rightShock.GetComponent<SpriteRenderer>().flipX = true;
         rightShock.GetComponent<ShockwaveMovement>().isRight = true;
         AudioManager.instance.Play("HeavyLand");
+        AudioManager.instance.Play("BassImpact");
         smashPFX.Play();
     }
 }
