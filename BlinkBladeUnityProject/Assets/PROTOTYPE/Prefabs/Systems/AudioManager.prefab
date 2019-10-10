@@ -170,3 +170,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Roar
+    clip: {fileID: 8300000, guid: a3b6836f99a6be648acd94ac7354894d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BassImpact
+    clip: {fileID: 8300000, guid: 7171e4c1a80bfe84ea4e52af8a91494e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
