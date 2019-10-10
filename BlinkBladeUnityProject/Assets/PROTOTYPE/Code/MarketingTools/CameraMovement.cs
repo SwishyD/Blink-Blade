@@ -74,10 +74,15 @@ public class CameraMovement : MonoBehaviour
                 Debug.Log("No Sword is spawned");
             }
         }
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             var player = PlayerJumpV2.instance.gameObject;
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            var player = PlayerJumpV2.instance.gameObject;
+            player.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
         }
     }
 }
