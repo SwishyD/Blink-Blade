@@ -136088,6 +136088,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1236613577}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1236613581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5166808852116188933, guid: 16afa2da28725424b9ba7b4b98fece6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1236613577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1263187520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136466,6 +136472,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1236613580}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: GUI
+      value: 
+      objectReference: {fileID: 140038116}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: scripts
+      value: 
+      objectReference: {fileID: 2094622899}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: aimArrow
+      value: 
+      objectReference: {fileID: 1236613581}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
 --- !u!1 &1565929412
@@ -148110,7 +148128,7 @@ MonoBehaviour:
   player: {fileID: 0}
   foundPlayer: 0
   scriptsActive: 0
-  swordScriptActive: 0
+  swordScriptActive: 1
   tutorialCheck: 0
 --- !u!114 &2094622900
 MonoBehaviour:

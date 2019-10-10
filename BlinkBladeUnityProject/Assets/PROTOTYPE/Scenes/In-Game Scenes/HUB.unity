@@ -77214,6 +77214,12 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1457999259}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1457999261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5166808852116188933, guid: 16afa2da28725424b9ba7b4b98fece6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1457999259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1465908208 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
@@ -77383,6 +77389,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1871875130}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: scripts
+      value: 
+      objectReference: {fileID: 623073352}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: GUI
+      value: 
+      objectReference: {fileID: 1979221325}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: aimArrow
+      value: 
+      objectReference: {fileID: 1457999261}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
 --- !u!1 &1518136566
@@ -104147,6 +104165,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5, type: 3}
+--- !u!1 &1979221325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 709718139213461437, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1979221324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2013585292
 GameObject:
   m_ObjectHideFlags: 0

@@ -105473,6 +105473,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1407065940}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1407065944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5166808852116188933, guid: 16afa2da28725424b9ba7b4b98fece6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407065940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1414115814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
@@ -134794,7 +134800,7 @@ MonoBehaviour:
   player: {fileID: 0}
   foundPlayer: 0
   scriptsActive: 0
-  swordScriptActive: 0
+  swordScriptActive: 1
   tutorialCheck: 0
 --- !u!114 &1751768251
 MonoBehaviour:
@@ -136548,5 +136554,17 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1407065943}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: GUI
+      value: 
+      objectReference: {fileID: 1590586884}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: aimArrow
+      value: 
+      objectReference: {fileID: 1407065944}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: scripts
+      value: 
+      objectReference: {fileID: 1751768250}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
