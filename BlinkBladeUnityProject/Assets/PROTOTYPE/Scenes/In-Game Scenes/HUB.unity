@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f71119a4e18594a9c786d10c04196f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveToLevel: LEVEL2
+  moveToLevel: LEVEL1-3
 --- !u!212 &111936279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f71119a4e18594a9c786d10c04196f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveToLevel: LEVEL4
+  moveToLevel: LEVEL1-4
 --- !u!212 &369211523
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76338,7 +76338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f71119a4e18594a9c786d10c04196f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveToLevel: LEVEL1
+  moveToLevel: LEVEL1-1
 --- !u!212 &1319269637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79794,7 +79794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f71119a4e18594a9c786d10c04196f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveToLevel: LEVEL3
+  moveToLevel: LEVEL1-2
 --- !u!212 &1898972128
 SpriteRenderer:
   m_ObjectHideFlags: 0
