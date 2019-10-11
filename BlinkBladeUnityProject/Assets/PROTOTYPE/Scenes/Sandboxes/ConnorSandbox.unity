@@ -4158,6 +4158,10 @@ PrefabInstance:
       propertyPath: GUI
       value: 
       objectReference: {fileID: 164957741}
+    - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+      propertyPath: aimArrow
+      value: 
+      objectReference: {fileID: 2107988982}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
 --- !u!1 &1085774029
@@ -4312,6 +4316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorNoBlink: {fileID: 2800000, guid: 5fcba2fbbd4738d44a5b1ab1608e8d7e, type: 3}
   cursorYesBlink: {fileID: 2800000, guid: 29e770f7b4245b3478da0e57aaaabb53, type: 3}
+  blinkCursorOn: 0
 --- !u!4 &1330306194
 Transform:
   m_ObjectHideFlags: 0
@@ -9055,6 +9060,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
+--- !u!1 &2107988982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5166808852116188933, guid: 16afa2da28725424b9ba7b4b98fece6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 713300376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2140392815
 PrefabInstance:
   m_ObjectHideFlags: 0
