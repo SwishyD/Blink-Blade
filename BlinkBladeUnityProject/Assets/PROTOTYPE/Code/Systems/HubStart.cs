@@ -5,6 +5,7 @@ using UnityEngine;
 public class HubStart : MonoBehaviour
 {
     public GameObject player;
+    public Animator saving;
 
     // Start is called before the first frame update
     void Start()
@@ -15,5 +16,11 @@ public class HubStart : MonoBehaviour
         }
 
         SaveSystem.SavePlayer(LevelManager.instance);
+        Invoke("SaveFade", Random.Range(1f, 2f));
+    }
+
+    void SaveFade()
+    {
+        saving.SetBool("Saving", false);
     }
 }
