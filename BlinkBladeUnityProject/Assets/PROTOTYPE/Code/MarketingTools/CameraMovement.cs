@@ -15,6 +15,7 @@ public class CameraMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        scripts = GameObject.Find("PlayerScriptManager").GetComponent<PlayerScriptManager>();
         camFollow.enabled = false;
         scripts.PlayerScriptDisable();
         guiActive = true;
