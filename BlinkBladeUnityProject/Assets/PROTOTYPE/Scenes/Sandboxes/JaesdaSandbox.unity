@@ -38902,6 +38902,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gargoyle_v2
       objectReference: {fileID: 0}
+    - target: {fileID: 2379992737484145855, guid: 1fafd6e68ff7d8a43b1a4badb0baf27f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2379992737484145851, guid: 1fafd6e68ff7d8a43b1a4badb0baf27f,
         type: 3}
       propertyPath: m_LocalPosition.x

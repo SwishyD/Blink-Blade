@@ -25,7 +25,7 @@ public class Tooltip : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == tagName && LevelManager.instance.levelComplete[level])
+        if (collision.tag == tagName && LevelManager.instance != null && LevelManager.instance.levelComplete[level])
         {
             SwitchTooltipActivationState(true);
         }
