@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 public class PlayerSpawnPoint : MonoBehaviour
 {
     public Vector2 spawnPoint;
+    public int checkpoints = 0;
     public ParticleSystem deathPFX;
 
     public int deathCount;
     public TMP_Text deathCountText;
 
     private Timer timer;
+    private PlayerFlipTrigger flipTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,10 @@ public class PlayerSpawnPoint : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
         {
             timer = GameObject.Find("GUI").GetComponentInChildren<Timer>();
+        }
+        if(GameObject.Find("FlipTrigger") != null)
+        {
+            flipTrigger = GameObject.Find("FlipTrigger").GetComponent<PlayerFlipTrigger>();
         }
     }
 
@@ -44,6 +50,14 @@ public class PlayerSpawnPoint : MonoBehaviour
         SwordSpawner.instance.swordSpawned = false;
         PlayerJumpV2.instance.ResetGravity();
         PlayerJumpV2.instance.PlayerNormal();
+        if(checkpoints == 1)
+        {
+            flipTrigger.flipActive = false;
+        }
+        if (PlayerJumpV2.instance.isFlipped)
+        {
+            PlayerJumpV2.instance.PlayerFlip();
+        }
         Instantiate(deathPFX, transform);
         if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
         {
