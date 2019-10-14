@@ -80852,11 +80852,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dog
       objectReference: {fileID: 0}
-    - target: {fileID: 7482197570982296902, guid: 66f162943ffdca74b8c8a0bc796ddbbe,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3094481719469659362, guid: 66f162943ffdca74b8c8a0bc796ddbbe,
         type: 3}
       propertyPath: aimArrow
@@ -81981,7 +81976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4096
   dogPetScript: {fileID: 1738003936}
   rayDist: 0.5
 --- !u!4 &1871875130 stripped

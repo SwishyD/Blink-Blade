@@ -2814,7 +2814,7 @@ Transform:
   m_GameObject: {fileID: 435709841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -12, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1616978174}
   m_RootOrder: 2
@@ -3070,8 +3070,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.17021184, g: 0.8018868, b: 0.2015418, a: 1}
-      maxColor: {r: 0.6964977, g: 0.9137255, b: 0.5294118, a: 0.8745098}
+      minColor: {r: 0.17021184, g: 0.8018868, b: 0.2015418, a: 0.78431374}
+      maxColor: {r: 0.6964977, g: 0.9137255, b: 0.5294118, a: 0.5882353}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3516,7 +3516,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 50, y: 1, z: 1}
+    m_Scale: {x: 100, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -40133,8 +40133,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.6810647, g: 0.29178533, b: 0.7830189, a: 1}
-      maxColor: {r: 0.9245283, g: 0.58873266, b: 0.8125964, a: 0.8745098}
+      minColor: {r: 0.6810647, g: 0.29178533, b: 0.7830189, a: 0.78431374}
+      maxColor: {r: 0.9245283, g: 0.58873266, b: 0.8125964, a: 0.5882353}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -40579,7 +40579,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 50, y: 1, z: 1}
+    m_Scale: {x: 100, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -44611,7 +44611,7 @@ Transform:
   m_GameObject: {fileID: 1719981795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 12, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1616978174}
   m_RootOrder: 1
