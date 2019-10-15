@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class PlayerSpawnPoint : MonoBehaviour
 {
     public Vector2 spawnPoint;
-    public int checkpoints = 0;
     public ParticleSystem deathPFX;
 
     public int deathCount;

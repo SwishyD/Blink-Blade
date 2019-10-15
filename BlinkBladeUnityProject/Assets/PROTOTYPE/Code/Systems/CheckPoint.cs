@@ -53,7 +53,6 @@ public class CheckPoint : MonoBehaviour
     {
         triggered = true;
         spawnPoint.spawnPoint = this.transform.position;
-        spawnPoint.checkpoints++;
         anim.SetBool("Activated", true);
         triggerPFX.Play();
         //Play Sounds
