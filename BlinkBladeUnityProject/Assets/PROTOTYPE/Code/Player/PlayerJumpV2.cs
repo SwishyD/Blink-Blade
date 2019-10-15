@@ -65,6 +65,7 @@ public class PlayerJumpV2 : MonoBehaviour
 
     private void Start()
     {
+        isFlipped = false;
         ResetGravity();
         playerAnim = GetComponentInChildren<PlayerAnimator>();
         PlayerMovementV2.instance.canMove = true;
