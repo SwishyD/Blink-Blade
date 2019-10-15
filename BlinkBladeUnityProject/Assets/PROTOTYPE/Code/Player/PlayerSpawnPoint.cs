@@ -13,6 +13,7 @@ public class PlayerSpawnPoint : MonoBehaviour
     public TMP_Text deathCountText;
 
     private Timer timer;
+    private PlayerFlipManager flipTrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,10 @@ public class PlayerSpawnPoint : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
         {
             timer = GameObject.Find("GUI").GetComponentInChildren<Timer>();
+        }
+        if(GameObject.Find("FlipManager") != null)
+        {
+            flipTrigger = PlayerFlipManager.instance;
         }
     }
 
@@ -44,6 +49,14 @@ public class PlayerSpawnPoint : MonoBehaviour
         SwordSpawner.instance.swordSpawned = false;
         PlayerJumpV2.instance.ResetGravity();
         PlayerJumpV2.instance.PlayerNormal();
+        if(flipTrigger != null)
+        {
+            flipTrigger.FlipEnabler(false);
+        }
+        if (PlayerJumpV2.instance.isFlipped)
+        {
+            PlayerJumpV2.instance.PlayerFlip();
+        }
         Instantiate(deathPFX, transform);
         if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
         {
