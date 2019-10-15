@@ -20,6 +20,8 @@ public class SwordSpawner : MonoBehaviour
     public GameObject sword;
     public GameObject player;
 
+    public GameObject swordBreakPFX;
+
     public bool stuckLeft;
     public bool stuckRight;
     public bool stuckDown;
@@ -116,6 +118,11 @@ public class SwordSpawner : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && swordSpawned == true && cloneSword.name.Contains("Sword"))
                 {
                     SwordReturn();
+                }
+                else if (Input.GetMouseButtonDown(0) && swordSpawned == false && plJump.isHanging == false)
+                {
+                    Instantiate(swordBreakPFX, hit.point, Quaternion.identity);
+                    AudioManager.instance.Play("SwordBreak");
                 }
            }
         }

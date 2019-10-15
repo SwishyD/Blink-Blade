@@ -4,31 +4,20 @@ using UnityEngine;
 
 public class PlayerFlipTrigger : MonoBehaviour
 {
-    public bool flipActive;
-    public float flipTimer;
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+    private PlayerFlipManager flipManager;
+
+    public bool enable;
+
+    private void Start()
     {
-        if(collision.gameObject.name == "PlayerV2" && !flipActive)
-        {
-            flipActive = true;
-            StartCoroutine("FlipTimer");
-        }
+        flipManager = PlayerFlipManager.instance;
     }
 
-    IEnumerator FlipTimer()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        while (true)
+        if(collision.gameObject.name == "PlayerV2" && flipManager.flipActive != enable)
         {
-            if (flipActive)
-            {
-                PlayerJumpV2.instance.PlayerFlip();
-            }
-            else
-            {
-                yield break;
-            }
-            yield return new WaitForSeconds(flipTimer);
+            flipManager.FlipEnabler(enable);
         }
     }
 }
