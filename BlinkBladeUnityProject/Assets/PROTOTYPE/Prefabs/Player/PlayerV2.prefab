@@ -321,6 +321,8 @@ MonoBehaviour:
   cloneSword: {fileID: 0}
   sword: {fileID: 5722015756847094077, guid: 2957004cc12937a4daa0ef257833a654, type: 3}
   player: {fileID: 5921857822077694296}
+  swordBreakPFX: {fileID: 4251798116654482220, guid: 20160354d0cf6e84aa9c97063bf17699,
+    type: 3}
   stuckLeft: 0
   stuckRight: 0
   stuckDown: 0
