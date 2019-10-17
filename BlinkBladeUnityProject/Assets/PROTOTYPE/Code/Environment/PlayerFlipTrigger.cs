@@ -18,6 +18,10 @@ public class PlayerFlipTrigger : MonoBehaviour
         if(collision.gameObject.name == "PlayerV2" && flipManager.flipActive != enable)
         {
             flipManager.FlipEnabler(enable);
+            if (!enable && PlayerJumpV2.instance.isFlipped)
+            {
+                PlayerJumpV2.instance.PlayerFlip();
+            }
         }
     }
 }
