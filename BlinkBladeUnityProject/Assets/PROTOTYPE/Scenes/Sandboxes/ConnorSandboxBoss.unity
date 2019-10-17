@@ -30623,6 +30623,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 709718139213461437, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 709718139213461433, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
         type: 3}
       propertyPath: m_LocalPosition.x

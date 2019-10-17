@@ -46,4 +46,18 @@ public class WaypointCamera : MonoBehaviour
         active = true;
         speed = newSpeed;
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, wayPoints[0].position);
+        for (int i = 0; i < wayPoints.Length; i++)
+        {
+            if(wayPoints[i + 1] != null)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(wayPoints[i].position, wayPoints[i + 1].position);
+            }
+        }
+    }
 }
