@@ -39610,7 +39610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4096
   dogPetScript: {fileID: 387686400}
   rayDist: 0.5
 --- !u!1 &1489180360 stripped
