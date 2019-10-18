@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 3094481719469659362}
   - component: {fileID: 2342146767550090652}
   - component: {fileID: 8992978128881283911}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: DogSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5101,7 +5101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7482197570982296903}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
