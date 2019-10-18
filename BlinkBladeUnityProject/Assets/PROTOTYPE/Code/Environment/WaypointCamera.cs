@@ -53,7 +53,9 @@ public class WaypointCamera : MonoBehaviour
         Gizmos.DrawLine(transform.position, wayPoints[0].position);
         for (int i = 0; i < wayPoints.Length; i++)
         {
-            if(wayPoints[i + 1] != null)
+            Debug.Log("i = " + i);
+            Debug.Log(wayPoints.Length);
+            if (wayPoints.Length > i + 1)
             {
                 Gizmos.color = Color.blue;
                 Gizmos.DrawLine(wayPoints[i].position, wayPoints[i + 1].position);
