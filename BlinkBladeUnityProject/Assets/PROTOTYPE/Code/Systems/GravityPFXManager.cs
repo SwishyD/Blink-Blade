@@ -18,7 +18,7 @@ public class GravityPFXManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F)) // Temporary gravity change, should eventually be tied to gravity state proper
         {
             gravFlipped = !gravFlipped;
             ChangeGravPFX(gravFlipped);
@@ -32,11 +32,11 @@ public class GravityPFXManager : MonoBehaviour
         if (gravFlipped)
         {
             ceilEmission.rateOverTime = 0;
-            floorEmission.rateOverTime = 50;
+            floorEmission.rateOverTime = 20;
         }
         if (!gravFlipped)
         {
-            ceilEmission.rateOverTime = 50;
+            ceilEmission.rateOverTime = 20;
             floorEmission.rateOverTime = 0;
         }
     }
