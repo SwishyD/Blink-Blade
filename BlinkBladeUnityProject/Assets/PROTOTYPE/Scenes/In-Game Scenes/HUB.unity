@@ -1500,6 +1500,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gargoyle_v2
       objectReference: {fileID: 0}
+    - target: {fileID: 2379992737484145855, guid: 1fafd6e68ff7d8a43b1a4badb0baf27f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2379992737484145851, guid: 1fafd6e68ff7d8a43b1a4badb0baf27f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -78051,6 +78056,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Swinging Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 2502643277838999935, guid: 9ea567209a8a4f14dbdf95f0fc4b515a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2502643277838999933, guid: 9ea567209a8a4f14dbdf95f0fc4b515a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82013,6 +82023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Swinging Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502643277838999935, guid: 9ea567209a8a4f14dbdf95f0fc4b515a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2502643277838999933, guid: 9ea567209a8a4f14dbdf95f0fc4b515a,
         type: 3}
@@ -107334,6 +107349,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gargoyle_v2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2379992737484145855, guid: 1fafd6e68ff7d8a43b1a4badb0baf27f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2379992737484145851, guid: 1fafd6e68ff7d8a43b1a4badb0baf27f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -110121,6 +110141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GravPFXNull
+      objectReference: {fileID: 0}
+    - target: {fileID: 869671218511341777, guid: 5f385b0097bcc8646abad7a37aa3df14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 869671218511341776, guid: 5f385b0097bcc8646abad7a37aa3df14,
         type: 3}
