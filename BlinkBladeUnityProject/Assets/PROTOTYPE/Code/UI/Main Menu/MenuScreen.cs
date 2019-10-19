@@ -9,6 +9,7 @@ public class MenuScreen : MonoBehaviour {
     public GameObject menuScreenUI;
     public GameObject quitConfirmUI;
     public GameObject continueButton;
+    public GameObject newGameConfirmUI;
     public static bool quitActive = false;
     
 
@@ -41,10 +42,22 @@ public class MenuScreen : MonoBehaviour {
         }
 	}
 
-    public void StartGame(string moveToLevel)
+    public void StartGame(string level)
     {
         //SceneManager.LoadScene(1);
-        SceneManagers.instance.MoveToScene(moveToLevel);
+        SceneManagers.instance.MoveToScene(level);
+    }
+
+    public void NewGameConfirm(string moveToLevel)
+    {
+        if (SaveSystem.DataExists())
+        {
+            newGameConfirmUI.SetActive(true);
+        }
+        else
+        {
+            StartGame(moveToLevel);
+        }
     }
        
     public void QuitGameConfirmation()
@@ -59,6 +72,7 @@ public class MenuScreen : MonoBehaviour {
         quitActive = false;
         menuScreenUI.SetActive(true);
         quitConfirmUI.SetActive(false);
+        newGameConfirmUI.SetActive(false);
     }
 
 
