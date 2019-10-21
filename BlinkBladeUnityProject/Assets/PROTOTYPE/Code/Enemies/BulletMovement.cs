@@ -24,7 +24,7 @@ public class BulletMovement : MonoBehaviour
             col.GetComponent<PlayerSpawnPoint>().Respawn();
             Destroy(gameObject);
         }
-        else if(!col.name.Contains("Bullet"))
+        else if(!col.name.Contains("Bullet") && !col.name.Contains("Wall"))
         {
             Destroy(gameObject);
         }
