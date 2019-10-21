@@ -33,7 +33,15 @@ public class FinalBossScript : MonoBehaviour
     public GameObject spawnPFX;
     #endregion
 
-    
+    [Header("Wall Movement Variables")]
+    #region Wall Movement
+    public GameObject deathWall;
+    public Vector2 wallScale;
+    public float wallSpeed;
+    public bool allWallsActive;
+    public bool[] wallActive;
+    #endregion
+
 
     // Update is called once per frame
     void Update()
@@ -68,6 +76,17 @@ public class FinalBossScript : MonoBehaviour
                             enemyWaves[waveNumber - 1].enemies[i].SetActive(true);
                         }
                     }
+                }
+                break;
+
+            case BossPhases.Walls:
+                if (allWallsActive)
+                {
+                    deathWall.transform.localScale = Vector2.Lerp(deathWall.transform.localScale, wallScale, wallSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    deathWall.transform.localScale = Vector2.Lerp(deathWall.transform.localScale, Vector2.one, wallSpeed * Time.deltaTime);
                 }
                 break;
 
