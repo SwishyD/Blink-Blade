@@ -12,7 +12,7 @@ public class GravityPFXManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ChangeGravPFX(false);
+        //ChangeGravPFX(false);
     }
 
     // Update is called once per frame
@@ -27,17 +27,19 @@ public class GravityPFXManager : MonoBehaviour
 
     void ChangeGravPFX(bool gravFlipped)
     {
-        var ceilEmission = gravPFXCeil.emission;
-        var floorEmission = gravPFXFloor.emission;
+        //var ceilEmission = gravPFXCeil.emission;
+        //var floorEmission = gravPFXFloor.emission;
         if (gravFlipped)
         {
-            ceilEmission.rateOverTime = 0;
-            floorEmission.rateOverTime = 20;
+            //ceilEmission.rateOverTime = 0;
+            //floorEmission.rateOverTime = 20;
+            gravPFXFloor.Play();
         }
         if (!gravFlipped)
         {
-            ceilEmission.rateOverTime = 20;
-            floorEmission.rateOverTime = 0;
+            //ceilEmission.rateOverTime = 20;
+            //floorEmission.rateOverTime = 0;
+            gravPFXCeil.Play();
         }
     }
 }
