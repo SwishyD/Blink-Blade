@@ -27,7 +27,7 @@ public class DogPetterRaycast : MonoBehaviour
         Debug.DrawLine(transform.position, hit.point, Color.green);
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject.layer == 10)
+            if (hit.collider.gameObject.layer == 12)
             {
                 dogPetScript.SetDogPettability(true);
             }
