@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  destroyedBullet: {fileID: 1223428371756652267, guid: f3e749a1079b5444fa865a6371664d3d,
+    type: 3}
 --- !u!50 &9143221136877379520
 Rigidbody2D:
   serializedVersion: 4
