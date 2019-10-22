@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum BossPhases { Neutral, Shooting, Gravity, Spawning, Walls, Finale}
 
-public class FinalBossScript : MonoBehaviour
+public class FinalBossScript : MonoBehaviour, IEnemyDeath
 {
     public BossPhases phases;
     [Header("Shooter Variables")]
@@ -42,6 +42,31 @@ public class FinalBossScript : MonoBehaviour
     public bool[] wallActive;
     #endregion
 
+    [Header("Gravity Variables")]
+    #region Gravity
+    private PlayerFlipManager gravityManager;
+    private bool flipActive;
+    private bool gravityReset;
+    #endregion
+
+    [Header("Finale Variables")]
+    #region Boss Finale
+    public GameObject parryBox;
+    public bool killable;
+    public bool attacking;
+    public float timeBetweenAttacks;
+    public float bossSpeed;
+    public float bossSpeedMax;
+    public float speedUpTime;
+
+    private GameObject player;
+    #endregion
+
+    void Start()
+    {
+        gravityManager = PlayerFlipManager.instance;
+        player = GameObject.Find("PlayerV2");
+    }
 
     // Update is called once per frame
     void Update()
@@ -90,11 +115,48 @@ public class FinalBossScript : MonoBehaviour
                 }
                 break;
 
+            case BossPhases.Gravity:
+                if (!flipActive)
+                {
+                    gravityReset = false;
+                    flipActive = true;
+                    gravityManager.FlipEnabler(true);
+                }
+                break;
+
+            case BossPhases.Finale:
+                parryBox.SetActive(true);
+                killable = true;
+                if (attacking)
+                {
+                    var playerPos = player.transform.position;
+                    bossSpeed = Mathf.Lerp(0, bossSpeedMax, speedUpTime);
+                    this.transform.position = Vector2.MoveTowards(transform.position, playerPos, bossSpeed * Time.deltaTime);
+                    
+                    if(Vector2.Distance(transform.position, playerPos) < 0.5f)
+                    {
+                        attacking = false;
+                        StartCoroutine("RiseTime");
+                    }
+                }
+
+                
+                break;
+
         }
 
         if (phases != BossPhases.Shooting)
         {
             shootActive = false;
+        }
+        if(phases != BossPhases.Gravity)
+        {
+            if (!gravityReset)
+            {
+                gravityReset = true;
+                flipActive = false;
+                gravityManager.FlipEnabler(false);
+            }
         }
     }
 
@@ -127,6 +189,19 @@ public class FinalBossScript : MonoBehaviour
                 yield break;
             }
             yield return new WaitForSeconds(timeBetweenShots);
+        }
+    }
+
+    IEnumerator RiseTime()
+    {
+        yield return new WaitForSeconds(timeBetweenAttacks);
+    }
+
+    public void OnHit()
+    {
+        if (killable)
+        {
+
         }
     }
 

@@ -21,11 +21,21 @@ public class PlayerFlipManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        FlipEnabler(false);
+    }
+
     public void FlipEnabler(bool enabled)
     {
         flipActive = enabled;
         StopCoroutine("FlipTimer");
         StartCoroutine("FlipTimer");
+
+        if (!enabled && PlayerJumpV2.instance.isFlipped)
+        {
+            PlayerJumpV2.instance.PlayerFlip();
+        }
     }
 
     IEnumerator FlipTimer()
