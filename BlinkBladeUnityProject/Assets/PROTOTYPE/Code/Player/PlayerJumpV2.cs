@@ -301,6 +301,7 @@ public class PlayerJumpV2 : MonoBehaviour
         defaultGrav = -defaultGrav;
         maxVelocityDown = -maxVelocityDown;
         quickFallMaxVelocityDown = -quickFallMaxVelocityDown;
+        doubleJumpReady = true;
         gameObject.GetComponent<Collider2D>().offset = new Vector2(gameObject.GetComponent<Collider2D>().offset.x, -gameObject.GetComponent<Collider2D>().offset.y);
         if (isFlipped)
         {

@@ -129,6 +129,13 @@ public class SwordProjectile : MonoBehaviour
                 speed = 0;
                 stuckInObject = true;
             }
+            if (hit.transform.name.Contains("GravitySwitch"))
+            {
+                hit.transform.GetComponent<GravitySwitch>().FlipGravity();
+                Instantiate(swordBreakPFX, hit.point, Quaternion.identity);
+                AudioManager.instance.Play("SwordBreak");
+                DestroySword();
+            }
         }
     }
 
