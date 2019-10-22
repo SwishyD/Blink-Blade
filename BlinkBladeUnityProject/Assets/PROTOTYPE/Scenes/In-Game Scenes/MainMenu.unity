@@ -1851,9 +1851,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Save Data is Avaliable.
+  m_text: 'Save Data is available.
 
-    Are you sure you want to start a New Game?'
+    Are you sure you want to start a new game?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 51260038dc9353b4fbd3d4a6c03115aa, type: 2}
   m_sharedMaterial: {fileID: -3109476769773493145, guid: 51260038dc9353b4fbd3d4a6c03115aa,
