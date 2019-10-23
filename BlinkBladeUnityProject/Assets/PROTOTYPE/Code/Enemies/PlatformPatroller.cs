@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum WhereOnWall {Top, Bottom, Left, Right}
+
 public class PlatformPatroller : MonoBehaviour, IEnemyDeath
 {
+    public WhereOnWall wallDir;
+
     public float speed;
     [Tooltip("How far the raycast can detect for ground")]
     public float distance;
@@ -25,19 +29,75 @@ public class PlatformPatroller : MonoBehaviour, IEnemyDeath
 
     private void Update()
     {
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-        if(groundInfo.collider == false)
+        switch (wallDir)
         {
-            if (movingRight)
-            {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = false;
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = true;
-            }
+            case WhereOnWall.Top:
+                RaycastHit2D groundInfoTop = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
+                if (groundInfoTop.collider == false)
+                {
+                    if (movingRight)
+                    {
+                        transform.eulerAngles = new Vector3(0, -180, 0);
+                        movingRight = false;
+                    }
+                    else
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                        movingRight = true;
+                    }
+                }
+                break;
+
+            case WhereOnWall.Bottom:
+                RaycastHit2D groundInfoBot = Physics2D.Raycast(groundDetection.position, Vector2.up, distance);
+                if (groundInfoBot.collider == false)
+                {
+                    if (movingRight)
+                    {
+                        transform.eulerAngles = new Vector3(0, -180, 180);
+                        movingRight = false;
+                    }
+                    else
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 180);
+                        movingRight = true;
+                    }
+                }
+                break;
+
+            case WhereOnWall.Left:
+                RaycastHit2D groundInfoLeft = Physics2D.Raycast(groundDetection.position, Vector2.right, distance);
+                if (groundInfoLeft.collider == false)
+                {
+                    if (movingRight)
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 90);
+                        movingRight = false;
+                    }
+                    else
+                    {
+                        transform.eulerAngles = new Vector3(180, 0, 90);
+                        movingRight = true;
+                    }
+                }
+                break;
+
+            case WhereOnWall.Right:
+                RaycastHit2D groundInfoRight = Physics2D.Raycast(groundDetection.position, Vector2.left, distance);
+                if (groundInfoRight.collider == false)
+                {
+                    if (movingRight)
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 270);
+                        movingRight = false;
+                    }
+                    else
+                    {
+                        transform.eulerAngles = new Vector3(180, 0, 270);
+                        movingRight = true;
+                    }
+                }
+                break;
         }
     }
 

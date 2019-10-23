@@ -333,11 +333,6 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1773853837}
-    - target: {fileID: 6922165192452187406, guid: 88064930fd50aff4d819aa5fd3753907,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1634612857724759793, guid: 88064930fd50aff4d819aa5fd3753907,
         type: 3}
       propertyPath: volumeSlider
@@ -351,6 +346,11 @@ PrefabInstance:
     - target: {fileID: 278241454, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
       propertyPath: fullScreenToggle
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922165192452187406, guid: 88064930fd50aff4d819aa5fd3753907,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88064930fd50aff4d819aa5fd3753907, type: 3}
@@ -3794,7 +3794,7 @@ PrefabInstance:
     - target: {fileID: 1014841855534738605, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738605, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}

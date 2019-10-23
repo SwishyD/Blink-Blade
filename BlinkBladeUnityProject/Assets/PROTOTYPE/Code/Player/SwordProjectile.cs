@@ -120,6 +120,7 @@ public class SwordProjectile : MonoBehaviour
 
             if (hit.transform.name.Contains("Bullet"))
             {
+                hit.transform.gameObject.GetComponent<BulletMovement>().DestroyBullet();
                 Destroy(hit.collider.gameObject);
             }
             if (hit.transform.tag == "Enemy")
@@ -128,6 +129,13 @@ public class SwordProjectile : MonoBehaviour
                 hit.transform.gameObject.layer = 10;
                 speed = 0;
                 stuckInObject = true;
+            }
+            if (hit.transform.name.Contains("GravitySwitch"))
+            {
+                hit.transform.GetComponent<GravitySwitch>().FlipGravity();
+                Instantiate(swordBreakPFX, hit.point, Quaternion.identity);
+                AudioManager.instance.Play("SwordBreak");
+                DestroySword();
             }
         }
     }

@@ -78,9 +78,9 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.11392403
-        inSlope: -0.11392403
-        outSlope: -0.11392403
+        value: 0.18987465
+        inSlope: -0.18987465
+        outSlope: -0.18987465
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -88,8 +88,8 @@ TrailRenderer:
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -0.11392403
-        outSlope: -0.11392403
+        inSlope: -0.18987465
+        outSlope: -0.18987465
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -99,8 +99,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.6509804, g: 0.8078432, b: 0.8078432, a: 1}
+      key1: {r: 0.6509804, g: 0.8078432, b: 0.8078432, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -378,7 +378,7 @@ MonoBehaviour:
   hitPoint: {x: 0, y: 0}
   rayMask:
     serializedVersion: 2
-    m_Bits: 805309185
+    m_Bits: 939526912
   trail1: {fileID: 6277027399793549035}
   trail2: {fileID: 1023007152183891435}
   swordBreakPFX: {fileID: 4251798116654482220, guid: 20160354d0cf6e84aa9c97063bf17699,
@@ -681,9 +681,9 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.11392403
-        inSlope: -0.11392403
-        outSlope: -0.11392403
+        value: 0.18987465
+        inSlope: -0.18987465
+        outSlope: -0.18987465
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -691,8 +691,8 @@ TrailRenderer:
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -0.11392403
-        outSlope: -0.11392403
+        inSlope: -0.18987465
+        outSlope: -0.18987465
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -702,8 +702,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.6509804, g: 0.8078432, b: 0.8078432, a: 1}
+      key1: {r: 0.6509804, g: 0.8078432, b: 0.8078432, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

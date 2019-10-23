@@ -19,6 +19,7 @@ TagManager:
   - Stickable Surface
   - IgnoreSword
   - Bounce
+  - Pettable
   - 
   - 
   - 
@@ -33,8 +34,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Bullet
   - Enemy
   - DeathZone
   - Ground
