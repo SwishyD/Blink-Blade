@@ -120,6 +120,7 @@ public class SwordProjectile : MonoBehaviour
 
             if (hit.transform.name.Contains("Bullet"))
             {
+                hit.transform.gameObject.GetComponent<BulletMovement>().DestroyBullet();
                 Destroy(hit.collider.gameObject);
             }
             if (hit.transform.tag == "Enemy")

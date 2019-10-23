@@ -5,10 +5,15 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
     public float speed;
+    [SerializeField] GameObject destroyedBullet;
 
     private void Start()
     {
         Debug.Log("BulletSpawned");
+        if (destroyedBullet == null)
+        {
+            Debug.LogWarning("GameObject 'DestroyedBullet' is null! Use the prefab.");
+        }
     }
 
     // Update is called once per frame
@@ -22,11 +27,17 @@ public class BulletMovement : MonoBehaviour
         if (col.tag == "Player")
         {
             col.GetComponent<PlayerSpawnPoint>().Respawn();
-            Destroy(gameObject);
+            DestroyBullet();
         }
         else if(!col.name.Contains("Bullet") && !col.name.Contains("Wall"))
         {
-            Destroy(gameObject);
+            DestroyBullet();
         }
+    }
+
+    public void DestroyBullet()
+    {
+        Instantiate(destroyedBullet, gameObject.transform.position, Quaternion.identity, null);
+        Destroy(gameObject);
     }
 }
