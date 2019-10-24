@@ -55,11 +55,14 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
     [Header("Finale Variables")]
     #region Boss Finale
+    public bool parented;
     public GameObject parryBox;
     public bool killable;
     public bool attacking;
     public float timeBetweenAttacks;
     public float bossSpeed;
+    public float bossSpeedMax;
+    public float bossSpeedUpTime;
     public float bossRiseSpeed;
     public bool riseUp;
     private bool findPlayer;
@@ -92,7 +95,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             #region Shooting
             case BossPhases.Shooting:
 
-                Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
+                Vector3 difference = player.transform.position - bulletAimer.transform.position;
                 float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
                 bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
                 if (!shootActive)
@@ -168,20 +171,28 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             case BossPhases.Finale:
                 if (alive)
                 {
+                    if (parented)
+                    {
+                        parented = false;
+                        this.transform.parent = null;
+                    }
                     parryBox.SetActive(true);
                     killable = true;
-                    Vector3 difference2 = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
+                    Vector3 difference2 = player.transform.position - bulletAimer.transform.position;
                     float rotZ2 = Mathf.Atan2(difference2.y, difference2.x) * Mathf.Rad2Deg;
                     bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ2 + offset);
                     if (attacking)
                     {
                         if (!findPlayer)
                         {
-                            hit = Physics2D.Raycast(bulletAimer.transform.position, transform.right, Mathf.Infinity, diveMask);
+                            bossSpeedUpTime = 0;
+                            hit = Physics2D.Raycast(bulletAimer.transform.position, player.transform.position - bulletAimer.transform.position, 50f, diveMask);
                             findPlayer = true;
                         }
                         if (findPlayer)
                         {
+                            bossSpeed = Mathf.Lerp(0, bossSpeedMax, bossSpeedUpTime);
+                            bossSpeedUpTime += 2f * Time.deltaTime;
                             this.transform.localPosition = Vector2.MoveTowards(transform.localPosition, hit.point, bossSpeed * Time.deltaTime);
                         }
 
@@ -197,7 +208,8 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                         transform.Translate(Vector2.up * bossRiseSpeed * Time.deltaTime);
                     }
                 }
-                Debug.DrawRay(bulletAimer.transform.position, Vector2.right * Mathf.Infinity);
+                Debug.Log(hit.point);
+                Debug.DrawRay(bulletAimer.transform.position, hit.point);
                 break;
                 #endregion
         }
@@ -230,7 +242,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                     {
                         offset = Random.Range(0, 20);
                         var Bullet = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-                        //Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+                        Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
                         yield return new WaitForSeconds(timeBetweenMultiShots);
                     }
                 }
@@ -238,7 +250,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                 {
                     offset = 0;
                     var Bullet = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-                    //Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+                    Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
                 }
             }
             else
