@@ -15,6 +15,14 @@ public class WaypointSpeed : MonoBehaviour
 
     public void PhaseChange()
     {
+        if(bossPhases == BossPhases.Spawning)
+        {
+            bossScript.waveNumber++;
+        }
+        if(bossPhases == BossPhases.Walls)
+        {
+            bossScript.allWallsActive = !bossScript.allWallsActive;
+        }
         bossScript.phases = bossPhases;
     }
 }

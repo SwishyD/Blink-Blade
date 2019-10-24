@@ -38,8 +38,12 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     #region Wall Movement
     public GameObject deathWall;
     public Vector2 wallScale;
-    public float wallSpeed;
+    public float wallZoomSpeed;
     public bool allWallsActive;
+    public bool wallMove;
+    public Transform[] wallWaypoints;
+    public float wallMovementSpeed;
+    private int moveWallTo;
     #endregion
 
     [Header("Gravity Variables")]
@@ -62,6 +66,8 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     private Vector2 playerPos;
 
     private GameObject player;
+    public LayerMask diveMask;
+    RaycastHit2D hit;
     #endregion
 
     void Start()
@@ -77,10 +83,13 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     {
         switch (phases)
         {
+            #region Neutral
             case BossPhases.Neutral:
 
                 break;
+            #endregion
 
+            #region Shooting
             case BossPhases.Shooting:
 
                 Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
@@ -92,7 +101,9 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                     StartCoroutine("Shoot");
                 }
                 break;
+            #endregion
 
+            #region Spawning
             case BossPhases.Spawning:
                 if(waveNumber > 0)
                 {
@@ -107,18 +118,42 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                     }
                 }
                 break;
+            #endregion
 
+            #region Walls
             case BossPhases.Walls:
                 if (allWallsActive)
                 {
-                    deathWall.transform.localScale = Vector2.Lerp(deathWall.transform.localScale, wallScale, wallSpeed * Time.deltaTime);
+                    deathWall.transform.localScale = Vector2.Lerp(deathWall.transform.localScale, wallScale, wallZoomSpeed * Time.deltaTime);
+
+                    if (wallMove)
+                    {
+                        deathWall.transform.localPosition = Vector2.MoveTowards(deathWall.transform.localPosition, wallWaypoints[moveWallTo].localPosition, wallMovementSpeed * Time.deltaTime);
+                        if (Vector2.Distance(deathWall.transform.localPosition, wallWaypoints[moveWallTo].localPosition) < 0.2f)
+                        {
+                            if (wallWaypoints.Length > moveWallTo + 1)
+                            {
+                                moveWallTo++;
+                            }
+                            else
+                            {
+                                wallMove = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        deathWall.transform.localPosition = Vector2.MoveTowards(deathWall.transform.localPosition, Vector2.zero, wallMovementSpeed * Time.deltaTime);
+                    }
                 }
                 else
                 {
-                    deathWall.transform.localScale = Vector2.Lerp(deathWall.transform.localScale, Vector2.one, wallSpeed * Time.deltaTime);
+                    deathWall.transform.localScale = Vector2.Lerp(deathWall.transform.localScale, Vector2.one, wallZoomSpeed * Time.deltaTime);
                 }
                 break;
+            #endregion
 
+            #region Gravity
             case BossPhases.Gravity:
                 if (!flipActive)
                 {
@@ -127,22 +162,30 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                     gravityManager.FlipEnabler(true);
                 }
                 break;
+            #endregion
 
+            #region Finale
             case BossPhases.Finale:
                 if (alive)
                 {
                     parryBox.SetActive(true);
                     killable = true;
+                    Vector3 difference2 = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
+                    float rotZ2 = Mathf.Atan2(difference2.y, difference2.x) * Mathf.Rad2Deg;
+                    bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ2 + offset);
                     if (attacking)
                     {
                         if (!findPlayer)
                         {
+                            hit = Physics2D.Raycast(bulletAimer.transform.position, transform.right, Mathf.Infinity, diveMask);
                             findPlayer = true;
-                            playerPos = player.transform.position;
                         }
-                        this.transform.position = Vector2.MoveTowards(transform.position, playerPos, bossSpeed * Time.deltaTime);
+                        if (findPlayer)
+                        {
+                            this.transform.localPosition = Vector2.MoveTowards(transform.localPosition, hit.point, bossSpeed * Time.deltaTime);
+                        }
 
-                        if (Vector2.Distance(transform.position, playerPos) < 0.5f)
+                        if (Vector2.Distance(transform.localPosition, hit.point) < 1f)
                         {
                             attacking = false;
                             riseUp = true;
@@ -154,14 +197,16 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                         transform.Translate(Vector2.up * bossRiseSpeed * Time.deltaTime);
                     }
                 }
+                Debug.DrawRay(bulletAimer.transform.position, Vector2.right * Mathf.Infinity);
                 break;
+                #endregion
         }
 
         if (phases != BossPhases.Shooting)
         {
             shootActive = false;
         }
-        if(phases != BossPhases.Gravity)
+        if (phases != BossPhases.Gravity)
         {
             if (!gravityReset)
             {
@@ -241,6 +286,20 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             alive = false;
             Debug.Log("Dead");
             StopAllCoroutines();
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(deathWall.transform.position, wallWaypoints[0].position);
+        for (int i = 0; i < wallWaypoints.Length; i++)
+        {
+            if (wallWaypoints.Length > i + 1)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawLine(wallWaypoints[i].position, wallWaypoints[i + 1].position);
+            }
         }
     }
 
