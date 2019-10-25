@@ -102531,7 +102531,8 @@ MonoBehaviour:
   bossScript: {fileID: 139073353}
   speed: 2
   waitTime: 1
-  bossPhases: 5
+  bossPhases: 2
+  gravTimer: 1
 --- !u!1 &255082830
 GameObject:
   m_ObjectHideFlags: 0
@@ -112109,6 +112110,7 @@ MonoBehaviour:
   speed: 5
   waitTime: 1
   bossPhases: 0
+  gravTimer: 0
 --- !u!1 &566427024
 GameObject:
   m_ObjectHideFlags: 0
@@ -112156,6 +112158,7 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 2
+  gravTimer: 0
 --- !u!1 &576659105 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
@@ -112209,6 +112212,7 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 4
+  gravTimer: 0
 --- !u!1001 &606587466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113085,6 +113089,7 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 5
+  gravTimer: 0
 --- !u!1 &907192223
 GameObject:
   m_ObjectHideFlags: 0
@@ -113205,6 +113210,7 @@ MonoBehaviour:
   speed: 6
   waitTime: 2
   bossPhases: 3
+  gravTimer: 0
 --- !u!1 &1173154865
 GameObject:
   m_ObjectHideFlags: 0
@@ -113252,6 +113258,7 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 3
+  gravTimer: 0
 --- !u!114 &1198008626 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
@@ -113583,6 +113590,7 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 1
+  gravTimer: 0
 --- !u!1 &1634384914
 GameObject:
   m_ObjectHideFlags: 0
@@ -113630,6 +113638,7 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 4
+  gravTimer: 0
 --- !u!1 &1651543071
 GameObject:
   m_ObjectHideFlags: 0

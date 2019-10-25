@@ -13,6 +13,9 @@ public class WaypointSpeed : MonoBehaviour
 
     public BossPhases bossPhases;
 
+    [ConditionalEnumHide("bossPhases", 2, 2, true)]
+    public float gravTimer;
+
     public void PhaseChange()
     {
         if(bossPhases == BossPhases.Spawning)
@@ -22,6 +25,10 @@ public class WaypointSpeed : MonoBehaviour
         if(bossPhases == BossPhases.Walls)
         {
             bossScript.allWallsActive = !bossScript.allWallsActive;
+        }
+        if(bossPhases == BossPhases.Gravity)
+        {
+            PlayerFlipManager.instance.flipTimer = gravTimer;
         }
         bossScript.phases = bossPhases;
     }
