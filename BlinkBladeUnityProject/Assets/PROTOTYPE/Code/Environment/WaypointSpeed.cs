@@ -24,16 +24,16 @@ public class WaypointSpeed : MonoBehaviour
     {
         if(bossPhases == BossPhases.Shooting)
         {
-            bossScript.spray = spray;
-            bossScript.numberOfShots = bulletsInSpray;
+            bossScript.shooterVariable.spray = spray;
+            bossScript.shooterVariable.numberOfShots = bulletsInSpray;
         }
         if(bossPhases == BossPhases.Spawning)
         {
-            bossScript.waveNumber++;
+            bossScript.spawnerVariables.waveNumber++;
         }
         if(bossPhases == BossPhases.Walls)
         {
-            bossScript.allWallsActive = !bossScript.allWallsActive;
+            bossScript.wallVariables.allWallsActive = !bossScript.wallVariables.allWallsActive;
         }
         if(bossPhases == BossPhases.Gravity)
         {

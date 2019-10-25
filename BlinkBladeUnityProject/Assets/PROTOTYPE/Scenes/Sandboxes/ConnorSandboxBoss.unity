@@ -411,50 +411,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phases: 0
   alive: 0
-  shootActive: 0
-  spray: 0
-  bullet: {fileID: 9143221136877379548, guid: 811bdc9af70c8f74ca5fe739b6a0a7b4, type: 3}
-  numberOfShots: 5
-  timeBetweenShots: 1
-  timeBetweenMultiShots: 0.15
-  bulletAimer: {fileID: 76749901}
-  bulletSpawn: {fileID: 701275343}
-  offset: 0
-  enemyWaves:
-  - enemies:
-    - {fileID: 1763791409}
-    - {fileID: 1899389648}
-    - {fileID: 840921421}
-  - enemies:
-    - {fileID: 176490813}
-    - {fileID: 1622326775}
-    - {fileID: 576659105}
-  waveNumber: 0
-  waveSpawned: 0000
-  spawnPFX: {fileID: 757322317572192335, guid: 3952cf7f95e148e4e9c63ad746c0f84b, type: 3}
-  deathWall: {fileID: 907192223}
-  wallScale: {x: 0.5, y: 0.5}
-  wallZoomSpeed: 0.5
-  allWallsActive: 0
-  wallMove: 0
-  wallWaypoints:
-  - {fileID: 329894943}
-  - {fileID: 1651543072}
-  - {fileID: 255082831}
-  wallMovementSpeed: 2
-  parented: 1
-  parryBox: {fileID: 83533751}
-  killable: 0
-  attacking: 1
-  timeBetweenAttacks: 3
-  bossSpeed: 15
-  bossSpeedMax: 40
-  bossSpeedUpTime: 0.5
-  bossRiseSpeed: 4
-  riseUp: 0
-  diveMask:
-    serializedVersion: 2
-    m_Bits: 256
+  shooterVariable:
+    shootActive: 0
+    spray: 0
+    bullet: {fileID: 0}
+    numberOfShots: 0
+    timeBetweenShots: 0
+    timeBetweenMultiShots: 0
+    bulletAimer: {fileID: 0}
+    bulletSpawn: {fileID: 0}
+    offset: 0
+  spawnerVariables:
+    enemyWaves: []
+    waveNumber: 0
+    waveSpawned: 
+    spawnPFX: {fileID: 0}
+  wallVariables:
+    deathWall: {fileID: 907192223}
+    wallScale: {x: 0, y: 0}
+    wallZoomSpeed: 0
+    allWallsActive: 0
+    wallMove: 0
+    wallWaypoints:
+    - {fileID: 329894943}
+    - {fileID: 1651543072}
+    - {fileID: 255082831}
+    wallMovementSpeed: 0
+    moveWallTo: 0
+  gravityVariables:
+    gravityManager: {fileID: 0}
+    flipActive: 0
+    gravityReset: 0
+  finaleVariables:
+    parented: 0
+    parryBox: {fileID: 0}
+    killable: 0
+    attacking: 0
+    timeBetweenAttacks: 0
+    bossSpeed: 0
+    bossSpeedMax: 0
+    bossSpeedUpTime: 0
+    bossRiseSpeed: 0
+    riseUp: 0
+    findPlayer: 0
+    playerPos: {x: 0, y: 0}
+    player: {fileID: 0}
+    diveMask:
+      serializedVersion: 2
+      m_Bits: 0
 --- !u!61 &139073354
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102405,12 +102409,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
---- !u!1 &176490813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 163784417}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &212526624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112165,12 +112163,6 @@ MonoBehaviour:
   gravTimer: 0
   spray: 0
   bulletsInSpray: 0
---- !u!1 &576659105 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 212526624}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &588060691
 GameObject:
   m_ObjectHideFlags: 0
@@ -112925,12 +112917,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
---- !u!1 &840921421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 740207825}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &873636780
 GameObject:
   m_ObjectHideFlags: 0
@@ -113551,12 +113537,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0769fcfd7179ee49b9389590737002d, type: 3}
---- !u!1 &1622326775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2077818074}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1632712089
 GameObject:
   m_ObjectHideFlags: 0
@@ -113687,12 +113667,6 @@ Transform:
   m_Father: {fileID: 1474764151}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1763791409 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 606587466}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1791733521
 GameObject:
   m_ObjectHideFlags: 0
@@ -113968,12 +113942,6 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
---- !u!1 &1899389648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 812379382}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2064203412
 GameObject:
   m_ObjectHideFlags: 0
