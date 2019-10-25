@@ -15,9 +15,18 @@ public class WaypointSpeed : MonoBehaviour
 
     [ConditionalEnumHide("bossPhases", 2, 2, true)]
     public float gravTimer;
+    [ConditionalEnumHide("bossPhases", 1, 1, true)]
+    public bool spray;
+    [ConditionalEnumHide("bossPhases", 1, 1, true)]
+    public int bulletsInSpray;
 
     public void PhaseChange()
     {
+        if(bossPhases == BossPhases.Shooting)
+        {
+            bossScript.spray = spray;
+            bossScript.numberOfShots = bulletsInSpray;
+        }
         if(bossPhases == BossPhases.Spawning)
         {
             bossScript.waveNumber++;
