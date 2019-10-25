@@ -36,6 +36,7 @@ public class WaypointCamera : MonoBehaviour
         speed = 0;
         var newSpeed = wayPoints[moveToward].gameObject.GetComponent<WaypointSpeed>().speed;
         var waitTime = wayPoints[moveToward].gameObject.GetComponent<WaypointSpeed>().waitTime;
+        wayPoints[moveToward].gameObject.GetComponent<WaypointSpeed>().PhaseChange();
         moveToward++;
         if (moveToward > wayPoints.Length - 1)
         {
@@ -53,7 +54,7 @@ public class WaypointCamera : MonoBehaviour
         Gizmos.DrawLine(transform.position, wayPoints[0].position);
         for (int i = 0; i < wayPoints.Length; i++)
         {
-            if(wayPoints[i + 1] != null)
+            if (wayPoints.Length > i + 1)
             {
                 Gizmos.color = Color.blue;
                 Gizmos.DrawLine(wayPoints[i].position, wayPoints[i + 1].position);
