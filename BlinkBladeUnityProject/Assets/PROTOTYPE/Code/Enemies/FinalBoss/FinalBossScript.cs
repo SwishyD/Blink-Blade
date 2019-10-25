@@ -7,6 +7,7 @@ public enum BossPhases { Neutral, Shooting, Gravity, Spawning, Walls, Finale}
 public class FinalBossScript : MonoBehaviour, IEnemyDeath
 {
     public BossPhases phases;
+    public bool alive;
     [Header("Shooter Variables")]
     #region Shooting
     public bool shootActive;
@@ -39,7 +40,6 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     public Vector2 wallScale;
     public float wallSpeed;
     public bool allWallsActive;
-    public bool[] wallActive;
     #endregion
 
     [Header("Gravity Variables")]
@@ -56,8 +56,10 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     public bool attacking;
     public float timeBetweenAttacks;
     public float bossSpeed;
-    public float bossSpeedMax;
-    public float speedUpTime;
+    public float bossRiseSpeed;
+    public bool riseUp;
+    private bool findPlayer;
+    private Vector2 playerPos;
 
     private GameObject player;
     #endregion
@@ -66,6 +68,8 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     {
         gravityManager = PlayerFlipManager.instance;
         player = GameObject.Find("PlayerV2");
+        findPlayer = false;
+        alive = true;
     }
 
     // Update is called once per frame
@@ -125,24 +129,32 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                 break;
 
             case BossPhases.Finale:
-                parryBox.SetActive(true);
-                killable = true;
-                if (attacking)
+                if (alive)
                 {
-                    var playerPos = player.transform.position;
-                    bossSpeed = Mathf.Lerp(0, bossSpeedMax, speedUpTime);
-                    this.transform.position = Vector2.MoveTowards(transform.position, playerPos, bossSpeed * Time.deltaTime);
-                    
-                    if(Vector2.Distance(transform.position, playerPos) < 0.5f)
+                    parryBox.SetActive(true);
+                    killable = true;
+                    if (attacking)
                     {
-                        attacking = false;
-                        StartCoroutine("RiseTime");
+                        if (!findPlayer)
+                        {
+                            findPlayer = true;
+                            playerPos = player.transform.position;
+                        }
+                        this.transform.position = Vector2.MoveTowards(transform.position, playerPos, bossSpeed * Time.deltaTime);
+
+                        if (Vector2.Distance(transform.position, playerPos) < 0.5f)
+                        {
+                            attacking = false;
+                            riseUp = true;
+                            StartCoroutine("RiseUp");
+                        }
+                    }
+                    if (riseUp)
+                    {
+                        transform.Translate(Vector2.up * bossRiseSpeed * Time.deltaTime);
                     }
                 }
-
-                
                 break;
-
         }
 
         if (phases != BossPhases.Shooting)
@@ -192,16 +204,43 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         }
     }
 
-    IEnumerator RiseTime()
+    IEnumerator RiseUp()
     {
+        if(player.transform.position.x > transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if(player.transform.position.x < transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        var normalSpeed = bossRiseSpeed;
+        bossRiseSpeed = 0;
+        riseUp = true;
+        yield return new WaitForSeconds(1f);
+        bossRiseSpeed = normalSpeed;
         yield return new WaitForSeconds(timeBetweenAttacks);
+        riseUp = false;
+        findPlayer = false;
+        attacking = true;
+        if (player.transform.position.x > transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (player.transform.position.x < transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
 
     public void OnHit()
     {
         if (killable)
         {
-
+            alive = false;
+            Debug.Log("Dead");
+            StopAllCoroutines();
         }
     }
 

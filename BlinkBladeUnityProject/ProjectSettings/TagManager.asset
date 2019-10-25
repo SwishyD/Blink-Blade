@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FlyingEnemy
   - Enemy
+  - FinalBoss
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - FinalBoss
   - Bullet
   - Enemy
   - DeathZone
