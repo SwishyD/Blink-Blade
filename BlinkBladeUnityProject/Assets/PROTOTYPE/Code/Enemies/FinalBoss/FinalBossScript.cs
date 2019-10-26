@@ -91,6 +91,8 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         public bool riseUp;
         public bool findPlayer;
         public Vector2 playerPos;
+        public float minY;
+        public float maxY;
 
         public GameObject player;
         public LayerMask diveMask;
@@ -222,12 +224,17 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                             this.transform.localPosition = Vector2.MoveTowards(transform.localPosition, finaleVariables.hit.point, finaleVariables.bossSpeed * Time.deltaTime);
                         }
 
-                        if (Vector2.Distance(transform.localPosition, finaleVariables.hit.point) < 1f)
+                        if (Vector2.Distance(transform.localPosition, finaleVariables.hit.point) < 1f || this.transform.localPosition.y <= finaleVariables.minY)
                         {
                             finaleVariables.attacking = false;
                             finaleVariables.riseUp = true;
                             StartCoroutine("RiseUp");
                         }
+                    }
+                    if (this.transform.localPosition.y >= finaleVariables.maxY && finaleVariables.riseUp)
+                    {
+                        Debug.Log("Max Y");
+                        StartCoroutine("Attack");
                     }
                     if (finaleVariables.riseUp)
                     {
@@ -303,8 +310,13 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         finaleVariables.riseUp = true;
         yield return new WaitForSeconds(1f);
         finaleVariables.bossRiseSpeed = normalSpeed;
-        yield return new WaitForSeconds(finaleVariables.timeBetweenAttacks);
+    }
+
+    IEnumerator Attack()
+    {
         finaleVariables.riseUp = false;
+        Debug.Log("StopRise");
+        yield return new WaitForSeconds(finaleVariables.timeBetweenAttacks);
         finaleVariables.findPlayer = false;
         finaleVariables.attacking = true;
         if (finaleVariables.player.transform.position.x > transform.position.x)

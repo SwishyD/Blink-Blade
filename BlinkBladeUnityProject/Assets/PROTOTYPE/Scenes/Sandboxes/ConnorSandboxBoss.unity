@@ -341,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139073350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.04, y: 4.15, z: 0}
+  m_LocalPosition: {x: 24.04, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 76749902}
@@ -410,55 +410,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phases: 0
-  alive: 0
+  alive: 1
   shooterVariable:
     shootActive: 0
     spray: 0
-    bullet: {fileID: 0}
-    numberOfShots: 0
-    timeBetweenShots: 0
-    timeBetweenMultiShots: 0
-    bulletAimer: {fileID: 0}
-    bulletSpawn: {fileID: 0}
+    bullet: {fileID: 9143221136877379548, guid: 811bdc9af70c8f74ca5fe739b6a0a7b4,
+      type: 3}
+    numberOfShots: 20
+    timeBetweenShots: 1
+    timeBetweenMultiShots: 0.1
+    bulletAimer: {fileID: 76749901}
+    bulletSpawn: {fileID: 701275343}
     offset: 0
   spawnerVariables:
-    enemyWaves: []
+    enemyWaves:
+    - enemies:
+      - {fileID: 606587467}
+      - {fileID: 812379383}
+      - {fileID: 740207826}
+    - enemies:
+      - {fileID: 163784418}
+      - {fileID: 2077818075}
+      - {fileID: 212526625}
     waveNumber: 0
-    waveSpawned: 
-    spawnPFX: {fileID: 0}
+    waveSpawned: 0000
+    spawnPFX: {fileID: 757322317572192335, guid: 3952cf7f95e148e4e9c63ad746c0f84b,
+      type: 3}
   wallVariables:
     deathWall: {fileID: 907192223}
-    wallScale: {x: 0, y: 0}
-    wallZoomSpeed: 0
+    wallScale: {x: 0.5, y: 0.5}
+    wallZoomSpeed: 0.5
     allWallsActive: 0
     wallMove: 0
     wallWaypoints:
     - {fileID: 329894943}
     - {fileID: 1651543072}
     - {fileID: 255082831}
-    wallMovementSpeed: 0
+    wallMovementSpeed: 5
     moveWallTo: 0
   gravityVariables:
-    gravityManager: {fileID: 0}
+    gravityManager: {fileID: 1363365881}
     flipActive: 0
     gravityReset: 0
   finaleVariables:
-    parented: 0
-    parryBox: {fileID: 0}
-    killable: 0
-    attacking: 0
-    timeBetweenAttacks: 0
+    parented: 1
+    parryBox: {fileID: 83533751}
+    killable: 1
+    attacking: 1
+    timeBetweenAttacks: 3
     bossSpeed: 0
-    bossSpeedMax: 0
+    bossSpeedMax: 40
     bossSpeedUpTime: 0
-    bossRiseSpeed: 0
+    bossRiseSpeed: 10
     riseUp: 0
     findPlayer: 0
     playerPos: {x: 0, y: 0}
+    minY: -2
+    maxY: 10
     player: {fileID: 0}
     diveMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 256
 --- !u!61 &139073354
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102409,6 +102421,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
+--- !u!1 &163784418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 163784417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &212526624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102483,6 +102501,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
+--- !u!1 &212526625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 212526624}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &252613524
 GameObject:
   m_ObjectHideFlags: 0
@@ -102529,10 +102553,17 @@ MonoBehaviour:
   bossScript: {fileID: 139073353}
   speed: 2
   waitTime: 1
-  bossPhases: 0
-  gravTimer: 1
+  bossPhases: 1
+  timeBetweenVolleys: 1
   spray: 1
   bulletsInSpray: 20
+  timeBetweenMultiShots: 0.1
+  gravTimer: 1
+  wallsActive: 0
+  wallScale: {x: 0, y: 0}
+  wallZoomSpeed: 0
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!1 &255082830
 GameObject:
   m_ObjectHideFlags: 0
@@ -112110,9 +112141,16 @@ MonoBehaviour:
   speed: 5
   waitTime: 1
   bossPhases: 0
-  gravTimer: 0
+  timeBetweenVolleys: 0
   spray: 0
   bulletsInSpray: 0
+  timeBetweenMultiShots: 0
+  gravTimer: 0
+  wallsActive: 0
+  wallScale: {x: 0, y: 0}
+  wallZoomSpeed: 0
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!1 &566427024
 GameObject:
   m_ObjectHideFlags: 0
@@ -112160,9 +112198,16 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 2
-  gravTimer: 0
+  timeBetweenVolleys: 0
   spray: 0
   bulletsInSpray: 0
+  timeBetweenMultiShots: 0
+  gravTimer: 3
+  wallsActive: 0
+  wallScale: {x: 0, y: 0}
+  wallZoomSpeed: 0
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!1 &588060691
 GameObject:
   m_ObjectHideFlags: 0
@@ -112210,9 +112255,16 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 4
-  gravTimer: 0
+  timeBetweenVolleys: 0
   spray: 0
   bulletsInSpray: 0
+  timeBetweenMultiShots: 0
+  gravTimer: 0
+  wallsActive: 1
+  wallScale: {x: 0.7, y: 0.7}
+  wallZoomSpeed: 0.5
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!1001 &606587466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112287,6 +112339,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
+--- !u!1 &606587467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 606587466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &663477523
 GameObject:
   m_ObjectHideFlags: 0
@@ -112749,6 +112807,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
+--- !u!1 &740207826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 740207825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &812379382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112823,6 +112887,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
+--- !u!1 &812379383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 812379382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &836271944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113083,9 +113153,16 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 5
-  gravTimer: 0
+  timeBetweenVolleys: 0
   spray: 0
   bulletsInSpray: 0
+  timeBetweenMultiShots: 0
+  gravTimer: 0
+  wallsActive: 0
+  wallScale: {x: 0, y: 0}
+  wallZoomSpeed: 0
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!1 &907192223
 GameObject:
   m_ObjectHideFlags: 0
@@ -113206,9 +113283,16 @@ MonoBehaviour:
   speed: 6
   waitTime: 2
   bossPhases: 3
-  gravTimer: 0
+  timeBetweenVolleys: 0
   spray: 0
   bulletsInSpray: 0
+  timeBetweenMultiShots: 0
+  gravTimer: 0
+  wallsActive: 0
+  wallScale: {x: 0, y: 0}
+  wallZoomSpeed: 0
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!1 &1173154865
 GameObject:
   m_ObjectHideFlags: 0
@@ -113256,9 +113340,16 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 3
-  gravTimer: 0
+  timeBetweenVolleys: 0
   spray: 0
   bulletsInSpray: 0
+  timeBetweenMultiShots: 0
+  gravTimer: 0
+  wallsActive: 0
+  wallScale: {x: 0, y: 0}
+  wallZoomSpeed: 0
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!114 &1198008626 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
@@ -113584,9 +113675,16 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 1
+  timeBetweenVolleys: 1
+  spray: 1
+  bulletsInSpray: 7
+  timeBetweenMultiShots: 0.1
   gravTimer: 0
-  spray: 0
-  bulletsInSpray: 0
+  wallsActive: 0
+  wallScale: {x: 0, y: 0}
+  wallZoomSpeed: 0
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!1 &1634384914
 GameObject:
   m_ObjectHideFlags: 0
@@ -113634,9 +113732,16 @@ MonoBehaviour:
   speed: 3
   waitTime: 0
   bossPhases: 4
-  gravTimer: 0
+  timeBetweenVolleys: 0
   spray: 0
   bulletsInSpray: 0
+  timeBetweenMultiShots: 0
+  gravTimer: 0
+  wallsActive: 1
+  wallScale: {x: 0.5, y: 0.5}
+  wallZoomSpeed: 0.5
+  wallMovement: 0
+  movingWallSpeed: 0
 --- !u!1 &1651543071
 GameObject:
   m_ObjectHideFlags: 0
@@ -114076,3 +114181,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
+--- !u!1 &2077818075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2098804811653200337, guid: 9745b6c8882d04c46be176b3800765c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2077818074}
+  m_PrefabAsset: {fileID: 0}
