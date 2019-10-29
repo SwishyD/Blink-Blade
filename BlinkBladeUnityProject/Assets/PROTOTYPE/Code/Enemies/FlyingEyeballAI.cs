@@ -128,7 +128,6 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         yield return new WaitForSeconds(iFrameTimer);
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
-        GetComponent<SpriteRenderer>().color = Color.white;
         gameObject.layer = 28;
         isHit = false;
         canTriggerHit = true;
