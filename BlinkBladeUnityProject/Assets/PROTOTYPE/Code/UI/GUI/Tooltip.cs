@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum RevealType
 {
@@ -21,17 +22,20 @@ public class Tooltip : MonoBehaviour
     {
         //tooltipAnim = tooltip.GetComponentInParent<Animator>();
         SwitchTooltipActivationState(tooltipActiveState);
-        if (LevelManager.instance.levelComplete[level])
-        {
-
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == tagName && LevelManager.instance != null)
         {
-            if (LevelManager.instance.levelComplete[level])
+            if(SceneManager.GetActiveScene().name == "HUB")
+            {
+                if (LevelManager.instance.levelComplete[level])
+                {
+                    SwitchTooltipActivationState(true);
+                }
+            }
+            else
             {
                 SwitchTooltipActivationState(true);
             }
