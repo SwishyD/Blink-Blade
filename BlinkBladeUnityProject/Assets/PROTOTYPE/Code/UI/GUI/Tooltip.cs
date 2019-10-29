@@ -21,13 +21,20 @@ public class Tooltip : MonoBehaviour
     {
         //tooltipAnim = tooltip.GetComponentInParent<Animator>();
         SwitchTooltipActivationState(tooltipActiveState);
+        if (LevelManager.instance.levelComplete[level])
+        {
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == tagName && LevelManager.instance != null && LevelManager.instance.levelComplete[level])
+        if (collision.tag == tagName && LevelManager.instance != null)
         {
-            SwitchTooltipActivationState(true);
+            if (LevelManager.instance.levelComplete[level])
+            {
+                SwitchTooltipActivationState(true);
+            }
         }
     }
 
