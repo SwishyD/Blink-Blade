@@ -26,9 +26,20 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     public Sprite soul;
     public Sprite normal;
 
+    Animator anim;
+    public ParticleSystem deathPFX;
+    public ParticleSystem respawnPFX;
+    public ParticleSystem soulDisappearPFX;
+
+    bool canTriggerHit = true;
+
+    [SerializeField] AudioSource ghostVanishSFX;
+    [SerializeField] AudioSource respawnSFX;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         StartCoroutine("Shoot");
     }
 
@@ -62,6 +73,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
                 {
                     if (active)
                     {
+                        
                         var Bullet = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
                         yield return new WaitForSeconds(timeBetweenMultiShots);
@@ -74,9 +86,17 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
 
     public void OnHit()
     {
-        GetComponent<SpriteRenderer>().sprite = soul;
-        Invoke("OnDeath", deathTimer);
-        active = false;
+        if (canTriggerHit)
+        {
+            anim.SetBool("showSoul", true);
+            Instantiate(deathPFX, gameObject.transform);
+            active = false;
+            Invoke("OnDeath", deathTimer);
+            FindObjectOfType<AudioManager>().Play("EyebatSquelch");
+            FindObjectOfType<AudioManager>().Play("EyebatSquelch_02");
+            FindObjectOfType<AudioManager>().Play("Squeal");
+        }
+        canTriggerHit = false;
     }
 
     public void OnDeath()
@@ -97,19 +117,24 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         }
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+        Instantiate(soulDisappearPFX, gameObject.transform);
+        ghostVanishSFX.Play();
+        CursorManager.Instance.ChangeCursor(false);
         StartCoroutine("Respawn");
     }
 
     IEnumerator Respawn()
     {
+        anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);
-        GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<SpriteRenderer>().sprite = normal;
-        GetComponent<SpriteRenderer>().color = Color.red;
+        Instantiate(respawnPFX, gameObject.transform);
+        respawnSFX.Play();
         yield return new WaitForSeconds(iFrameTimer);
+        GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
-        this.gameObject.layer = 9;
+        gameObject.layer = 28;
         active = true;
+        canTriggerHit = true;
     }
 }
