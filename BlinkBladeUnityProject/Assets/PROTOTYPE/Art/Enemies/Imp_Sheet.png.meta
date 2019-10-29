@@ -23,6 +23,9 @@ TextureImporter:
   - first:
       213: 7037248713184547281
     second: Imp_Sheet_6
+  - first:
+      213: 3352821706117574928
+    second: Imp_Sheet_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -174,7 +177,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b0a09fdf89033743a91882192b1482a
+      spriteID: f77393f3f2de5014aa9dde732bb023e1
       internalID: -9068424495062813862
       vertices: []
       indices: 
@@ -195,7 +198,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd1029eeb734d454fa8e3f6a5be3cb58
+      spriteID: 8569bacd870e908438013fc86d4f2831
       internalID: 5540489696178825365
       vertices: []
       indices: 
@@ -216,7 +219,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08817c8b2a624154a90c5c4bd538c8ec
+      spriteID: 1e448d8001add3a44ba5f5951832db57
       internalID: 5515706525393940492
       vertices: []
       indices: 
@@ -237,7 +240,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e18b545bcc09374690d06ff36fe616b
+      spriteID: c89787f5ffbc89b4abe6d3efb9ea5e4f
       internalID: 2268005590783300804
       vertices: []
       indices: 
@@ -258,7 +261,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00ab8664aa534284d95eec8ae9a6f45b
+      spriteID: 614dccc21e7ad0249bc48721dac1e686
       internalID: -9119962414667298072
       vertices: []
       indices: 
@@ -279,7 +282,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d05db600643503f479c7bdc5b3d0a30f
+      spriteID: 53570f78c5a31484483e8df9388ffe03
       internalID: -4350006962864581022
       vertices: []
       indices: 
@@ -300,8 +303,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 065c3909482a58d4dbdb450854824df8
+      spriteID: 9236df4c9b905c64fbcf1ba8e04df57f
       internalID: 7037248713184547281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Imp_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 0
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 399cb2cf3bd0314479eabc4889b0c8d3
+      internalID: 3352821706117574928
       vertices: []
       indices: 
       edges: []
