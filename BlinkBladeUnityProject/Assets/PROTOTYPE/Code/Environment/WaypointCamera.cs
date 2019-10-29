@@ -36,6 +36,7 @@ public class WaypointCamera : MonoBehaviour
         speed = 0;
         var newSpeed = wayPoints[moveToward].gameObject.GetComponent<WaypointSpeed>().speed;
         var waitTime = wayPoints[moveToward].gameObject.GetComponent<WaypointSpeed>().waitTime;
+        wayPoints[moveToward].gameObject.GetComponent<WaypointSpeed>().PhaseChange();
         moveToward++;
         if (moveToward > wayPoints.Length - 1)
         {

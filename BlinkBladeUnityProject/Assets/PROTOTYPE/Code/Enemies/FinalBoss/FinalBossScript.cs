@@ -7,65 +7,106 @@ public enum BossPhases { Neutral, Shooting, Gravity, Spawning, Walls, Finale}
 public class FinalBossScript : MonoBehaviour, IEnemyDeath
 {
     public BossPhases phases;
-    [Header("Shooter Variables")]
-    #region Shooting
-    public bool shootActive;
-    public bool spray;
-    public GameObject bullet;
-    [Tooltip("Number of shots in each Volley")]
-    public int numberOfShots;
-    [Tooltip("This determines time between shots and multi shots")]
-    public float timeBetweenShots;
-    [Tooltip("If Number of Shots > 1, then this determines time between those shots")]
-    public float timeBetweenMultiShots;
+    public bool alive;
 
-    public GameObject bulletAimer;
-    public GameObject bulletSpawn;
-    public float offset;
-    #endregion
+    [System.Serializable]
+    public class ShooterVariable
+    {
+        [Header("Shooter Variables")]
+        #region Shooting
+        public bool shootActive;
+        public bool spray;
+        public GameObject bullet;
+        [Tooltip("Number of shots in each Volley")]
+        public int numberOfShots;
+        [Tooltip("This determines time between shots and multi shots")]
+        public float timeBetweenShots;
+        [Tooltip("If Number of Shots > 1, then this determines time between those shots")]
+        public float timeBetweenMultiShots;
 
-    [Header("Spawner Variables")]
-    #region Spawning
-    [SerializeField]
-    public EnemyWave[] enemyWaves;
-    public int waveNumber = 0;
-    public bool[] waveSpawned;
-    public GameObject spawnPFX;
-    #endregion
+        public GameObject bulletAimer;
+        public GameObject bulletSpawn;
+        public float offset;
+        #endregion
+    }
+    public ShooterVariable shooterVariable;
 
-    [Header("Wall Movement Variables")]
-    #region Wall Movement
-    public GameObject deathWall;
-    public Vector2 wallScale;
-    public float wallSpeed;
-    public bool allWallsActive;
-    public bool[] wallActive;
-    #endregion
+    [System.Serializable]
+    public class SpawnerVariables
+    {
+        [Header("Spawner Variables")]
+        #region Spawning
+        [SerializeField]
+        public EnemyWave[] enemyWaves;
+        public int waveNumber = 0;
+        public bool[] waveSpawned;
+        public GameObject spawnPFX;
+        #endregion
+    }
+    public SpawnerVariables spawnerVariables;
 
-    [Header("Gravity Variables")]
-    #region Gravity
-    private PlayerFlipManager gravityManager;
-    private bool flipActive;
-    private bool gravityReset;
-    #endregion
+    [System.Serializable]
+    public class WallVariables
+    {
+        [Header("Wall Movement Variables")]
+        #region Wall Movement
+        public GameObject deathWall;
+        public Vector2 wallScale;
+        public float wallZoomSpeed;
+        public bool allWallsActive;
+        public bool wallMove;
+        public Transform[] wallWaypoints;
+        public float wallMovementSpeed;
+        public int moveWallTo;
+        #endregion
+    }
+    public WallVariables wallVariables;
 
-    [Header("Finale Variables")]
-    #region Boss Finale
-    public GameObject parryBox;
-    public bool killable;
-    public bool attacking;
-    public float timeBetweenAttacks;
-    public float bossSpeed;
-    public float bossSpeedMax;
-    public float speedUpTime;
+    [System.Serializable]
+    public class GravityVariables
+    {
+        [Header("Gravity Variables")]
+        #region Gravity
+        public PlayerFlipManager gravityManager;
+        public bool flipActive;
+        public bool gravityReset;
+        #endregion
+    }
+    public GravityVariables gravityVariables;
 
-    private GameObject player;
-    #endregion
+    [System.Serializable]
+    public class FinaleVariables
+    {
+        [Header("Finale Variables")]
+        #region Boss Finale
+        public bool parented;
+        public GameObject parryBox;
+        public bool killable;
+        public bool attacking;
+        public float timeBetweenAttacks;
+        public float bossSpeed;
+        public float bossSpeedMax;
+        public float bossSpeedUpTime;
+        public float bossRiseSpeed;
+        public bool riseUp;
+        public bool findPlayer;
+        public Vector2 playerPos;
+        public float minY;
+        public float maxY;
+
+        public GameObject player;
+        public LayerMask diveMask;
+        public RaycastHit2D hit;
+        #endregion
+    }
+    public FinaleVariables finaleVariables;
 
     void Start()
     {
-        gravityManager = PlayerFlipManager.instance;
-        player = GameObject.Find("PlayerV2");
+        gravityVariables.gravityManager = PlayerFlipManager.instance;
+        finaleVariables.player = GameObject.Find("PlayerV2");
+        finaleVariables.findPlayer = false;
+        alive = true;
     }
 
     // Update is called once per frame
@@ -73,89 +114,150 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     {
         switch (phases)
         {
+            #region Neutral
             case BossPhases.Neutral:
 
                 break;
+            #endregion
 
+            #region Shooting
             case BossPhases.Shooting:
 
-                Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
+                Vector3 difference = finaleVariables.player.transform.position - shooterVariable.bulletAimer.transform.position;
                 float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-                bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-                if (!shootActive)
+                shooterVariable.bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + shooterVariable.offset);
+                if (!shooterVariable.shootActive)
                 {
-                    shootActive = true;
+                    shooterVariable.shootActive = true;
                     StartCoroutine("Shoot");
                 }
                 break;
+            #endregion
 
+            #region Spawning
             case BossPhases.Spawning:
-                if(waveNumber > 0)
+                if(spawnerVariables.waveNumber > 0)
                 {
-                    if (!waveSpawned[waveNumber - 1])
+                    if (!spawnerVariables.waveSpawned[spawnerVariables.waveNumber - 1])
                     {
-                        waveSpawned[waveNumber - 1] = true;
-                        for (int i = 0; i < enemyWaves[waveNumber - 1].enemies.Length; i++)
+                        spawnerVariables.waveSpawned[spawnerVariables.waveNumber - 1] = true;
+                        for (int i = 0; i < spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies.Length; i++)
                         {
-                            Instantiate(spawnPFX, enemyWaves[waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
-                            enemyWaves[waveNumber - 1].enemies[i].SetActive(true);
+                            Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
+                            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].SetActive(true);
                         }
                     }
                 }
                 break;
+            #endregion
 
+            #region Walls
             case BossPhases.Walls:
-                if (allWallsActive)
+                if (wallVariables.allWallsActive)
                 {
-                    deathWall.transform.localScale = Vector2.Lerp(deathWall.transform.localScale, wallScale, wallSpeed * Time.deltaTime);
+                    wallVariables.deathWall.transform.localScale = Vector2.Lerp(wallVariables.deathWall.transform.localScale, wallVariables.wallScale, wallVariables.wallZoomSpeed * Time.deltaTime);
+
+                    if (wallVariables.wallMove)
+                    {
+                        wallVariables.deathWall.transform.localPosition = Vector2.MoveTowards(wallVariables.deathWall.transform.localPosition, wallVariables.wallWaypoints[wallVariables.moveWallTo].localPosition, wallVariables.wallMovementSpeed * Time.deltaTime);
+                        if (Vector2.Distance(wallVariables.deathWall.transform.localPosition, wallVariables.wallWaypoints[wallVariables.moveWallTo].localPosition) < 0.2f)
+                        {
+                            if (wallVariables.wallWaypoints.Length > wallVariables.moveWallTo + 1)
+                            {
+                                wallVariables.moveWallTo++;
+                            }
+                            else
+                            {
+                                wallVariables.wallMove = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        wallVariables.deathWall.transform.localPosition = Vector2.MoveTowards(wallVariables.deathWall.transform.localPosition, Vector2.zero, wallVariables.wallMovementSpeed * Time.deltaTime);
+                    }
                 }
                 else
                 {
-                    deathWall.transform.localScale = Vector2.Lerp(deathWall.transform.localScale, Vector2.one, wallSpeed * Time.deltaTime);
+                    wallVariables.deathWall.transform.localScale = Vector2.Lerp(wallVariables.deathWall.transform.localScale, Vector2.one, wallVariables.wallZoomSpeed * Time.deltaTime);
                 }
                 break;
+            #endregion
 
+            #region Gravity
             case BossPhases.Gravity:
-                if (!flipActive)
+                if (!gravityVariables.flipActive)
                 {
-                    gravityReset = false;
-                    flipActive = true;
-                    gravityManager.FlipEnabler(true);
+                    gravityVariables.gravityReset = false;
+                    gravityVariables.flipActive = true;
+                    gravityVariables.gravityManager.FlipEnabler(true);
                 }
                 break;
+            #endregion
 
+            #region Finale
             case BossPhases.Finale:
-                parryBox.SetActive(true);
-                killable = true;
-                if (attacking)
+                if (alive)
                 {
-                    var playerPos = player.transform.position;
-                    bossSpeed = Mathf.Lerp(0, bossSpeedMax, speedUpTime);
-                    this.transform.position = Vector2.MoveTowards(transform.position, playerPos, bossSpeed * Time.deltaTime);
-                    
-                    if(Vector2.Distance(transform.position, playerPos) < 0.5f)
+                    if (finaleVariables.parented)
                     {
-                        attacking = false;
-                        StartCoroutine("RiseTime");
+                        finaleVariables.parented = false;
+                        this.transform.parent = null;
+                    }
+                    finaleVariables.parryBox.SetActive(true);
+                    finaleVariables.killable = true;
+                    Vector3 difference2 = finaleVariables.player.transform.position - shooterVariable.bulletAimer.transform.position;
+                    float rotZ2 = Mathf.Atan2(difference2.y, difference2.x) * Mathf.Rad2Deg;
+                    shooterVariable.bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ2 + shooterVariable.offset);
+                    if (finaleVariables.attacking)
+                    {
+                        if (!finaleVariables.findPlayer)
+                        {
+                            finaleVariables.bossSpeedUpTime = 0;
+                            finaleVariables.hit = Physics2D.Raycast(shooterVariable.bulletAimer.transform.position, finaleVariables.player.transform.position - shooterVariable.bulletAimer.transform.position, 50f, finaleVariables.diveMask);
+                            finaleVariables.findPlayer = true;
+                        }
+                        if (finaleVariables.findPlayer)
+                        {
+                            finaleVariables.bossSpeed = Mathf.Lerp(0, finaleVariables.bossSpeedMax, finaleVariables.bossSpeedUpTime);
+                            finaleVariables.bossSpeedUpTime += 2f * Time.deltaTime;
+                            this.transform.localPosition = Vector2.MoveTowards(transform.localPosition, finaleVariables.hit.point, finaleVariables.bossSpeed * Time.deltaTime);
+                        }
+
+                        if (Vector2.Distance(transform.localPosition, finaleVariables.hit.point) < 1f || this.transform.localPosition.y <= finaleVariables.minY)
+                        {
+                            finaleVariables.attacking = false;
+                            finaleVariables.riseUp = true;
+                            StartCoroutine("RiseUp");
+                        }
+                    }
+                    if (this.transform.localPosition.y >= finaleVariables.maxY && finaleVariables.riseUp)
+                    {
+                        Debug.Log("Max Y");
+                        StartCoroutine("Attack");
+                    }
+                    if (finaleVariables.riseUp)
+                    {
+                        transform.Translate(Vector2.up * finaleVariables.bossRiseSpeed * Time.deltaTime);
                     }
                 }
-
-                
+                Debug.Log(finaleVariables.hit.point);
+                Debug.DrawRay(shooterVariable.bulletAimer.transform.position, finaleVariables.hit.point);
                 break;
-
+                #endregion
         }
 
         if (phases != BossPhases.Shooting)
         {
-            shootActive = false;
+            shooterVariable.shootActive = false;
         }
-        if(phases != BossPhases.Gravity)
+        if (phases != BossPhases.Gravity)
         {
-            if (!gravityReset)
+            if (!gravityVariables.gravityReset)
             {
-                gravityReset = true;
-                flipActive = false;
-                gravityManager.FlipEnabler(false);
+                gravityVariables.gravityReset = true;
+                gravityVariables.flipActive = false;
+                gravityVariables.gravityManager.FlipEnabler(false);
             }
         }
     }
@@ -164,44 +266,90 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     {
         while (enabled)
         {
-            if (shootActive)
+            if (shooterVariable.shootActive)
             {
                 Debug.Log("Shooty");
-                if (spray)
+                if (shooterVariable.spray)
                 {
-                    for (int i = 0; i < numberOfShots; i++)
+                    for (int i = 0; i < shooterVariable.numberOfShots; i++)
                     {
-                        offset = Random.Range(0, 20);
-                        var Bullet = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-                        //Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
-                        yield return new WaitForSeconds(timeBetweenMultiShots);
+                        shooterVariable.offset = Random.Range(0, 20);
+                        var Bullet = Instantiate(shooterVariable.bullet, shooterVariable.bulletSpawn.transform.position, shooterVariable.bulletSpawn.transform.rotation);
+                        Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+                        yield return new WaitForSeconds(shooterVariable.timeBetweenMultiShots);
                     }
                 }
-                else if (!spray)
+                else if (!shooterVariable.spray)
                 {
-                    offset = 0;
-                    var Bullet = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-                    //Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+                    shooterVariable.offset = 0;
+                    var Bullet = Instantiate(shooterVariable.bullet, shooterVariable.bulletSpawn.transform.position, shooterVariable.bulletSpawn.transform.rotation);
+                    Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
                 }
             }
             else
             {
                 yield break;
             }
-            yield return new WaitForSeconds(timeBetweenShots);
+            yield return new WaitForSeconds(shooterVariable.timeBetweenShots);
         }
     }
 
-    IEnumerator RiseTime()
+    IEnumerator RiseUp()
     {
-        yield return new WaitForSeconds(timeBetweenAttacks);
+        if(finaleVariables.player.transform.position.x > transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if(finaleVariables.player.transform.position.x < transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        var normalSpeed = finaleVariables.bossRiseSpeed;
+        finaleVariables.bossRiseSpeed = 0;
+        finaleVariables.riseUp = true;
+        yield return new WaitForSeconds(1f);
+        finaleVariables.bossRiseSpeed = normalSpeed;
+    }
+
+    IEnumerator Attack()
+    {
+        finaleVariables.riseUp = false;
+        Debug.Log("StopRise");
+        yield return new WaitForSeconds(finaleVariables.timeBetweenAttacks);
+        finaleVariables.findPlayer = false;
+        finaleVariables.attacking = true;
+        if (finaleVariables.player.transform.position.x > transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (finaleVariables.player.transform.position.x < transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
 
     public void OnHit()
     {
-        if (killable)
+        if (finaleVariables.killable)
         {
+            alive = false;
+            Debug.Log("Dead");
+            StopAllCoroutines();
+        }
+    }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(wallVariables.deathWall.transform.position, wallVariables.wallWaypoints[0].position);
+        for (int i = 0; i < wallVariables.wallWaypoints.Length; i++)
+        {
+            if (wallVariables.wallWaypoints.Length > i + 1)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawLine(wallVariables.wallWaypoints[i].position, wallVariables.wallWaypoints[i + 1].position);
+            }
         }
     }
 

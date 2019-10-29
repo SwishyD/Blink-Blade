@@ -130,6 +130,11 @@ public class SwordProjectile : MonoBehaviour
                 speed = 0;
                 stuckInObject = true;
             }
+            if (hit.transform.tag == "FinalBoss")
+            {
+                hit.transform.gameObject.GetComponent<IEnemyDeath>().OnHit();
+            }
+
             if (hit.transform.name.Contains("GravitySwitch"))
             {
                 hit.transform.GetComponent<GravitySwitch>().FlipGravity();
