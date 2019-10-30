@@ -20,12 +20,12 @@ public class GravityPFXManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F)) // Temporary gravity change, should eventually be tied to gravity state proper
         {
-            gravFlipped = !gravFlipped;
-            ChangeGravPFX(gravFlipped);
+            //gravFlipped = !gravFlipped;
+            //ChangeGravPFX(gravFlipped);
         }
     }
 
-    void ChangeGravPFX(bool gravFlipped)
+    public void ChangeGravPFX(bool gravFlipped)
     {
         //var ceilEmission = gravPFXCeil.emission;
         //var floorEmission = gravPFXFloor.emission;
