@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
     public int[] deaths;
     public string[] grade;
 
+    private int debugUnlock;
+
     public Vector2 playerPos;
 
     public static LevelManager instance;
@@ -35,5 +37,16 @@ public class LevelManager : MonoBehaviour
             grade[i] = "";
         }
         playerPos = Vector2.zero;
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Equals))
+        {
+            for (int i = 0; i < levelComplete.Length; i++)
+            {
+                levelComplete[i] = true;
+            }
+        }
     }
 }

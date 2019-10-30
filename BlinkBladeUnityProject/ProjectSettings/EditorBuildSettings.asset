@@ -7,23 +7,23 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/MainMenu.unity
-    guid: 35a0a74d59ba59249bd1b130e0d8186e
+    guid: bb8bc0d7f8731334e9bb2e4116b841b8
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/TUTORIAL.unity
-    guid: def523f3eba28c14bbf47412425046f3
+    guid: 667613421dbf39145969974558df23d3
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/HUB.unity
-    guid: 9074453db074a4b4cb179301303512cc
+    guid: 43571a73fb5ce29409a194adc899c621
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/LEVEL1-1.unity
-    guid: 86d5d21e252bfe34c8b7bf8c0c013fc7
-  - enabled: 1
-    path: Assets/PROTOTYPE/Scenes/In-Game Scenes/LEVEL1-3.unity
-    guid: 8eaf40087fd7e184198193f817b2589a
+    guid: 6d08624ac0c15fa4e965a29bb10135ae
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/LEVEL1-2.unity
-    guid: 9aae6781b8f342648948d6cd471811a4
+    guid: a9010c314fbfe3d4abd8d67d8f42a470
+  - enabled: 1
+    path: Assets/PROTOTYPE/Scenes/In-Game Scenes/LEVEL1-3.unity
+    guid: 2583b5691d86331439bd49161cceda3b
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/LEVEL1-4.unity
-    guid: 33ecdc81fbcda814286ea66302123574
+    guid: 22c8cac9d24dcb44184443236fe9249f
   m_configObjects: {}
