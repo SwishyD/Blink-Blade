@@ -4855,7 +4855,7 @@ GameObject:
   - component: {fileID: 5651507853220173818}
   - component: {fileID: 3663070257603338904}
   m_Layer: 27
-  m_Name: Particle System
+  m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
