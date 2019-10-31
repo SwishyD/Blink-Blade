@@ -25,8 +25,6 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     public float respawnTimer;
     [Tooltip("(Seconds) Time that the Enemy doesn't have a hitbox")]
     public float iFrameTimer;
-    public Sprite soul;
-    public Sprite normal;
 
     Animator anim;
     public ParticleSystem deathPFX;
@@ -38,6 +36,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
 
     [SerializeField] AudioSource ghostVanishSFX;
     [SerializeField] AudioSource respawnSFX;
+    [SerializeField] AudioSource summonSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +76,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
                     if (active)
                     {
                         anim.SetBool("shooting", true);
+                        summonSFX.Play();
                         chargeBulletPFX.Play();
                         yield return new WaitForSeconds(chargeTime);
                         var Bullet = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
