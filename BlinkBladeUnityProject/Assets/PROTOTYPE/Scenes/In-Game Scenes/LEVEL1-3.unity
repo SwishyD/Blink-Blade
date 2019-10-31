@@ -1070,20 +1070,20 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 476145718}
-  - {fileID: 1872270044}
-  - {fileID: 205506332}
-  - {fileID: 417667002}
-  - {fileID: 786740254}
-  - {fileID: 1676254183}
-  - {fileID: 1910293865}
-  - {fileID: 306154336}
-  - {fileID: 1878146377}
-  - {fileID: 597866507}
-  - {fileID: 956418947}
   - {fileID: 210858790}
-  - {fileID: 1909372027}
+  - {fileID: 306154336}
+  - {fileID: 417667002}
+  - {fileID: 476145718}
+  - {fileID: 597866507}
+  - {fileID: 786740254}
+  - {fileID: 956418947}
   - {fileID: 1668104907}
+  - {fileID: 1676254183}
+  - {fileID: 1872270044}
+  - {fileID: 1878146377}
+  - {fileID: 1909372027}
+  - {fileID: 1910293865}
+  - {fileID: 205506332}
   m_Father: {fileID: 713915671}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1220,7 +1220,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
