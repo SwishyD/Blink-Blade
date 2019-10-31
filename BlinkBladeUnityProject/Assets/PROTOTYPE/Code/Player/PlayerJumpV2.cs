@@ -32,7 +32,7 @@ public class PlayerJumpV2 : MonoBehaviour
     public bool isQuickFalling;
     public bool isFlipped;
 
-
+    GravityPFXManager gravPFXManager;
 
     Vector2 playerSize;
     public Vector2 boxSize;
@@ -314,5 +314,11 @@ public class PlayerJumpV2 : MonoBehaviour
             feetPos.localPosition = new Vector3(0.043f, -1.032f, 0);
         }
         AudioManager.instance.Play("GravFlip");
+
+        if (gravPFXManager == null)
+        {
+            gravPFXManager = FindObjectOfType<GravityPFXManager>();
+        }
+        gravPFXManager.ChangeGravPFX(isFlipped);
     }
 }
