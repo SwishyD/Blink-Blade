@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour, IEnemyDeath
 {
     public bool active;
+    bool routineStarted;
     public GameObject bullet;
     [Tooltip("Number of shots in each Volley")]
     public int numberOfShots;
@@ -41,20 +42,20 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     // Start is called before the first frame update
     void Start()
     {
+        routineStarted = false;
         anim = GetComponent<Animator>();
-        StartCoroutine("Shoot");
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            active = true;
-        }
-
         Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+        if (!routineStarted && active)
+        {
+            routineStarted = true;
+            StartCoroutine("Shoot");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -97,6 +98,9 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
             anim.SetBool("showSoul", true);
             Instantiate(deathPFX, gameObject.transform);
             active = false;
+            StopCoroutine("Shoot");
+            routineStarted = false;
+            anim.SetBool("shooting", false);
             Invoke("OnDeath", deathTimer);
             FindObjectOfType<AudioManager>().Play("EyebatSquelch");
             FindObjectOfType<AudioManager>().Play("EyebatSquelch_02");

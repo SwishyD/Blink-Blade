@@ -2710,7 +2710,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4752,7 +4752,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5598,7 +5598,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30256,7 +30256,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lockedDoor
       value: 
-      objectReference: {fileID: 21300000, guid: adcc18c248190c442868a396773fcf7c,
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
@@ -31606,7 +31606,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa35958f96b6ab04c86c9e4899675ef0, type: 2}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121608,6 +121608,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 709718139213461433, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -121711,31 +121736,6 @@ PrefabInstance:
     - target: {fileID: 709718139213461433, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 709718139630514689, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
@@ -122455,7 +122455,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -123204,7 +123204,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123682,7 +123682,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124856,7 +124856,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lockedDoor
       value: 
-      objectReference: {fileID: 21300000, guid: adcc18c248190c442868a396773fcf7c,
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
@@ -125918,7 +125918,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lockedDoor
       value: 
-      objectReference: {fileID: 21300000, guid: adcc18c248190c442868a396773fcf7c,
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
@@ -127893,7 +127893,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lockedDoor
       value: 
-      objectReference: {fileID: 21300000, guid: adcc18c248190c442868a396773fcf7c,
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
