@@ -32,6 +32,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     public ParticleSystem deathPFX;
     public ParticleSystem respawnPFX;
     public ParticleSystem soulDisappearPFX;
+    public ParticleSystem chargeBulletPFX;
 
     bool canTriggerHit = true;
 
@@ -76,6 +77,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
                     if (active)
                     {
                         anim.SetBool("shooting", true);
+                        chargeBulletPFX.Play();
                         yield return new WaitForSeconds(chargeTime);
                         var Bullet = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
                         Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());

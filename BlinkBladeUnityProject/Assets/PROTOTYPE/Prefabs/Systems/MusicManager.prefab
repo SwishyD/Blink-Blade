@@ -59,3 +59,24 @@ MonoBehaviour:
     volume: 1
     loop: 1
     source: {fileID: 0}
+  - name: Level02
+    clip: {fileID: 8300000, guid: fe2fe5021b1d01740b6b590db74b14af, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Level03
+    clip: {fileID: 8300000, guid: 07fcd2025283747448de1ba87aac934d, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Boss
+    clip: {fileID: 8300000, guid: b1aadfc5e26bee847a904dec665971a4, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  currentlyPlaying:
+    name: 
+    clip: {fileID: 0}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
