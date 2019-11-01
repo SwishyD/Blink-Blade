@@ -24,12 +24,12 @@ public class BulletMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.gameObject.layer == 31)
         {
             col.GetComponent<PlayerSpawnPoint>().Respawn();
             DestroyBullet();
         }
-        else if(!col.name.Contains("Bullet") && !col.name.Contains("Wall"))
+        else if(col.gameObject.layer == 8 || col.gameObject.layer == 9 || col.gameObject.layer == 11)
         {
             DestroyBullet();
         }

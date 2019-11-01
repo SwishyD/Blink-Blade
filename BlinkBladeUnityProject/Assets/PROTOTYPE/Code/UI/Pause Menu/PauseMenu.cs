@@ -71,6 +71,10 @@ public class PauseMenu : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        if(PlayerFlipManager.instance != null)
+        {
+            PlayerFlipManager.instance.FlipEnabler(false);
+        }
         string nameOfScene = SceneManager.GetActiveScene().name;
         SceneManagers.instance.MoveToScene(nameOfScene);
     }
