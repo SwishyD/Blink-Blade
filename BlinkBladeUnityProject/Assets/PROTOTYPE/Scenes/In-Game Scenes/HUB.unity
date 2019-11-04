@@ -30414,7 +30414,7 @@ MonoBehaviour:
   time: {fileID: 1850754369}
   deaths: {fileID: 1567049668}
   grade: {fileID: 1379868887}
-  dogTreat: {fileID: 0}
+  dogTreat: {fileID: 82039179}
 --- !u!4 &912255156
 Transform:
   m_ObjectHideFlags: 0
@@ -129146,7 +129146,7 @@ PrefabInstance:
     - target: {fileID: 1014841855534738607, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Name
-      value: 4-1 Door
+      value: 3-1 Door
       objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738605, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
@@ -129206,7 +129206,7 @@ PrefabInstance:
     - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: moveToLevel
-      value: LEVEL4-1
+      value: LEVEL3-1
       objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
@@ -129873,7 +129873,7 @@ MonoBehaviour:
   time: {fileID: 1804519362}
   deaths: {fileID: 1745527217}
   grade: {fileID: 287208275}
-  dogTreat: {fileID: 0}
+  dogTreat: {fileID: 196095311}
 --- !u!4 &2059296195
 Transform:
   m_ObjectHideFlags: 0
