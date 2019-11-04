@@ -9,6 +9,7 @@ public class LevelData
     public float[] levelTimes;
     public int[] levelDeaths;
     public string[] levelGrades;
+    public bool[] dogTreat;
 
     public float[] playerPosition;
 
@@ -18,6 +19,7 @@ public class LevelData
         levelTimes = manager.time;
         levels = manager.levelComplete;
         levelGrades = manager.grade;
+        dogTreat = manager.dogTreatCollected;
 
         playerPosition = new float[2];
         playerPosition[0] = manager.playerPos.x;
