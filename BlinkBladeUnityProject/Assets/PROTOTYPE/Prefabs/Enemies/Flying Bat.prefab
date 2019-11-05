@@ -143,6 +143,7 @@ MonoBehaviour:
     type: 3}
   ghostVanishSFX: {fileID: 4031997968983748822}
   respawnSFX: {fileID: -6839058637379495168}
+  popAnim: {fileID: 7400000, guid: e984427c19fa2e745a649485a57b8a59, type: 2}
 --- !u!95 &1559330257
 Animator:
   serializedVersion: 3

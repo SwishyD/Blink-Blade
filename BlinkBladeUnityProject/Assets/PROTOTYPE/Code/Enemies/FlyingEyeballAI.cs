@@ -32,6 +32,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 
     [SerializeField] AudioSource ghostVanishSFX;
     [SerializeField] AudioSource respawnSFX;
+    [SerializeField] AnimationClip popAnim;
 
     private void Start()
     {
@@ -90,6 +91,7 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
             FindObjectOfType<AudioManager>().Play("EyebatSquelch");
             FindObjectOfType<AudioManager>().Play("EyebatSquelch_02");
             FindObjectOfType<AudioManager>().Play("Squeal");
+            Invoke("soulPop", deathTimer - popAnim.length);
             //FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.3f,0.5f,0.5f);
         }
         canTriggerHit = false;
@@ -117,6 +119,11 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         ghostVanishSFX.Play();
         CursorManager.Instance.ChangeCursor(false);
         StartCoroutine("Respawn");
+    }
+
+    void soulPop()
+    {
+        anim.SetTrigger("warnPop");
     }
 
     IEnumerator Respawn()
