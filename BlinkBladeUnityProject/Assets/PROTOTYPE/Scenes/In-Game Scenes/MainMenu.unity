@@ -229,7 +229,7 @@ Camera:
   m_GameObject: {fileID: 158969978}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -4242,6 +4242,11 @@ PrefabInstance:
     - target: {fileID: 2431793734482766543, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
         type: 3}
       propertyPath: grade.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431793734482766543, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
+        type: 3}
+      propertyPath: dogTreatCollected.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2431793734482766543, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
