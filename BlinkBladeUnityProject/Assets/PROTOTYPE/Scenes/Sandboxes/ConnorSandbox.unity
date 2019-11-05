@@ -1982,7 +1982,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c91afcbba6998c2408af696b15a3eee2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4120,16 +4120,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerScriptManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1503075813}
-    - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
-        type: 3}
-      propertyPath: swordScriptActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2431793734482766536, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4184,6 +4174,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1503075813}
+    - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
+        type: 3}
+      propertyPath: swordScriptActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0, type: 3}
