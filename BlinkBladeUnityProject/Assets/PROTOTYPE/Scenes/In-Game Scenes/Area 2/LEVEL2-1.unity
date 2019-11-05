@@ -22404,6 +22404,10 @@ PrefabInstance:
       propertyPath: levelDeaths
       value: 
       objectReference: {fileID: 861730042}
+    - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
+      propertyPath: levelNo
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
 --- !u!1 &660820612 stripped
