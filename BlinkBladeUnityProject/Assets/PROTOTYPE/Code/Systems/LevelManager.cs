@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public float[] time;
     public int[] deaths;
     public string[] grade;
+    public bool[] dogTreatCollected;
 
     private int debugUnlock;
 
@@ -35,6 +36,7 @@ public class LevelManager : MonoBehaviour
             time[i] = 9999;
             deaths[i] = 9999;
             grade[i] = "";
+            dogTreatCollected[i] = false;
         }
         playerPos = Vector2.zero;
     }

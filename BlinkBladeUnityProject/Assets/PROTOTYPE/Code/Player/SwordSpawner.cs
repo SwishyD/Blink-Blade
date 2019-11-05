@@ -33,6 +33,8 @@ public class SwordSpawner : MonoBehaviour
     public bool closeToRoof;
     public LayerMask rayMask;
 
+    public LineRenderer swordLine;
+
     [SerializeField] Animator throwFXAnim;
 
     private void Awake()
@@ -183,6 +185,20 @@ public class SwordSpawner : MonoBehaviour
             }
         }
         #endregion
+    }
+
+    private void LateUpdate()
+    {
+        if(swordSpawned == true && cloneSword.name.Contains("StuckSword"))
+        {
+            swordLine.gameObject.SetActive(true);
+            swordLine.SetPosition(0, cloneSword.transform.position);
+            swordLine.SetPosition(1, player.transform.position);
+        }
+        else
+        {
+            swordLine.gameObject.SetActive(false);
+        }
     }
 
     void ThrowSword()

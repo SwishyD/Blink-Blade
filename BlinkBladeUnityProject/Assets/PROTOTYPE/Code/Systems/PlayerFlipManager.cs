@@ -9,6 +9,9 @@ public class PlayerFlipManager : MonoBehaviour
 
     public static PlayerFlipManager instance;
 
+    Animator anim;
+    [SerializeField] AnimationClip warnAnimClip;
+
     private void Awake()
     {
         if(instance == null)
@@ -24,6 +27,7 @@ public class PlayerFlipManager : MonoBehaviour
     private void Start()
     {
         FlipEnabler(false);
+        anim = GetComponentInChildren<Animator>();
     }
 
     public void FlipEnabler(bool enabled)
@@ -42,7 +46,12 @@ public class PlayerFlipManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(flipTimer);
+            yield return new WaitForSeconds(flipTimer - warnAnimClip.length);
+            if (flipActive)
+            {
+                anim.SetTrigger("Warn");
+            }
+            yield return new WaitForSeconds(warnAnimClip.length);
             if (flipActive)
             {
                 PlayerJumpV2.instance.PlayerFlip();
@@ -52,5 +61,10 @@ public class PlayerFlipManager : MonoBehaviour
                 yield break;
             }
         }
+    }
+
+    public void CancelWarning()
+    {
+        anim.SetTrigger("Cancel");
     }
 }
