@@ -17,6 +17,8 @@ public class PlayerJumpV2 : MonoBehaviour
     public float boxOffset;
     public static float t = 0.0f;
     public float currentVelocityDown;
+    public float groundedRemember;
+    public float groundedRememberTime = 0.5f;
      
     //For ground check
     public LayerMask mask;
@@ -75,8 +77,10 @@ public class PlayerJumpV2 : MonoBehaviour
     private void Update()
     {
         currentVelocityDown = rb.velocity.y;
+        groundedRemember -= Time.deltaTime;
         if (isGrounded)
         {
+            groundedRemember = groundedRememberTime;
             hasJumped = false;
             if (isQuickFalling)
             {
@@ -85,12 +89,14 @@ public class PlayerJumpV2 : MonoBehaviour
                 playerAnim.SetPlayerQuickFall(false);
             }
         }
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && isGrounded && !jumpRequest)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && (isGrounded || groundedRemember > 0) && !jumpRequest)
         {
+            groundedRemember = 0;
             jumpRequest = true;
         }
         else if (isHanging)
         {
+            groundedRemember = 0;
             if (!isFlipped)
             {
                 if (!spawner.closeToGround && !spawner.stuckDown)
@@ -172,6 +178,7 @@ public class PlayerJumpV2 : MonoBehaviour
     {
         if (jumpRequest == true)
         {
+            ResetGravity();
             Jump();
             jumpRequest = false;
         }
