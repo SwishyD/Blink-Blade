@@ -24,7 +24,7 @@ public class DogTreat : MonoBehaviour
     {
         if(requiredTime < timer.timeStart)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject.transform.parent.gameObject);
         }
     }
 
@@ -33,7 +33,7 @@ public class DogTreat : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             LevelManager.instance.dogTreatCollected[levelNo] = true;
-            Destroy(this.gameObject);
+            Destroy(this.gameObject.transform.parent.gameObject);
         }
     }
 }

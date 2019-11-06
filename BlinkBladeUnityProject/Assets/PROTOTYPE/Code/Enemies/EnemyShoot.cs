@@ -38,6 +38,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     [SerializeField] AudioSource ghostVanishSFX;
     [SerializeField] AudioSource respawnSFX;
     [SerializeField] AudioSource summonSFX;
+    [SerializeField] AnimationClip popAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +106,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
             FindObjectOfType<AudioManager>().Play("EyebatSquelch");
             FindObjectOfType<AudioManager>().Play("EyebatSquelch_02");
             FindObjectOfType<AudioManager>().Play("Squeal");
+            Invoke("soulPop", deathTimer - popAnim.length);
         }
         canTriggerHit = false;
     }
@@ -131,6 +133,11 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         ghostVanishSFX.Play();
         CursorManager.Instance.ChangeCursor(false);
         StartCoroutine("Respawn");
+    }
+
+    void soulPop()
+    {
+        anim.SetTrigger("warnPop");
     }
 
     IEnumerator Respawn()
