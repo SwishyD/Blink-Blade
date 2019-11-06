@@ -14,7 +14,7 @@ public class LevelTransition : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "HUB" && this.name != "Tutorial Door" && this.name != "1-1 Door")
+        if(SceneManager.GetActiveScene().name == "HUB" && this.name != "Tutorial Door" && this.name != "1-1 Door" && this.name != "Secret Door")
         {
             if (LevelManager.instance.levelComplete[GetComponent<Tooltip>().level - 1])
             {

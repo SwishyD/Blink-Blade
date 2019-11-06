@@ -36,7 +36,10 @@ public class PlayerSpawnPoint : MonoBehaviour
         {
             Respawn();
         }
-        deathCountText.text = "DEATHS : " + deathCount.ToString();
+        if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
+        {
+            deathCountText.text = "DEATHS : " + deathCount.ToString();
+        }
     }
 
     public void Respawn()
