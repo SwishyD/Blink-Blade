@@ -237,6 +237,7 @@ public class PlayerJumpV2 : MonoBehaviour
 
     void Jump()
     {
+        groundedRemember = 0;
         rb.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
         isGrounded = false;
         doubleJumpReady = true;

@@ -31976,10 +31976,10 @@ PrefabInstance:
       propertyPath: deathCountText
       value: 
       objectReference: {fileID: 1242250868}
-    - target: {fileID: 2144858819, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1098311839, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
+      propertyPath: dogPetScripts.Array.data[0]
+      value: 
+      objectReference: {fileID: 658733135}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
 --- !u!212 &1098311835 stripped
