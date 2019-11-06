@@ -3487,7 +3487,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 3.5}
+    oldSize: {x: 2.625, y: 3.625}
     newSize: {x: 2.625, y: 3.5625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3532,7 +3532,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3787,6 +3787,39 @@ PrefabInstance:
       propertyPath: deathCountText
       value: 
       objectReference: {fileID: 1904170080}
+    - target: {fileID: 5166808852527385706, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 5722015756847094077, guid: 2957004cc12937a4daa0ef257833a654,
+        type: 3}
+    - target: {fileID: 5166808852527385706, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: swordBreakPFX
+      value: 
+      objectReference: {fileID: 4251798116654482220, guid: 20160354d0cf6e84aa9c97063bf17699,
+        type: 3}
+    - target: {fileID: 5166808852527385706, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: swordLine
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166808852527385707, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166808852527385707, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.054
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166808852527385717, guid: 16afa2da28725424b9ba7b4b98fece6a,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 5921857822077694290, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: mask.m_Bits
@@ -3812,39 +3845,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.3143898
       objectReference: {fileID: 0}
-    - target: {fileID: 5166808852527385706, guid: 16afa2da28725424b9ba7b4b98fece6a,
-        type: 3}
-      propertyPath: sword
-      value: 
-      objectReference: {fileID: 5722015756847094077, guid: 2957004cc12937a4daa0ef257833a654,
-        type: 3}
-    - target: {fileID: 5166808852527385706, guid: 16afa2da28725424b9ba7b4b98fece6a,
-        type: 3}
-      propertyPath: swordBreakPFX
-      value: 
-      objectReference: {fileID: 4251798116654482220, guid: 20160354d0cf6e84aa9c97063bf17699,
-        type: 3}
-    - target: {fileID: 5166808852527385707, guid: 16afa2da28725424b9ba7b4b98fece6a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.267
-      objectReference: {fileID: 0}
-    - target: {fileID: 5166808852527385707, guid: 16afa2da28725424b9ba7b4b98fece6a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.054
-      objectReference: {fileID: 0}
     - target: {fileID: 4781057828086718360, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5166808852527385717, guid: 16afa2da28725424b9ba7b4b98fece6a,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
-        type: 0}
     - target: {fileID: 2464485035776768235, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: defaultGrav
@@ -3989,16 +3994,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerScriptManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1503075813}
-    - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
-        type: 3}
-      propertyPath: swordScriptActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2431793734482766536, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4053,6 +4048,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1503075813}
+    - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
+        type: 3}
+      propertyPath: swordScriptActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0, type: 3}
@@ -4533,6 +4538,7 @@ MonoBehaviour:
   time: []
   deaths: 
   grade: []
+  dogTreatCollected: 
   playerPos: {x: 0, y: 0}
 --- !u!114 &1139097923
 MonoBehaviour:
@@ -32579,6 +32585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flipActive: 0
   flipTimer: 3
+  warnAnimClip: {fileID: 0}
 --- !u!4 &2027019948
 Transform:
   m_ObjectHideFlags: 0
@@ -32690,6 +32697,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 709718139213461433, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32793,31 +32825,6 @@ PrefabInstance:
     - target: {fileID: 709718139213461433, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 709718138642428480, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 709718139630514689, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
