@@ -188,3 +188,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Bounce
+    clip: {fileID: 8300000, guid: 5469b1972f537f84d865e5ee224ac3a4, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HardStep
+    clip: {fileID: 8300000, guid: c558c2947e79fe44fb72d99a19bae4bf, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
