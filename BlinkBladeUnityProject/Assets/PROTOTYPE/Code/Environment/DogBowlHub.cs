@@ -11,7 +11,7 @@ public class DogBowlHub : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("SetDogBowl", 1f);
+        Invoke("SetDogBowl", 0.1f);
     }
 
     void SetDogBowl()

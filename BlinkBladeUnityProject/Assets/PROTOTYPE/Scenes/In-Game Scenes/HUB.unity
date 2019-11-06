@@ -32021,8 +32021,10 @@ MonoBehaviour:
   rayMask:
     serializedVersion: 2
     m_Bits: 4096
-  dogPetScript: {fileID: 658733135}
+  dogPetScripts:
+  - {fileID: 658733135}
   rayDist: 0.5
+  dirMult: 00000000
 --- !u!1 &1106159569
 GameObject:
   m_ObjectHideFlags: 0
