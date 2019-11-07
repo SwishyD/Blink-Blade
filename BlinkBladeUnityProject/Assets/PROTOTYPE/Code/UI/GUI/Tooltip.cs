@@ -30,7 +30,7 @@ public class Tooltip : MonoBehaviour
     {
         if (collision.tag == tagName && LevelManager.instance != null)
         {
-            if(SceneManager.GetActiveScene().name == "HUB")
+            if(SceneManager.GetActiveScene().name == "HUB" && !gameObject.name.Contains("DogBowl"))
             {
                 if (LevelManager.instance.levelComplete[level])
                 {
