@@ -75,7 +75,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -86,7 +86,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Windows Store Apps
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -108,7 +108,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: tvOS
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -119,7 +119,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -130,7 +130,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -141,7 +141,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -159,8 +159,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
-        height: 18
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c61539860d1462a46a59638b83965b49
+      spriteID: 7eee2c01d57ebe7458462197d15f5fee
       internalID: 1576149067141923469
       vertices: []
       indices: 
@@ -178,10 +178,10 @@ TextureImporter:
       name: DogBowlSheet_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 26
         y: 0
-        width: 20
-        height: 18
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b4a938e9b90d4d47ab185c9e4844d4b
+      spriteID: 3c292f0156fc39b4dba950fc60e5b95f
       internalID: 4735004854764379921
       vertices: []
       indices: 
@@ -199,10 +199,10 @@ TextureImporter:
       name: DogBowlSheet_2
       rect:
         serializedVersion: 2
-        x: 40
+        x: 52
         y: 0
-        width: 20
-        height: 18
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,7 +210,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1015ec5cc46e57344b9fd9f7df681e6b
+      spriteID: 0922581c812c6d9408896be7f5c84753
       internalID: 679030194665360531
       vertices: []
       indices: 
@@ -220,10 +220,10 @@ TextureImporter:
       name: DogBowlSheet_3
       rect:
         serializedVersion: 2
-        x: 60
+        x: 78
         y: 0
-        width: 20
-        height: 18
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,7 +231,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3644a58a0b9cc1942bde2785ff757827
+      spriteID: 239444627da2ced4daec65452e00c724
       internalID: -4316776803601103084
       vertices: []
       indices: 
@@ -241,10 +241,10 @@ TextureImporter:
       name: DogBowlSheet_4
       rect:
         serializedVersion: 2
-        x: 80
+        x: 104
         y: 0
-        width: 20
-        height: 18
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,7 +252,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81bd1cc2c51fd134fbd88335bbc7f9a1
+      spriteID: c13c12fb76561b743ab94397dc84e615
       internalID: -8260374873696329800
       vertices: []
       indices: 
