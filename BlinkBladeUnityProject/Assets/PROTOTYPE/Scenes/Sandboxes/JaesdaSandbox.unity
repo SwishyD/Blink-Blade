@@ -2818,18 +2818,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9745b6c8882d04c46be176b3800765c4, type: 3}
---- !u!114 &387686400 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3094481719469659362, guid: 66f162943ffdca74b8c8a0bc796ddbbe,
-    type: 3}
-  m_PrefabInstance: {fileID: 7482197570427217322}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b9a8e5d006ef3343973532236936bcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &536660402
 GameObject:
   m_ObjectHideFlags: 0
@@ -34949,8 +34937,9 @@ MonoBehaviour:
   rayMask:
     serializedVersion: 2
     m_Bits: 4096
-  dogPetScript: {fileID: 387686400}
+  dogPetScripts: []
   rayDist: 0.5
+  dirMult: 
 --- !u!1 &1489180360 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 709718139630514690, guid: d1a8e3ddf1d8a85479d5302fd56dd7d5,
