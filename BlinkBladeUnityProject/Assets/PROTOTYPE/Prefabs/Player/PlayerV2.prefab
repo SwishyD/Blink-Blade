@@ -446,6 +446,8 @@ MonoBehaviour:
   quickFallMaxVelocityDown: -40
   boxOffset: 1.17
   currentVelocityDown: 0
+  groundedRemember: 0
+  groundedRememberTime: 0.15
   mask:
     serializedVersion: 2
     m_Bits: 1073744640

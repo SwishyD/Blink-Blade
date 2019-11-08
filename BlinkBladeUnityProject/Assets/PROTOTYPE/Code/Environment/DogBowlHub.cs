@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DogBowlHub : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class DogBowlHub : MonoBehaviour
     public int[] requiredTreats;
     [Space]
     public int noTreatsCollected;
+    [Space]
+    public TMP_Text tooltipText;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,5 +48,7 @@ public class DogBowlHub : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = bowlFullness[0];
         }
+
+        tooltipText.text = noTreatsCollected + " / " + LevelManager.instance.dogTreatCollected.Length;
     }
 }
