@@ -114,7 +114,6 @@ public class SwordProjectile : MonoBehaviour
             }
             else if(hit.collider.gameObject.layer == 11)
             {
-                Debug.Log("Bounce");
                 hit.collider.gameObject.GetComponent<BouncyTiles>().ChooseDirection();
                 //transform.position = hit.point;
                 bouncePFX.Play();
