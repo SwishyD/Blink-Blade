@@ -166,12 +166,6 @@ public class PlayerJumpV2 : MonoBehaviour
             isQuickFalling = false;
             playerAnim.SetPlayerQuickFall(false);
         }
-
-        //Debug
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            PlayerFlip();
-        }
     }
 
     private void FixedUpdate()
