@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class VolumeSaveSystem
 {
-    public static void SavePlayer(VolumeSettings volumeManager)
+    public static void SaveVolume(VolumeSettings volumeManager)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/levelsvolume.blink";
@@ -16,7 +16,7 @@ public static class VolumeSaveSystem
         stream.Close();
     }
 
-    public static VolumeData LoadData()
+    public static VolumeData LoadVolume()
     {
         string path = Application.persistentDataPath + "/levelsvolume.blink";
         if (File.Exists(path))

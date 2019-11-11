@@ -9,14 +9,12 @@ public class VolumeSettings : MonoBehaviour
     public static VolumeSettings instance;
 
     public Slider volumeSlider;
-    public TMP_Text volumeNumber;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,10 +22,15 @@ public class VolumeSettings : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        VolumeData data = VolumeSaveSystem.LoadVolume();
+        volumeSlider.value = data.volume;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        volumeNumber.text = volumeSlider.value.ToString();
-        AudioListener.volume = volumeSlider.value / 100;
+        AudioListener.volume = volumeSlider.value;
     }
 }

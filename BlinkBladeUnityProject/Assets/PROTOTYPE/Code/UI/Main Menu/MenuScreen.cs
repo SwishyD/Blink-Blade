@@ -45,6 +45,7 @@ public class MenuScreen : MonoBehaviour {
     public void StartGame(string level)
     {
         //SceneManager.LoadScene(1);
+        VolumeSaveSystem.SaveVolume(VolumeSettings.instance);
         SceneManagers.instance.MoveToScene(level);
     }
 
