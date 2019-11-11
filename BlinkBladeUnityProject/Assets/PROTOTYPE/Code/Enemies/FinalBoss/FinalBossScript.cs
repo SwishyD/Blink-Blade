@@ -342,7 +342,10 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(wallVariables.deathWall.transform.position, wallVariables.wallWaypoints[0].position);
+        if(wallVariables.wallWaypoints.Length > 0)
+        {
+            Gizmos.DrawLine(wallVariables.deathWall.transform.position, wallVariables.wallWaypoints[0].position);
+        }
         for (int i = 0; i < wallVariables.wallWaypoints.Length; i++)
         {
             if (wallVariables.wallWaypoints.Length > i + 1)
