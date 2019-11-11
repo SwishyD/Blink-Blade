@@ -13,6 +13,8 @@ public class DogTreat : MonoBehaviour
     private float requiredTime;
     private int levelNo;
 
+    [SerializeField] ParticleSystem grabPFX;
+
     private void Start()
     {
         requiredTime = endResults.requiredTime[0] + addDebugTime;
@@ -33,6 +35,7 @@ public class DogTreat : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             LevelManager.instance.dogTreatCollected[levelNo] = true;
+            Instantiate(grabPFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject.transform.parent.gameObject);
         }
     }

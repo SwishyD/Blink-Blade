@@ -23,6 +23,15 @@ public class PlayerAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetFloat("PlayerBob", 1);
+        }
+        else if (!Input.GetKey(KeyCode.S))
+        {
+            anim.SetFloat("PlayerBob", 0);
+        }
+
         if (!pJumpScript.isHanging) // Prevents the player from changing direction while hanging.
         {
             anim.SetFloat("PlayerHorizontalSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));

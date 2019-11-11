@@ -13,8 +13,10 @@ public class Tooltip : MonoBehaviour
     string tagName = "Player";
     public int level;
     [SerializeField] bool tooltipActiveState;
+    [SerializeField] bool eTooltipActiveState;
 
     [SerializeField] GameObject tooltip;
+    [SerializeField] GameObject pressE;
     //Animator tooltipAnim;
 
     // Start is called before the first frame update
@@ -28,11 +30,15 @@ public class Tooltip : MonoBehaviour
     {
         if (collision.tag == tagName && LevelManager.instance != null)
         {
-            if(SceneManager.GetActiveScene().name == "HUB")
+            if(SceneManager.GetActiveScene().name == "HUB" && !gameObject.name.Contains("DogBowl"))
             {
                 if (LevelManager.instance.levelComplete[level])
                 {
                     SwitchTooltipActivationState(true);
+                }
+                if(GetComponent<SpriteRenderer>().sprite == GetComponent<LevelTransition>().unlockedDoor)
+                {
+                    PressEActivationState(true);
                 }
             }
             else
@@ -47,6 +53,7 @@ public class Tooltip : MonoBehaviour
         if (collision.tag == tagName)
         {
             SwitchTooltipActivationState(false);
+            PressEActivationState(false);
         }
     }
 
@@ -71,6 +78,12 @@ public class Tooltip : MonoBehaviour
         tooltipActiveState = newState;
         //tooltipAnim.SetBool("ActiveState", newState);
         tooltip.SetActive(newState);
+    }
+
+    void PressEActivationState(bool newEState)
+    {
+        eTooltipActiveState = newEState;
+        pressE.SetActive(newEState);
     }
 
     

@@ -27,6 +27,8 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     [Tooltip("(Seconds) Time that the Enemy doesn't have a hitbox")]
     public float iFrameTimer;
 
+    public ImpRadius impRadius;
+
     Animator anim;
     public ParticleSystem deathPFX;
     public ParticleSystem respawnPFX;
@@ -52,7 +54,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - bulletAimer.transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-        if (!routineStarted && active)
+        if (!routineStarted && active && impRadius.inRange)
         {
             routineStarted = true;
             StartCoroutine("Shoot");
@@ -71,11 +73,11 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     {
         while (enabled)
         {
-            if (active)
+            if (active && impRadius.inRange)
             {
                 for (int i = 0; i < numberOfShots; i++)
                 {
-                    if (active)
+                    if (active && impRadius.inRange)
                     {
                         anim.SetBool("shooting", true);
                         summonSFX.Play();
@@ -86,7 +88,17 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
                         yield return new WaitForSeconds(timeBetweenMultiShots);
                         anim.SetBool("shooting", false);
                     }
+                    else
+                    {
+                        routineStarted = false;
+                        yield break;
+                    }
                 }
+            }
+            else
+            {
+                routineStarted = false;
+                yield break;
             }
             yield return new WaitForSeconds(timeBetweenShots);
         }

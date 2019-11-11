@@ -21,6 +21,7 @@ public class SwordProjectile : MonoBehaviour
 
     public GameObject trail1;
     public GameObject trail2;
+    [SerializeField] ParticleSystem bouncePFX;
 
     public GameObject swordBreakPFX;
 
@@ -113,9 +114,9 @@ public class SwordProjectile : MonoBehaviour
             }
             else if(hit.collider.gameObject.layer == 11)
             {
-                Debug.Log("Bounce");
                 hit.collider.gameObject.GetComponent<BouncyTiles>().ChooseDirection();
                 //transform.position = hit.point;
+                bouncePFX.Play();
             }
 
             if (hit.transform.name.Contains("Bullet"))

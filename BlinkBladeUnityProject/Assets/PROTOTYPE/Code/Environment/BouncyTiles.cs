@@ -29,11 +29,15 @@ public class BouncyTiles : MonoBehaviour
     void TopBounce()
     {
         spawner.cloneSword.transform.rotation = Quaternion.Euler(spawner.cloneSword.transform.eulerAngles.x, spawner.cloneSword.transform.eulerAngles.y, -spawner.cloneSword.transform.eulerAngles.z);
+        AudioManager.instance.Play("Bounce");
+        AudioManager.instance.Play("HardStep");
     }
 
     void SideBounce()
     {
         spawner.cloneSword.transform.rotation = Quaternion.Euler(spawner.cloneSword.transform.eulerAngles.x, spawner.cloneSword.transform.eulerAngles.y, -spawner.cloneSword.transform.eulerAngles.z);
         spawner.cloneSword.transform.rotation = Quaternion.Euler(spawner.cloneSword.transform.eulerAngles.x, spawner.cloneSword.transform.eulerAngles.y, spawner.cloneSword.transform.eulerAngles.z + 180f);
+        AudioManager.instance.Play("Bounce");
+        AudioManager.instance.Play("HardStep");
     }
 }

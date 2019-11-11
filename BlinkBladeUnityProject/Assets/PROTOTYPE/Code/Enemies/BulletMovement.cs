@@ -9,7 +9,7 @@ public class BulletMovement : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("BulletSpawned");
+        //Debug.Log("BulletSpawned");
         if (destroyedBullet == null)
         {
             Debug.LogWarning("GameObject 'DestroyedBullet' is null! Use the prefab.");
