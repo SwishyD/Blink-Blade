@@ -256,6 +256,15 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: -9, y: -21, z: 0}
+    second:
+      m_TileIndex: 153
+      m_TileSpriteIndex: 99
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: -14, y: -20, z: 0}
     second:
       m_TileIndex: 118
@@ -1816,7 +1825,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 8b4da0d9853fec549b70164189d9285f, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 7a38899384b3a3a4c8cb948a382f0c28, type: 2}
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 671b671750df19b4bb6dab11cacfa2dd, type: 2}
   - m_RefCount: 1
@@ -1887,6 +1896,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: ed2da7be1a3e42349bff9bbd85688620, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: e26892a68374f69429865b668091c324, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 7a38899384b3a3a4c8cb948a382f0c28, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 2636823221848314653, guid: f8a47a4f15518af48a69a7528657674f,
@@ -2117,7 +2128,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 8368915425152710886, guid: f8a47a4f15518af48a69a7528657674f,
       type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 3967684040523043927, guid: fadc18208152c884c8fe7df74d008bb1,
       type: 3}
   - m_RefCount: 1
@@ -2237,7 +2248,7 @@ Tilemap:
     m_Data: {fileID: 3889714053833293239, guid: 3ed1dad24dface748bef4e8cb307c46b,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 149
+  - m_RefCount: 150
     m_Data:
       e00: 1
       e01: 0
@@ -2256,7 +2267,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 149
+  - m_RefCount: 150
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: -8.4592125e+20, g: -8.4592125e+20, b: -8.4592125e+20, a: -8.4592125e+20}
