@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyShoot : MonoBehaviour, IEnemyDeath
 {
@@ -47,6 +48,10 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     {
         routineStarted = false;
         anim = GetComponent<Animator>();
+        if (SceneManager.GetActiveScene().name.Contains("BOSS"))
+        {
+            OnHit();
+        }
     }
 
     private void FixedUpdate()
@@ -58,6 +63,10 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         {
             routineStarted = true;
             StartCoroutine("Shoot");
+        }
+        if (SceneManager.GetActiveScene().name.Contains("BOSS"))
+        {
+            respawnTimer = GetComponent<EnemyRespawnTimer>().respawnTimer;
         }
     }
 
@@ -152,7 +161,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         anim.SetTrigger("warnPop");
     }
 
-    IEnumerator Respawn()
+    public IEnumerator Respawn()
     {
         anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);
