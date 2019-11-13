@@ -162,8 +162,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 37
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,7 +171,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cb74cad239533d4db39c7773b3c7040
+      spriteID: 5fd8be782d635284ca444c9e9db025e0
       internalID: 2429536896099198039
       vertices: []
       indices: 
@@ -181,10 +181,10 @@ TextureImporter:
       name: Antagonist_Sheet_Walk_1
       rect:
         serializedVersion: 2
-        x: 24
+        x: 27
         y: 0
-        width: 24
-        height: 37
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,7 +192,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bc91b8330bb53f4284601fea11f507f
+      spriteID: d4070bd665a81fd47a7b87a09aad47f3
       internalID: -8228019804259109138
       vertices: []
       indices: 
@@ -202,10 +202,10 @@ TextureImporter:
       name: Antagonist_Sheet_Walk_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 54
         y: 0
-        width: 24
-        height: 37
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc06e40070c70c54ca9c2efa41d65933
+      spriteID: 81ccd54986d3ffb49ad5b5bc99ce62bb
       internalID: 7045155952820848994
       vertices: []
       indices: 
@@ -223,10 +223,10 @@ TextureImporter:
       name: Antagonist_Sheet_Walk_3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 81
         y: 0
-        width: 24
-        height: 37
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,7 +234,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ab612ca59bff6948b4948ea6a50b1d3
+      spriteID: 85659781dc8732c4eb2d89145ffd6811
       internalID: -7062933157861788146
       vertices: []
       indices: 
@@ -244,10 +244,10 @@ TextureImporter:
       name: Antagonist_Sheet_Walk_4
       rect:
         serializedVersion: 2
-        x: 96
+        x: 108
         y: 0
-        width: 24
-        height: 37
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,7 +255,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 894a5d89313fc8941a33fa31bf54ff1b
+      spriteID: 15535db4e74d7c9469ecc1322b2dfbf5
       internalID: 4950417687437581321
       vertices: []
       indices: 
@@ -265,10 +265,10 @@ TextureImporter:
       name: Antagonist_Sheet_Walk_5
       rect:
         serializedVersion: 2
-        x: 120
+        x: 135
         y: 0
-        width: 24
-        height: 37
+        width: 27
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,7 +276,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6972485b447a764c8049e88dc7acc6a
+      spriteID: a8760d090e3b3ba458ac1f0cb8929fe3
       internalID: -3255539736076851021
       vertices: []
       indices: 
