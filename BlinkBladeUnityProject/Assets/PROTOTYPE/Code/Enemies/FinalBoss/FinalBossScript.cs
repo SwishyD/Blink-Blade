@@ -143,8 +143,8 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                         spawnerVariables.waveSpawned[spawnerVariables.waveNumber - 1] = true;
                         for (int i = 0; i < spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies.Length; i++)
                         {
-                            //Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
-                            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].GetComponent<EnemyRespawnTimer>().startCoroutine();
+                            Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
+                            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].GetComponent<IEnemyDeath>().Spawn();
                         }
                     }
                 }
@@ -329,6 +329,10 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         }
     }
 
+    public void Spawn()
+    {
+    }
+
     public void OnHit()
     {
         if (finaleVariables.killable)
@@ -337,11 +341,6 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             Debug.Log("Dead");
             StopAllCoroutines();
         }
-    }
-
-    public IEnumerator Respawn()
-    {
-        yield break;
     }
 
     private void OnDrawGizmos()

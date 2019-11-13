@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemyShoot : MonoBehaviour, IEnemyDeath
 {
@@ -47,11 +46,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     void Start()
     {
         routineStarted = false;
-        anim = GetComponentInChildren<Animator>();
-        if (SceneManager.GetActiveScene().name.Contains("BOSS"))
-        {
-            OnHit();
-        }
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -63,10 +58,6 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         {
             routineStarted = true;
             StartCoroutine("Shoot");
-        }
-        if (SceneManager.GetActiveScene().name.Contains("BOSS"))
-        {
-            respawnTimer = GetComponent<EnemyRespawnTimer>().respawnTimer;
         }
     }
 
@@ -97,20 +88,24 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
                         yield return new WaitForSeconds(timeBetweenMultiShots);
                         anim.SetBool("shooting", false);
                     }
-                    else
-                    {
-                        routineStarted = false;
-                        yield break;
+                    else
+                    {
+                        routineStarted = false;
+                        yield break;
                     }
                 }
             }
-            else
-            {
-                routineStarted = false;
-                yield break;
+            else
+            {
+                routineStarted = false;
+                yield break;
             }
             yield return new WaitForSeconds(timeBetweenShots);
         }
+    }
+
+    public void Spawn()
+    {
     }
 
     public void OnHit()
@@ -161,7 +156,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         anim.SetTrigger("warnPop");
     }
 
-    public IEnumerator Respawn()
+    IEnumerator Respawn()
     {
         anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);

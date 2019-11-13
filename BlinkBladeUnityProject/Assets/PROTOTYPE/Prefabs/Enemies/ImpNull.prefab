@@ -252,7 +252,7 @@ MonoBehaviour:
   deathTimer: 2
   respawnTimer: 2
   iFrameTimer: 1
-  impRadius: {fileID: 0}
+  impRadius: {fileID: 8220607136182345637}
   deathPFX: {fileID: 798063935485932306, guid: 9e23dab677baffa4fb1ff8e2face1b6a, type: 3}
   respawnPFX: {fileID: 1863786166693147408, guid: 3952cf7f95e148e4e9c63ad746c0f84b,
     type: 3}

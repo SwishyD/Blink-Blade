@@ -114,6 +114,10 @@ public class PlatformPatroller : MonoBehaviour, IEnemyDeath
         }
     }
 
+    public void Spawn()
+    {
+    }
+
     public void OnHit()
     {
         GetComponent<SpriteRenderer>().sprite = soul;
@@ -142,7 +146,7 @@ public class PlatformPatroller : MonoBehaviour, IEnemyDeath
         StartCoroutine("Respawn");
     }
 
-    public IEnumerator Respawn()
+    IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTimer);
         GetComponent<SpriteRenderer>().enabled = true;
