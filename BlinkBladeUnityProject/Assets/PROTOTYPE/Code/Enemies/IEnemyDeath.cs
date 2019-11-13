@@ -5,5 +5,4 @@ using UnityEngine;
 public interface IEnemyDeath
 {
      void OnHit();
-    IEnumerator Respawn();
 }

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
 {
@@ -38,10 +37,6 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
     private void Start()
     {
         anim = GetComponent<Animator>();
-        if (SceneManager.GetActiveScene().name.Contains("BOSS"))
-        {
-            OnHit();
-        }
     }
 
     // Update is called once per frame
@@ -59,11 +54,6 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         if(wayPoints.Length > 1 && Vector2.Distance(this.transform.position, wayPoints[moveToward].position) < 0.2f)
         {
             StartCoroutine("EdgePause");
-        }
-
-        if (SceneManager.GetActiveScene().name.Contains("BOSS"))
-        {
-            respawnTimer = GetComponent<EnemyRespawnTimer>().respawnTimer;
         }
     }
 
@@ -136,9 +126,8 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         anim.SetTrigger("warnPop");
     }
 
-    public IEnumerator Respawn()
+    IEnumerator Respawn()
     {
-        Debug.Log("Start");
         anim.SetBool("showSoul", false);
         yield return new WaitForSeconds(respawnTimer);
         Instantiate(respawnPFX, gameObject.transform);

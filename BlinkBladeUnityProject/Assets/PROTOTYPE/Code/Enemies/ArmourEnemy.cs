@@ -20,7 +20,7 @@ public class ArmourEnemy : MonoBehaviour, IEnemyDeath
         StartCoroutine("Respawn");
     }
 
-    public IEnumerator Respawn()
+    IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTimer);
         GetComponent<Collider2D>().enabled = true;
