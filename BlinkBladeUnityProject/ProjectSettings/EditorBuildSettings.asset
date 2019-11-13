@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/SECRET.unity
     guid: 106b00596fbf9404baeef9d30422b232
+  - enabled: 1
+    path: Assets/PROTOTYPE/Scenes/In-Game Scenes/Credits.unity
+    guid: 5975be90a8d93ff4a979c6dc0ed3f420
   m_configObjects: {}
