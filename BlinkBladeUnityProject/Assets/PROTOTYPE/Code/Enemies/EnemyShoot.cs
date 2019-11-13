@@ -47,7 +47,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     void Start()
     {
         routineStarted = false;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         if (SceneManager.GetActiveScene().name.Contains("BOSS"))
         {
             OnHit();
@@ -93,7 +93,7 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
                         chargeBulletPFX.Play();
                         yield return new WaitForSeconds(chargeTime);
                         var Bullet = Instantiate(bullet, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
-                        Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
+                        Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponentInChildren<Collider2D>());
                         yield return new WaitForSeconds(timeBetweenMultiShots);
                         anim.SetBool("shooting", false);
                     }
