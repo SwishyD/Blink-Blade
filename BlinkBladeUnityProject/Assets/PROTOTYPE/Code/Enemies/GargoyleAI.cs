@@ -71,6 +71,11 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
         //CursorManager.Instance.ChangeCursorState(false);
     }
 
+    public IEnumerator Respawn()
+    {
+        yield break;
+    }
+
     public void SpawnShockwaves()
     {
         FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 0.8f, .5f);

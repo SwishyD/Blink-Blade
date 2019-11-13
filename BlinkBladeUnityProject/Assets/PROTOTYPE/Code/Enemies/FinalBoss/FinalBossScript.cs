@@ -143,8 +143,8 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                         spawnerVariables.waveSpawned[spawnerVariables.waveNumber - 1] = true;
                         for (int i = 0; i < spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies.Length; i++)
                         {
-                            Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
-                            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].SetActive(true);
+                            //Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
+                            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].GetComponent<EnemyRespawnTimer>().startCoroutine();
                         }
                     }
                 }
@@ -339,10 +339,18 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         }
     }
 
+    public IEnumerator Respawn()
+    {
+        yield break;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(wallVariables.deathWall.transform.position, wallVariables.wallWaypoints[0].position);
+        if(wallVariables.wallWaypoints.Length > 0)
+        {
+            Gizmos.DrawLine(wallVariables.deathWall.transform.position, wallVariables.wallWaypoints[0].position);
+        }
         for (int i = 0; i < wallVariables.wallWaypoints.Length; i++)
         {
             if (wallVariables.wallWaypoints.Length > i + 1)

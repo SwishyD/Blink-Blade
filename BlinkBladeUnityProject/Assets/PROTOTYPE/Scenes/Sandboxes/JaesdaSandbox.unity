@@ -270,7 +270,9 @@ MonoBehaviour:
   revealType: 1
   level: 0
   tooltipActiveState: 0
+  eTooltipActiveState: 0
   tooltip: {fileID: 547654868}
+  pressE: {fileID: 0}
 --- !u!4 &149339107 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
@@ -3386,7 +3388,9 @@ MonoBehaviour:
   revealType: 1
   level: 0
   tooltipActiveState: 0
+  eTooltipActiveState: 0
   tooltip: {fileID: 1321400561}
+  pressE: {fileID: 0}
 --- !u!1 &777171135
 GameObject:
   m_ObjectHideFlags: 0
@@ -35190,7 +35194,9 @@ MonoBehaviour:
   revealType: 0
   level: 0
   tooltipActiveState: 0
+  eTooltipActiveState: 0
   tooltip: {fileID: 1807753140}
+  pressE: {fileID: 0}
 --- !u!1001 &1739764995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39931,7 +39937,9 @@ MonoBehaviour:
   revealType: 0
   level: 0
   tooltipActiveState: 0
+  eTooltipActiveState: 0
   tooltip: {fileID: 1277391380}
+  pressE: {fileID: 0}
 --- !u!4 &2103972264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
