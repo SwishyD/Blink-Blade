@@ -78,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -89,7 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,7 +100,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Windows Store Apps
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -111,7 +111,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: tvOS
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -122,7 +122,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -133,7 +133,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -144,7 +144,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -162,8 +162,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 35
-        height: 42
+        width: 43
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,7 +171,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab0a88d535881143a60ec6f87e1f0bc
+      spriteID: 48ef4313806a57d43a890a36ddca916a
       internalID: 5307501592336529285
       vertices: []
       indices: 
@@ -181,10 +181,10 @@ TextureImporter:
       name: Antagonist_Sheet_Summon_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 43
         y: 0
-        width: 35
-        height: 42
+        width: 43
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,7 +192,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c2e51269b3ff844f9c9fca8de1ed054
+      spriteID: 8b66ba43c509eaf42b5302fd50b5aa22
       internalID: 1890610964674451391
       vertices: []
       indices: 
@@ -202,10 +202,10 @@ TextureImporter:
       name: Antagonist_Sheet_Summon_2
       rect:
         serializedVersion: 2
-        x: 70
+        x: 86
         y: 0
-        width: 35
-        height: 42
+        width: 43
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0697331c85cebcb438d8721b820f4e5c
+      spriteID: 81af9e050b57eb34fb7b2e74d8a4a15f
       internalID: 4015017631954284175
       vertices: []
       indices: 
@@ -223,10 +223,10 @@ TextureImporter:
       name: Antagonist_Sheet_Summon_3
       rect:
         serializedVersion: 2
-        x: 105
+        x: 129
         y: 0
-        width: 35
-        height: 42
+        width: 43
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,7 +234,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 141cbd19052162245980e52c5e948063
+      spriteID: 4d4bd0167e535eb45b1e83238cfdec3f
       internalID: -5157281010984560482
       vertices: []
       indices: 
@@ -244,10 +244,10 @@ TextureImporter:
       name: Antagonist_Sheet_Summon_4
       rect:
         serializedVersion: 2
-        x: 140
+        x: 172
         y: 0
-        width: 35
-        height: 42
+        width: 43
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,7 +255,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c85cfa3e24d9c0a41ad45bb8debe176d
+      spriteID: 66596d82290d1fe44b79e3492e3dcc0c
       internalID: -8763696873772726058
       vertices: []
       indices: 
@@ -265,10 +265,10 @@ TextureImporter:
       name: Antagonist_Sheet_Summon_5
       rect:
         serializedVersion: 2
-        x: 175
+        x: 215
         y: 0
-        width: 35
-        height: 42
+        width: 43
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,7 +276,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fc468f0b4d8d62419c0d0cfb97bcd94
+      spriteID: e1a84bfa484d1614b9adedf4ad7af34d
       internalID: 8258893335108154174
       vertices: []
       indices: 

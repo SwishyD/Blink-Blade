@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4059236394659797869}
   - component: {fileID: 4059236394659797870}
   - component: {fileID: 4059236394659797871}
+  - component: {fileID: 3213872891137868131}
   m_Layer: 29
-  m_Name: statueSmll02
+  m_Name: Antagonist
   m_TagString: FinalBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ad2b296985ec20d4b8b1b48c4ce75596, type: 3}
+  m_Sprite: {fileID: 6401396773221220370, guid: 644a0221a87dfd14a9b81800a22af5c7,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -168,18 +170,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.33992243, y: -0.05388999}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 4.0625}
+    oldSize: {x: 2.5625, y: 2.8125}
     newSize: {x: 2, y: 4.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.34, y: 3.73}
+  m_Size: {x: 1.3234186, y: 2.0303884}
   m_EdgeRadius: 0
 --- !u!114 &4059236394659797871
 MonoBehaviour:
@@ -193,6 +195,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601479ea95816ac40ae71644fa8a109a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3213872891137868131
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059236394659797858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6a348ad2b37ade4cae0f2e57d3faf02, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4059236394872624019
 GameObject:
   m_ObjectHideFlags: 0

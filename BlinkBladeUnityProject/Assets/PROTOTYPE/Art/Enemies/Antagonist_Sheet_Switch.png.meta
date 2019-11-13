@@ -150,8 +150,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 30
-        height: 41
+        width: 41
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,7 +159,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec0d527a061935b4fbbfe460abb64b32
+      spriteID: 658d55ee1023f274482e63f9e604f3e7
       internalID: 6422930772066434851
       vertices: []
       indices: 
@@ -169,10 +169,10 @@ TextureImporter:
       name: Antagonist_Sheet_Switch_1
       rect:
         serializedVersion: 2
-        x: 30
+        x: 41
         y: 0
-        width: 30
-        height: 41
+        width: 41
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,7 +180,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cc79dfd6f933764f9b625d2455ea115
+      spriteID: eaef95b54ddad9a4d9a2f19f1503cc98
       internalID: -2526199226112165216
       vertices: []
       indices: 
