@@ -142,7 +142,7 @@ public class PlatformPatroller : MonoBehaviour, IEnemyDeath
         StartCoroutine("Respawn");
     }
 
-    IEnumerator Respawn()
+    public IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTimer);
         GetComponent<SpriteRenderer>().enabled = true;

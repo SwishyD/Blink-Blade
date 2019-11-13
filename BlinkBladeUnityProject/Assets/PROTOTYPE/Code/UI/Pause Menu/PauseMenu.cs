@@ -59,6 +59,7 @@ public class PauseMenu : MonoBehaviour {
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        VolumeSaveSystem.SaveVolume(VolumeSettings.instance);
         Time.timeScale = 1f;
         gameIsPaused = false;
         timer.GetComponent<Timer>().TimerToggleOn();
@@ -69,6 +70,7 @@ public class PauseMenu : MonoBehaviour {
     public void RestartLevel()
     {
         pauseMenuUI.SetActive(false);
+        VolumeSaveSystem.SaveVolume(VolumeSettings.instance);
         Time.timeScale = 1f;
         gameIsPaused = false;
         if(PlayerFlipManager.instance != null)
@@ -106,6 +108,7 @@ public class PauseMenu : MonoBehaviour {
     public void MainMenu()
     {
         LevelManager.instance.ResetVariables();
+        VolumeSaveSystem.SaveVolume(VolumeSettings.instance);
         //SceneManager.LoadScene(0);      
         StartCoroutine(SceneManagers.instance.SceneTransitionToScene("MainMenu"));
         Time.timeScale = 1f;

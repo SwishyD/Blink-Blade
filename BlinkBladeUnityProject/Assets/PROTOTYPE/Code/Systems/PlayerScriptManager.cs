@@ -54,6 +54,10 @@ public class PlayerScriptManager : MonoBehaviour
         {
             swordScriptActive = false;
         }
+        else
+        {
+            swordScriptActive = true;
+        }
     }
 
     public void PlayerScriptEnable()

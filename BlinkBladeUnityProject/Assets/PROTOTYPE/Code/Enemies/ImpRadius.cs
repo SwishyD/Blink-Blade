@@ -8,7 +8,7 @@ public class ImpRadius : MonoBehaviour
 
     private void Start()
     {
-        transform.GetComponentInChildren<EnemyShoot>().impRadius = this;
+        transform.parent.GetComponent<EnemyShoot>().impRadius = this;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

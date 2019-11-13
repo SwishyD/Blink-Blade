@@ -45,6 +45,7 @@ public class MenuScreen : MonoBehaviour {
     public void StartGame(string level)
     {
         //SceneManager.LoadScene(1);
+        VolumeSaveSystem.SaveVolume(VolumeSettings.instance);
         SceneManagers.instance.MoveToScene(level);
     }
 
@@ -58,6 +59,12 @@ public class MenuScreen : MonoBehaviour {
         {
             StartGame(moveToLevel);
         }
+    }
+
+    public void ToCredits()
+    {
+        VolumeSaveSystem.SaveVolume(VolumeSettings.instance);
+        SceneManagers.instance.MoveToScene("Credits");
     }
        
     public void QuitGameConfirmation()

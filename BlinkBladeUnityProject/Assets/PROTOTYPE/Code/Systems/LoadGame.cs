@@ -8,6 +8,7 @@ public class LoadGame : MonoBehaviour
     public void LoadData(string moveToLevel)
     {
         LevelData data = SaveSystem.LoadData();
+        VolumeSaveSystem.SaveVolume(VolumeSettings.instance);
 
         for (int i = 0; i < LevelManager.instance.levelComplete.Length; i++)
         {
