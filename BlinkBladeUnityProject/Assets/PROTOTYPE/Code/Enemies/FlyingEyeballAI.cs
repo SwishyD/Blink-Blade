@@ -121,6 +121,10 @@ public class FlyingEyeballAI : MonoBehaviour, IEnemyDeath
         StartCoroutine("Respawn");
     }
 
+    public void Spawn()
+    {
+    }
+
     void soulPop()
     {
         anim.SetTrigger("warnPop");

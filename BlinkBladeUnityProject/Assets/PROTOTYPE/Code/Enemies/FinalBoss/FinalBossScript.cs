@@ -144,7 +144,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                         for (int i = 0; i < spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies.Length; i++)
                         {
                             Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
-                            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].SetActive(true);
+                            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].GetComponent<IEnemyDeath>().Spawn();
                         }
                     }
                 }
@@ -327,6 +327,10 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
+    }
+
+    public void Spawn()
+    {
     }
 
     public void OnHit()

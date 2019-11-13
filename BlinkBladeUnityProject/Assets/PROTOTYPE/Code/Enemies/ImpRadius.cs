@@ -6,11 +6,6 @@ public class ImpRadius : MonoBehaviour
 {
     public bool inRange;
 
-    private void Start()
-    {
-        transform.parent.GetComponent<EnemyShoot>().impRadius = this;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

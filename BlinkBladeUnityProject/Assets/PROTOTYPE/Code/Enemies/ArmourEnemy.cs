@@ -20,6 +20,10 @@ public class ArmourEnemy : MonoBehaviour, IEnemyDeath
         StartCoroutine("Respawn");
     }
 
+    public void Spawn()
+    {
+    }
+
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(respawnTimer);

@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IEnemyDeath
 {
      void OnHit();
+     void Spawn();
 }

@@ -104,6 +104,10 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
         }
     }
 
+    public void Spawn()
+    {
+    }
+
     public void OnHit()
     {
         if (canTriggerHit)

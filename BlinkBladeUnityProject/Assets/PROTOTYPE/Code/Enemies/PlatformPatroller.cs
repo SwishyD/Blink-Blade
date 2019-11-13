@@ -114,6 +114,10 @@ public class PlatformPatroller : MonoBehaviour, IEnemyDeath
         }
     }
 
+    public void Spawn()
+    {
+    }
+
     public void OnHit()
     {
         GetComponent<SpriteRenderer>().sprite = soul;

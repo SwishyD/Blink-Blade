@@ -62,6 +62,10 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
         }
     }
 
+    public void Spawn()
+    {
+    }
+
     public void OnHit()
     {
         Destroy(SwordSpawner.instance.cloneSword);
