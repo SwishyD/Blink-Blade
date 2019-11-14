@@ -10,6 +10,8 @@ public class BossGargoyleAI : MonoBehaviour, IEnemyDeath
     [Tooltip("Number in Seconds between each shockwave being released")]
     public float timeBetweenShots;
     public float chargeUpTime;
+    [Tooltip("(Seconds) Time that the Enemy doesn't have a hitbox")]
+    public float iFrameTimer;
 
 
     public Transform leftSide;
@@ -71,8 +73,14 @@ public class BossGargoyleAI : MonoBehaviour, IEnemyDeath
 
     public void Spawn()
     {
+        StartCoroutine("Create");
+    }
+
+    IEnumerator Create()
+    {
         Instantiate(respawnPFX, gameObject.transform);
         respawnSFX.Play();
+        yield return new WaitForSeconds(iFrameTimer);
         GetComponent<SpriteRenderer>().enabled = true;
         GetComponent<Collider2D>().enabled = true;
         gameObject.layer = 8;

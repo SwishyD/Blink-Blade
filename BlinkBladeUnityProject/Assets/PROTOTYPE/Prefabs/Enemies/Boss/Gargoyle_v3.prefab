@@ -4979,6 +4979,7 @@ MonoBehaviour:
   detectionRange: 10
   timeBetweenShots: 1
   chargeUpTime: 0
+  iFrameTimer: 1
   leftSide: {fileID: 2379992735943575320}
   rightSide: {fileID: 2379992737517645776}
   active: 0

@@ -114,9 +114,16 @@ public class SwordProjectile : MonoBehaviour
             }
             else if(hit.collider.gameObject.layer == 11)
             {
-                hit.collider.gameObject.GetComponent<BouncyTiles>().ChooseDirection();
-                //transform.position = hit.point;
-                bouncePFX.Play();
+                if (hit.transform.tag == "FinalBoss")
+                {
+                    hit.collider.gameObject.GetComponent<BossDeflect>().ChooseDirection();
+                }
+                else
+                {
+                    hit.collider.gameObject.GetComponent<BouncyTiles>().ChooseDirection();
+                    //transform.position = hit.point;
+                    bouncePFX.Play();
+                }
             }
 
             if (hit.transform.name.Contains("Bullet"))

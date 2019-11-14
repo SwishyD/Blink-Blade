@@ -8,6 +8,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 {
     public BossPhases phases;
     public bool alive;
+    Animator anim;
 
     [System.Serializable]
     public class ShooterVariable
@@ -107,6 +108,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         finaleVariables.player = GameObject.Find("PlayerV2");
         finaleVariables.findPlayer = false;
         alive = true;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -117,11 +119,15 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             #region Neutral
             case BossPhases.Neutral:
 
+                anim.SetInteger("BossPhase", 0);
+
                 break;
             #endregion
 
             #region Shooting
             case BossPhases.Shooting:
+
+                anim.SetInteger("BossPhase", 1);
 
                 Vector3 difference = finaleVariables.player.transform.position - shooterVariable.bulletAimer.transform.position;
                 float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
@@ -129,23 +135,27 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                 if (!shooterVariable.shootActive)
                 {
                     shooterVariable.shootActive = true;
-                    StartCoroutine("Shoot");
+                    //StartCoroutine("Shoot");
                 }
                 break;
             #endregion
 
             #region Spawning
             case BossPhases.Spawning:
-                if(spawnerVariables.waveNumber > 0)
+
+                anim.SetInteger("BossPhase", 3);
+
+                if (spawnerVariables.waveNumber > 0)
                 {
                     if (!spawnerVariables.waveSpawned[spawnerVariables.waveNumber - 1])
                     {
                         spawnerVariables.waveSpawned[spawnerVariables.waveNumber - 1] = true;
-                        for (int i = 0; i < spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies.Length; i++)
-                        {
-                            Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
-                            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].GetComponent<IEnemyDeath>().Spawn();
-                        }
+                        anim.SetTrigger("Summon");
+                        //for (int i = 0; i < spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies.Length; i++)
+                        //{
+                        //    Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
+                        //    spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].GetComponent<IEnemyDeath>().Spawn();
+                        //}
                     }
                 }
                 break;
@@ -153,8 +163,12 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
             #region Walls
             case BossPhases.Walls:
+
+                anim.SetInteger("BossPhase", -1);
+
                 if (wallVariables.allWallsActive)
                 {
+
                     wallVariables.deathWall.transform.localScale = Vector2.Lerp(wallVariables.deathWall.transform.localScale, wallVariables.wallScale, wallVariables.wallZoomSpeed * Time.deltaTime);
 
                     if (wallVariables.wallMove)
@@ -186,10 +200,14 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
             #region Gravity
             case BossPhases.Gravity:
+
+                anim.SetInteger("BossPhase", 2);
+
                 if (!gravityVariables.flipActive)
                 {
                     gravityVariables.gravityReset = false;
                     gravityVariables.flipActive = true;
+                    anim.SetBool("FlippingActive", true);
                     gravityVariables.gravityManager.FlipEnabler(true);
                 }
                 break;
@@ -197,6 +215,9 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
             #region Finale
             case BossPhases.Finale:
+
+                anim.SetInteger("BossPhase", 0);
+
                 if (alive)
                 {
                     if (finaleVariables.parented)
@@ -211,6 +232,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                     shooterVariable.bulletAimer.transform.rotation = Quaternion.Euler(0f, 0f, rotZ2 + shooterVariable.offset);
                     if (finaleVariables.attacking)
                     {
+                        anim.SetBool("Diving", true);
                         if (!finaleVariables.findPlayer)
                         {
                             finaleVariables.bossSpeedUpTime = 0;
@@ -257,12 +279,14 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             {
                 gravityVariables.gravityReset = true;
                 gravityVariables.flipActive = false;
+                anim.SetBool("FlippingActive", false);
+                anim.SetInteger("Gravity", -1);
                 gravityVariables.gravityManager.FlipEnabler(false);
             }
         }
     }
 
-    IEnumerator Shoot()
+    public IEnumerator Shoot()
     {
         while (enabled)
         {
@@ -275,6 +299,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                     {
                         shooterVariable.offset = Random.Range(0, 20);
                         var Bullet = Instantiate(shooterVariable.bullet, shooterVariable.bulletSpawn.transform.position, shooterVariable.bulletSpawn.transform.rotation);
+                        anim.SetBool("Shooting", true);
                         Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
                         yield return new WaitForSeconds(shooterVariable.timeBetweenMultiShots);
                     }
@@ -283,6 +308,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                 {
                     shooterVariable.offset = 0;
                     var Bullet = Instantiate(shooterVariable.bullet, shooterVariable.bulletSpawn.transform.position, shooterVariable.bulletSpawn.transform.rotation);
+                    anim.SetBool("Shooting", true);
                     Physics2D.IgnoreCollision(Bullet.GetComponent<Collider2D>(), this.GetComponent<Collider2D>());
                 }
             }
@@ -292,9 +318,10 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             }
             yield return new WaitForSeconds(shooterVariable.timeBetweenShots);
         }
+        anim.SetBool("Shooting", false);
     }
 
-    IEnumerator RiseUp()
+    public IEnumerator RiseUp()
     {
         if(finaleVariables.player.transform.position.x > transform.position.x)
         {
@@ -308,11 +335,12 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         var normalSpeed = finaleVariables.bossRiseSpeed;
         finaleVariables.bossRiseSpeed = 0;
         finaleVariables.riseUp = true;
+        anim.SetBool("Diving", false);
         yield return new WaitForSeconds(1f);
         finaleVariables.bossRiseSpeed = normalSpeed;
     }
 
-    IEnumerator Attack()
+    public IEnumerator Attack()
     {
         finaleVariables.riseUp = false;
         Debug.Log("StopRise");
@@ -331,6 +359,11 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
     public void Spawn()
     {
+        for (int i = 0; i < spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies.Length; i++)
+        {
+            Instantiate(spawnerVariables.spawnPFX, spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].transform.position, Quaternion.identity);
+            spawnerVariables.enemyWaves[spawnerVariables.waveNumber - 1].enemies[i].GetComponent<IEnemyDeath>().Spawn();
+        }
     }
 
     public void OnHit()
@@ -339,8 +372,28 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         {
             alive = false;
             Debug.Log("Dead");
+            anim.SetTrigger("Death");
+            GetComponentInChildren<ParticleSystem>().Play(); //Blood PFX
+            //Play sounds here
             StopAllCoroutines();
+            StartCoroutine("DeathBuildUp");
         }
+    }
+
+    public IEnumerator DeathBuildUp()
+    {
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(1f, 0.1f, 0.9f);
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(1f, 0.3f, 0.7f);
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(1f, 0.5f, 0.4f);
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(1f, 0.7f, 0.1f);
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(10f, 1f, 0.2f);
+        gameObject.SetActive(false);
+        yield return null;
     }
 
     private void OnDrawGizmos()

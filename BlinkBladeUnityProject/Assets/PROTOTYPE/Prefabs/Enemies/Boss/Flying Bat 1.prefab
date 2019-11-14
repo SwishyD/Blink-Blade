@@ -151,9 +151,9 @@ MonoBehaviour:
   active: 0
   maxPatrolTime: 0
   speed: 0
-  deathTimer: 0
-  respawnTimer: 0
-  iFrameTimer: 0
+  deathTimer: 2
+  respawnTimer: 900000
+  iFrameTimer: 1
   isHit: 0
   deathPFX: {fileID: 798063935485932306, guid: 5f08e226e522025478a9966709362098, type: 3}
   respawnPFX: {fileID: 1863786166693147408, guid: 3952cf7f95e148e4e9c63ad746c0f84b,

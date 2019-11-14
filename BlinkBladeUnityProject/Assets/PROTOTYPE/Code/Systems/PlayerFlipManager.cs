@@ -11,6 +11,7 @@ public class PlayerFlipManager : MonoBehaviour
 
     Animator anim;
     [SerializeField] AnimationClip warnAnimClip;
+    [SerializeField] Animator bossAnim;
 
     private void Awake()
     {
@@ -28,6 +29,10 @@ public class PlayerFlipManager : MonoBehaviour
     {
         FlipEnabler(false);
         anim = GetComponentInChildren<Animator>();
+        if (bossAnim == null)
+        {
+            return;
+        }
     }
 
     public void FlipEnabler(bool enabled)
@@ -55,6 +60,17 @@ public class PlayerFlipManager : MonoBehaviour
             if (flipActive)
             {
                 PlayerJumpV2.instance.PlayerFlip();
+                if (bossAnim != null)
+                {
+                    if (PlayerJumpV2.instance.isFlipped)
+                    {
+                        bossAnim.SetInteger("Gravity", 1);
+                    }
+                    else
+                    {
+                        bossAnim.SetInteger("Gravity", -1);
+                    }
+                }
             }
             else
             {
