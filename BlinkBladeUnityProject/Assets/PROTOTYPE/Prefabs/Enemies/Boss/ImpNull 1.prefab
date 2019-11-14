@@ -261,16 +261,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   bullet: {fileID: 9143221136877379548, guid: 811bdc9af70c8f74ca5fe739b6a0a7b4, type: 3}
-  numberOfShots: 0
-  timeBetweenShots: 0
+  numberOfShots: 1
+  timeBetweenShots: 2
   timeBetweenMultiShots: 0
-  chargeTime: 0
+  chargeTime: 1
   bulletAimer: {fileID: 6524047449442209300}
   bulletSpawn: {fileID: 6524047449520360086}
   offset: 0
-  deathTimer: 0
-  respawnTimer: 0
-  iFrameTimer: 0
+  deathTimer: 2
+  respawnTimer: 90000
+  iFrameTimer: 1
   impRadius: {fileID: 8220607136182345637}
   deathPFX: {fileID: 798063935485932306, guid: 9e23dab677baffa4fb1ff8e2face1b6a, type: 3}
   respawnPFX: {fileID: 1863786166693147408, guid: 3952cf7f95e148e4e9c63ad746c0f84b,
