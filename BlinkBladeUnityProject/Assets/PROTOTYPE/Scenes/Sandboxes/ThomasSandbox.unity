@@ -140,7 +140,7 @@ PrefabInstance:
     - target: {fileID: 8058379387688922267, guid: 9e297e00e1e1c524d8d93c937e50a2fa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.48
+      value: 1.51
       objectReference: {fileID: 0}
     - target: {fileID: 8058379387688922267, guid: 9e297e00e1e1c524d8d93c937e50a2fa,
         type: 3}
@@ -1535,7 +1535,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1614,7 +1614,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1740,7 +1740,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2545,7 +2545,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8135,12 +8135,12 @@ PrefabInstance:
     - target: {fileID: 8058379387688922267, guid: 9e297e00e1e1c524d8d93c937e50a2fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.95
+      value: -6.51
       objectReference: {fileID: 0}
     - target: {fileID: 8058379387688922267, guid: 9e297e00e1e1c524d8d93c937e50a2fa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.84
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 8058379387688922267, guid: 9e297e00e1e1c524d8d93c937e50a2fa,
         type: 3}
@@ -11552,7 +11552,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 28b14a31fb2dbb34da8dc4bb98475212, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
