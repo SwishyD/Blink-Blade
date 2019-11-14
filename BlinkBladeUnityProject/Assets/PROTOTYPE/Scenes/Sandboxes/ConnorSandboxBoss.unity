@@ -112198,7 +112198,7 @@ Transform:
   m_LocalScale: {x: 1.4280357, y: 1.4280357, z: 1.4280357}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &663477527
 BoxCollider2D:
@@ -112544,6 +112544,85 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 740207825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &808337685
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 691368275505249444, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_Name
+      value: FlipManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2122.6948
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -968.88336
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -74.52068
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368276693080823, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 691368277072275074, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3000a7da8ce8a9541b300755e6adc422, type: 3}
 --- !u!1001 &812379382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112940,52 +113019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1363365880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1363365882}
-  - component: {fileID: 1363365881}
-  m_Layer: 0
-  m_Name: PlayerFlipManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1363365881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363365880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fbda9134c65c9c479cde6e56b178549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flipActive: 0
-  flipTimer: 2
-  warnAnimClip: {fileID: 0}
---- !u!4 &1363365882
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363365880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1569766972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113716,6 +113749,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraTrack
       objectReference: {fileID: 0}
+    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
+        type: 3}
+      propertyPath: spawnerVariables.enemyWaves.Array.data[0].enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 606587467}
+    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
+        type: 3}
+      propertyPath: spawnerVariables.enemyWaves.Array.data[0].enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 812379383}
+    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
+        type: 3}
+      propertyPath: spawnerVariables.enemyWaves.Array.data[0].enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 740207826}
+    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
+        type: 3}
+      propertyPath: spawnerVariables.enemyWaves.Array.data[1].enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 163784418}
+    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
+        type: 3}
+      propertyPath: spawnerVariables.enemyWaves.Array.data[1].enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 2077818075}
+    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
+        type: 3}
+      propertyPath: spawnerVariables.enemyWaves.Array.data[1].enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 212526625}
+    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
+        type: 3}
+      propertyPath: gravityVariables.gravityManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4059236396492911281, guid: 39c633539bef05d47afc28f4df92d09e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -113816,40 +113884,5 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[8]
       value: 
       objectReference: {fileID: 892868082}
-    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
-        type: 3}
-      propertyPath: spawnerVariables.enemyWaves.Array.data[0].enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 606587467}
-    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
-        type: 3}
-      propertyPath: spawnerVariables.enemyWaves.Array.data[0].enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 812379383}
-    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
-        type: 3}
-      propertyPath: spawnerVariables.enemyWaves.Array.data[0].enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 740207826}
-    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
-        type: 3}
-      propertyPath: spawnerVariables.enemyWaves.Array.data[1].enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 163784418}
-    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
-        type: 3}
-      propertyPath: spawnerVariables.enemyWaves.Array.data[1].enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 2077818075}
-    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
-        type: 3}
-      propertyPath: spawnerVariables.enemyWaves.Array.data[1].enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 212526625}
-    - target: {fileID: 4059236394659797869, guid: 39c633539bef05d47afc28f4df92d09e,
-        type: 3}
-      propertyPath: gravityVariables.gravityManager
-      value: 
-      objectReference: {fileID: 1363365881}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39c633539bef05d47afc28f4df92d09e, type: 3}
