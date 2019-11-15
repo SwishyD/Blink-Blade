@@ -33,7 +33,7 @@ public class BossDeflect : MonoBehaviour
         spawner.cloneSword.transform.rotation = Quaternion.Euler(spawner.cloneSword.transform.eulerAngles.x, spawner.cloneSword.transform.eulerAngles.y, -spawner.cloneSword.transform.eulerAngles.z);
         //AudioManager.instance.Play("Bounce");
         AudioManager.instance.Play("SwordThrow");
-        AudioManager.instance.Play("SwordShwing");
+        AudioManager.instance.Play("SwordSwing");
         AudioManager.instance.Play("HardStep");
         anim.SetTrigger("Deflect");
     }
@@ -44,7 +44,7 @@ public class BossDeflect : MonoBehaviour
         spawner.cloneSword.transform.rotation = Quaternion.Euler(spawner.cloneSword.transform.eulerAngles.x, spawner.cloneSword.transform.eulerAngles.y, spawner.cloneSword.transform.eulerAngles.z + 180f);
         //AudioManager.instance.Play("Bounce");
         AudioManager.instance.Play("SwordThrow");
-        AudioManager.instance.Play("SwordShwing");
+        AudioManager.instance.Play("SwordSwing");
         AudioManager.instance.Play("HardStep");
         anim.SetTrigger("Deflect");
     }

@@ -98,6 +98,10 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         public GameObject player;
         public LayerMask diveMask;
         public RaycastHit2D hit;
+
+        public ParticleSystem heavyLandPFX;
+        public GameObject cane;
+        public ParticleSystem deathPFX;
         #endregion
     }
     public FinaleVariables finaleVariables;
@@ -220,6 +224,14 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
                 if (alive)
                 {
+                    if (finaleVariables.player.transform.position.x > transform.position.x)
+                    {
+                        transform.eulerAngles = new Vector3(0, 180, 0);
+                    }
+                    else if (finaleVariables.player.transform.position.x < transform.position.x)
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
                     if (finaleVariables.parented)
                     {
                         finaleVariables.parented = false;
@@ -323,17 +335,11 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
     public IEnumerator RiseUp()
     {
-        if(finaleVariables.player.transform.position.x > transform.position.x)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else if(finaleVariables.player.transform.position.x < transform.position.x)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-
         var normalSpeed = finaleVariables.bossRiseSpeed;
         finaleVariables.bossRiseSpeed = 0;
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 0.8f, .5f);
+        Instantiate(finaleVariables.heavyLandPFX, transform);
+        AudioManager.instance.Play("HeavyLand");
         finaleVariables.riseUp = true;
         anim.SetBool("Diving", false);
         yield return new WaitForSeconds(1f);
@@ -347,14 +353,6 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         yield return new WaitForSeconds(finaleVariables.timeBetweenAttacks);
         finaleVariables.findPlayer = false;
         finaleVariables.attacking = true;
-        if (finaleVariables.player.transform.position.x > transform.position.x)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else if (finaleVariables.player.transform.position.x < transform.position.x)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
     }
 
     public void Spawn()
@@ -373,8 +371,6 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             alive = false;
             Debug.Log("Dead");
             anim.SetTrigger("Death");
-            GetComponentInChildren<ParticleSystem>().Play(); //Blood PFX
-            //Play sounds here
             StopAllCoroutines();
             StartCoroutine("DeathBuildUp");
         }
@@ -382,6 +378,12 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
     public IEnumerator DeathBuildUp()
     {
+        GetComponentInChildren<ParticleSystem>().Play(); //Blood PFX
+        AudioManager.instance.Play("Rumble");
+        AudioManager.instance.Play("EyebatSquelch");
+        AudioManager.instance.Play("EyebatSquelch_02");
+        AudioManager.instance.Play("RoarSlow");
+        Instantiate(finaleVariables.cane, transform);
         yield return new WaitForSeconds(1);
         FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(1f, 0.1f, 0.9f);
         yield return new WaitForSeconds(1);
@@ -391,7 +393,9 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         yield return new WaitForSeconds(1);
         FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(1f, 0.7f, 0.1f);
         yield return new WaitForSeconds(1);
-        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(10f, 1f, 0.2f);
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(5f, 1f, 0.2f);
+        AudioManager.instance.Play("Explosion");
+        Instantiate(finaleVariables.deathPFX, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
         yield return null;
     }

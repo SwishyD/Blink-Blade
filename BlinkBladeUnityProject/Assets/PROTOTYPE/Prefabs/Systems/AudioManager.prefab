@@ -200,3 +200,39 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Snap
+    clip: {fileID: 8300000, guid: 6e54bcddb51e77a4387d0126b43c8fb5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Respawn
+    clip: {fileID: 8300000, guid: 7e08d2aa0ddf5df40b187caa3487e0fb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FadeOut
+    clip: {fileID: 8300000, guid: f40be9b87b71e9d4a83b03be3656d823, type: 3}
+    volume: 1
+    pitch: 0.71
+    loop: 0
+    source: {fileID: 0}
+  - name: RoarSlow
+    clip: {fileID: 8300000, guid: a3b6836f99a6be648acd94ac7354894d, type: 3}
+    volume: 1
+    pitch: 0.52
+    loop: 0
+    source: {fileID: 0}
+  - name: Rumble
+    clip: {fileID: 8300000, guid: 59ad6b75c11f34644925c89224b15ae0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 2225d3611b0e3e643af53b23c79717c6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

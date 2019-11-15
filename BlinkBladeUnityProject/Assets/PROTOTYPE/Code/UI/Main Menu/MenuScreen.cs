@@ -53,6 +53,7 @@ public class MenuScreen : MonoBehaviour {
     {
         if (SaveSystem.DataExists())
         {
+            menuScreenUI.SetActive(false);
             newGameConfirmUI.SetActive(true);
         }
         else
