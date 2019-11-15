@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathZone : MonoBehaviour
 {
@@ -10,7 +11,14 @@ public class DeathZone : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            col.gameObject.GetComponent<PlayerSpawnPoint>().Respawn();
+            if (SceneManager.GetActiveScene().name.Contains("BOSS"))
+            {
+                col.gameObject.GetComponent<BossPlayerSpawnPoint>().Respawn();
+            }
+            else
+            {
+                col.gameObject.GetComponent<PlayerSpawnPoint>().Respawn();
+            }
         }
     }
 }
