@@ -102344,9 +102344,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 2
-  waitTime: 1
-  bossPhases: 1
+  speed: 0
+  waitTime: 600
+  bossPhases: 5
   timeBetweenVolleys: 1
   spray: 0
   bulletsInSpray: 20
@@ -111978,7 +111978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 5
+  speed: 10
   waitTime: 1
   bossPhases: 2
   timeBetweenVolleys: 0
@@ -112035,7 +112035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 3
+  speed: 10
   waitTime: 0
   bossPhases: 4
   timeBetweenVolleys: 0
@@ -112073,7 +112073,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588060691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 174.91, y: 4.05, z: 0}
+  m_LocalPosition: {x: 174.91, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1115363121}
@@ -112092,7 +112092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 3
+  speed: 10
   waitTime: 0
   bossPhases: 4
   timeBetweenVolleys: 0
@@ -112641,6 +112641,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlipManager
       objectReference: {fileID: 0}
+    - target: {fileID: 691368276693080823, guid: 3000a7da8ce8a9541b300755e6adc422,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -112694,11 +112699,6 @@ PrefabInstance:
     - target: {fileID: 691368275505249446, guid: 3000a7da8ce8a9541b300755e6adc422,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691368276693080823, guid: 3000a7da8ce8a9541b300755e6adc422,
-        type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 691368277072275074, guid: 3000a7da8ce8a9541b300755e6adc422,
@@ -112931,7 +112931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 3
+  speed: 10
   waitTime: 0
   bossPhases: 5
   timeBetweenVolleys: 0
@@ -113027,7 +113027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 6
+  speed: 10
   waitTime: 2
   bossPhases: 3
   timeBetweenVolleys: 0
@@ -113084,7 +113084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 3
+  speed: 10
   waitTime: 0
   bossPhases: 3
   timeBetweenVolleys: 0
@@ -113228,7 +113228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 3
+  speed: 10
   waitTime: 0
   bossPhases: 1
   timeBetweenVolleys: 1
@@ -113266,7 +113266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634384914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 140.4, y: 9.4, z: 0}
+  m_LocalPosition: {x: 140.4, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1115363121}
@@ -113285,7 +113285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 139073353}
-  speed: 3
+  speed: 10
   waitTime: 0
   bossPhases: 4
   timeBetweenVolleys: 0
