@@ -15,6 +15,8 @@ public class BossPlayerSpawnPoint : MonoBehaviour
     public PauseMenu pauseMenu;
     public WaypointCamera cameraActive;
 
+    private bool respawning = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,7 @@ public class BossPlayerSpawnPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cameraActive.active)
+        if (cameraActive.active && !pauseMenu.pauseMenuUI.activeSelf)
         {
             deathCount = Random.Range(0, 999);
             timer.timeStart = Random.Range(0, 99999);
@@ -39,6 +41,10 @@ public class BossPlayerSpawnPoint : MonoBehaviour
 
     public void Respawn()
     {
-        pauseMenu.RestartLevel();
+        if (!respawning)
+        {
+            respawning = true;
+            pauseMenu.RestartLevel();
+        }
     }
 }
