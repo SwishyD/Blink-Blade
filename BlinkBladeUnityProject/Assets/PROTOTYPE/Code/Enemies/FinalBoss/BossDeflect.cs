@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum TopSide2 { TopBottom, Sideways }
 
-public class BossDeflect : MonoBehaviour
+public class BossDeflect : MonoBehaviour, IEnemyDeath
 {
     public TopSide2 direction;
     private SwordSpawner spawner;
@@ -26,6 +26,14 @@ public class BossDeflect : MonoBehaviour
         {
             SideBounce();
         }
+    }
+
+    public void OnHit()
+    {
+    }
+
+    public void Spawn()
+    {
     }
 
     void TopBounce()

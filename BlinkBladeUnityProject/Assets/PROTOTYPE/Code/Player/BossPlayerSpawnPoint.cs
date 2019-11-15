@@ -9,6 +9,7 @@ public class BossPlayerSpawnPoint : MonoBehaviour
 
     public int deathCount;
     public TMP_Text deathCountText;
+    public ParticleSystem deathPFX;
 
     private Timer timer;
     private PlayerFlipManager flipTrigger;
@@ -43,6 +44,15 @@ public class BossPlayerSpawnPoint : MonoBehaviour
     {
         if (!respawning)
         {
+            CursorManager.Instance.ChangeCursor(false);
+            Instantiate(deathPFX, gameObject.transform.position, Quaternion.identity);
+            Destroy(SwordSpawner.instance.cloneSword);
+            PlayerJumpV2.instance.ResetGravity();
+            PlayerJumpV2.instance.PlayerNormal();
+            SwordSpawner.instance.cloneSword = null;
+            SwordSpawner.instance.swordSpawned = false;
+            FindObjectOfType<AudioManager>().Play("Death");
+            FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 1f, .5f);
             respawning = true;
             pauseMenu.RestartLevel();
         }

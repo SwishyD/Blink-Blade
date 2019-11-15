@@ -68,7 +68,7 @@ public class BossEnemyShoot : MonoBehaviour, IEnemyDeath
     {
         if (col.tag == "Player" && active)
         {
-            col.GetComponent<PlayerSpawnPoint>().Respawn();
+            col.GetComponent<BossPlayerSpawnPoint>().Respawn();
         }
     }
 
