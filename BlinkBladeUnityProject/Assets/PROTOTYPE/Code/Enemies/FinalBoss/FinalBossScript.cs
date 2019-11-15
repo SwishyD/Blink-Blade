@@ -220,6 +220,14 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
                 if (alive)
                 {
+                    if (finaleVariables.player.transform.position.x > transform.position.x)
+                    {
+                        transform.eulerAngles = new Vector3(0, 180, 0);
+                    }
+                    else if (finaleVariables.player.transform.position.x < transform.position.x)
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
                     if (finaleVariables.parented)
                     {
                         finaleVariables.parented = false;
@@ -323,15 +331,6 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 
     public IEnumerator RiseUp()
     {
-        if(finaleVariables.player.transform.position.x > transform.position.x)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else if(finaleVariables.player.transform.position.x < transform.position.x)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-
         var normalSpeed = finaleVariables.bossRiseSpeed;
         finaleVariables.bossRiseSpeed = 0;
         finaleVariables.riseUp = true;
@@ -347,14 +346,6 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         yield return new WaitForSeconds(finaleVariables.timeBetweenAttacks);
         finaleVariables.findPlayer = false;
         finaleVariables.attacking = true;
-        if (finaleVariables.player.transform.position.x > transform.position.x)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else if (finaleVariables.player.transform.position.x < transform.position.x)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
     }
 
     public void Spawn()
