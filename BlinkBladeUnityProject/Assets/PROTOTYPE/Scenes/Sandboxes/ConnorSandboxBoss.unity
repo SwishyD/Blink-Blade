@@ -102346,7 +102346,7 @@ MonoBehaviour:
   bossScript: {fileID: 139073353}
   speed: 0
   waitTime: 600
-  bossPhases: 5
+  bossPhases: 2
   timeBetweenVolleys: 1
   spray: 0
   bulletsInSpray: 20
