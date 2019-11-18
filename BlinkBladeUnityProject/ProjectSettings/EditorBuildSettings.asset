@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/SECRET.unity
     guid: 106b00596fbf9404baeef9d30422b232
+  - enabled: 1
+    path: Assets/PROTOTYPE/Scenes/In-Game Scenes/OPENCUTSCENE.unity
+    guid: 28132f5c57683ab49ac3e74b0191cad7
   m_configObjects: {}
