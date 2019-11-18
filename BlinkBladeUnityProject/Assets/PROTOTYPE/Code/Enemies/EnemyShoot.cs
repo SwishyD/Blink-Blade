@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyShoot : MonoBehaviour, IEnemyDeath
 {
@@ -65,7 +66,14 @@ public class EnemyShoot : MonoBehaviour, IEnemyDeath
     {
         if (col.tag == "Player" && active)
         {
-            col.GetComponent<PlayerSpawnPoint>().Respawn();
+            if (SceneManager.GetActiveScene().name.Contains("BOSS"))
+            {
+                col.GetComponent<BossPlayerSpawnPoint>().Respawn();
+            }
+            else
+            {
+                col.GetComponent<PlayerSpawnPoint>().Respawn();
+            }
         }
     }
 

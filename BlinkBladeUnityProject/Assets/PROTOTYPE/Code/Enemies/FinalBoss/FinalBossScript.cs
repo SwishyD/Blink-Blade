@@ -8,6 +8,10 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
 {
     public BossPhases phases;
     public bool alive;
+    public Transform[] bossMovementWaypoints;
+    private bool movingToWaypoint;
+    private int chooseWaypoint;
+    public float bossSpeed;
     Animator anim;
 
     [System.Serializable]
@@ -294,6 +298,23 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                 anim.SetBool("FlippingActive", false);
                 anim.SetInteger("Gravity", -1);
                 gravityVariables.gravityManager.FlipEnabler(false);
+            }
+        }
+
+        if(phases != BossPhases.Finale)
+        {
+            if (!movingToWaypoint)
+            {
+                movingToWaypoint = true;
+                chooseWaypoint = Random.Range(0, bossMovementWaypoints.Length);
+            }
+            if (movingToWaypoint)
+            {
+                transform.localPosition = Vector2.MoveTowards(transform.localPosition, bossMovementWaypoints[chooseWaypoint].localPosition, bossSpeed * Time.deltaTime);
+                if(Vector2.Distance(transform.localPosition, bossMovementWaypoints[chooseWaypoint].localPosition) <= 0.2f)
+                {
+                    movingToWaypoint = false;
+                }
             }
         }
     }

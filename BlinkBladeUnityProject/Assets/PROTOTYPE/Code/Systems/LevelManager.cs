@@ -50,5 +50,13 @@ public class LevelManager : MonoBehaviour
                 levelComplete[i] = true;
             }
         }
+
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D))
+        {
+            for (int i = 0; i < dogTreatCollected.Length; i++)
+            {
+                dogTreatCollected[i] = true;
+            }
+        }
     }
 }
