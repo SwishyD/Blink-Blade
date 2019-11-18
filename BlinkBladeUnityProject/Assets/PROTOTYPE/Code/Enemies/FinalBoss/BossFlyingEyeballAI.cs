@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossFlyingEyeballAI : MonoBehaviour, IEnemyDeath
 {
@@ -63,7 +64,7 @@ public class BossFlyingEyeballAI : MonoBehaviour, IEnemyDeath
     {
         if(col.tag == "Player" && !isHit)
         {
-            col.GetComponent<PlayerSpawnPoint>().Respawn();
+            col.GetComponent<BossPlayerSpawnPoint>().Respawn();
         }  
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShockwaveMovement : MonoBehaviour
 {
@@ -24,7 +25,14 @@ public class ShockwaveMovement : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            col.GetComponent<PlayerSpawnPoint>().Respawn();
+            if(SceneManager.GetActiveScene().name.Contains("BOSS"))
+            {
+                col.GetComponent<BossPlayerSpawnPoint>().Respawn();
+            }
+            else
+            {
+                col.GetComponent<PlayerSpawnPoint>().Respawn();
+            }
         }
         if(col.gameObject.layer == 8 || col.gameObject.layer == 9)
         {

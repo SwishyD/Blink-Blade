@@ -66,7 +66,10 @@ public class PlayerScriptManager : MonoBehaviour
         player.GetComponent<PlayerMovementV2>().enabled = true;
         player.GetComponent<PlayerJumpV2>().enabled = true;
         player.GetComponent<PlayerAnimator>().enabled = true;
-        player.GetComponent<PlayerSpawnPoint>().enabled = true;
+        if (!SceneManager.GetActiveScene().name.Contains("BOSS"))
+        {
+            player.GetComponent<PlayerSpawnPoint>().enabled = true;
+        }
         if (swordScriptActive)
         {
             player.GetComponentInChildren<SwordSpawner>().enabled = true;
@@ -79,7 +82,10 @@ public class PlayerScriptManager : MonoBehaviour
         player.GetComponent<PlayerMovementV2>().enabled = false;
         player.GetComponent<PlayerJumpV2>().enabled = false;
         player.GetComponent<PlayerAnimator>().enabled = false;
-        player.GetComponent<PlayerSpawnPoint>().enabled = false;
+        if (!SceneManager.GetActiveScene().name.Contains("BOSS"))
+        {
+            player.GetComponent<PlayerSpawnPoint>().enabled = false;
+        }
         player.GetComponentInChildren<SwordSpawner>().enabled = false;
     }
 }
