@@ -54,7 +54,7 @@ public class BossGargoyleAI : MonoBehaviour, IEnemyDeath
     {
         if (col.tag == "Player")
         {
-            col.GetComponent<PlayerSpawnPoint>().Respawn();
+            col.GetComponent<BossPlayerSpawnPoint>().Respawn();
         }
     }
 

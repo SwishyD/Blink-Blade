@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GargoyleAI : MonoBehaviour, IEnemyDeath
 {
@@ -45,7 +46,14 @@ public class GargoyleAI : MonoBehaviour, IEnemyDeath
     {
         if (col.tag == "Player")
         {
-            col.GetComponent<PlayerSpawnPoint>().Respawn();
+            if (SceneManager.GetActiveScene().name.Contains("BOSS"))
+            {
+                col.GetComponent<BossPlayerSpawnPoint>().Respawn();
+            }
+            else
+            {
+                col.GetComponent<PlayerSpawnPoint>().Respawn();
+            }
         }
     }
 

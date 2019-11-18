@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletMovement : MonoBehaviour
 {
@@ -26,7 +27,14 @@ public class BulletMovement : MonoBehaviour
     {
         if (col.gameObject.layer == 31)
         {
-            col.GetComponent<PlayerSpawnPoint>().Respawn();
+            if (SceneManager.GetActiveScene().name.Contains("BOSS"))
+            {
+                col.GetComponent<BossPlayerSpawnPoint>().Respawn();
+            }
+            else
+            {
+                col.GetComponent<PlayerSpawnPoint>().Respawn();
+            }
             DestroyBullet();
         }
         else if(col.gameObject.layer == 8 || col.gameObject.layer == 9 || col.gameObject.layer == 11)
