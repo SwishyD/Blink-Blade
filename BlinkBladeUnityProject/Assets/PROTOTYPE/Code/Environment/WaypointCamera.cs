@@ -14,7 +14,7 @@ public class WaypointCamera : MonoBehaviour
     private bool atEnd;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!atEnd)
         {
