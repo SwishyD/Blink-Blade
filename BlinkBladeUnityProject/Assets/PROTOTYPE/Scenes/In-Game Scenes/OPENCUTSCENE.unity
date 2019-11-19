@@ -3827,6 +3827,10 @@ PlayableDirector:
     value: {fileID: 2093754087}
   - key: {fileID: -6969987413744405832, guid: 36121d1db82ac9243a979c76240e61bc, type: 2}
     value: {fileID: 1624059287}
+  - key: {fileID: -8309066755894409057, guid: 36121d1db82ac9243a979c76240e61bc, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 331853863556764285, guid: 36121d1db82ac9243a979c76240e61bc, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &776768594
@@ -3920,6 +3924,7 @@ GameObject:
   - component: {fileID: 1154194493}
   - component: {fileID: 1154194492}
   - component: {fileID: 1154194491}
+  - component: {fileID: 1154194494}
   m_Layer: 0
   m_Name: Antagonist
   m_TagString: Untagged
@@ -4009,6 +4014,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1154194494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154194490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e54f624247a27c45b72fa1bf5cac6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1254426961
 GameObject:
   m_ObjectHideFlags: 0
@@ -4329,6 +4346,7 @@ GameObject:
   - component: {fileID: 1325387951}
   - component: {fileID: 1325387950}
   - component: {fileID: 1325387949}
+  - component: {fileID: 1325387952}
   m_Layer: 0
   m_Name: Protag
   m_TagString: Untagged
@@ -4418,6 +4436,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1325387952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325387948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e54f624247a27c45b72fa1bf5cac6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1413064948
 PrefabInstance:
   m_ObjectHideFlags: 0
