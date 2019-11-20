@@ -5,6 +5,9 @@ using UnityEngine;
 public class GravitySwitch : MonoBehaviour
 {
     //GameObject name MUST include "GravitySwitch"
+
+    public Sprite gravUp;
+    public Sprite gravDown;
     public void FlipGravity()
     {
         PlayerJumpV2.instance.PlayerFlip();    
@@ -14,11 +17,11 @@ public class GravitySwitch : MonoBehaviour
     {
         if (PlayerJumpV2.instance.isFlipped)
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            GetComponent<SpriteRenderer>().sprite = gravUp;
         }
         else if (!PlayerJumpV2.instance.isFlipped)
         {
-            GetComponent<SpriteRenderer>().color = Color.blue;
+            GetComponent<SpriteRenderer>().sprite = gravDown;
         }
     }
 }

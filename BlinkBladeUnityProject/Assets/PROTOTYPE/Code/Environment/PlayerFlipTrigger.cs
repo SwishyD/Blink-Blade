@@ -15,12 +15,22 @@ public class PlayerFlipTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "PlayerV2" && flipManager.flipActive != enable)
+        if(collision.gameObject.name == "PlayerV2")
         {
-            flipManager.FlipEnabler(enable);
-            if (!enable)
+            if (flipManager.flipActive != enable)
             {
-                flipManager.CancelWarning();
+                flipManager.FlipEnabler(enable);
+                if (!enable)
+                {
+                    flipManager.CancelWarning();
+                    if (PlayerJumpV2.instance.isFlipped)
+                    {
+                        PlayerJumpV2.instance.PlayerFlip();
+                    }
+                }
+            }
+            else if (!enable)
+            {
                 if (PlayerJumpV2.instance.isFlipped)
                 {
                     PlayerJumpV2.instance.PlayerFlip();
