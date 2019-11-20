@@ -65,14 +65,18 @@ public class EndofLevelResults : MonoBehaviour
 
     IEnumerator ShowResults()
     {
+        AudioManager.instance.Play("HeavyLand");
         yield return new WaitForSeconds(1f);
         resultDeathCount.text = "Deaths: " + resultsDeaths.deathCount;
+        AudioManager.instance.Play("HeavyLand");
         yield return new WaitForSeconds(1f);
         unRoundedTime = resultsTimer.timeStart;
         var roundedTime = TimeSpan.FromSeconds(unRoundedTime);
         resultTime.text = "Time: " + "<mspace=0.38em>" + roundedTime.ToString("mm':'ss'.'fff") + "</mspace>";
+        AudioManager.instance.Play("HeavyLand");
         yield return new WaitForSeconds(1f);
         resultsGrade.text = "Grade: " + grade;
+        AudioManager.instance.Play("HeavyLand");
         yield return new WaitForSeconds(1f);
         GetComponent<LevelResultTransfer>().SetResults();
         resultsToHub.SetActive(true);
