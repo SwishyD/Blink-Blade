@@ -13,6 +13,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     private int chooseWaypoint;
     public float bossSpeed;
     Animator anim;
+    public MoveToCredits credits;
 
     [System.Serializable]
     public class ShooterVariable
@@ -417,6 +418,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
         FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(5f, 1f, 0.2f);
         AudioManager.instance.Play("Explosion");
         Instantiate(finaleVariables.deathPFX, transform.position, Quaternion.identity);
+        credits.InvokeCredits();
         gameObject.SetActive(false);
         yield return null;
     }
