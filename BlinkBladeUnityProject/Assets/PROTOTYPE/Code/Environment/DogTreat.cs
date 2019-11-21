@@ -14,6 +14,7 @@ public class DogTreat : MonoBehaviour
     private int levelNo;
 
     [SerializeField] ParticleSystem grabPFX;
+    [SerializeField] ParticleSystem despawnPFX;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class DogTreat : MonoBehaviour
     {
         if(requiredTime < timer.timeStart)
         {
+            Instantiate(despawnPFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject.transform.parent.gameObject);
         }
     }

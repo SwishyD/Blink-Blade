@@ -98,6 +98,8 @@ MonoBehaviour:
   timer: {fileID: 0}
   addDebugTime: 0
   grabPFX: {fileID: 798063935485932306, guid: c704222436ed89d42969f7e228195b92, type: 3}
+  despawnPFX: {fileID: 798063935485932306, guid: 3998010778e5d2f4292e52bc15fa36af,
+    type: 3}
 --- !u!61 &2919374356129297225
 BoxCollider2D:
   m_ObjectHideFlags: 0
