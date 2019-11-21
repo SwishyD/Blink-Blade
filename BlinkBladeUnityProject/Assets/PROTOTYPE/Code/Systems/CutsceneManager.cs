@@ -16,7 +16,10 @@ public class CutsceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            EndScene();
+        }
     }
 
     public void CamShake()
