@@ -17,6 +17,7 @@ public class EndofLevelResults : MonoBehaviour
     public TMP_Text resultDeathCount;
     public TMP_Text resultTime;
     public TMP_Text resultsGrade;
+    public TMP_Text nextGrade;
     public GameObject resultsToHub;
     public GameObject resultsRestart;
 
@@ -76,11 +77,36 @@ public class EndofLevelResults : MonoBehaviour
         AudioManager.instance.Play("HeavyLand");
         yield return new WaitForSeconds(1f);
         resultsGrade.text = "Grade: " + grade;
+        NextGrade();
         AudioManager.instance.Play("HeavyLand");
         yield return new WaitForSeconds(1f);
         GetComponent<LevelResultTransfer>().SetResults();
         resultsToHub.SetActive(true);
         resultsRestart.SetActive(true);
+    }
+
+    void NextGrade()
+    {
+        if(grade == gradeLetter[0])
+        {
+            nextGrade.text = "Perfect!!";
+        }
+        else if(grade == gradeLetter[1])
+        {
+            nextGrade.text = "Next Grade: " + gradeLetter[0] + " = " + requiredTime[0].ToString() + " seconds";
+        }
+        else if (grade == gradeLetter[2])
+        {
+            nextGrade.text = "Next Grade: " + gradeLetter[1] + " = " + requiredTime[1].ToString() + " seconds";
+        }
+        else if (grade == gradeLetter[3])
+        {
+            nextGrade.text = "Next Grade: " + gradeLetter[2] + " = " + requiredTime[2].ToString() + " seconds";
+        }
+        else if (grade == gradeLetter[4])
+        {
+            nextGrade.text = "Next Grade: " + gradeLetter[3] + " = " + requiredTime[3].ToString() + " seconds";
+        }
     }
 
     public void BackToHub()

@@ -36,6 +36,9 @@ public class LevelManager : MonoBehaviour
             time[i] = 9999;
             deaths[i] = 9999;
             grade[i] = "";
+        }
+        for (int i = 0; i < dogTreatCollected.Length; i++)
+        {
             dogTreatCollected[i] = false;
         }
         playerPos = Vector2.zero;

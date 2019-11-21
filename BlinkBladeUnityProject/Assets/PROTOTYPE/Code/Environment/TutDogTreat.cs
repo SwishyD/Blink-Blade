@@ -6,7 +6,7 @@ public class TutDogTreat : MonoBehaviour
 {
     //public LevelResultTransfer transfer;
 
-    public int addDebugTime;
+    public int tutorialNo;
 
     private float requiredTime;
 
@@ -21,7 +21,7 @@ public class TutDogTreat : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            LevelManager.instance.dogTreatCollected[12] = true;
+            LevelManager.instance.dogTreatCollected[tutorialNo] = true;
             Instantiate(grabPFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject.transform.parent.gameObject);
         }
