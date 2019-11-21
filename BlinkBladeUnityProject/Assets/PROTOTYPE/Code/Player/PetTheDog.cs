@@ -64,11 +64,17 @@ public class PetTheDog : MonoBehaviour
         dogAnimScript.PetDog();
         Invoke("EnablePlayerMovement", petAnim.length);
         aimArrow.color = new Color(aimArrow.color.r, aimArrow.color.g, aimArrow.color.b, 0f);
+        Invoke("PlayChime", 1.5f);
     }
 
     public void SetDogPetToFalse()
     {
         beingPet = false;
+    }
+
+    public void PlayChime()
+    {
+        AudioManager.instance.Play("Chime");
     }
 
     public void EnablePlayerMovement()

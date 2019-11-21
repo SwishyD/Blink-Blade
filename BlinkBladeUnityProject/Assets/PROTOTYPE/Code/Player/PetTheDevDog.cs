@@ -73,6 +73,7 @@ public class PetTheDevDog : MonoBehaviour
     {
         beingPet = false;
         petPFX.Play();
+        AudioManager.instance.Play("Chime");
     }
 
     public void EnablePlayerMovement()

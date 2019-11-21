@@ -254,9 +254,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: AngryBark
-    clip: {fileID: 8300000, guid: edad1a60f31f6c44297449d8e60727b9, type: 3}
-    volume: 0.169
+  - name: Chime
+    clip: {fileID: 8300000, guid: feeceeac90bb24f479281bb03670c539, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
