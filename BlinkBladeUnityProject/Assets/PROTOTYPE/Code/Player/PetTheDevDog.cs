@@ -12,6 +12,7 @@ public class PetTheDevDog : MonoBehaviour
     public int dirMult;
     [SerializeField] SpriteRenderer aimArrow;
     [SerializeField] ParticleSystem petPFX;
+    [SerializeField] AudioSource bark;
 
     // Start is called before the first frame update
     void Start()
@@ -79,5 +80,10 @@ public class PetTheDevDog : MonoBehaviour
         PlayerScriptManager.instance.PlayerScriptEnable();
         aimArrow.color = new Color(aimArrow.color.r, aimArrow.color.g, aimArrow.color.b, 1f);
 
+    }
+
+    public void PlayBark()
+    {
+        bark.Play();
     }
 }
