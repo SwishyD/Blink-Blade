@@ -4989,6 +4989,7 @@ MonoBehaviour:
   bossMovementWaypoints: []
   bossSpeed: 0
   credits: {fileID: 0}
+  bossPFX: {fileID: 5129629560559904551}
   shooterVariable:
     shootActive: 0
     spray: 0
