@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
         playerPos = Vector2.zero;
     }
 
-    private void Update()
+    /*private void Update()
     {
         if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Equals))
         {
@@ -61,5 +61,5 @@ public class LevelManager : MonoBehaviour
                 dogTreatCollected[i] = true;
             }
         }
-    }
+    }*/
 }
