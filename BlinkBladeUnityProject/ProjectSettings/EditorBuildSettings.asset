@@ -45,6 +45,9 @@ EditorBuildSettings:
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/Area 3/LEVEL3-2.unity
     guid: 564313fffc391ed47b98e1d929a920ef
   - enabled: 1
+    path: Assets/PROTOTYPE/Scenes/In-Game Scenes/Area 3/LEVEL3-3.unity
+    guid: fba741a8be00a1b44b27321234fd81e3
+  - enabled: 1
     path: Assets/PROTOTYPE/Scenes/In-Game Scenes/BOSSBATTLE.unity
     guid: 76aa9f19593aaf04e90e687bac3a0a65
   - enabled: 1
