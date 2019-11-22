@@ -36,10 +36,10 @@ public class MenuScreen : MonoBehaviour {
             continueButton.SetActive(false);
         }
 
-        if(Input.GetKeyDown(KeyCode.L) && Input.GetKey(KeyCode.LeftControl))
+        /*if(Input.GetKeyDown(KeyCode.L) && Input.GetKey(KeyCode.LeftControl))
         {
             SaveSystem.DeleteSave();
-        }
+        }*/
 	}
 
     public void StartGame(string level)
