@@ -14,6 +14,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
     public float bossSpeed;
     Animator anim;
     public MoveToCredits credits;
+    public ParticleSystem bossPFX;
 
     [System.Serializable]
     public class ShooterVariable
@@ -226,6 +227,7 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
             case BossPhases.Finale:
 
                 anim.SetInteger("BossPhase", 0);
+                bossPFX.Stop();
 
                 if (alive)
                 {
