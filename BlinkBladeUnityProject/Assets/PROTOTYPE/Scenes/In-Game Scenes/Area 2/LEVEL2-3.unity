@@ -30323,7 +30323,7 @@ PrefabInstance:
     - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -946.04
+      value: -955.6
       objectReference: {fileID: 0}
     - target: {fileID: 2098804811653200340, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}
@@ -30379,12 +30379,12 @@ PrefabInstance:
         type: 3}
       propertyPath: wayPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 2000724306}
+      objectReference: {fileID: 388325306}
     - target: {fileID: 2098804811653200331, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}
       propertyPath: wayPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 388325306}
+      objectReference: {fileID: 2000724306}
     - target: {fileID: 2098804811653200331, guid: 9745b6c8882d04c46be176b3800765c4,
         type: 3}
       propertyPath: speed
@@ -30532,12 +30532,12 @@ PrefabInstance:
     - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
       propertyPath: requiredTime.Array.data[0]
-      value: 27
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
       propertyPath: requiredTime.Array.data[1]
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 526812477, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
       propertyPath: levelTime
@@ -88011,6 +88011,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1114971494185269723, guid: 72de397192ae0bf498c20a57e5fac4e6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -907.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114971494185269723, guid: 72de397192ae0bf498c20a57e5fac4e6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2199.21
+      objectReference: {fileID: 0}
     - target: {fileID: 8531391830227185437, guid: 72de397192ae0bf498c20a57e5fac4e6,
         type: 3}
       propertyPath: endResults
@@ -88026,16 +88036,6 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1020446519}
-    - target: {fileID: 1114971494185269723, guid: 72de397192ae0bf498c20a57e5fac4e6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -907.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114971494185269723, guid: 72de397192ae0bf498c20a57e5fac4e6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2199.21
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72de397192ae0bf498c20a57e5fac4e6, type: 3}
 --- !u!1001 &1582290119

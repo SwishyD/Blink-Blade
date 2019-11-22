@@ -32928,6 +32928,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0139465
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6.152893
+      objectReference: {fileID: 0}
     - target: {fileID: 1688007716436664827, guid: 814b17ba8ade8c544a25dad0081f3c66,
         type: 3}
       propertyPath: isStart
@@ -32943,16 +32953,6 @@ PrefabInstance:
       propertyPath: endOfLevelResults
       value: 
       objectReference: {fileID: 857463345}
-    - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 1.0139465
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 6.152893
-      objectReference: {fileID: 0}
     - target: {fileID: 1688007716436664829, guid: 814b17ba8ade8c544a25dad0081f3c66,
         type: 3}
       propertyPath: m_SortingOrder
@@ -34392,16 +34392,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1688007716436664827, guid: 814b17ba8ade8c544a25dad0081f3c66,
-        type: 3}
-      propertyPath: timer
-      value: 
-      objectReference: {fileID: 452647617}
-    - target: {fileID: 1688007716436664827, guid: 814b17ba8ade8c544a25dad0081f3c66,
-        type: 3}
-      propertyPath: endOfLevelResults
-      value: 
-      objectReference: {fileID: 857463345}
     - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
         type: 3}
       propertyPath: m_Offset.y
@@ -34412,6 +34402,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 6.152893
       objectReference: {fileID: 0}
+    - target: {fileID: 1688007716436664827, guid: 814b17ba8ade8c544a25dad0081f3c66,
+        type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 452647617}
+    - target: {fileID: 1688007716436664827, guid: 814b17ba8ade8c544a25dad0081f3c66,
+        type: 3}
+      propertyPath: endOfLevelResults
+      value: 
+      objectReference: {fileID: 857463345}
     - target: {fileID: 1688007716436664829, guid: 814b17ba8ade8c544a25dad0081f3c66,
         type: 3}
       propertyPath: m_SortingOrder
@@ -98899,6 +98899,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0139465
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6.152893
+      objectReference: {fileID: 0}
     - target: {fileID: 1688007716436664827, guid: 814b17ba8ade8c544a25dad0081f3c66,
         type: 3}
       propertyPath: isEnd
@@ -98914,16 +98924,6 @@ PrefabInstance:
       propertyPath: endOfLevelResults
       value: 
       objectReference: {fileID: 857463345}
-    - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 1.0139465
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688007716436664826, guid: 814b17ba8ade8c544a25dad0081f3c66,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 6.152893
-      objectReference: {fileID: 0}
     - target: {fileID: 1688007716436664829, guid: 814b17ba8ade8c544a25dad0081f3c66,
         type: 3}
       propertyPath: m_SortingOrder
@@ -98948,6 +98948,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EndDoorTooltip
+      objectReference: {fileID: 0}
+    - target: {fileID: 241456258770953639, guid: a86a4938a700c5b49b2ea0e371d0bae7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 241456258770953632, guid: a86a4938a700c5b49b2ea0e371d0bae7,
         type: 3}
@@ -99003,6 +99008,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241456259220070128, guid: a86a4938a700c5b49b2ea0e371d0bae7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a86a4938a700c5b49b2ea0e371d0bae7, type: 3}
@@ -99083,6 +99093,11 @@ PrefabInstance:
       propertyPath: tooltip
       value: 
       objectReference: {fileID: 1931165675}
+    - target: {fileID: 2617195528476980948, guid: ead407d2b9d616b4db412f64eb534fe7,
+        type: 3}
+      propertyPath: pressE
+      value: 
+      objectReference: {fileID: 1931165675}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead407d2b9d616b4db412f64eb534fe7, type: 3}
 --- !u!1001 &6240601409495895671
@@ -99096,6 +99111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HubDoorTooltip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240601407977150575, guid: eca84c48a6ccce44daee10b2357dcdfa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6240601407977150574, guid: eca84c48a6ccce44daee10b2357dcdfa,
         type: 3}
@@ -99151,6 +99171,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240601408516033711, guid: eca84c48a6ccce44daee10b2357dcdfa,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eca84c48a6ccce44daee10b2357dcdfa, type: 3}

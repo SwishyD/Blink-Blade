@@ -22415,10 +22415,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerV2
       objectReference: {fileID: 0}
-    - target: {fileID: 2144858819, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
-      propertyPath: deathCountText
-      value: 
-      objectReference: {fileID: 1487074297}
     - target: {fileID: 5921857822077694295, guid: 16afa2da28725424b9ba7b4b98fece6a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22474,6 +22470,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2144858819, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
+      propertyPath: deathCountText
+      value: 
+      objectReference: {fileID: 1487074297}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16afa2da28725424b9ba7b4b98fece6a, type: 3}
 --- !u!1001 &1077011022
@@ -63032,7 +63032,7 @@ PrefabInstance:
     - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
       propertyPath: requiredTime.Array.data[0]
-      value: 27
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5405750781197769630, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
