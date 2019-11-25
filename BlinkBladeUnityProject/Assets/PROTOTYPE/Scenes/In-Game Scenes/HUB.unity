@@ -2806,6 +2806,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
 --- !u!1 &287208274
@@ -3175,6 +3181,12 @@ PrefabInstance:
       propertyPath: unlockedDoor
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
+        type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
@@ -4029,6 +4041,12 @@ PrefabInstance:
       propertyPath: unlockedDoor
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
+        type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
@@ -28998,6 +29016,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 860468393}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &860468395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8755195208262534579, guid: 5fbbf1fb096304c4285d7c7bf2e153c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 860468393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a930cb62439afe40b18094095ac912c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &862253155
 GameObject:
   m_ObjectHideFlags: 0
@@ -36826,6 +36856,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
 --- !u!4 &1089764255 stripped
@@ -38290,6 +38326,12 @@ PrefabInstance:
       propertyPath: unlockedDoor
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
+        type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
@@ -94108,6 +94150,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
 --- !u!1 &1252081426 stripped
@@ -97071,6 +97119,12 @@ PrefabInstance:
       propertyPath: unlockedDoor
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
+        type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
@@ -100635,6 +100689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868117216}
   - component: {fileID: 1868117215}
+  - component: {fileID: 1868117217}
   m_Layer: 0
   m_Name: HubStart
   m_TagString: Untagged
@@ -100670,6 +100725,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1868117217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868117214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43efcfb98e386a046b9901e4189c1088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camFollow: {fileID: 860468395}
+  player: {fileID: 1098311838}
+  doors:
+  - {fileID: 2063612213}
+  - {fileID: 1089764256}
+  - {fileID: 1563402608}
+  - {fileID: 1190309826}
+  - {fileID: 129324178}
+  - {fileID: 1909393771}
+  - {fileID: 1980024787}
+  - {fileID: 1252081426}
+  - {fileID: 1823581784}
+  - {fileID: 877022088}
 --- !u!1 &1872324334
 GameObject:
   m_ObjectHideFlags: 0
@@ -101857,6 +101937,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
 --- !u!4 &1980024786 stripped
@@ -102900,6 +102986,12 @@ PrefabInstance:
       propertyPath: unlockedDoor
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
+        type: 3}
+    - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}

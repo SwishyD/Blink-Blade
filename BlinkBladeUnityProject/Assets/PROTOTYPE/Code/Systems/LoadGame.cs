@@ -13,6 +13,7 @@ public class LoadGame : MonoBehaviour
         for (int i = 0; i < LevelManager.instance.levelComplete.Length; i++)
         {
             LevelManager.instance.levelComplete[i] = data.levels[i];
+            LevelManager.instance.levelUnlocked[i] = data.levelUnlock[i];
             LevelManager.instance.time[i] = data.levelTimes[i];
             LevelManager.instance.deaths[i] = data.levelDeaths[i];
             LevelManager.instance.grade[i] = data.levelGrades[i];

@@ -5534,6 +5534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2431793734482766543, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
         type: 3}
+      propertyPath: levelUnlocked.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431793734482766543, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
+        type: 3}
       propertyPath: time.Array.data[3]
       value: 9999
       objectReference: {fileID: 0}
@@ -5626,6 +5631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: deaths.Array.data[11]
       value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431793734482766543, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
+        type: 3}
+      propertyPath: levelUnlocked.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2431793734482766537, guid: 8fce1fbac6f5ce3478e7c53c1d8d30a0,
         type: 3}

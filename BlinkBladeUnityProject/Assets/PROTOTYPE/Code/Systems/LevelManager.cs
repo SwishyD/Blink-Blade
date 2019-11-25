@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public bool[] levelComplete;
+    public bool[] levelUnlocked;
     public float[] time;
     public int[] deaths;
     public string[] grade;
@@ -33,6 +34,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < levelComplete.Length; i++)
         {
             levelComplete[i] = false;
+            levelUnlocked[i] = false;
             time[i] = 9999;
             deaths[i] = 9999;
             grade[i] = "";
@@ -41,16 +43,18 @@ public class LevelManager : MonoBehaviour
         {
             dogTreatCollected[i] = false;
         }
+        levelUnlocked[0] = true;
         playerPos = Vector2.zero;
     }
 
-    /*private void Update()
+    private void Update()
     {
         if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Equals))
         {
             for (int i = 0; i < levelComplete.Length; i++)
             {
                 levelComplete[i] = true;
+                levelUnlocked[i] = true;
             }
         }
 
@@ -61,5 +65,5 @@ public class LevelManager : MonoBehaviour
                 dogTreatCollected[i] = true;
             }
         }
-    }*/
+    }
 }
