@@ -12,21 +12,12 @@ public class BossLevelTransition : MonoBehaviour
 
     bool inDoor;
 
-    private void Start()
-    {
-        CheckCompletion();
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (CheckCompletion())
+        if (LevelManager.instance.levelUnlocked[10])
         {
             GetComponent<SpriteRenderer>().sprite = unlockedDoor;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().sprite = lockedDoor;
         }
 
         if (inDoor && Input.GetKeyDown(KeyCode.E))
@@ -53,18 +44,5 @@ public class BossLevelTransition : MonoBehaviour
         {
             inDoor = false;
         }
-    }
-
-
-    bool CheckCompletion()
-    {
-        for (int i = 0; i < LevelManager.instance.levelComplete.Length; i++)
-        {
-            if(LevelManager.instance.levelComplete[i] == false)
-            {
-                return false;
-            }
-        }
-        return true;
     }
 }

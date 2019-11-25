@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DoorTracker : MonoBehaviour
 {
-    public static DoorTracker instance;
-
     public bool levelCheck;
     public int levelNo;
 
@@ -14,22 +12,9 @@ public class DoorTracker : MonoBehaviour
 
     public List<GameObject> doors = new List<GameObject>();
 
-    void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else if(instance != this)
-        {
-            Destroy(this);
-        }
-    }
-
     private void Start()
     {
         levelNo = doors[0].GetComponent<Tooltip>().level;
-        levelCheck = true;
     }
 
     // Update is called once per frame

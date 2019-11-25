@@ -3408,6 +3408,7 @@ GameObject:
   - component: {fileID: 339081673}
   - component: {fileID: 339081672}
   - component: {fileID: 339081676}
+  - component: {fileID: 339081677}
   m_Layer: 0
   m_Name: Secret Door
   m_TagString: Untagged
@@ -3432,7 +3433,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.625, y: 3.625}
+    oldSize: {x: 2.875, y: 3.625}
     newSize: {x: 2.5, y: 3.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3454,6 +3455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveToLevel: SECRET
+  unlocked: 0
   lockedDoor: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab, type: 3}
   unlockedDoor: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770, type: 3}
 --- !u!212 &339081674
@@ -3493,7 +3495,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3533,6 +3535,22 @@ MonoBehaviour:
   lockedDoor: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab, type: 3}
   unlockedDoor: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770, type: 3}
   dogBowl: {fileID: 1314082891}
+--- !u!114 &339081677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339081671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1335b948c142b343bf00e0c36673fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCheck: 1
+  camFollow: {fileID: 860468395}
+  player: {fileID: 1098311838}
+  bossDoorTrans: {fileID: 877022093}
 --- !u!1 &339885802
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,6 +3642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveToLevel: LEVEL1-2
+  unlocked: 0
   lockedDoor: {fileID: 0}
   unlockedDoor: {fileID: 0}
 --- !u!212 &339885807
@@ -29094,6 +29113,7 @@ GameObject:
   - component: {fileID: 877022092}
   - component: {fileID: 877022091}
   - component: {fileID: 877022090}
+  - component: {fileID: 877022093}
   m_Layer: 0
   m_Name: bossDoorLocked
   m_TagString: Untagged
@@ -29204,6 +29224,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &877022093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877022088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9189dd325dd2a2943b95c2c402b406ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCheck: 1
+  levelCheckComplete: 0
+  camFollow: {fileID: 860468395}
+  player: {fileID: 1098311838}
 --- !u!1 &890849788
 GameObject:
   m_ObjectHideFlags: 0
@@ -99125,6 +99161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveToLevel: LEVEL1-4
+  unlocked: 0
   lockedDoor: {fileID: 0}
   unlockedDoor: {fileID: 0}
 --- !u!212 &1756065616
@@ -100737,6 +100774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43efcfb98e386a046b9901e4189c1088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelCheck: 1
+  levelNo: 0
   camFollow: {fileID: 860468395}
   player: {fileID: 1098311838}
   doors:
@@ -103116,6 +103155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveToLevel: LEVEL1-3
+  unlocked: 0
   lockedDoor: {fileID: 0}
   unlockedDoor: {fileID: 0}
 --- !u!212 &2078472361

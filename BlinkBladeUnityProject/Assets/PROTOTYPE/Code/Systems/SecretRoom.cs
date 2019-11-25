@@ -11,13 +11,9 @@ public class SecretRoom : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        if (dogBowl.GetComponent<SpriteRenderer>().sprite == dogBowl.GetComponent<DogBowlHub>().bowlFullness[4])
+        if (LevelManager.instance.levelUnlocked[11])
         {
             GetComponent<SpriteRenderer>().sprite = unlockedDoor;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().sprite = lockedDoor;
         }
     }
 }
