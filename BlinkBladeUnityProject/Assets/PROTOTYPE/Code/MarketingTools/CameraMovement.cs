@@ -47,11 +47,11 @@ public class CameraMovement : MonoBehaviour
             transform.Translate(0, -speed * Time.deltaTime, 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.Equals))
+        if (Input.GetKey(KeyCode.Equals))
         {
             speed++;
         }
-        if (Input.GetKeyDown(KeyCode.Minus))
+        if (Input.GetKey(KeyCode.Minus))
         {
             speed--;
         }

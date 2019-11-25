@@ -7,6 +7,8 @@ public class LevelTransition : MonoBehaviour
 {
     public string moveToLevel;
 
+    public bool unlocked;
+
     public Sprite lockedDoor;
     public Sprite unlockedDoor;
 
@@ -16,13 +18,17 @@ public class LevelTransition : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "HUB" && this.name != "Tutorial Door" && this.name != "1-1 Door" && this.name != "Secret Door")
         {
-            if (LevelManager.instance.levelComplete[GetComponent<Tooltip>().level - 1])
+            /*if (LevelManager.instance.levelComplete[GetComponent<Tooltip>().level - 1])
             {
                 GetComponent<SpriteRenderer>().sprite = unlockedDoor;
             }
             else
             {
                 GetComponent<SpriteRenderer>().sprite = lockedDoor;
+            }*/
+            if (LevelManager.instance.levelUnlocked[GetComponent<Tooltip>().level])
+            {
+                GetComponent<SpriteRenderer>().sprite = unlockedDoor;
             }
         }
     }
