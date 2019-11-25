@@ -12,7 +12,7 @@ public class BossDoorTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (levelCheck)
+        if (levelCheck && !LevelManager.instance.levelUnlocked[10])
         {
             levelCheck = false;
             if (CheckCompletion())

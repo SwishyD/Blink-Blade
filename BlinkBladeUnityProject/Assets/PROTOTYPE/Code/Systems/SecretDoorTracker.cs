@@ -13,12 +13,23 @@ public class SecretDoorTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (levelCheck && bossDoorTrans.levelCheckComplete)
+        if (levelCheck && !LevelManager.instance.levelUnlocked[11])
         {
-            levelCheck = false;
-            if (CheckCompletion())
+            if(!bossDoorTrans.levelCheck && bossDoorTrans.levelCheckComplete)
             {
-                StartCoroutine("UnlockLevel");
+                levelCheck = false;
+                if (CheckCompletion())
+                {
+                    StartCoroutine("UnlockLevel");
+                }
+            }
+            else if(LevelManager.instance.levelUnlocked[10] && camFollow.target == player.transform)
+            {
+                levelCheck = false;
+                if (CheckCompletion())
+                {
+                    StartCoroutine("UnlockLevel");
+                }
             }
         }
     }
