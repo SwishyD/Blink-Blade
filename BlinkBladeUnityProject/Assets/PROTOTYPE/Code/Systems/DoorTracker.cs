@@ -43,6 +43,10 @@ public class DoorTracker : MonoBehaviour
 
     IEnumerator UnlockLevel()
     {
+        for (int i = 0; i < doors.Count; i++)
+        {
+            doors[i].GetComponent<LevelTransition>().enabled = false;
+        }
         yield return new WaitForSeconds(0.1f);
         camFollow.target = doors[levelNo - 1].transform;
         PlayerScriptManager.instance.PlayerScriptDisable();
@@ -52,5 +56,9 @@ public class DoorTracker : MonoBehaviour
         yield return new WaitForSeconds(2f);
         camFollow.target = player.transform;
         PlayerScriptManager.instance.PlayerScriptEnable();
+        for (int i = 0; i < doors.Count; i++)
+        {
+            doors[i].GetComponent<LevelTransition>().enabled = true;
+        }
     }
 }
