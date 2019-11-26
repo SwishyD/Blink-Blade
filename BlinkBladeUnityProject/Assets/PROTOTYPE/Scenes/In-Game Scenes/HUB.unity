@@ -3551,6 +3551,8 @@ MonoBehaviour:
   camFollow: {fileID: 860468395}
   player: {fileID: 1098311838}
   bossDoorTrans: {fileID: 877022093}
+  doorUnlockPFX: {fileID: 3054070514898537659, guid: d22eb4667de81dd44a8fea44e4bdf232,
+    type: 3}
 --- !u!1 &339885802
 GameObject:
   m_ObjectHideFlags: 0
@@ -29240,6 +29242,13 @@ MonoBehaviour:
   levelCheckComplete: 0
   camFollow: {fileID: 860468395}
   player: {fileID: 1098311838}
+  lockPiece1: {fileID: 2260836470228934733, guid: 431dfa85bcf66124aaa19bba2f6bd98a,
+    type: 3}
+  lockPiece2: {fileID: 2260836470228934733, guid: 1f91ea822aac0754aae4e6519276dcf3,
+    type: 3}
+  doorUnlockPFX: {fileID: 3054070514898537659, guid: 64f72fd91acf0ca4fbdbefb3b5e6d6fa,
+    type: 3}
+  chains: {fileID: 2260836470228934733, guid: b01afb0077306c943ba24382c28fa908, type: 3}
 --- !u!1 &890849788
 GameObject:
   m_ObjectHideFlags: 0
@@ -100789,6 +100798,8 @@ MonoBehaviour:
   - {fileID: 1252081426}
   - {fileID: 1823581784}
   - {fileID: 877022088}
+  doorUnlockPFX: {fileID: 3054070514898537659, guid: d22eb4667de81dd44a8fea44e4bdf232,
+    type: 3}
 --- !u!1 &1872324334
 GameObject:
   m_ObjectHideFlags: 0
