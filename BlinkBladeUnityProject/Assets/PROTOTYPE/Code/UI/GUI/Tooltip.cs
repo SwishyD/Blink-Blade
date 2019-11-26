@@ -41,7 +41,7 @@ public class Tooltip : MonoBehaviour
                     PressEActivationState(true);
                 }
             }
-            else if (gameObject.name.Contains("bossDoor"))
+            else if (gameObject.name.Contains("bossDoor") && LevelManager.instance.levelUnlocked[10])
             {
                 SwitchTooltipActivationState(true);
                 PressEActivationState(true);
