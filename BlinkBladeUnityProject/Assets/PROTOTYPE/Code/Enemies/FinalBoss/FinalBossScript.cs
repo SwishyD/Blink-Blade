@@ -262,14 +262,32 @@ public class FinalBossScript : MonoBehaviour, IEnemyDeath
                         {
                             finaleVariables.bossSpeed = Mathf.Lerp(0, finaleVariables.bossSpeedMax, finaleVariables.bossSpeedUpTime);
                             finaleVariables.bossSpeedUpTime += 2f * Time.deltaTime;
-                            this.transform.localPosition = Vector2.MoveTowards(transform.localPosition, finaleVariables.hit.point, finaleVariables.bossSpeed * Time.deltaTime);
+                            if(finaleVariables.hit.point != Vector2.zero)
+                            {
+                                this.transform.localPosition = Vector2.MoveTowards(transform.localPosition, finaleVariables.hit.point, finaleVariables.bossSpeed * Time.deltaTime);
+                            }
+                            else
+                            {
+                                this.transform.localPosition = Vector2.MoveTowards(transform.localPosition, new Vector3(-1737, -783, 0), finaleVariables.bossSpeed * Time.deltaTime);
+                            }
                         }
-
-                        if (Vector2.Distance(transform.localPosition, finaleVariables.hit.point) < 1f || this.transform.localPosition.y <= finaleVariables.minY)
+                        if(finaleVariables.hit.point != Vector2.zero)
                         {
-                            finaleVariables.attacking = false;
-                            finaleVariables.riseUp = true;
-                            StartCoroutine("RiseUp");
+                            if (Vector2.Distance(transform.localPosition, finaleVariables.hit.point) < 1f || this.transform.localPosition.y <= finaleVariables.minY)
+                            {
+                                finaleVariables.attacking = false;
+                                finaleVariables.riseUp = true;
+                                StartCoroutine("RiseUp");
+                            }
+                        }
+                        else
+                        {
+                            if (Vector2.Distance(transform.localPosition, new Vector3(-1737, -783, 0)) < 1f || this.transform.localPosition.y <= finaleVariables.minY)
+                            {
+                                finaleVariables.attacking = false;
+                                finaleVariables.riseUp = true;
+                                StartCoroutine("RiseUp");
+                            }
                         }
                     }
                     if (this.transform.localPosition.y >= finaleVariables.maxY && finaleVariables.riseUp)
