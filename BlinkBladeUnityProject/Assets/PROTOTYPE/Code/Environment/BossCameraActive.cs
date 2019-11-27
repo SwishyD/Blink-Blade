@@ -6,6 +6,7 @@ public class BossCameraActive : MonoBehaviour
 {
     public WaypointCamera wayCam;
     public Timer timer;
+    public BossPlayerSpawnPoint bossSpawn;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +15,7 @@ public class BossCameraActive : MonoBehaviour
             wayCam.active = true;
             timer.timerActive = true;
             timer.levelStarted = true;
+            bossSpawn.active = true;
         }
     }
 }
