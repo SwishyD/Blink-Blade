@@ -48,6 +48,14 @@ public class CreditsPlayerControl : MonoBehaviour
                 spriteRend.flipX = false;
             }
         }
+        if (transform.position.x < -9)
+        {
+            transform.position = new Vector3(8.9f, transform.position.y, transform.position.z);
+        }
+        if(transform.position.x > 9)
+        {
+            transform.position = new Vector3(-8.9f, transform.position.y, transform.position.z);
+        }
     }
 
     public void HandleMove()

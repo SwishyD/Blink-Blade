@@ -8744,6 +8744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d538f4703718af48be2490bcd4cffff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 1390374613}
   currentMoveSpeed: 0
   moveSpeedMax: 5
   timeZeroToMax: 0.5
