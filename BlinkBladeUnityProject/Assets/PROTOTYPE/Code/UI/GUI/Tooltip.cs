@@ -30,7 +30,7 @@ public class Tooltip : MonoBehaviour
     {
         if (collision.tag == tagName && LevelManager.instance != null)
         {
-            if(SceneManager.GetActiveScene().name == "HUB" && !gameObject.name.Contains("DogBowl"))
+            if(SceneManager.GetActiveScene().name == "HUB" && !gameObject.name.Contains("DogBowl") && !gameObject.name.Contains("bossDoor"))
             {
                 if (LevelManager.instance.levelComplete[level])
                 {
@@ -40,6 +40,11 @@ public class Tooltip : MonoBehaviour
                 {
                     PressEActivationState(true);
                 }
+            }
+            else if (gameObject.name.Contains("bossDoor") && LevelManager.instance.levelUnlocked[10])
+            {
+                SwitchTooltipActivationState(true);
+                PressEActivationState(true);
             }
             else
             {
