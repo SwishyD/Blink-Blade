@@ -9,6 +9,7 @@ public class SecretDoorTracker : MonoBehaviour
     public GameObject player;
     public BossDoorTracker bossDoorTrans;
 
+    [SerializeField] ParticleSystem doorUnlockPFX;
 
     // Update is called once per frame
     void Update()
@@ -39,8 +40,14 @@ public class SecretDoorTracker : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         camFollow.target = this.transform;
         PlayerScriptManager.instance.PlayerScriptDisable();
-        yield return new WaitForSeconds(2f);
-        GetComponent<SpriteRenderer>().sprite = GetComponent<SecretRoom>().unlockedDoor;
+        yield return new WaitForSeconds(1f);
+        AudioManager.instance.Play("Lock");
+        yield return new WaitForSeconds(1f);
+        Instantiate(doorUnlockPFX, new Vector3(transform.position.x, transform.position.y, -3), Quaternion.identity);
+        AudioManager.instance.Play("Chord");
+        AudioManager.instance.Play("Zoom");
+        AudioManager.instance.Play("Whoosh");
+        yield return new WaitForSeconds(0.1f);
         LevelManager.instance.levelUnlocked[11] = true;
         yield return new WaitForSeconds(2f);
         camFollow.target = player.transform;

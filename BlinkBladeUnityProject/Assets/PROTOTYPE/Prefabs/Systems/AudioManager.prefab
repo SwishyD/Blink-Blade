@@ -260,3 +260,33 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Lock
+    clip: {fileID: 8300000, guid: 6b45ba2f70598f54bad6627f86c74295, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Laugh
+    clip: {fileID: 8300000, guid: 33d89cc94a5cab74f8e72bff7bde4134, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zoom
+    clip: {fileID: 8300000, guid: 8e36f6447737c44439a03e8f2b166844, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Whoosh
+    clip: {fileID: 8300000, guid: 034e770760b76784e8919fa97cde2a40, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Chord
+    clip: {fileID: 8300000, guid: e3688e0dd0bea224f935cbbd74c6b237, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
