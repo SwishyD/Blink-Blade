@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class FadeBossMusic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void FadeMusic()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        StartCoroutine(MusicManager.instance.FadeOut("Boss", 5f));
     }
 }
