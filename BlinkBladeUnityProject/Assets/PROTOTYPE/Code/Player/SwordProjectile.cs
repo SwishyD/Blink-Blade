@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwordProjectile : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class SwordProjectile : MonoBehaviour
     {
         spawner = GameObject.Find("Aim Ring").GetComponent<SwordSpawner>();
         spawnPlace = this.transform.position;
+        if (SceneManager.GetActiveScene().name.Contains("BOSSBATTLE"))
+        {
+            throwDistance = Mathf.Infinity;
+        }
     }
 
     private void FixedUpdate()
