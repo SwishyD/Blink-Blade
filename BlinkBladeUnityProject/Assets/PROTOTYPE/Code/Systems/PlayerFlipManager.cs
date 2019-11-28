@@ -61,7 +61,21 @@ public class PlayerFlipManager : MonoBehaviour
                     //anim.SetTrigger("Warn");
                     for (int e = 0; e < gravSwitchArray.Length; e++)
                     {
-                        gravSwitchArray[e].warnPFX.startColor = new Color(1, 1, 1);
+                        if (i == 2)
+                        {
+                            if (!PlayerJumpV2.instance.isFlipped)
+                            {
+                                gravSwitchArray[e].warnPFX.startColor = new Color32(237, 122, 111, 255);
+                            }
+                            else
+                            {
+                                gravSwitchArray[e].warnPFX.startColor = new Color32(86, 112, 245, 255);
+                            }
+                        }
+                        else
+                        {
+                            gravSwitchArray[e].warnPFX.startColor = new Color(1, 1, 1);
+                        }
                         gravSwitchArray[e].warnPFX.Play();
                         AudioManager.instance.Play("GravBeep");
                     }
