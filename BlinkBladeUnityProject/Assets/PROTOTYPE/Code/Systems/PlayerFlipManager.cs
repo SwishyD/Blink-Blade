@@ -10,7 +10,8 @@ public class PlayerFlipManager : MonoBehaviour
     public static PlayerFlipManager instance;
 
     Animator anim;
-    [SerializeField] AnimationClip warnAnimClip;
+    //[SerializeField] AnimationClip warnAnimClip;
+    GravitySwitch[] gravSwitchArray;
     [SerializeField] Animator bossAnim;
 
     private void Awake()
@@ -27,6 +28,7 @@ public class PlayerFlipManager : MonoBehaviour
 
     private void Start()
     {
+        gravSwitchArray = FindObjectsOfType<GravitySwitch>();
         FlipEnabler(false);
         anim = GetComponentInChildren<Animator>();
         if (bossAnim == null)
@@ -51,15 +53,38 @@ public class PlayerFlipManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(flipTimer - warnAnimClip.length);
-            if (flipActive)
+            yield return new WaitForSeconds(flipTimer - 0.5f * 3);
+            for (int i = 0; i < 3; i++)
             {
-                anim.SetTrigger("Warn");
+                if (flipActive)
+                {
+                    //anim.SetTrigger("Warn");
+                    for (int e = 0; e < gravSwitchArray.Length; e++)
+                    {
+                        gravSwitchArray[e].warnPFX.startColor = new Color(1, 1, 1);
+                        gravSwitchArray[e].warnPFX.Play();
+                        AudioManager.instance.Play("GravBeep");
+                    }
+                }
+                yield return new WaitForSeconds(0.5f);
             }
-            yield return new WaitForSeconds(warnAnimClip.length);
             if (flipActive)
             {
                 PlayerJumpV2.instance.PlayerFlip();
+                for (int i = 0; i < gravSwitchArray.Length; i++)
+                {
+                    if (PlayerJumpV2.instance.isFlipped)
+                    {
+                        gravSwitchArray[i].warnPFX.startColor = new Color32(237, 122, 111, 255);
+                    }
+                    else
+                    {
+                        gravSwitchArray[i].warnPFX.startColor = new Color32(86, 112, 245, 255);
+                    }
+                    gravSwitchArray[i].warnPFX.Play();
+
+                }
+                
                 if (bossAnim != null)
                 {
                     if (PlayerJumpV2.instance.isFlipped)
