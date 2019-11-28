@@ -291,6 +291,7 @@ public class PlayerJumpV2 : MonoBehaviour
         isQuickFalling = false;
         //Anim
         playerAnim.SetPlayerQuickFall(false);
+        playerAnim.canAnimate = false;
     } 
 
     public void PlayerFlip()

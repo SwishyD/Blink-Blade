@@ -65,6 +65,7 @@ public class PlayerScriptManager : MonoBehaviour
         scriptsActive = true;
         player.GetComponent<PlayerMovementV2>().enabled = true;
         player.GetComponent<PlayerJumpV2>().enabled = true;
+        player.GetComponent<PlayerAnimator>().canAnimate = true;
         player.GetComponent<PlayerAnimator>().enabled = true;
         if (!SceneManager.GetActiveScene().name.Contains("BOSS"))
         {
@@ -80,7 +81,9 @@ public class PlayerScriptManager : MonoBehaviour
     {
         scriptsActive = false;
         player.GetComponent<PlayerMovementV2>().enabled = false;
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.GetComponent<PlayerJumpV2>().enabled = false;
+        player.GetComponent<PlayerAnimator>().canAnimate = false;
         player.GetComponent<PlayerAnimator>().enabled = false;
         if (!SceneManager.GetActiveScene().name.Contains("BOSS"))
         {
