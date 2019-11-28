@@ -49,7 +49,8 @@ public class DoorTracker : MonoBehaviour
         {
             doors[i].GetComponent<LevelTransition>().enabled = false;
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
+        PlayerScriptManager.instance.PlayerScriptDisable();
         camFollow.target = doors[levelNo - 1].transform;
         PlayerScriptManager.instance.PlayerScriptDisable();
         yield return new WaitForSeconds(1f);
@@ -65,6 +66,7 @@ public class DoorTracker : MonoBehaviour
         yield return new WaitForSeconds(2f);
         camFollow.target = player.transform;
         PlayerScriptManager.instance.PlayerScriptEnable();
+        door1.GetComponent<LevelTransition>().enabled = true;
         for (int i = 0; i < doors.Count; i++)
         {
             doors[i].GetComponent<LevelTransition>().enabled = true;
