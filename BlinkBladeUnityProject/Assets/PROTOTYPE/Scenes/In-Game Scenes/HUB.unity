@@ -105479,6 +105479,7 @@ MonoBehaviour:
   - {fileID: 1980024787}
   - {fileID: 1252081426}
   - {fileID: 1823581784}
+  door1: {fileID: 1715318277}
   doorUnlockPFX: {fileID: 3054070514898537659, guid: d22eb4667de81dd44a8fea44e4bdf232,
     type: 3}
 --- !u!1 &1872324334

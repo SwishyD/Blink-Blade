@@ -11,6 +11,7 @@ public class DoorTracker : MonoBehaviour
     public GameObject player;
 
     public List<GameObject> doors = new List<GameObject>();
+    public GameObject door1;
 
     [SerializeField] ParticleSystem doorUnlockPFX;
 
@@ -22,7 +23,7 @@ public class DoorTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (levelCheck && levelNo < doors.Count)
+        if (levelCheck)
         {
             if (LevelManager.instance.levelComplete[levelNo - 1] && !LevelManager.instance.levelUnlocked[levelNo])
             {
@@ -45,6 +46,7 @@ public class DoorTracker : MonoBehaviour
 
     IEnumerator UnlockLevel()
     {
+        door1.GetComponent<LevelTransition>().enabled = false;
         for (int i = 0; i < doors.Count; i++)
         {
             doors[i].GetComponent<LevelTransition>().enabled = false;
