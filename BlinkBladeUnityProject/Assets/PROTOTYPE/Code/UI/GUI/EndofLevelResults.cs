@@ -33,7 +33,9 @@ public class EndofLevelResults : MonoBehaviour
         pauseMenu.enabled = false;
         levelEnd = true;
         PlayerJumpV2.instance.ResetGravity();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAnimator>().canMove = false;
         PlayerScriptManager.instance.PlayerScriptDisable();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAnimator>().enabled = true;
         gameGUI.SetActive(false);
         unRoundedTime = resultsTimer.timeStart;
         CalculateGrade();

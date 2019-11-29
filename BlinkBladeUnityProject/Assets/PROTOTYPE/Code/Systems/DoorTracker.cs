@@ -11,6 +11,7 @@ public class DoorTracker : MonoBehaviour
     public GameObject player;
 
     public List<GameObject> doors = new List<GameObject>();
+    public GameObject door1;
 
     [SerializeField] ParticleSystem doorUnlockPFX;
 
@@ -22,7 +23,7 @@ public class DoorTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (levelCheck && levelNo < doors.Count)
+        if (levelCheck)
         {
             if (LevelManager.instance.levelComplete[levelNo - 1] && !LevelManager.instance.levelUnlocked[levelNo])
             {
@@ -45,13 +46,17 @@ public class DoorTracker : MonoBehaviour
 
     IEnumerator UnlockLevel()
     {
+        door1.GetComponent<LevelTransition>().enabled = false;
         for (int i = 0; i < doors.Count; i++)
         {
             doors[i].GetComponent<LevelTransition>().enabled = false;
         }
-        yield return new WaitForSeconds(0.1f);
-        camFollow.target = doors[levelNo - 1].transform;
+        yield return new WaitForSeconds(0.05f);
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        player.GetComponent<PlayerAnimator>().canMove = false;
         PlayerScriptManager.instance.PlayerScriptDisable();
+        player.GetComponent<PlayerAnimator>().enabled = true;
+        camFollow.target = doors[levelNo - 1].transform;
         yield return new WaitForSeconds(1f);
         AudioManager.instance.Play("Lock");
         yield return new WaitForSeconds(1f);
@@ -65,6 +70,8 @@ public class DoorTracker : MonoBehaviour
         yield return new WaitForSeconds(2f);
         camFollow.target = player.transform;
         PlayerScriptManager.instance.PlayerScriptEnable();
+        player.GetComponent<PlayerAnimator>().canMove = true;
+        door1.GetComponent<LevelTransition>().enabled = true;
         for (int i = 0; i < doors.Count; i++)
         {
             doors[i].GetComponent<LevelTransition>().enabled = true;
