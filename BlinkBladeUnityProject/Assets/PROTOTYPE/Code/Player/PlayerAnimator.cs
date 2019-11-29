@@ -7,6 +7,8 @@ public class PlayerAnimator : MonoBehaviour
     private Animator anim;
     public SpriteRenderer spriteRend;
 
+    public bool canMove = true;
+
     private PlayerMovementV2 pMoveScript;
     [HideInInspector]
     public PlayerJumpV2 pJumpScript;
@@ -23,7 +25,7 @@ public class PlayerAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && canMove)
         {
             anim.SetFloat("PlayerBob", 1);
         }
@@ -34,8 +36,16 @@ public class PlayerAnimator : MonoBehaviour
 
         if (!pJumpScript.isHanging) // Prevents the player from changing direction while hanging.
         {
-            anim.SetFloat("PlayerHorizontalSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-            SetPlayerDirection();
+            if (canMove)
+            {
+                anim.SetFloat("PlayerHorizontalSpeed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+                SetPlayerDirection();
+            }
+            else
+            {
+                anim.SetFloat("PlayerHorizontalSpeed", 0);
+            }
+            
 
             if (anim.GetBool("PlayerHangingFromSword"))
             {

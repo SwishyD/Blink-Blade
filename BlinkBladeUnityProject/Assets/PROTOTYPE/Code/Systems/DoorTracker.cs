@@ -52,9 +52,11 @@ public class DoorTracker : MonoBehaviour
             doors[i].GetComponent<LevelTransition>().enabled = false;
         }
         yield return new WaitForSeconds(0.05f);
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        player.GetComponent<PlayerAnimator>().canMove = false;
         PlayerScriptManager.instance.PlayerScriptDisable();
+        player.GetComponent<PlayerAnimator>().enabled = true;
         camFollow.target = doors[levelNo - 1].transform;
-        PlayerScriptManager.instance.PlayerScriptDisable();
         yield return new WaitForSeconds(1f);
         AudioManager.instance.Play("Lock");
         yield return new WaitForSeconds(1f);
@@ -68,6 +70,7 @@ public class DoorTracker : MonoBehaviour
         yield return new WaitForSeconds(2f);
         camFollow.target = player.transform;
         PlayerScriptManager.instance.PlayerScriptEnable();
+        player.GetComponent<PlayerAnimator>().canMove = true;
         door1.GetComponent<LevelTransition>().enabled = true;
         for (int i = 0; i < doors.Count; i++)
         {
