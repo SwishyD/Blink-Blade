@@ -14,6 +14,7 @@ public class TutorialTooltip : MonoBehaviour
     void Start()
     {
         //tooltipAnim = tooltip.GetComponentInParent<Animator>();
+        tooltip = gameObject.transform.GetChild(0).gameObject;
         SwitchTooltipActivationState(tooltipActiveState);
     }
 
