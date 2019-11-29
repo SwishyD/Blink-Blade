@@ -11,6 +11,8 @@ public class LevelTransition : MonoBehaviour
 
     public Sprite lockedDoor;
     public Sprite unlockedDoor;
+    [Space]
+    public Vector2 playerSpawn;
 
     bool inDoor;
 
@@ -67,7 +69,7 @@ public class LevelTransition : MonoBehaviour
             {
                 if (GetComponent<SpriteRenderer>().sprite == unlockedDoor)
                 {
-                    LevelManager.instance.playerPos = GameObject.Find("PlayerV2").transform.position;
+                    LevelManager.instance.playerPos = playerSpawn;
                     SceneManagers.instance.MoveToScene(moveToLevel);
                 }
             }
