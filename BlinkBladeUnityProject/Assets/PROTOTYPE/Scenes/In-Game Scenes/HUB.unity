@@ -3318,6 +3318,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -42.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: 38.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -3923,6 +3933,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -42.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: 30.95
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -4199,6 +4219,7 @@ MonoBehaviour:
   unlocked: 0
   lockedDoor: {fileID: 21300000, guid: cce698c92e305534993a7eb8f52e2eab, type: 3}
   unlockedDoor: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770, type: 3}
+  playerSpawn: {x: 52.7, y: -66}
 --- !u!212 &339081674
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4388,6 +4409,7 @@ MonoBehaviour:
   unlocked: 0
   lockedDoor: {fileID: 0}
   unlockedDoor: {fileID: 0}
+  playerSpawn: {x: 0, y: 0}
 --- !u!212 &339885807
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4873,6 +4895,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: -17.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -38919,6 +38951,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -66
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -40852,6 +40894,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: -32.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -43
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -96892,6 +96944,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: -24.95
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -101028,6 +101090,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: 14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -66
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -102571,6 +102643,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: -9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -66
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
 --- !u!4 &1715318276 stripped
@@ -103549,6 +103631,7 @@ MonoBehaviour:
   unlocked: 0
   lockedDoor: {fileID: 0}
   unlockedDoor: {fileID: 0}
+  playerSpawn: {x: 0, y: 0}
 --- !u!212 &1756065616
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106829,6 +106912,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: 23.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -107884,6 +107977,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e03f47da8b577b448cf0d28d904e770,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: playerSpawn.y
+      value: -66
+      objectReference: {fileID: 0}
     - target: {fileID: 1014841855534738606, guid: b1bd9f0744beb1049bd4eb9cbd669457,
         type: 3}
       propertyPath: m_Sprite
@@ -108016,6 +108119,7 @@ MonoBehaviour:
   unlocked: 0
   lockedDoor: {fileID: 0}
   unlockedDoor: {fileID: 0}
+  playerSpawn: {x: 0, y: 0}
 --- !u!212 &2078472361
 SpriteRenderer:
   m_ObjectHideFlags: 0
