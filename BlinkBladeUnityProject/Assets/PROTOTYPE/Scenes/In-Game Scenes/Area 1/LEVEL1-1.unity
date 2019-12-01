@@ -32056,6 +32056,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: End of Level Results
       objectReference: {fileID: 0}
+    - target: {fileID: 5405750781197769317, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5405750781197769313, guid: eaa7bd38a0ff00b42b372946f9056273,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32194,6 +32199,46 @@ PrefabInstance:
       propertyPath: levelDeaths
       value: 
       objectReference: {fileID: 1256486634}
+    - target: {fileID: 5405750781197769312, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1497999888}
+    - target: {fileID: 5405750781197769312, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405750781197769312, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405750781197769312, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733924492717306611, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733924492717306611, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733924492717306611, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733924492717306611, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
 --- !u!1 &857463345 stripped
@@ -97115,6 +97160,12 @@ PrefabInstance:
       objectReference: {fileID: 1256486635}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
+--- !u!20 &1497999888 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8755195207620807976, guid: 5fbbf1fb096304c4285d7c7bf2e153c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1497999887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1511416860
 GameObject:
   m_ObjectHideFlags: 0
