@@ -23672,6 +23672,16 @@ PrefabInstance:
       propertyPath: levelNo
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5405750781197769312, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1621492727}
+    - target: {fileID: 5405750781197769312, guid: eaa7bd38a0ff00b42b372946f9056273,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa7bd38a0ff00b42b372946f9056273, type: 3}
 --- !u!1 &660820612 stripped
@@ -28032,6 +28042,11 @@ PrefabInstance:
       propertyPath: tooltip
       value: 
       objectReference: {fileID: 1406415021}
+    - target: {fileID: 2617195528476980948, guid: ead407d2b9d616b4db412f64eb534fe7,
+        type: 3}
+      propertyPath: pressE
+      value: 
+      objectReference: {fileID: 1406415021}
     - target: {fileID: 2617195528476980950, guid: ead407d2b9d616b4db412f64eb534fe7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -29496,6 +29511,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 241456259220070128, guid: a86a4938a700c5b49b2ea0e371d0bae7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 241456259220070130, guid: a86a4938a700c5b49b2ea0e371d0bae7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -29505,11 +29525,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 241456259220070128, guid: a86a4938a700c5b49b2ea0e371d0bae7,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a86a4938a700c5b49b2ea0e371d0bae7, type: 3}
@@ -36649,6 +36664,12 @@ PrefabInstance:
 --- !u!4 &1621492726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8755195208262534578, guid: 5fbbf1fb096304c4285d7c7bf2e153c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1621492725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1621492727 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8755195207620807976, guid: 5fbbf1fb096304c4285d7c7bf2e153c5,
     type: 3}
   m_PrefabInstance: {fileID: 1621492725}
   m_PrefabAsset: {fileID: 0}
