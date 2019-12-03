@@ -28,7 +28,10 @@ public class TutorialTooltip : MonoBehaviour
             SwitchTooltipActivationState(true);
             if (firstTime)
             {
-                bark.Play();
+                if (bark != null)
+                {
+                    bark.Play();
+                }
                 firstTime = false;
             }
         }
