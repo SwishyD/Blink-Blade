@@ -51,7 +51,7 @@ public class SwordSpawner : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "TUTORIAL")
+        if(SceneManager.GetActiveScene().name == "TUTORIALNEW")
         {
             PlayerScriptManager.instance.tutorialCheck = true;
             this.enabled = false;

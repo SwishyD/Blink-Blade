@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class LevelManager : MonoBehaviour
     public Vector2 playerPos;
 
     public static LevelManager instance;
+    public bool devActive;
 
     private void Awake()
     {
@@ -52,20 +54,26 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Equals))
+        if (SceneManager.GetActiveScene().name.Contains("HUB"))
         {
-            for (int i = 0; i < levelComplete.Length; i++)
+            if (devActive)
             {
-                levelComplete[i] = true;
-                levelUnlocked[i] = true;
-            }
-        }
+                if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Equals))
+                {
+                    for (int i = 0; i < levelComplete.Length; i++)
+                    {
+                        levelComplete[i] = true;
+                        levelUnlocked[i] = true;
+                    }
+                }
 
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D))
-        {
-            for (int i = 0; i < dogTreatCollected.Length; i++)
-            {
-                dogTreatCollected[i] = true;
+                if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D))
+                {
+                    for (int i = 0; i < dogTreatCollected.Length; i++)
+                    {
+                        dogTreatCollected[i] = true;
+                    }
+                }
             }
         }
     }

@@ -7,6 +7,8 @@ public class CutsceneManager : MonoBehaviour
     public GameObject cuff1;
     public GameObject cuff2;
 
+    bool escaped;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +18,9 @@ public class CutsceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !escaped)
         {
+            escaped = true;
             EndScene();
         }
     }
@@ -39,6 +42,6 @@ public class CutsceneManager : MonoBehaviour
 
     public void EndScene()
     {
-        SceneManagers.instance.MoveToScene("TUTORIAL");
+        SceneManagers.instance.MoveToScene("TUTORIALNEW");
     }
 }

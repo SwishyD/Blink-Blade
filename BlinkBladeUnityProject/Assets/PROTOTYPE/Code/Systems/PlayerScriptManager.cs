@@ -50,7 +50,7 @@ public class PlayerScriptManager : MonoBehaviour
                 foundPlayer = false;
             }
         }
-        if (SceneManager.GetActiveScene().name == "TUTORIAL" && tutorialCheck)
+        if (SceneManager.GetActiveScene().name == "TUTORIALNEW" && tutorialCheck)
         {
             swordScriptActive = false;
         }
