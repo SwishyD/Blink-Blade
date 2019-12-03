@@ -10,6 +10,9 @@ public class TutorialTooltip : MonoBehaviour
 
     [SerializeField] GameObject tooltip;
 
+    [SerializeField] AudioSource bark;
+    bool firstTime = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,11 @@ public class TutorialTooltip : MonoBehaviour
         if (collision.tag == tagName)
         {
             SwitchTooltipActivationState(true);
+            if (firstTime)
+            {
+                bark.Play();
+                firstTime = false;
+            }
         }
     }
 
