@@ -42,6 +42,6 @@ public class CutsceneManager : MonoBehaviour
 
     public void EndScene()
     {
-        SceneManagers.instance.MoveToScene("TUTORIAL");
+        SceneManagers.instance.MoveToScene("TUTORIALNEW");
     }
 }

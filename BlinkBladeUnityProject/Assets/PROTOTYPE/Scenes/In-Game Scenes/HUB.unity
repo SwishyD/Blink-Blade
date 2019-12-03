@@ -17797,7 +17797,7 @@ Tilemap:
   - first: {x: -5, y: -53, z: 0}
     second:
       m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -29977,13 +29977,13 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: c95e2d26d530709479f901812b2484b4, type: 3}
   - m_RefCount: 259
     m_Data: {fileID: 680397030215551084, guid: f8a47a4f15518af48a69a7528657674f, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 235
+    m_Data: {fileID: 21300000, guid: e941c23bea6d51441b649aa7608dfec4, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2371886508329179538, guid: fadc18208152c884c8fe7df74d008bb1,
       type: 3}
-  - m_RefCount: 235
-    m_Data: {fileID: 21300000, guid: e941c23bea6d51441b649aa7608dfec4, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 3
     m_Data: {fileID: 894596417245659026, guid: f8a47a4f15518af48a69a7528657674f, type: 3}
   - m_RefCount: 1
@@ -30580,11 +30580,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1098311837}
-    - target: {fileID: 869671218229360810, guid: 5fbbf1fb096304c4285d7c7bf2e153c5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1026465368, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
       propertyPath: scripts
       value: 
@@ -30597,6 +30592,11 @@ PrefabInstance:
       propertyPath: aimArrow
       value: 
       objectReference: {fileID: 1098311836}
+    - target: {fileID: 869671218229360810, guid: 5fbbf1fb096304c4285d7c7bf2e153c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbbf1fb096304c4285d7c7bf2e153c5, type: 3}
 --- !u!4 &860468394 stripped
@@ -101887,6 +101887,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: adcc18c248190c442868a396773fcf7c,
         type: 3}
+    - target: {fileID: 1014841855534738604, guid: b1bd9f0744beb1049bd4eb9cbd669457,
+        type: 3}
+      propertyPath: moveToLevel
+      value: TUTORIALNEW
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1bd9f0744beb1049bd4eb9cbd669457, type: 3}
 --- !u!4 &1640519155 stripped
