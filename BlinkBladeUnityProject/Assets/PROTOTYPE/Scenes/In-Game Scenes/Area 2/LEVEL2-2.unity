@@ -22874,7 +22874,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -71167,16 +71167,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1114971494185269723, guid: 72de397192ae0bf498c20a57e5fac4e6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -943.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114971494185269723, guid: 72de397192ae0bf498c20a57e5fac4e6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2362.37
-      objectReference: {fileID: 0}
     - target: {fileID: 8531391830227185437, guid: 72de397192ae0bf498c20a57e5fac4e6,
         type: 3}
       propertyPath: endResults
@@ -71192,6 +71182,16 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 368802476}
+    - target: {fileID: 1114971494185269723, guid: 72de397192ae0bf498c20a57e5fac4e6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -943.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114971494185269723, guid: 72de397192ae0bf498c20a57e5fac4e6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2362.37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72de397192ae0bf498c20a57e5fac4e6, type: 3}
 --- !u!1001 &2099334430
