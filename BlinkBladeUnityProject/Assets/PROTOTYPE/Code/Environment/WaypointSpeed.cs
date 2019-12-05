@@ -36,6 +36,9 @@ public class WaypointSpeed : MonoBehaviour
     [ConditionalEnumHide("bossPhases", 4, 4, true)]
     public float movingWallSpeed;
 
+    [ConditionalEnumHide("bossPhases", 5, 5, true)]
+    public GameObject blocker;
+
     public void PhaseChange()
     {
         if(bossPhases == BossPhases.Shooting)
@@ -60,6 +63,10 @@ public class WaypointSpeed : MonoBehaviour
         if(bossPhases == BossPhases.Gravity)
         {
             PlayerFlipManager.instance.flipTimer = gravTimer;
+        }
+        if (bossPhases == BossPhases.Finale)
+        {
+           blocker.SetActive(true);
         }
         bossScript.phases = bossPhases;
     }
