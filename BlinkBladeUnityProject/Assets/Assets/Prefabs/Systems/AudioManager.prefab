@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3806469042316245082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3806469042316245080}
+  - component: {fileID: 3806469042316245083}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3806469042316245080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806469042316245082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3806469042316245083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806469042316245082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2bca17f697b2b4095dd93b393e738a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: SwordThrow
+    clip: {fileID: 8300000, guid: 10f56ac893bf19647a21c673ca1a069c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwordBreak
+    clip: {fileID: 8300000, guid: dff6cf5b88c2834439025a183240d4a6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Blink
+    clip: {fileID: 8300000, guid: 28f6cea043cf4874d881d04f0fc1790f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: fc5ea9064b2579a4e855bccf63e4f570, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EyebatSquelch
+    clip: {fileID: 8300000, guid: 3060718deec8485429639b8f7c405e51, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Squeal
+    clip: {fileID: 8300000, guid: 4bdb6e2e149c125448c6d0acfaa0100b, type: 3}
+    volume: 0.26
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EyebatSquelch_02
+    clip: {fileID: 8300000, guid: 636dbfe453759d746b2519d243b58708, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 066d2e24880ba0144bafc6a0058f550d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DJump
+    clip: {fileID: 8300000, guid: 066d2e24880ba0144bafc6a0058f550d, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Land
+    clip: {fileID: 8300000, guid: c4005c1d55b02474893f626639f8072f, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwordShwing
+    clip: {fileID: 8300000, guid: fbbfb273f2ba1714bafad59d369f1926, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwordSwing_02
+    clip: {fileID: 8300000, guid: 5b8018abb5f414f49b266308d97fc51d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: QuickFall
+    clip: {fileID: 8300000, guid: 2fac9906a4e168f4dae36c719583d130, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: CageCreak
+    clip: {fileID: 8300000, guid: bc749f1a06a7468439f26e967c5fe6da, type: 3}
+    volume: 0.235
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FireWhoosh
+    clip: {fileID: 8300000, guid: 56d7c8879fa0e4a4e842cb61f550af2a, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonHover01
+    clip: {fileID: 8300000, guid: dc7cdd4ff087a424a8e02a000ef2bbff, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonHover02
+    clip: {fileID: 8300000, guid: 770e7a8fd8b2f02428dbd5a807d52836, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwordShwing_02
+    clip: {fileID: 8300000, guid: cbccff7283f63c14b8f9aa8022e75d47, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HeavyLand
+    clip: {fileID: 8300000, guid: d02610eab4e43b2439458607370c299b, type: 3}
+    volume: 0.245
+    pitch: 1.37
+    loop: 0
+    source: {fileID: 0}
+  - name: GravFlip
+    clip: {fileID: 8300000, guid: b1c576f47655d3045abbd646a38463e4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep
+    clip: {fileID: 8300000, guid: 3e7904a655a7b354485a16a738a5f3e6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Roar
+    clip: {fileID: 8300000, guid: a3b6836f99a6be648acd94ac7354894d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BassImpact
+    clip: {fileID: 8300000, guid: 7171e4c1a80bfe84ea4e52af8a91494e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GravBeep
+    clip: {fileID: 8300000, guid: 0c658d4055574b64982bef86c7139dfb, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Bounce
+    clip: {fileID: 8300000, guid: 5469b1972f537f84d865e5ee224ac3a4, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HardStep
+    clip: {fileID: 8300000, guid: c558c2947e79fe44fb72d99a19bae4bf, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Snap
+    clip: {fileID: 8300000, guid: 6e54bcddb51e77a4387d0126b43c8fb5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Respawn
+    clip: {fileID: 8300000, guid: 7e08d2aa0ddf5df40b187caa3487e0fb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FadeOut
+    clip: {fileID: 8300000, guid: f40be9b87b71e9d4a83b03be3656d823, type: 3}
+    volume: 1
+    pitch: 0.71
+    loop: 0
+    source: {fileID: 0}
+  - name: RoarSlow
+    clip: {fileID: 8300000, guid: a3b6836f99a6be648acd94ac7354894d, type: 3}
+    volume: 1
+    pitch: 0.52
+    loop: 0
+    source: {fileID: 0}
+  - name: Rumble
+    clip: {fileID: 8300000, guid: 59ad6b75c11f34644925c89224b15ae0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 2225d3611b0e3e643af53b23c79717c6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CaneStep
+    clip: {fileID: 8300000, guid: 415b41e3da436ac4a93593548e6fdc1b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CaneStepQ
+    clip: {fileID: 8300000, guid: 415b41e3da436ac4a93593548e6fdc1b, type: 3}
+    volume: 0.665
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CaneStepQQ
+    clip: {fileID: 8300000, guid: 415b41e3da436ac4a93593548e6fdc1b, type: 3}
+    volume: 0.238
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Chime
+    clip: {fileID: 8300000, guid: feeceeac90bb24f479281bb03670c539, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Lock
+    clip: {fileID: 8300000, guid: 6b45ba2f70598f54bad6627f86c74295, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Laugh
+    clip: {fileID: 8300000, guid: 33d89cc94a5cab74f8e72bff7bde4134, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zoom
+    clip: {fileID: 8300000, guid: 8e36f6447737c44439a03e8f2b166844, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Whoosh
+    clip: {fileID: 8300000, guid: 034e770760b76784e8919fa97cde2a40, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Chord
+    clip: {fileID: 8300000, guid: e3688e0dd0bea224f935cbbd74c6b237, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
