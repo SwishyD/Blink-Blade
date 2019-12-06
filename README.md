@@ -2,6 +2,8 @@
 
 NOTE: When playing the game in-editor, playing any scene other than MainMenu may cause red errors due to certain DoNotDestroy objects not being present in other scenes.
 
+Also: Levels 2-4 and 3-4 are blank due to time constraints - their scenes remain in the game's data so as not to disrupt database systems that had these hypothetical levels in mind.
+
 Activate Dev Mode with: Left Control + Down Arrow
 
 DEV COMMANDS
