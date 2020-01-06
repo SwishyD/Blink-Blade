@@ -15,6 +15,9 @@ public class PlayerSpawnPoint : MonoBehaviour
     private Timer timer;
     private PlayerFlipManager flipTrigger;
 
+    SpriteRenderer spriteRend;
+    SpriteRenderer aimRing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,8 @@ public class PlayerSpawnPoint : MonoBehaviour
         {
             flipTrigger = PlayerFlipManager.instance;
         }
+        spriteRend = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        aimRing = gameObject.transform.GetChild(2).transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -44,15 +49,39 @@ public class PlayerSpawnPoint : MonoBehaviour
 
     public void Respawn()
     {
+        StartCoroutine("DelayRespawn");
+    }
+
+    IEnumerator DelayRespawn()
+    {
+        FindObjectOfType<AudioManager>().Play("Death");
+        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 1f, .5f);
+        PlayerScriptManager.instance.PlayerScriptDisable();
         CursorManager.Instance.ChangeCursor(false);
         Instantiate(deathPFX, gameObject.transform.position, Quaternion.identity);
-        gameObject.transform.position = spawnPoint;
+        spriteRend.enabled = false;
+        aimRing.enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
         Destroy(SwordSpawner.instance.cloneSword);
         SwordSpawner.instance.cloneSword = null;
         SwordSpawner.instance.swordSpawned = false;
+        if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
+        {
+            if (timer.timerActive)
+            {
+                deathCount++;
+            }
+        }
+        yield return new WaitForSeconds(.5f);
+        PlayerScriptManager.instance.PlayerScriptEnable();
+        gameObject.transform.position = spawnPoint;
+        spriteRend.enabled = true;
+        aimRing.enabled = true;
+        GetComponent<Rigidbody2D>().gravityScale = 1;
         PlayerJumpV2.instance.ResetGravity();
         PlayerJumpV2.instance.PlayerNormal();
-        if(flipTrigger != null)
+        if (flipTrigger != null)
         {
             flipTrigger.FlipEnabler(false);
         }
@@ -61,15 +90,6 @@ public class PlayerSpawnPoint : MonoBehaviour
             PlayerJumpV2.instance.PlayerFlip();
         }
         Instantiate(deathPFX, transform);
-        if (SceneManager.GetActiveScene().name.Contains("LEVEL"))
-        {
-            if (timer.timerActive)
-            {
-                deathCount++;
-            }
-        }
         //CursorManager.Instance.ChangeCursorState(false);
-        FindObjectOfType<AudioManager>().Play("Death");
-        FindObjectOfType<CameraShaker>().StartCamShakeCoroutine(0.5f, 1f, .5f);
     }
 }
