@@ -76,6 +76,9 @@ public class PlayerSpawnPoint : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         PlayerScriptManager.instance.PlayerScriptEnable();
         gameObject.transform.position = spawnPoint;
+        Destroy(SwordSpawner.instance.cloneSword);
+        SwordSpawner.instance.cloneSword = null;
+        SwordSpawner.instance.swordSpawned = false;
         spriteRend.enabled = true;
         aimRing.enabled = true;
         GetComponent<Rigidbody2D>().gravityScale = 1;
