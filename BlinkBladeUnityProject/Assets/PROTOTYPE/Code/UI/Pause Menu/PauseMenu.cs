@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour {
     public GameObject player;
     public GameObject timer;
 
+    public float idleCounter;
+
 
     public static bool quitActive = false;
     public static bool menuActive = false;
@@ -53,6 +55,19 @@ public class PauseMenu : MonoBehaviour {
             {
                 Pause();
             }
+        }
+
+        if (Input.anyKey)
+        {
+            idleCounter = 0.0f;
+        }
+        else
+        {
+            idleCounter += Time.deltaTime;
+        }
+        if(idleCounter >= 300.0f)
+        {
+            MainMenu();
         }
 	}
 

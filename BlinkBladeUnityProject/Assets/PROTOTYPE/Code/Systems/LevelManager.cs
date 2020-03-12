@@ -46,10 +46,10 @@ public class LevelManager : MonoBehaviour
         }
         for (int i = 0; i < levelUnlocked.Length; i++)
         {
-            levelUnlocked[i] = false;
+            levelUnlocked[i] = true;
         }
         levelUnlocked[0] = true;
-        playerPos = Vector2.zero;
+        playerPos = new Vector2(-44, -60);
     }
 
     private void Update()
