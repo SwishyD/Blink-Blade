@@ -80,7 +80,10 @@ public class PlayerSpawnPoint : MonoBehaviour
         SwordSpawner.instance.cloneSword = null;
         SwordSpawner.instance.swordSpawned = false;
         spriteRend.enabled = true;
-        aimRing.enabled = true;
+        if (!PlayerScriptManager.instance.tutorialCheck)
+        {
+            aimRing.enabled = true;
+        }
         GetComponent<Rigidbody2D>().gravityScale = 1;
         PlayerJumpV2.instance.ResetGravity();
         PlayerJumpV2.instance.PlayerNormal();
